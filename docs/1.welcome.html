@@ -15,11 +15,10 @@ Why is it useful?
 # Agenda
 
 1. Attempts at a definition
-2. Definition by job title
-3. Definition by contrast
-4. The software crisis
-4. The bespoke approach
-5. Inclusion of DevOps
+2. Confusion by job title
+3. Definition by antithesis
+4. Challenges
+5. Intrusion of DevOps
 6. Breadth versus depth
 7. Conclusions
 
@@ -32,7 +31,6 @@ class: center, middle
 ---
 
 # Attempts at a definition
-## Wikipedia
 
 > Software engineering is the application of engineering to the development of software in a systematic method. 
 > --- [Wikipedia](https://en.wikipedia.org/wiki/Software_engineering)
@@ -40,23 +38,22 @@ class: center, middle
 ---
 
 # Attempts at a definition
-## IEEE
 
 > The application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software; that is, the application of engineering to software. 
+> 
 > --- IEEE Standard 610.12
 
 ---
 
 # Attempts at a definition
-## ACM
 
 > Software engineering is concerned with developing and maintaining software systems that behave reliably and efficiently, are affordable to develop and maintain, and satisfy all the requirements that customers have defined for them.
+> 
 > --- ACM
 
 ---
 
 # Attempts at a definition
-## Merriam-Webster
 
 > A branch of computer science that deals with the design, implementation, and maintenance of complex computer programs.
 > 
@@ -65,7 +62,6 @@ class: center, middle
 ---
 
 # Attempts at a definition
-## Foo Barstein
 
 > Software engineerings is the systematic approach to creating software that uses empirical, evidence-based social and practical knowledge to invent, innovate, design, build, maintain, research, and improve software.
 > 
@@ -75,14 +71,13 @@ class: center, middle
 
 class: center, middle
 
-# Definition by job title
+# Confusion by job title
 
 ---
 
-# Definition by job title
-## A terrible idea
+# Confusion by job title
 
-Job titles vary wildly in industry.  For example, each of these titles may or may not be for a software engineering position - there is no way to know:
+Job titles vary wildly in industry.  For example, each of these titles may or may not be for the role and responsibilities of a software engineeer - there is no way to know.
 - Software engineer
 - Software developer
 - Software architect
@@ -102,63 +97,118 @@ Job titles vary wildly in industry.  For example, each of these titles may or ma
 
 class: center, middle
 
-# Definition by contrast
+# Definition by antithesis
 
 ---
 
-# Definition by contrast
-## Works out pretty well.
+# Definition by antithesis
 
-The origins of software engineering as a discipline lend it to be defined by what it is not.
+The origins of software engineering as a discipline lend it to be best defined by what it is not.
 
-In particular, software engineering can be defined as the opposite of the bespoke approach.
+In particular, software engineering originated during the turbulent times of the 1960's, when people began to realize it was a rare project which resulted in efficient and well-functioning software in a reasonable amount of time at a reasonable cost.
 
-But let's step back in time a bit...
-
----
-
-class: center, middle
-
-# The software crisis
+This became known as the great Software Crisis!
 
 ---
 
-# The software crisis
-## Our creation myth
+# Definition by antithesis
 
-Software engineering is a reaction to the software crisis.
-
-> The art of programming has taken 50 years of continual refinement to reach this stage. By the time it reached 25, the difficulties of building big software loomed so large that in the autumn of 1968 the NATO Science Committee convened some 50 top programmers, computer scientists and captains of industry to plot a course out of what had come to be known as the software crisis. Although the experts could not contrive a road map to guide the industry toward firmer ground, they did coin a name for that distant goal: software engineering, now defined formally as “the application of a systematic, disciplined, quantifiable approach to the development, operation and maintenance of software.”
+> By the time [the art of programming] reached 25, the difficulties of building big software loomed so large that in the autumn of 1968 the NATO Science Committee convened some 50 top programmers, computer scientists and captains of industry to plot a course out of what had come to be known as the software crisis. Although the experts could not contrive a road map to guide the industry toward firmer ground, they did coin a name for that distant goal: software engineering, now defined formally as “the application of a systematic, disciplined, quantifiable approach to the development, operation and maintenance of software.”
 > 
 > A quarter of a century later software engineering remains a term of aspiration.
+> 
 > - "[Software’s Chronic Crisis](https://knowledge.kitchen/mediawiki/images/e/e5/Software%27s_Chronic_Crisis.pdf)", Scientific American, Sept. 1994.
 
 ---
 
+# Definition by antithesis
+
+Today, the antagonist to our protagonist is the *bespoke* developer - an individual or team who work take a unique custom-tailored approach to every project, producing beautiful works of art perectly fitted to the customer (or to themselves).
+
+Software engineers, in contrast, streamline development such that the work references genericized norms, best-practices, standards, and patterns known to many developers and shared by many projects in the field.
+
+In other words, software engineers are the fry cooks of the industrial software development assembly line.
+
+---
+
+# Definition by antithesis
+
+The ideal of artisanal work is much pined for for its uniqueness and attention to detail.
+
+But artisanal approaches do not scale well because...
+- software is increasingly complex.
+- demand for software is everywhere and increasing.
+- artisanal approaches are, by nature, time consuming and expensive.
+
+---
+
 class: center, middle
 
-# The bespoke approach
+# Challenges
 
 ---
 
-# The bespoke approach
-## Artisanally-crafted, fresh-brewed, hand-made, one-of-a-kind
+# Challengees
+## Software is increasingly complex
 
-The antagonist to our protagonist is the bespoke developer - an individual or team who work in an idiosyncratic style, taking a unique custom-tailored approach to every project, sometimes producing beautiful works of art.
+> Adding manpower to a late software project makes it later.
+>
+> - [Fred Brooks](https://en.wikipedia.org/wiki/Brooks%27s_law), from "The Mythical Man-Month"
 
-Software engineers, in contrast, attempt to streamline development such that the work references known norms, best-practices, standards, and patterns shared by many in the field. 
-
-In other words, we are the line cooks of the industrial software assembly line.
+Creating quality software is hard, especially on a large scale
+- Developer onboarding
+- System complexity
+- Client expectations
 
 ---
 
-# The bespoke approach
-## What's wrong with tailored suits?
+# Challengees
+## Demand for software is increasing
 
-The ideal of artisanal work is much pined for.  But...
-- Artisanal approaches do not scale well.
-- Software is increasingly complicated.
-- Software is everywhere, artisans are in short supply
+From the [Bureau of Labor Statistics summary of Software Developer jobs](https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm):
+|                                            |                                       |
+|--------------------------------------------|---------------------------------------|
+| 018 Median Pay                             | $105,590 per year / $50.77 per hour   |
+| Typical Entry-Level Education              | Bachelor's degree                     |
+| Work Experience in a Related Occupation    | None                                  |
+| Work Experience in a Related Occupation    | None                                  |
+| On-the-job Training                        | None                                  |
+| Number of Jobs, 2018                       | 1,365,500                             |
+| Job Outlook, 2018-28                       | 21% (Much faster than average)        |
+| Employment Change, 2018-28                 | 284,100                               |
+
+---
+
+# Challengees
+## Software must ideally be delivered on-time on-budget
+
+Engineering is the application of science and knowledge to practical applications. Software engineering aims to produce real-world software that can be used by its customers to solve their problems.
+
+There is almost universally a budget and a deadline.  Engineers must figure out how to solve the problem with those constraints.
+
+---
+
+class: center, middle
+
+# Introsion of DevOps
+
+---
+
+# Intrusion of DevOps
+
+DevOps is the fusion of Development (writing code) and Operations (IT tools and infrastructure).
+
+Formerly considered disparate disciplines, in contemporary thought, operations functions are either incorporated into the workload of developers, or managed by IT specialists working in close communication with developers.
+
+---
+
+# Intrusion of DevOps
+
+How Operations can be merged with Development is largely explained by the rise of automation.
+
+Automated tools and virtualization now allow developers to trigger formerly time- and resource-consuming IT operations with minimal setup and wait time and minimal reliance on humans.
+
+Operations such as setting development and production environments, monitoring progress, testing, deploying, and securing applications, are now done with the assistance of automated tools.
 
 ---
 
