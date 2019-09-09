@@ -19,8 +19,9 @@ Why is it useful?
 3. Definition by antithesis
 4. Challenges
 5. Intrusion of DevOps
-6. Lifecycle
-7. Conclusions
+6. Development lifecycle
+7. Process models
+8. Conclusions
 
 ---
 
@@ -254,8 +255,14 @@ Operations such as the following are now often done with the assistance of autom
 
 ---
 
-# Lifecycle
-## Rinse and repeat
+class: center, middle
+
+# Development lifecycle
+
+---
+
+# Development lifecycle
+## Phases of development
 
 Regardless of process model, the phases of development are familiar to all:
 - Specification
@@ -263,42 +270,112 @@ Regardless of process model, the phases of development are familiar to all:
 - Validation
 - Evolution
 
+Rinse and repeat.
+
 ---
 
-# Lifecycle
+# Development lifecycle
 ## Specification
 
 Figuring out as much as you can about what the system will do and how it will do it.
 
 ---
 
-# Lifecycle
+# Development lifecycle
 ## Implementation
 
-Writing the code, building the systems, making it work, etc.
+Writing the code, building the systems, making it work according to plan, etc.
 
 ---
 
-# Lifecycle
+# Development lifecycle
 ## Validation
 
-Does it work?  Is it what you wanted?
+Does it work?  Is it what you planned?
 
 ---
 
-# Lifecycle
-## Evoluation
+# Development lifecycle
+## Evolution
 
 - Bug fixes
 - New features
 
 ---
 
-# Lifecycle
+# Development lifecycle
 ## Iterations
 
 - In Big Design Up-Front methodologies, we perform these phases once for the entire project at inception.
-- In Agile development methodologies, we repeat these phases many times for pieces of the project at discrete intervals.
+- In Incremental development methodologies, we repeat these phases many times for pieces of the project at discrete intervals.
+
+---
+
+class: center, middle
+
+# Process models
+
+---
+
+# Process models
+## Big Design Up-Front
+
+In Big Design Up-Front/Waterfall methodologies, such as "Waterfall", we perform each of the lifecycle phases once for the entire project at inception.
+
+---
+
+# Process models
+## Big Design Up-Front
+
+With Big Design Up-Front/Waterfall, once a specification has been drafted and agreed upon ('signed-off on'), estimating project cost and completion date is, in theory, straightfoward, since everyone has agreed exactly what is to be done and how it will be done.
+
+---
+
+# Process models
+## Big Design Up-Front
+
+In Big Design Up-Front/Waterfall methodologies, each phase must be completed and 'signed off' before the next phase can begin.
+
+Since there is only one iteration of each phases, these phases typically take a long time.  The project needs might change during that time.
+
+Any change requires a rewriting of the entire specification and another 'sign-off' from the client and re-doing of any work already done in subsequent phases.
+
+---
+
+# Process models
+## Incremental methodologies
+
+In Incremental development methodologies, such as the so-called "Agile" methodologies, the work to be done is broken up into increments, and developers repeat these phases many times for each piece/increment of the project at discrete intervals.  
+
+---
+
+# Process models
+## Incremental methodologies
+
+In Incremental/Agile methodologies, since work is broken up into discrete increments with their own lifecycle phases, any changes to the project only affect the current iteration, not the project as a whole.
+
+---
+
+# Process models
+## Incremental methodologies
+
+In Incremental/Agile methodologies, since specification and the other phases only happen in increments, there is no holistic view of how long the project will take nor how much it will cost.
+
+Incremental/Agile development, in a purist sense, therefore is only feasible when unlimited money and unlimited time are available.
+
+---
+
+# Process models
+## Incremental methodologies
+
+Since unlimited funds and time are usually not available, many Incremental/Agile development practitioners put fixed time limits and money limits on the project, and try to complete as much as possible in that time for that money.
+
+---
+
+# Process models
+## Incremental methodologies
+
+Since the project may not be fully completed before time and money run out, Incremental/Agile developers *try* to have each increment be a runnable product that may not be feature-complete, but will be functional as-is, even if no more work is to be done on the project.
 
 ---
 
