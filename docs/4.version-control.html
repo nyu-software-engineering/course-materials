@@ -19,7 +19,8 @@ Agile Software Development & DevOps
 4. Branches
 5. File vs. Repository Versioning
 6. Centralized vs. Distributed Systems
-7. Conclusions
+7. Examples
+8. Conclusions
 
 ---
 
@@ -117,14 +118,14 @@ class: center, middle
 
 # Trunk
 
-The trunk or 'main line' of a repository is the authoritative best version of the code in the repository at any given point in time.
+The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
 
 ---
 
 # Trunk
 ## Benefits
 
-Maintaining code in a trunk allows each developer to know where to find the best most authoritative version of the code in the repository at any given time.
+Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
 
 ---
 
@@ -219,8 +220,14 @@ Version control systems can either allow for centralized or decentralized contro
 ### Benefits
 - Avoid conflicts by usually requiring developers to "check out" a file to change it and then "check in" the file when done.
 
+---
+
+# Centralized vs. Distributed Systems
+## Centralized Systems
+
 ### Drawbacks
 - Doesn't allow individual developers to track their own experiments before sharing them
+- Doesn't allow tracking while offline and disconnected from the central server.
 
 ---
 
@@ -229,10 +236,35 @@ Version control systems can either allow for centralized or decentralized contro
 
 ### Benefits
 - Allows each developer to track their own work with all the features of version control on their local machines.
+- Allows tracking while offline and disconnected from the central server.
 - Can be used in a centralized version control workflow, but doesn't require it.
+
+---
+
+# Centralized vs. Distributed Systems
+## Distributed Systems
 
 ### Drawbacks
 - Without a careful workflow, developers may fall out of sync with one-another, leading to 'mergee hell'.
+
+---
+
+class: center, middle
+
+# Examples
+
+---
+
+# Examples
+## Centralized Systems
+- *CVS* - a centralized file versioning system
+- *Subversion* - a centralized repository versioning systeme
+
+---
+
+# Examples
+## Distributed Systems
+- *Git* - a distributed repository versioning system
 
 ---
 
