@@ -1,0 +1,367 @@
+---
+layout: presentation
+title: Git and GitHub
+permalink: /git-and-github/
+---
+
+class: center, middle
+
+# Git and GitHub
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. Introductions
+2. Three-Tier Model
+3. Git Terminology
+4. Creating a Local Repository
+6. Tracking Changes with the Local Repository
+7. Committing Changes to the Local Repository
+8. Sharing Changes with Other Developers
+9. Conflicts
+10. Configuration
+11. Conclusions
+
+---
+
+class: center, middle
+
+# Introductions
+
+---
+
+# Introductions
+## Git
+
+The world's most popular open source version control system.
+- Distributed
+- Repository versioning
+
+---
+
+# Introductions
+## GitHub
+
+A web app used for hosting remote Git repositoriess.
+- Gives public open-source projects free hosting
+- Owned by Microsoft
+
+---
+
+class: center, middle
+
+# Three-Tier Model
+
+---
+
+# Three-Tier Model
+
+Git version control depends upon three tiers, or three places where code is stored.
+- Working copy
+- Staging index 
+- Repository
+
+---
+
+# Three-Tier Model
+## Working copy
+
+The copy of the files that a developer works on.  Not tracked by git.
+
+---
+
+# Three-Tier Model
+## Staging index
+
+Files placed here are tracked and ready to be committed to the repository, if desired.
+
+---
+
+# Three-Tier Model
+## Repository
+
+The official history of the project, including the history of all committed files.
+
+---
+
+class: center, middle
+
+# Git Terminology
+
+---
+
+# Git Terminology
+
+A few terms we must familiarize ourselves with.
+- Clone
+- Fork
+- Master
+- Branch
+- Remote
+- Push
+- Pull
+- Merge
+
+---
+
+# Git Terminology
+## Clone
+
+A new repository made by copying an existing repository.
+- Typically involves creating a new local repository that is a copy of an existing remote repository.
+- The new repository automatically keeps a link to the `origin` remote repository from which it came.
+
+---
+
+# Git Terminology
+## Fork
+
+Not a Git term, but rather a term used by remote repository hosting providers such as GitHub.
+
+A fancy word for creaeting a remote clone of a remote repository.
+
+---
+
+# Git Terminology
+## Master
+
+The term for the `trunk` line of code in Git.
+
+Git treats `master` as a branch with a special name.
+
+---
+
+# Git Terminology
+## Branch
+
+The term for an offshoot of the `trunk` line of code in Git.
+
+---
+
+# Git Terminology
+## Remote
+
+A term used to mean a remote repository that the local repository is linked to.
+
+---
+
+# Git Terminology
+## Remote
+
+A term used to mean a remote repository that the local repository is linked to.
+- Typically, this refers to the remote repository from which a local repository was cloned.
+
+---
+
+# Git Terminology
+## Push
+
+Upload changes from the local repository to a remote repository.
+
+---
+
+# Git Terminology
+## Pull
+
+Download changes from a remote repository to the local repository.
+- It's good practice to `pull` before you `push`.
+
+---
+
+# Git Terminology
+## Merge
+
+Take the changes from one branch or repository and incorporate them into another branch or repository.
+
+---
+
+class: center, middle
+
+# Creating a Local Repository
+
+---
+
+# Creating a Local Repository
+
+A local repository can be created in one of two ways:
+- From scratch
+- As a clone of another repository
+
+---
+
+# Creating a Local Repository
+## From scratch
+
+```bash
+mkdir project0
+cd project0
+git init
+```
+
+---
+
+# Creating a Local Repository
+## From scratch
+
+If you later decide to link a local repository to a remote repository:
+```bash
+git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git
+```
+
+---
+
+# Creating a Local Repository
+## As a clone of another repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+```
+
+---
+
+class: center, middle
+
+# Tracking Changes with the Local Repository
+
+---
+
+# Tracking Changes with the Local Repository
+
+Changes in the Working Copy (adding, modifying, or deleting files) are not tracked.
+
+Files must be added to the staging index in order to be tracked.
+
+---
+
+# Tracking Changes with the Local Repository
+## Add files to the staging index
+
+Make any changes you desire.
+
+Then add all the modified files in working copy to the staging index:
+```bash
+git add .
+```
+
+---
+
+class: center, middle
+
+# Committing Changes to the Local Repository
+
+---
+
+# Committing Changes to the Local Repository
+
+The staging index does not maintain the history of all changes.
+
+Changes must be moved to the repository in order to be fully archived.
+
+---
+
+# Committing Changes to the Local Repository
+## Committing changes to the repository
+
+```bash
+git commit -m 'resolving bug #23'
+```
+
+---
+
+class: center, middle
+
+# Sharing Changes with Other Developers
+
+---
+
+# Sharing Changes with Other Developers
+
+Any changes to the local repository must usually be shared with other developers.
+
+For this reason, they should frequently be uploaded to a shared remote repository.
+
+---
+
+# Sharing Changes with Other Developers
+## Pushing changes to the remote repository
+
+Push the code in the current branch from the local repository to the branch named 'master' on the remote repository called 'origin':
+```bash
+git pull
+git push -u origin master
+```
+
+Or, if you are already in the 'master' branch and the remote named 'origin' has already been defined:
+```bash
+git pull
+git push
+```
+
+---
+
+class: center, middle
+
+# Merge Conflicts
+
+---
+
+# Conflicts
+
+Conflicts may occur in a number of scenarios:
+- When `pulling` code from a remote repository to a local repository.
+- When `pushing` code from a local repository to a remote repository.
+- When merging code from one branch into another.
+- When merging code from one repository into another.
+
+---
+
+# Conflicts
+
+Git will merge code automatically, if possible, and ask the developer to do it themselves, if not.
+
+---
+
+class: center, middle
+
+# Configuration
+
+---
+
+# Configuration
+
+Several important configurations that must be completed prior to versioning:
+- username and email address
+- .gitignore
+
+---
+
+# Configuration
+## Username
+
+Username and email in Git must match exactly any username and email set up on GitHub:
+```bash
+git config --global user.name "Foo Barstein"
+git config --global user.email "fb1258@nyu.edu"
+```
+
+---
+
+# Configuration
+## .gitignore
+
+A file in the project directory named .gitignore instructs Git to ignore certain files or directories.
+
+This *absolutely must* include instructions to ignore any platform code and 3rd party modules.
+
+Example: https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f
+
+---
+
+class: center, middle
+
+# Conclusions
+
+Thank you.  Bye.
+
