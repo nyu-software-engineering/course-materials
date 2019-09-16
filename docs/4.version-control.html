@@ -1,12 +1,12 @@
 ---
 layout: presentation
-title: Version Control
+title: Version Control Systems
 permalink: /version-control-systems/
 ---
 
 class: center, middle
 
-# Version Control
+# Version Control Systems
 Agile Software Development & DevOps
 
 ---
@@ -50,7 +50,7 @@ The need to clearly see the state of the project at a given point in time, and t
 # Motivations
 ## Synchronizing
 
-The need for multiple developers to make sure they are all working off of the same version of a project's codebase.
+The need for multiple developers working independently to ensure they are all working off of the same version of a project's codebase.
 
 ---
 
@@ -71,7 +71,7 @@ The need to see who did what and when they did it.
 # Motivations
 ## Experimentation
 
-The need to allow developers to try out new directions or ideas without concern about permanent damage if they fail.
+The need to allow developers to try out new directions or ideas without concern for any permanent damage should they fail.
 
 ---
 
@@ -85,7 +85,7 @@ class: center, middle
 
 A repository (or 'repo') is the database where files are stored and tracked by the version control system.
 
-A repository can either be:
+In a version control workflow, a repository can either be:
 - Local
 - Remote
 
@@ -94,7 +94,9 @@ A repository can either be:
 # Repositories
 ## Local
 
-A local repository resides on a developer's own machine.  It is typically used to track their own work.
+A local repository resides on a developer's own machine.  
+
+When multiple developers are collaborating in a distributed fashion, a local repository may be used to track each developer's own work.
 
 ---
 
@@ -103,6 +105,8 @@ A local repository resides on a developer's own machine.  It is typically used t
 
 A remote repository resides on some other machine... this could be another developer's machine, or somewhere on a shared server.
 
+When multiple developers are collaborating using a centralized version control system, a remote repository on a shared server may be the only repository where changes are tracked.
+
 ---
 
 class: center, middle
@@ -113,21 +117,21 @@ class: center, middle
 
 # Trunk
 
-The trunk or 'main line' of a repository is the authoritative best version of the code at any given point in time.
+The trunk or 'main line' of a repository is the authoritative best version of the code in the repository at any given point in time.
 
 ---
 
 # Trunk
 ## Benefits
 
-Maintaining code in a centralized trunk allows all developers to know where to find the best most authoritative version of the code at any given time.
+Maintaining code in a trunk allows each developer to know where to find the best most authoritative version of the code in the repository at any given time.
 
 ---
 
 # Trunk
 ## Drawbacks
 
-If developers work directly on the code in the trunk (known as 'trunk-based development') without extra caution, bugs may appear in the trunk code.
+If developers work directly on the code in the trunk (known as 'trunk-based development') without a very careful workflow, bugs may appear in the trunk code, corrupting it.
 
 ---
 
@@ -139,7 +143,7 @@ class: center, middle
 
 # Branches
 
-Branches represent variants of the code at any given point in time time.  They are departures from the main line.
+Branches represent variants of the code at any given point in time time.  They are departures from the main line in the repository.
 
 ---
 
