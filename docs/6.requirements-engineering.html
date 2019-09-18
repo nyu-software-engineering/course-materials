@@ -30,7 +30,7 @@ class: center, middle
 
 # Overview
 
-Requirements engineering is the process of defining what a project requires to be done and how it must be done.
+Requirements engineering is the disciplined process of defining what a project requires to be done and how it must be done.
 
 ---
 
@@ -46,7 +46,7 @@ Requirements provide several benefits to a project:
 - Clearly defining the features and functionality that must be developed
 - Defining the performance, security, and maintainaibility of the system
 - Assisting in the cost and time estimates of the project
-- Avoiding disputes by having all parties agree to the documented functionality
+- Avoiding disputes by having all parties agree on what is to be done
 
 ---
 
@@ -67,10 +67,10 @@ There are two top-level categories of requirements:
 # Types
 ## Functional requirements
 
-Functional requirements describe what the system should do, in layman's terms, including:
-- Services the system should provide to its users
-- How the system should behave in particular situations
-- What outputs the system should provide in response to particular inputs
+Functional requirements describe what the system must do, in layman's terms, including:
+- Services the system must provide to its users
+- How the system must behave in particular situations
+- What outputs the system must provide in response to particular inputs
 
 ---
 
@@ -94,9 +94,11 @@ class: center, middle
 
 # User Requirements
 
-Definition of what a user must be able to do with the system, written in layman's terms.
+A type of functional requirement focused on the user experience.
 
-There are two popular ways of writing user requirements. Teams use one or the other, depending on team culture.
+Define what a user must be able to do with the system, written in layman's terms.
+
+There are two popular ways of writing user requirements:
 - Use Cases
 - User Stories
 
@@ -105,7 +107,7 @@ There are two popular ways of writing user requirements. Teams use one or the ot
 # User Requirements
 ## Use Cases
 
-Describe how an *actor* achieves their goals using the system.
+Describe how an *actor* achieves their *goals* using the system.
 
 A list of actions and events involved in a specific user interaction.
 
@@ -127,6 +129,7 @@ At a minimum contains:
 Example:
 
 > Title: Purchase items
+> 
 > Actor: Customer
 > 
 > Scenario: Customer reviews items in shopping cart.  Customer provides payment and shipping information.  System validates payment information and responds with a confirmation of order and provides order number that Customer can use to check on order status.  System will send Customer a confirmation of order details and tracking number in an email.
