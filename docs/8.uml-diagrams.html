@@ -13,18 +13,19 @@ Agile Software Development & DevOps
 
 # Agenda
 
-1. Overview
-2. Best practices
-3. Classess
-4. Use Cases
-5. Activities
-6. Sequences
-7. State Charts
-8. Conclusions
+1. [Overview](#overview)
+2. [Best practices](#best-practices)
+3. [Classes](#classes)
+4. [Use Cases](#use-cases)
+5. [Activities](#activities)
+6. [Sequences](#sequences)
+7. [State Charts](#state-charts)
+8. [Conclusions](#conclusions)
 
 ---
 
 class: center, middle
+name: overview
 
 # Overview
 
@@ -39,10 +40,11 @@ Primitive, standardized, easy-to-draw diagrams to quickly communicate software *
 # Overview
 ## Types of diagrams
 
-UML (Unified Modeling Language) provides for many types of diagrams:
+UML (Unified Modeling Language) provides for many types of diagrams, divided into two categories:
 
+|: ----------------------- |: -----------------------|
 | Structural               | Behavioral              |
-| ------------------------ |-------------------------|
+|: ----------------------- |: -----------------------|
 | Class diagrams           | Activity diagrams       |
 | Package diagrams         | Sequence diagrams       |
 | Object diagrams          | Use case diagrams       |
@@ -58,11 +60,12 @@ UML (Unified Modeling Language) provides for many types of diagrams:
 
 We will explore just a few diagram types for example.  
 
-The book, "The Elements of UML Style", by Scott W. Ambler is a good reference for more.
+The book, "[The Elements of UML Style](http://bit.ly/se-elements-of-uml-style)", by Scott W. Ambler is a good reference for more.
 
 ---
 
 class: center, middle
+name: best-practices
 
 # Best Practices
 
@@ -85,6 +88,7 @@ Don't do this:
 ## Avoid crossed lines
 
 Do this:
+
 ![crossed lines](../images/uml_lines_cross_jump.png)
 
 ---
@@ -93,6 +97,7 @@ Do this:
 ## Avoid diagonal and curved lines.
 
 Don't do this:
+
 ![crossed lines](../images/uml_lines_cross_jump_diagonal.png)
 
 ---
@@ -101,6 +106,7 @@ Don't do this:
 ## Avoid diagonal and curved lines.
 
 Do this:
+
 ![crossed lines](../images/uml_lines_cross_jump_orthogonal.png)
 
 ---
@@ -109,6 +115,7 @@ Do this:
 ## Use consistent sizes
 
 Don't do this:
+
 ![crossed lines](../images/uml_sizes_inconsistent.png)
 
 ---
@@ -117,6 +124,7 @@ Don't do this:
 ## Use consistent sizes
 
 Do this:
+
 ![crossed lines](../images/uml_sizes_consistent.png)
 
 ---
@@ -125,6 +133,7 @@ Do this:
 ## Flow top-to-bottom, left-to-right
 
 Don't do this:
+
 ![crossed lines](../images/uml_flow_right_to_left.png)
 
 ---
@@ -133,23 +142,39 @@ Don't do this:
 ## Flow top-to-bottom, left-to-right
 
 Do this:
+
 ![crossed lines](../images/uml_flow_left_to_right.png)
 
 ---
 
 class: center, middle
+name: classes
 
 # Classes
 
 ---
 
 # Classes
+Used to display the attributes, methods, and interactions of object-oriented classes in code.
 
-Foo Bar
+---
+
+# Classes
+
+A single class:
+![UML class diagram](../images/uml_class_diagram.png)
+
+---
+
+# Classes
+
+Relationships among classes:
+![UML class diagram](../images/uml_class_diagram_relationship.png)
 
 ---
 
 class: center, middle
+name: use-cases
 
 # Use Cases
 
@@ -157,11 +182,24 @@ class: center, middle
 
 # Use Cases
 
-Foo Bar
+Used to indicate interactions between actors and the system.
+
+---
+
+# Use Cases
+A single actor, a single system:
+![UML use case diagram](../images/uml_use_case_diagram.png)
+
+---
+
+# Use Cases
+Multiple actors, multiple releases:
+![UML use case diagram](../images/uml_use_case_diagram_complex.png)
 
 ---
 
 class: center, middle
+name: activities
 
 # Activities
 
@@ -169,23 +207,18 @@ class: center, middle
 
 # Activities
 
-Foo Bar
+Flow charts often used to document a complex operation, the logic of one or more use cases, or any other process.
+
+---
+
+# Activities
+
+![UML activity diagram](../images/uml_activity_diagram.png)
 
 ---
 
 class: center, middle
-
-# Best Practices
-
----
-
-# Best Practices
-
-Foo Bar
-
----
-
-class: center, middle
+name: sequences
 
 # Sequences
 
@@ -193,11 +226,20 @@ class: center, middle
 
 # Sequences
 
-Foo Bar
+Used to validate and work out the logic and completeness of a certain scenario, often a use case or a part of a use case.  
+
+These show the entire sequence of messages sent among the objects and systems involved in the scenario.
+
+---
+
+# Sequences
+
+![UML sequence diagram](../images/uml_sequence_diagram.png)
 
 ---
 
 class: center, middle
+name: state-charts
 
 # State Charts
 
@@ -205,23 +247,27 @@ class: center, middle
 
 # State Charts
 
-Foo Bar
+Indicate the dynamic behavior of an entity based on its response to events, showing how the entity reacts to various events based on its current state.
+- Only useful when behavior changes significantly based on internal state of the object.
+
+---
+
+# State Charts
+
+A seminar, partial lifecycle:
+![UML sequence diagram](../images/uml_state_chart_diagram.png)
+
+---
+
+# State Charts
+
+A seminar, complete lifecycle:
+![UML sequence diagram](../images/uml_state_chart_complete.png)
 
 ---
 
 class: center, middle
-
-# Best Practices
-
----
-
-# Best Practices
-
-Foo Bar
-
----
-
-class: center, middle
+name: conclusions
 
 # Conclusions
 
