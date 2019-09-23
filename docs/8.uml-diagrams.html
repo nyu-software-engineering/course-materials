@@ -42,7 +42,6 @@ Primitive, standardized, easy-to-draw diagrams to quickly communicate software *
 
 UML (Unified Modeling Language) provides for many types of diagrams, divided into two categories:
 
-|: ----------------------- |: -----------------------|
 | Structural               | Behavioral              |
 |: ----------------------- |: -----------------------|
 | Class diagrams           | Activity diagrams       |
@@ -60,7 +59,7 @@ UML (Unified Modeling Language) provides for many types of diagrams, divided int
 
 We will explore just a few diagram types for example.  
 
-The book, "[The Elements of UML Style](http://bit.ly/se-elements-of-uml-style)", by Scott W. Ambler is a good reference for more.
+The book, "[The Elements of UML Style](http://bit.ly/se-elements-of-uml-style)", by Scott W. Ambler is a good reference for more - we have pulled many insights from it here.
 
 ---
 
@@ -73,6 +72,10 @@ name: best-practices
 
 # Best Practices
 Regardless of which diagram type, following best practices keeps diagrams understandable and avoids common pitfalls.
+- Avoid crossed lines
+- Avoid diagonal and curved lines
+- Use consistent sizes
+- Flow from top-to-bottom, left-to-right
 
 ---
 
@@ -80,6 +83,7 @@ Regardless of which diagram type, following best practices keeps diagrams unders
 ## Avoid crossed lines
 
 Don't do this:
+
 ![crossed lines](../images/uml_lines_cross_no_jump.png)
 
 ---
@@ -162,6 +166,7 @@ Used to display the attributes, methods, and interactions of object-oriented cla
 # Classes
 
 A single class:
+
 ![UML class diagram](../images/uml_class_diagram.png)
 
 ---
@@ -169,6 +174,7 @@ A single class:
 # Classes
 
 Relationships among classes:
+
 ![UML class diagram](../images/uml_class_diagram_relationship.png)
 
 ---
@@ -194,6 +200,7 @@ A single actor, a single system:
 
 # Use Cases
 Multiple actors, multiple releases:
+
 ![UML use case diagram](../images/uml_use_case_diagram_complex.png)
 
 ---
