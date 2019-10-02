@@ -1,0 +1,380 @@
+---
+layout: presentation
+title: Project Kickoff
+permalink: /project-kickoff/
+---
+
+class: center, middle
+
+# Project Kickoff
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. [Ready, Set, Go!](#ready-set-go)
+2. [Slack](#slack)
+3. [GitHub](#github)
+4. [Product Backlog](#product-backlog)
+5. [Planning Poker](#planning-poker-cards)
+6. [Sprint Backlogs](#sprint backlog)
+7. [Task Boards](#task-boards)
+8. [Git](#git)
+9. [Daily Standups](#standups)
+12. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: ready-set-go
+
+# Ready, Set, Go!
+
+---
+
+## Kickoff
+
+Teams are by now well into their projects.  Let's make sure your workflow and expectations are in order.
+
+---
+
+## Sprints
+
+Work is divided into increments:
+- Sprint 0 - the current sprint
+- Sprint 1
+- Sprint 2
+- Sprint 3
+- Sprint 4
+
+---
+
+## Expectations
+
+- Teams communicate through Slack
+- Teams use GitHub as both a central code repository and a project management tool
+- The Product Backlog represents the full list of user requirements of the project
+- Teams estimate work using Planning Poker cards
+- Teams meet in person for Daily Standups
+- A Sprint Backlog shows which user requirements are being worked on during the current Sprint
+- User Stories in the Sprint Backlog are broken up into Tasks at the start of each Sprint
+- Work that is not user-facing is documented with Spikes
+- At the end of each Sprint is the release of a working, but incomplete, product.
+
+---
+
+class: center, middle
+name: slack
+
+# Slack
+
+---
+
+## Channels
+
+Each team must have two private channels set up in Slack, e.g.:
+- `team_octapus` - general discussion
+- `team_octapus_standups` - after each standup, document each member's answers to the three questions
+
+Key stakeholders - professor, tutor, grader - must be invited.
+
+---
+
+## Organization
+
+Each team is a member of the larger course organization.
+
+All teams are using the same general technologies.
+
+Communicate.  Help each other.  Take initiative.
+
+---
+
+## Coffee & Donuts
+
+A bot named `@donut` lives in Slack.  
+
+@donut will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
+
+Post a pick of your @donut date to the `#donut-friends` channel for extra credit.  Tag the people in the photo with their Slack handles.
+
+---
+
+class: center, middle
+name: github
+
+# GitHub
+
+---
+
+## Repository
+
+All team members have access to their project's GitHub repository.
+
+All repositories must include:
+- README.md - an always up-to-date overview of the project
+- CONTRIBUTING.md - detailed instructions that govern participation in the project
+- REQUIREMENTS.md - initial product requirements that will be out-of-date soon
+
+---
+
+## Gitignore
+
+Each repository must include a file named `.gitignore` in the root directory that instructs git to not track certain files and directories.
+
+Make sure you do not track platform code, 3rd party library code, or any files containing authentication credentials in version control.
+
+Uses [this example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) as a starting point.
+
+---
+
+class: center, middle
+name: product-backlog
+
+# Product Backlog
+
+---
+
+## User Stories
+
+Before work on a project can begin, it must have an initial Product Backlog - a set of user requirements for the project written in User Story form.
+
+---
+
+## Issues
+
+Every GitHub repository has an `Issues` tab where User Stories in the Product Backlog should be written and stored.
+
+---
+
+## Label
+
+Create an Issue for each User Story in the Product Backlog and assign it the `user story` label to differentiate it from other types of Issues.
+
+---
+
+name: issue-numbers
+
+## Issue Numbers
+
+Once created, each Issue in GitHub is automatically assigned a unique Issue number.  
+
+So each User Story in the Product Backlog has a unique ID number.
+
+---
+
+class: center, middle
+name: planning-poker
+
+# Planning Poker
+
+---
+
+## Fibonacci
+
+Every team must print a set of fibonacci-based planning poker cards for each team member.  Find a deck you like or design your own.
+
+Include a link to your deck on the CONTRIBUTING.md file.
+
+---
+
+## Work Estimation
+
+At the start of each Sprint, team members discuss each User Story they are considering including in the new Sprint.
+
+The group quickly assigns each User Story an estimated level of effort using Planning Poker.
+
+---
+
+class: center, middle
+name: spring-backlogs
+
+# Sprint Backlogs
+
+---
+
+## Selecting User Stories
+
+Those User Stories selected for the current Sprint are added to the Sprint Backlog.
+
+In addition to the basic requirements for User Stories in the [Product Backlog](#product-backlog), User Stories in the Sprint Backlog must be assigned:
+- a GitHub Milestone representing the current Sprint
+- an Estimate of Effort required to complete the User Story
+- a set of Acceptance Criteria for the User Story
+
+---
+
+## Tasks
+
+Each User Story selected for the current Sprint is immediately broken up into Tasks.
+
+A `Task` is a unit of work that would ideally take one developer one day.
+
+Requirements:
+- Each Task is saved as a GitHub Issue with the label, "task".
+- The description of each Task includes a reference to the User Story to which it belongs - writing the User Story's Issue ID number, e.g. #22, in the Task description will create a link to it.
+- Each Task is assigned the GitHub Milestone representing the current Sprint.
+- Each Task is assigned to a specific developer
+
+---
+
+## Spikes
+
+Any work to be done that does not relate directly to a user requirement is documented as a Spike.
+
+In GitHub, spikes are treated like Tasks in all respects except that they are labeled "spike", not "task".
+
+Requirements:
+- Each Spike is saved as a GitHub Issue with the label, "spike".
+- Each Spike is assigned the GitHub Milestone representing the current Sprint.
+- Each Spike is assigned to a specific developer
+
+---
+
+class: center, middle
+name: task-boards
+
+# Task Boards
+
+---
+
+## Concept
+
+Each GitHub repository has a `Projects` tab, where Task Boards can be made.
+
+Make one Task Board for each Sprint.  Call them:
+- Sprint 0 Task Board
+- Sprint 1 Task Board
+- Sprint 2 Task Board
+- Sprint 3 Task Board
+- Sprint 4 Task Board
+
+---
+
+## Columns
+
+Each Task Board must have the following columns:
+- *Sprint Backlog (User Stories)* - the list of User Stories selected for this Sprint.
+- *To Do (Tasks)* - the list of Tasks and Spikes that have not yet begun
+- *In Process (Tasks)* - the list of Tasks and Spikes that are currently being worked on 
+- *Awaiting Review (Tasks)* - the list of Tasks and Spikes that are complete and awaiting peer review
+- *Done (Tasks)* - the list of Tasks and Spikes that are complete and have passed peer review.
+
+---
+
+## Starting State
+
+At the start of each Sprint, the current Task Board in GitHub must contain:
+- the full list of User Stories selected for this Sprint in the "Sprint Backlog (User Stories)" column
+- the full list of Tasks and Spikes in the "To Do (Tasks)" column
+
+---
+
+## Changing State
+
+The state of the Task Board must be kept up-to-date at all times.
+
+User Stories always stay in the "Sprint Backlog" column.
+
+As developers work on their own assigned Tasks and Spikes, they are personally responsible for moving them to the appropriate columns.
+
+---
+
+## Missing Work
+
+If you are doing work that is not accurately reflected on the Task Board, you are not doing Agile Development.
+
+Your grade depends upon you accurately listing all work you are doing on the Task Board at all times.
+
+---
+
+class: center, middle
+name: git
+
+# Git
+
+---
+
+## Matching Credentials
+
+The Git username and email you use on your development machine must match your GitHub account username and email.
+
+---
+
+## Clone
+
+Each team member must clone the remote GitHub repository to their development machine.
+
+---
+
+## Branches
+
+Make all changes to the code in isolated branches.  Never work directly in the `master` branch.
+
+Name branches after the User Story and Task/Spike which they are intended to implement, e.g. 
+
+A branch intended to implement Task #9, which is part of User Story #13:
+```
+user-story/13/task/9/user-login
+```
+
+A branch intended to implement Task #9, which is part of User Story #13:
+```
+user-story/13/task/9/user-login
+```
+
+---
+
+class: center, middle
+name: daily-standups
+
+# Daily Standups
+
+---
+
+## Concept
+
+Every morning, the entire development team gets together.  Everyone quickly and honestly answers three questions:
+1. What did you do yesterday (or since last meeting)?
+2. What are you doing today (or until next meeting)?
+3. Do you have any problems that are blocking your progress?
+
+---
+
+## Documentation
+
+The current Scrum Master must document each team member's answers to the three questions and post them to their team's Slack standups channel.
+
+Include the Slack handle of each member and their responses, e.g.
+
+```
+@foo_barstein:
+- did: Completed 95% unit testing code coverage of codebase
+- doing: Implementing the Observer design pattern
+- blocking: Nothing
+```
+
+---
+
+## Honesty
+
+All teams must include in their Team Norms that team members agree to answer the Daily Standup three questions honestly and fully.
+
+It is in all team members' interests to report blocking problems or underperforming team members to the stakeholders immediately.
+
+If a team member is doing the same work for several Standups in a row, yet is not reporting any blocking problems, this is a sign of a major problem.
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+Thank you. Bye.
+
+
