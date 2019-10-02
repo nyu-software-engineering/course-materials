@@ -97,7 +97,7 @@ A bot named `@donut` lives in Slack.
 
 @donut will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
 
-Post a pick of your @donut date to the `#donut-friends` channel for extra credit.  Tag the people in the photo with their Slack handles.
+Post a selfie of your @donut date to the `#donut-friends` channel for extra credit.  Tag the people in the photo with their Slack handles.
 
 ---
 
@@ -116,6 +116,7 @@ All repositories must include:
 - README.md - an always up-to-date overview of the project
 - CONTRIBUTING.md - detailed instructions that govern participation in the project
 - REQUIREMENTS.md - initial product requirements that will be out-of-date soon
+- .gitignore - a Git settings file that instructs git to not track certain directories and files
 
 ---
 
@@ -123,9 +124,13 @@ All repositories must include:
 
 Each repository must include a file named `.gitignore` in the root directory that instructs git to not track certain files and directories.
 
-Make sure you do not track platform code, 3rd party library code, or any files containing authentication credentials in version control.
+This file must instruct git to ignore (i.e. not track):
+- *platform code* - e.g. React.js itself, Node.js itself, etc
+- *3rd party library code* - e.g. any installed Node.js modules, python packages, etc
+- *any files containing authentication credentials* - e.g. database username/password, Spotify API credentials, etc.
+- *any files containing personal information* - e.g. responses from surveys or data files with user profile info or messages
 
-Uses [this example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) as a starting point.
+Uses [this example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) as a starting point, and add to it as necessary.
 
 ---
 
@@ -146,6 +151,8 @@ Before work on a project can begin, it must have an initial Product Backlog - a 
 
 Every GitHub repository has an `Issues` tab where User Stories in the Product Backlog should be written and stored.
 
+![GitHub user story issues](../images/github_issues_user_stories.png)
+
 ---
 
 ## Label
@@ -160,7 +167,11 @@ name: issue-numbers
 
 Once created, each Issue in GitHub is automatically assigned a unique Issue number.  
 
-So each User Story in the Product Backlog has a unique ID number.
+![GitHub issue numbers](../images/github_issues_numbers.png)
+
+You will use these:
+- to link up Tasks to their associated User Stories.
+- to link up Git branches to the issues they are meant to address
 
 ---
 
@@ -173,9 +184,12 @@ name: planning-poker
 
 ## Fibonacci
 
-Every team must print a set of fibonacci-based planning poker cards for each team member.  Find a deck you like or design your own.
+Every team must print a set of Fibonacci-based planning poker cards for each team member.  
+- Find a deck you like or design your own.  
+- Include a link to your deck on the CONTRIBUTING.md file. 
+- Bring them to Sprint Planning meetings.
 
-Include a link to your deck on the CONTRIBUTING.md file.
+![Planning poker cards](../images/agile_planning_poker.png)
 
 ---
 
@@ -203,6 +217,8 @@ In addition to the basic requirements for User Stories in the [Product Backlog](
 - an Estimate of Effort required to complete the User Story
 - a set of Acceptance Criteria for the User Story
 
+![GitHub issue milestones](../images/github_issues_milestones.png)
+
 ---
 
 ## Tasks
@@ -211,11 +227,16 @@ Each User Story selected for the current Sprint is immediately broken up into Ta
 
 A `Task` is a unit of work that would ideally take one developer one day.
 
-Requirements:
-- Each Task is saved as a GitHub Issue with the label, "task".
+---
+
+## Task Requirements
+
 - The description of each Task includes a reference to the User Story to which it belongs - writing the User Story's Issue ID number, e.g. #22, in the Task description will create a link to it.
-- Each Task is assigned the GitHub Milestone representing the current Sprint.
 - Each Task is assigned to a specific developer
+- Each Task is saved as a GitHub Issue with the label, "task".
+- Each Task is assigned the GitHub Milestone representing the current Sprint.
+
+![GitHub issue tasks](../images/github_issues_tasks.png)
 
 ---
 
@@ -225,10 +246,15 @@ Any work to be done that does not relate directly to a user requirement is docum
 
 In GitHub, spikes are treated like Tasks in all respects except that they are labeled "spike", not "task".
 
-Requirements:
+---
+
+## Spike Requirements
+
+- Each Spike is assigned to a specific developer
 - Each Spike is saved as a GitHub Issue with the label, "spike".
 - Each Spike is assigned the GitHub Milestone representing the current Sprint.
-- Each Spike is assigned to a specific developer
+
+![GitHub issue spikes](../images/github_issues_spikes.png)
 
 ---
 
