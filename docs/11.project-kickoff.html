@@ -47,7 +47,7 @@ Work is divided into increments:
 - Sprint 1 - build out the most fundamental featuress
 - Sprint 2 - implement secondary features
 - Sprint 3 - make the app fully usable but rough
-- Sprint 4 - finesse the work
+- Sprint 4 - finesse what you've done
 
 ---
 
@@ -74,7 +74,7 @@ By Sprint 1, you are expected to be able to be a contributing team member.
 - A [Sprint Backlog](#sprint backlog) shows which user requirements are being worked on during the current Sprint.
 - A [Task Boards](#task-boards) shows the up-to-date status of all work at all times.
 - Individuals use [Git](#git) systematically to isolate code and track changes.
-- Teams meet in person for [Daily Standups](#daily-standups).
+- Teams meet primarily in person for [Daily Standups](#daily-standups).
 - **At the end of each Sprint is the release of a working, but incomplete, product**.
 
 ---
@@ -185,6 +185,7 @@ Before work on a project can begin, it must have an initial Product Backlog - a 
 ## Issues
 
 Every GitHub repository has an `Issues` tab where User Stories in the Product Backlog should be written and stored.
+- User Stories in the Product Backlog must be listed in order of importance
 
 ![GitHub user story issues](../images/github_issues_user_stories.png)
 
@@ -409,6 +410,15 @@ git checkout -b user-story/13/task/9/implement-user-login
 ```bash
 git checkout -b spike/27/learn-react-js
 ```
+
+---
+
+## Peer Review
+
+The developer who makes changes must never be the one to merge their own branch into the trunk.
+1. The developer making changes must push their completed branch to GitHub and then issue a Pull request to the `master` branch
+2. The same developer must, of course, update the position of the relevant Task that this branch implements on the Task Board.
+3. A second developer must review the changes in the pull request, approve them if good, and merge them into `master`.
 
 ---
 
