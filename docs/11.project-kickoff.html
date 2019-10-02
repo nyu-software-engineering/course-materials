@@ -14,15 +14,16 @@ Agile Software Development & DevOps
 # Agenda
 
 1. [Ready, Set, Go!](#ready-set-go)
-2. [Slack](#slack)
-3. [GitHub](#github)
-4. [Product Backlog](#product-backlog)
-5. [Planning Poker](#planning-poker)
-6. [Sprint Backlogs](#sprint backlog)
-7. [Task Boards](#task-boards)
-8. [Git](#git)
-9. [Daily Standups](#standups)
-12. [Conclusions](#conclusions)
+2. [Division of Laabor](#division-of-labor)
+3. [Slack](#slack)
+4. [GitHub](#github)
+5. [Product Backlog](#product-backlog)
+6. [Planning Poker](#planning-poker)
+7. [Sprint Backlogs](#sprint backlog)
+8. [Task Boards](#task-boards)
+9. [Git](#git)
+10. [Daily Standups](#standups)
+11. [Conclusions](#conclusions)
 
 ---
 
@@ -42,16 +43,28 @@ Teams are by now well into their projects.  Let's make sure your workflow and ex
 ## Sprints
 
 Work is divided into increments:
-- Sprint 0 - the current sprint
-- Sprint 1
-- Sprint 2
-- Sprint 3
-- Sprint 4
+- Sprint 0 - learn your dev environment and workflow
+- Sprint 1 - build out the most fundamental featuress
+- Sprint 2 - implement secondary features
+- Sprint 3 - make the app fully usable but rough
+- Sprint 4 - finesse the work
+
+---
+
+## Sprint 0
+
+Sprint 0 is intend to give you time to:
+- Set up and become familiar with your development environment
+- Teach yourself technologies you don't already know
+- Set up team communications and workflows
+
+It is up to you to use this time wisely.
 
 ---
 
 ## Expectations
 
+- Teams [divide labor](#division-of-labor) wisely
 - Teams communicate primarily in-person and through [Slack](#slack)
 - Teams use [GitHub](#github) as both a central code repository and a project management tool
 - The [Product Backlog](#product-backlog) represents the full list of user requirements of the project
@@ -61,6 +74,24 @@ Work is divided into increments:
 - Individuals use [Git](#git) systematically to isolate code and track changes
 - Teams meet in person for [Daily Standups](#daily-standups)
 - **At the end of each Sprint is the release of a working, but incomplete, product.**
+
+---
+
+class: center, middle
+name: slack
+
+# Division of Labor
+
+---
+
+## Wise Use of Human Resources
+
+- Do *not* dedicate some humans to front-end development and others to back-end - share all responsibilities.
+- Do *not* let some members do all the database work - share the responsibilities.
+- Do *teach* each other what some of you know - if teammates flounder, the whole team suffers.
+- Do *not* allow one person to dominate the role of Product Owner - switch every Sprint.
+- Do *not* allow one person to dominate the role of Scrum Master - switch every Sprint.
+- Do *not* assume your stakeholders (Professor, Tutor, Grader) will always tell you what to do and how to do it - take initiative.
 
 ---
 
@@ -85,9 +116,9 @@ Key stakeholders - professor, tutor, grader - must be invited.
 
 Each team is a member of the larger course organization.
 
-All teams are using the same general technologies.
+All teams are using the same general technologies and facing the same problems.
 
-Communicate.  Help each other.  Take initiative.
+Communicate with other teams via Slack.  Help each other.  Take initiative.
 
 ---
 
@@ -98,6 +129,8 @@ A bot named `@donut` lives in Slack.
 @donut will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
 
 Post a selfie of your @donut date to the `#donut-friends` channel for extra credit.  Tag the people in the photo with their Slack handles.
+
+![Slack Donut Friends selfie](../images/slack_donut_friends_selfie.png)
 
 ---
 
@@ -113,10 +146,10 @@ name: github
 All team members have access to their project's GitHub repository.
 
 All repositories must include:
-- README.md - an always up-to-date overview of the project
-- CONTRIBUTING.md - detailed instructions that govern participation in the project
-- REQUIREMENTS.md - initial product requirements that will be out-of-date soon
-- .gitignore - a Git settings file that instructs git to not track certain directories and files
+- **README.md** - an always up-to-date overview of the project
+- **CONTRIBUTING.md** - detailed instructions that govern participation in the project
+- **REQUIREMENTS.md** - initial product requirements that will be out-of-date soon
+- **.gitignore** - a Git settings file that instructs git to not track certain directories and files
 
 ---
 
@@ -125,10 +158,10 @@ All repositories must include:
 Each repository must include a file named `.gitignore` in the root directory that instructs git to not track certain files and directories.
 
 This file must instruct git to ignore (i.e. not track):
-- *platform code* - e.g. React.js itself, Node.js itself, etc
-- *3rd party library code* - e.g. any installed Node.js modules, python packages, etc
-- *any files containing authentication credentials* - e.g. database username/password, Spotify API credentials, etc.
-- *any files containing personal information* - e.g. responses from surveys or data files with user profile info or messages
+- **platform code** - e.g. React.js itself, Node.js itself, etc
+- **3rd party library code** - e.g. any installed Node.js modules, python packages, etc
+- **any files containing authentication credentials** - e.g. database username/password, Spotify API credentials, etc.
+- **any files containing personal information** - e.g. if your app stores data about users in files or databases, don't track those
 
 Uses [this example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) as a starting point, and add to it as necessary.
 
@@ -167,11 +200,11 @@ name: issue-numbers
 
 Once created, each Issue in GitHub is automatically assigned a unique Issue number.  
 
-![GitHub issue numbers](../images/github_issues_numbers.png)
+You will use these numbers:
+- to link up [Tasks](#tasks) to their associated User Stories.
+- to link up Git [branches](#git-branches) to the issues they are meant to implement
 
-You will use these:
-- to link up Tasks to their associated User Stories.
-- to link up Git branches to the issues they are meant to address
+![GitHub issue numbers](../images/github_issues_numbers.png)
 
 ---
 
@@ -220,6 +253,8 @@ In addition to the basic requirements for User Stories in the [Product Backlog](
 ![GitHub issue milestones](../images/github_issues_milestones.png)
 
 ---
+
+name: tasks
 
 ## Tasks
 
@@ -295,6 +330,8 @@ Each Task Board must have the following columns:
 - *Awaiting Review (Tasks)* - the list of Tasks and Spikes that are complete and awaiting peer review
 - *Done (Tasks)* - the list of Tasks and Spikes that are complete and have passed peer review.
 
+![GitHub task board columns](../images/github_task_board_columns.png)
+
 ---
 
 ## Starting State
@@ -303,23 +340,23 @@ At the start of each Sprint, the current Task Board in GitHub must contain:
 - the full list of User Stories selected for this Sprint in the "Sprint Backlog (User Stories)" column
 - the full list of Tasks and Spikes in the "To Do (Tasks)" column
 
+
+
 ---
 
 ## Changing State
 
 The state of the Task Board must be kept up-to-date at all times.
-
-User Stories always stay in the "Sprint Backlog" column.
-
-As developers work on their own assigned Tasks and Spikes, they are personally responsible for moving them to the appropriate columns.
+- **User Stories always stay in the "Sprint Backlog" column**
+- **Tasks and Spikes move around** - as developers work on their own assigned Tasks and Spikes, they are personally responsible for moving them to the appropriate columns.
 
 ---
 
 ## Missing Work
 
-If you are doing work that is not accurately reflected on the Task Board, you are not doing Agile Development.
+Your performance evaluation/grade depends upon you accurately listing all work you are doing on the Task Board at all times.
 
-Your grade depends upon you accurately listing all work you are doing on the Task Board at all times.
+**If you are doing work whose existence or status is not accurately reflected on the Task Board, you are not doing Agile Development and will not receive credit for it.**
 
 ---
 
@@ -334,6 +371,11 @@ name: git
 
 The Git username and email you use on your development machine must match your GitHub account username and email.
 
+```bash
+git config --global user.name "Foo Barstein"
+git config --global user.email fb1258@nyu.edu
+```
+
 ---
 
 ## Clone
@@ -341,6 +383,8 @@ The Git username and email you use on your development machine must match your G
 Each team member must clone the remote GitHub repository to their development machine.
 
 ---
+
+name: git-branches
 
 ## Branches
 
@@ -353,13 +397,13 @@ Requirements:
 Examples:
 
 - A branch intended to implement Task #9, which is part of User Story #13:
-```
-user-story/13/task/9/implement-user-login
+```bash
+git checkout -b user-story/13/task/9/implement-user-login
 ```
 
 - A branch intended to implement Task #9, which is part of User Story #13:
-```
-spike/27/learn-react-js
+```bash
+git checkout -b spike/27/learn-react-js
 ```
 
 ---
