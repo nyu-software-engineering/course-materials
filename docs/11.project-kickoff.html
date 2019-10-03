@@ -44,7 +44,7 @@ Teams are by now well into their projects.  Let's make sure your workflow and ex
 
 Work is divided into increments:
 - Sprint 0 - learn your dev environment and workflow
-- Sprint 1 - build out the most fundamental featuress
+- Sprint 1 - build out the most fundamental features
 - Sprint 2 - implement secondary features
 - Sprint 3 - make the app fully usable but rough
 - Sprint 4 - finesse what you've done
@@ -128,9 +128,9 @@ Communicate with other teams via Slack.  Help each other.  Take initiative.
 
 A bot named `@donut` lives in Slack.  
 
-@donut will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
+`@donut` will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
 
-Post a selfie of your @donut date to the `#donut-friends` channel for extra credit.  Tag the people in the photo with their Slack handles.
+Post a selfie of your `@donut` date to the `#donut-friends` channel for **extra credit**.  Tag the people in the photo with their Slack handles.
 
 ![Slack Donut Friends selfie](../images/slack_donut_friends_selfie.png)
 
@@ -165,7 +165,7 @@ This file must instruct git to ignore (i.e. not track):
 - **any files containing authentication credentials** - e.g. database username/password, Spotify API credentials, etc.
 - **any files containing personal information** - e.g. if your app stores data about users in files or databases, don't track those
 
-Uses [this example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) as a starting point, and add to it as necessary.
+Start with this [example `.gitignore` file](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) and add to it as necessary.
 
 ---
 
@@ -213,7 +213,7 @@ You will use these numbers:
 
 ## Issue Templates
 
-Your use of GitHub's Isssues feature must also make use of GitHub Issue Templates:
+Your use of GitHub's Issues feature must also make use of GitHub Issue Templates:
 1. [Download a set of Issue Template Markdown files](https://gist.github.com/bloombar/3ba6ddd69b6364bf20a56d65ad590bd1/archive/a0aa9130ce8d86630669b67d1ec8ddae96e5f379.zip).
 2. Place these example Markdown files into a directory in your repository named `.github`/`ISSUE_TEMPLATE`.
 3. Push them to the GitHub central repository.
@@ -228,6 +228,14 @@ name: planning-poker
 
 ---
 
+## Work Estimation
+
+At the start of each Sprint, team members discuss each User Story they are considering including in the new Sprint.
+
+The group quickly assigns each User Story an estimated level of effort using Planning Poker.
+
+---
+
 ## Fibonacci
 
 Every team must print a set of Fibonacci-based planning poker cards for each team member.  
@@ -236,14 +244,6 @@ Every team must print a set of Fibonacci-based planning poker cards for each tea
 - Bring them to Sprint Planning meetings.
 
 ![Planning poker cards](../images/agile_planning_poker.png)
-
----
-
-## Work Estimation
-
-At the start of each Sprint, team members discuss each User Story they are considering including in the new Sprint.
-
-The group quickly assigns each User Story an estimated level of effort using Planning Poker.
 
 ---
 
@@ -259,9 +259,9 @@ name: spring-backlogs
 Those User Stories selected for the current Sprint are added to the Sprint Backlog.
 
 In addition to the basic requirements for User Stories in the [Product Backlog](#product-backlog), User Stories in the Sprint Backlog must be assigned:
-- a GitHub Milestone representing the current Sprint
-- an Estimate of Effort required to complete the User Story
-- a set of Acceptance Criteria for the User Story
+- a **GitHub Milestone** representing the current Sprint
+- an **Estimate of Effort** required to complete the User Story
+- a set of **Acceptance Criteria** for the User Story
 
 ![GitHub issue milestones](../images/github_issues_milestones.png)
 
@@ -339,11 +339,11 @@ Make one Task Board for each Sprint.  Call them:
 ## Columns
 
 Each Task Board must have the following columns:
-- *Sprint Backlog (User Stories)* - the list of User Stories selected for this Sprint.
-- *To Do (Tasks)* - the list of Tasks and Spikes that have not yet begun
-- *In Process (Tasks)* - the list of Tasks and Spikes that are currently being worked on 
-- *Awaiting Review (Tasks)* - the list of Tasks and Spikes that are complete and awaiting peer review
-- *Done (Tasks)* - the list of Tasks and Spikes that are complete and have passed peer review.
+- **Sprint Backlog (User Stories)** - the list of User Stories selected for this Sprint.
+- **To Do (Tasks)** - the list of Tasks and Spikes that have not yet begun
+- **In Process (Tasks)** - the list of Tasks and Spikes that are currently being worked on 
+- **Awaiting Review (Tasks)** - the list of Tasks and Spikes that are complete and awaiting peer review
+- **Done (Tasks)** - the list of Tasks and Spikes that are complete and have passed peer review.
 
 ![GitHub task board columns](../images/github_task_board_columns.png)
 
@@ -371,7 +371,7 @@ The state of the Task Board must be kept up-to-date at all times.
 
 Your performance evaluation/grade depends upon you accurately listing all work you are doing on the Task Board at all times.
 
-**If you are doing work whose existence or status is not accurately reflected on the Task Board, you are not doing Agile Development and will not receive credit for it.**
+**If you are doing work whose existence or status is not accurately reflected on the Task Board, you are not doing Agile Development and you will not receive credit for it.**
 
 ---
 
@@ -395,7 +395,7 @@ git config --global user.email fb1258@nyu.edu
 
 ## Clone
 
-Each team member must clone the remote GitHub repository to their development machine.
+Each team member must clone their team's remote GitHub repository to their development machine.
 
 ---
 
@@ -407,7 +407,10 @@ Requirements:
 - Make all changes to the code in isolated branches.
 - Create a new branch for every Task or Spike under development.  
 - Never work directly in the `master` branch.
-- Name branches after the User Story and Task/Spike which they are intended to implement
+- Name branches after the User Story and Task/Spike which they are intended to implement, including:
+-- the user story issue number (if any)
+-- the task or spike issue number
+-- a shorthand name for the branch that describes what changes it includes
 
 Examples:
 
@@ -416,7 +419,7 @@ Examples:
 git checkout -b user-story/13/task/9/implement-user-login
 ```
 
-- A branch intended to implement Task #9, which is part of User Story #13:
+- A branch intended to implement Spike #27:
 ```bash
 git checkout -b spike/27/learn-react-js
 ```
@@ -429,6 +432,8 @@ The developer who makes changes must never be the one to merge their own branch 
 1. The developer making changes must push their completed branch to GitHub and then issue a Pull request to the `master` branch
 2. The same developer must, of course, update the position of the relevant Task that this branch implements on the Task Board.
 3. A second developer must review the changes in the pull request, approve them if good, and merge them into `master`.
+
+Both developers are responsible if poor quality code is integrated into the `master` branch.
 
 ---
 
@@ -461,6 +466,8 @@ Include the Slack handle of each member and their responses, e.g.
 - blocking: Nothing
 ```
 
+Include notes for all team members in a single post.
+
 ---
 
 ## Honesty
@@ -469,7 +476,7 @@ All teams must include in their Team Norms that team members agree to answer the
 
 It is in all team members' interests to report blocking problems or underperforming team members to the stakeholders immediately.
 
-If a team member is doing the same work for several Standups in a row, yet is not reporting any blocking problems, this is a sign of a major problem.
+If a team member is doing the same work for several Standups in a row, yet is not reporting any blocking problems, this is a sign of a *big* problem for the entire team.
 
 ---
 
