@@ -135,20 +135,11 @@ Unit testing verifies that each unit behaves as expected, given certain inputs.
 
 ---
 
-## Features
-Unit tests are performed on each unit in isolation, in the sense that they:
-- Are not concerned with user interactions or user interfaces.
-- Do not require any changes to the code.
-- Only test code belonging to the system, not platform code, 3rd party code or external systems
-- Do not depend upon one-another.
-
----
-
 ## Example
 
 A unit test example in Javascript using mocha:
 ```javascript
-// use mocha's built-in assertion library
+// use node.js's built-in assert assertion library
 const assert = require('assert');
 
 // a set of tests of array functions
@@ -170,6 +161,15 @@ describe('Array', function() {
 
 ---
 
+## Features
+Unit tests are performed on each unit in isolation, in the sense that they:
+- Are not concerned with user interactions or user interfaces.
+- Do not require any changes to the code.
+- Only test code belonging to the system, not platform code, 3rd party code or external systems
+- Do not depend upon one-another.
+
+---
+
 ## Advantages
 - Failed unit tests indicate bugs that **must** be fixed
 - Unit tests are fast to write and faster run
@@ -180,7 +180,8 @@ describe('Array', function() {
 ## Recommendation
 Use [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) [only if needed] for Javascript unit testing.
 - `mocha` is a Javascript unit test framework
-- `chai` is a unit test 'assertion library' that can be added on to mocha
+- by default it uses Node.js's built-in `assert` assertion library.
+- `chai` is a more elaborate unit test 'assertion library' that can be added on to mocha
 
 ---
 
@@ -324,6 +325,7 @@ Test-Driven Development has several touted benefits:
 - **code coverage** - every bit of code has a test developed for it before the code to be tested has even been written
 - **debugging** - since tests are run with every code change, it is easy to identify the new code that created a bug
 - **documentation** - the tests themselves become a specification of the system
+- **planning** - it forces developers to think about what they want their code to do before writig it
 
 ---
 
