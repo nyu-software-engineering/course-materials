@@ -34,7 +34,7 @@ name: overview
 
 A unit is the smallest testable unit of code - typically a function, but sometimes an object or class.
 
-Unit testing verifies that each unit behaves as expected, given certain inputs.
+Unit testing verifies that each unit behaves as expected, given specific inputs.
 
 ---
 
@@ -75,9 +75,12 @@ Automated unit testing has many advantages over manual debugging:
 
 ## Relationship to Refactoring
 
-Refactoring of existing code involves rewriting it to make it better organized and efficient.
+Refactoring of existing code involves rewriting it to make it better organized and efficient without changing its observable behavior.
 
 With automated unit testing, refactoring will not accidentally introduce errors, since any such errors that change the behavior of the code will be immediately detected by the tests (called regression tests in this context).
+
+[https://martinfowler.com/ Martin Fowler]: 
+> In almost all cases, I’m opposed to setting aside time for refactoring."
 
 ---
 
@@ -211,9 +214,9 @@ According to "[Pragmatic Unit Testing in Java with JUnit](https://pragprog.com/t
 ## Three pillars
 
 According to Roy Osherove, author of "[The Art of Unit Testing](https://www.manning.com/books/the-art-of-unit-testing)", there are three main pillars of a good unit test:
-- Trustworthiness -  if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
-- Maintainability - a test that is difficult to maintain and takes up more time than it saves might as well be scrapped
-- Readability -  a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
+- **Trustworthiness** -  if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
+- **Maintainability** - a test that is difficult to maintain and takes up more time than it saves might as well be scrapped
+- **Readability** -  a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
 
 Listen to [a song about unit testing](https://www.youtube.com/watch?v=fXwWaE1QCS8) by Roy Osherove
 
