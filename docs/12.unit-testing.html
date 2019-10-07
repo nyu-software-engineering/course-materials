@@ -1,0 +1,345 @@
+---
+layout: presentation
+title: Software Testing
+permalink: /software-testing/
+---
+
+class: center, middle
+
+# Software Testing
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. [Overview](#overview)
+2. [Automation](#automation)
+3. [Code Linting](#code-linting)
+4. [Unit Testing](#unit-testing)
+5. [Code Coverage](#code-coverage)
+6. [Integration Testing](#integration-testing)
+7. [User Acceptance Testing](#user-acceptance-testing)
+8. [Regression Testing](#regression-testing)
+9. [System Testing](#system-testing)
+10. [Test-Driven Development](#test-driven-development)
+11. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: overview
+
+# Overview
+
+---
+
+## Substance
+
+Testing helps verify that the software performs as expected.
+- Functionality
+- Speed
+- Load
+- Security
+- etc.
+
+---
+
+## Style
+
+Testing can also help verify that the software has been written well.
+- Syntax
+- Style
+- Maintainability
+
+---
+
+## Sanity
+
+Testing can also help prove that the software is usable and that you haven't built it all for nil.
+
+---
+
+class: center, middle
+name: automation
+
+# Automation
+
+---
+
+## Rise of the Robots
+
+While much of running software tests can now be automated, a few tasks still require humans.
+- Writing the tests
+- Testing whether humans are able to use the software
+
+---
+
+class: center, middle
+name: code-linting
+
+# Code Linting
+
+---
+
+## Concept
+
+A code linter automatically checks syntax and style of code.
+
+These are especially useful in interpreted languages that do not report compilation errors.
+
+---
+
+## Features
+A code linter is a software tool that can:
+- be set to follow a set of code rules and standards
+- flag suspicious usage in code that does not meet the defined rules and standards
+- auto-fix some problems
+- integrate with most popular code editors
+
+---
+
+## Advantages
+Code linters offer some advantages over human code reviews, such as:
+- fast
+- accurate
+- consistent
+- impersonal
+
+---
+
+## Recommendation
+Use [ESLint](https://github.com/eslint/eslint) for Javascript.
+- An [extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) exists for the popular Visual Studio Code IDE.
+Use [PyLint](https://www.pylint.org/) for Python.
+- Comes bundled with the Spyder IDE.
+
+---
+
+class: center, middle
+name: unit-testing
+
+# Unit Testing
+
+---
+
+## Concept
+
+A unit is the smallest testable unit of code - typically a function, but sometimes an object or class.
+
+Unit testing verifies that each unit behaves as expected, given certain inputs.
+
+---
+
+## Features
+Unit tests are performed on each unit in isolation, in the sense that they:
+- Are not concerned with user interactions or user interfaces.
+- Do not require any changes to the code.
+- Only test code belonging to the system, not platform code, 3rd party code or external systems
+- Do not depend upon one-another.
+
+---
+
+## Example
+
+A unit test example in Javascript using mocha:
+```javascript
+// use mocha's built-in assertion library
+const assert = require('assert');
+
+// a set of tests of array functions
+describe('Array', function() {
+
+    // one particular unit test
+    describe('#indexOf()', function() {
+
+        // assert what should be returned
+        it('should return -1 when the value is not present', function(){
+            // test that assertion
+            assert.equal(-1, [1,2,3].indexOf(4));
+        });
+
+    });
+
+});
+```
+
+---
+
+## Advantages
+- Failed unit tests indicate bugs that **must** be fixed
+- Unit tests are fast to write and faster run
+- Running unit tests can be automated, with a human notified of any failure
+
+---
+
+## Recommendation
+Use [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) [only needed] for Javascript unit testing.
+- `mocha` is a Javascript unit test framework
+- `chai` is a unit test 'assertion library' that can be added on to mocha
+
+---
+
+class: center, middle
+name: integration-testing
+
+# Integration Testing
+
+---
+
+## Concept
+
+Whereas unit testing tests units in-situ in isolation, integration testing tests units in vivo.
+
+---
+
+## Features
+
+Integration tests...
+- that all components of the system interact as expected, sending and receiving messages from one-another correctly in all expected circumstances
+- that the system interacts with any external dependencies, such as libraries, databases, and APIs correctly
+- can be of partial or full environments, including external bits like databases and services, or not
+- can include user interfaces and results of particular system interactions, such as changes to content in databases and logs that result from certain actions
+- can be run on one system, or across several systems
+
+---
+
+class: center, middle
+name: code-coverage
+
+# Code Coverage
+
+---
+
+## Concept
+
+The term `code coverage` refers to the percent of all code which is executed when unit and integration tests are run.
+
+Code coverage tools automatically calculate this as tests are run.
+
+---
+
+## Limitations
+Code coverage does not indicate that the code has been tested in all possible scenarios.
+
+Thus, 100% code coverage **does not** necessarily indicate that the code is well-tested or that it will run well.
+
+---
+
+## Recommendation
+Use [istanbul](https://istanbul.js.org/) for Javascript code coverage analysis.
+- integrates well with the mocha unit testing framework
+
+```javascript
+{
+    "scripts": {
+      "test": "nyc mocha --timeout=3000"
+    }
+}
+```
+
+---
+
+class: center, middle
+name: user-acceptance-testing
+
+# User Acceptance Testing
+
+---
+
+## Concept
+
+User Acceptance Testing (UAT) verifies that users will accept the software.
+
+---
+
+## Features
+User Acceptance Testing...
+- verifies that the software works as expected from an end-user's point of view
+- is a form of Integration Testing, since all the parts must inter-operate in order for the system to be used.
+- consists of scripts for specific use cases, user stories, or scenarios that the system is designed to afford
+- each script includes a set of steps for the human tester to go through
+
+```
+step 1 - user goes to home page
+step 2 - clicks reservations
+step 3 - clicks on arrival date
+step 4 - the date widget should pop up with default date pre-selected
+```
+
+---
+
+class: center, middle
+name: regression-testing
+
+# Regression Testing
+
+---
+
+## Concept
+
+The term `regression testing` refers to the re-running of old tests when new tests are run.
+
+This ensures that the entire codebase works well, even when new features are developed, bugs are fixed, etc.
+
+---
+
+class: center, middle
+name: system-testing
+
+# System Testing
+
+---
+
+## Concept
+
+Testing of the non-functional requirements, such as ...
+- **load handling** - handling the load under expected conditions
+- **stress testing** - handling the load at higher-than expected conditions
+- **security testing** - making sure the system and its users are safe
+
+---
+
+class: center, middle
+name: test-drive-development
+
+# Test-Driven Development
+
+---
+
+## Concept
+
+Test-Driven Development (TDD) is the practice of writing unit tests before production code is written.
+
+---
+
+## Advantages
+
+Test-Driven Development has several touted benefits:
+- **code coverage** - every bit of code has a test developed for it before the code to be tested has even been written
+- **debugging** - since tests are run with every code change, it is easy to identify the new code that created a bug
+- **documentation** - the tests themselves become a specification of the system
+
+---
+
+## Criticisms
+
+Test-Driven Development has been attacked on many fronts:
+- It is often seen as a bit too extreme (in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology). 
+- In most cases (for better or worse), the requirements of systems are not fully known until development starts
+- It is not unusually for new requirements to surface late in the development cycle.
+- Many developers consider it helpful to have an ongoing feedback loop between specifying, developing and testing.
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+Thank you. Bye.
+
+
