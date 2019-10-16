@@ -150,13 +150,21 @@ A second developer must review the changes in the **pull request** and either ac
 - If rejected, the approver must specify the reasons and ask the original developer to fix the problems.
 - The original developer must fix all problems and notify the approver.
 
+Download the feature branch for review
+```branch
+git checkout user-story/13/task/9/user-login
+git pull
+```
+
+Look at the code, test it, run it, etc.... make sure it works!
+
 ---
 
 ## Merge changes locally
-The original developer and the second developer coordinate so that one of them merges the changes into the `master` branch.
+If approved, the reviewer and the original developer coordinate so that one of them merges the changes in the feature branch into the `master` branch.
 
 Example of getting latest code and merging into `master`:
-```branch
+```bash
 git checkout user-story/13/task/9/user-login
 git pull
 git checkout master
