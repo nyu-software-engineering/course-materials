@@ -186,17 +186,29 @@ echo the value of some_variable_name is $some_variable_name
 Aliases allow you to set other names for common commands.
 
 ```bash
-ll="ls -l"
+alias ll="ls -l"
 ```
 
 To execute a command alias:
 ```bash
-$ll
+ll
 ```
 
 See all aliases set in the shell
 ```bash
 alias
+```
+
+---
+
+## Aliases File
+
+If you have many aliases, you can store them in a `~/.bash_aliases` file and load them automatically every time a shell session starts.
+
+```bash
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
 ```
 
 ---
@@ -334,9 +346,24 @@ name: automation
 
 Bash is used for everyday automation by developers:
 - Every time a user logs into a user logs in, a bash script named `.bash_profile` is automatically run.
-- Every time a new command shell is started, a script named `.bash_rc` is automatically run.
+- Every time a new command shell is started, a script named `.bashrc` is automatically run.
 
 Place whatever bash commands you want in files by either of these names in your user account home directory in order to take advantage of this feature.
+
+---
+
+## Aliases File
+
+Many developers use bash aliases for common commands.
+
+For good housekeeping, store many aliases, if you have them, in a `~/.bash_aliases` file and load them automatically every time a shell session starts.
+
+Example `.bashrc` script to do so:
+```bash
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+```
 
 ---
 
