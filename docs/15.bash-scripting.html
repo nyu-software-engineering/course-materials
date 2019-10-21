@@ -353,6 +353,14 @@ then
 fi
 ```
 
+Travis CI, another popular automation tool, can run a bash script when any codebase changes 
+```yaml
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
+```
 ---
 
 class: center, middle
