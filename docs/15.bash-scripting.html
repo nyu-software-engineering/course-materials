@@ -181,25 +181,6 @@ echo the value of some_variable_name is $some_variable_name
 
 ---
 
-## Exporting Variables
-
-A copy of a variable defined within a script can be copied into your command-line environment, which makes it available to any other scripts you run
-```bash
-export some_variable_name
-```
-
-Functions can also be exported
-```bash
-export -f some_function_name
-```
-
-See what has been exported to the command-line:
-```bash
-export
-```
-
----
-
 ## Aliases
 
 Aliases allow you to set other names for common commands.
@@ -288,6 +269,25 @@ e World
 
 ---
 
+## Exports
+
+A copy of a variable defined within a script can be copied into your command-line environment, which makes it available to any other scripts you run
+```bash
+export some_variable_name
+```
+
+Functions can also be exported
+```bash
+export -f some_function_name
+```
+
+See what has been exported to the command-line:
+```bash
+export
+```
+
+---
+
 class: center, middle
 name: grouping
 
@@ -344,7 +344,7 @@ Place whatever bash commands you want in files by either of these names in your 
 
 Agile Software Developers depend upon automation to simplify and speed up many pedestrian tasks.  For example, in "continuous integration" unit tests are automatically execute anytime the codebase in version control is modified.
 
-A fragment of such a script that could be used in Jenkins, an automation tool:
+A fragment of such a script that could be used in **Jenkins**, an automation tool:
 ```bash
 #!/bin/bash
 if [[ $BRANCH_NAME == "master" ]] || [[ $BRANCH_NAME == "master_dev" ]]
@@ -353,7 +353,7 @@ then
 fi
 ```
 
-Travis CI, another popular automation tool, can run a bash script when any codebase changes 
+**Travis CI**, another popular automation tool, can run a bash script when any codebase changes 
 ```yaml
 deploy:
   provider: script
