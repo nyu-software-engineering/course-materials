@@ -1,0 +1,355 @@
+---
+layout: presentation
+title: Feature Branch Version Control Workflow
+permalink: /feature-branch-workflow/
+---
+
+class: center, middle
+
+# Bash Scripting
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. [Overview](#overview)
+2. [Script File Setup](#script-file-setup)
+3. [Built-In Commands](#built-in-commands)
+4. [Programming](#programming)
+5. [Grouping](#grouping)
+6. [Automation](#automation)
+7. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: overview
+
+# Overview
+
+---
+
+## Concept
+
+bash is the most commonly used shell for Unix/Linux
+- written by Brian Fox at the behest of Richard Stallman and the GNU project.
+- aimed to be a replacement for UNIX's Bourne shell
+- 'bash' is an acronym for 'Bourne-Again SHell'
+
+---
+
+## Interfaces
+
+bash commands can be run in one of two ways:
+# entered idiosyncratically into the command line
+# saved into a file (usually given the .sh extension) and executed as a batch
+
+---
+
+class: center, middle
+name: script-file-setup
+
+# Script File Setup
+
+---
+
+## Shebang
+
+The very first two characters in a bash script file must be shebang '#!'
+
+Follow this with the path name to bash, e.g. (your path may differ)
+
+```bash
+#!/bin/bash
+```
+
+You can also automatically find the location of bash within the environment settings
+```bash
+#!/usr/bin/env bash
+```
+
+Anytime shebang is used, the kernel will pass the path to the script as the first argument to the script
+
+---
+
+## File Permissions
+
+Give the script execute Permissions:
+```bash
+chmod u+x file.sh
+```
+
+Execute the script:
+```bash
+./file.sh
+```
+
+If you don't have execute permission, but do have read permission, you can still run the file:
+
+```bash
+bash file.sh
+```
+
+---
+
+class: center, middle
+name: built-in-commands
+
+# Built-In Commands
+
+---
+
+## Show Built-In Commands
+
+Show a list of all built-in commands in the language:
+```bash
+enable
+```
+
+Get a list of reserved keywords in bash:
+```bash
+compgen -k
+```
+
+---
+
+## PATH Variable
+
+bash's PATH variable contains a list of directories where bash will, by default, look for executable programs.
+
+Display the contents of PATH:
+```bash
+echo $PATH
+```
+
+Add a directory to the PATH
+```bash
+PATH=$PATH:/Users/foo/Downloads/spyware
+```
+
+---
+
+## Time Keeping
+
+The `time` command can help determine how long processes take to execute.  It reports:
+- **real time** - time the process took in minutes / seconds
+- **user time** - CPU time used to execute the process
+- **system time** - CPU time used by the kernel in order to run the process (i.e. running a process includes some kernel overhead)
+
+Measure the time taken by the `ls -la` command:
+```bash
+time ls -la
+```
+
+Add a directory to the PATH
+```bash
+PATH=$PATH:/Users/foo/Downloads/spyware
+```
+
+## Pipes
+
+Pipes allow the output of one program to serve as input for another
+
+List only .txt files in the current working directory:
+```bash
+ls -l | grep "\.txt$"
+```
+
+Swap all vowels in a file listing with 'u'
+```bash
+ls -l | sed -e "s/[aeio]/u/g"
+```
+
+---
+
+class: center, middle
+name: programming
+
+# Programming
+
+---
+
+## Variables
+
+Variable assignments must not have spaces around the = sign:
+```bash
+some_variable_name="this is a string"
+```
+
+Read value of a variable with a $ in front of variable name
+```bash
+echo the value of some_variable_name is $some_variable_name
+```
+
+---
+
+## Exporting Variables
+
+A copy of a variable defined within a script can be copied into your command-line environment, which makes it available to any other scripts you run
+```bash
+export some_variable_name
+```
+
+Functions can also be exported
+```bash
+export -f some_function_name
+```
+
+See what has been exported to the command-line:
+```bash
+export
+```
+
+---
+
+## Aliases
+
+Aliases allow you to set other names for common commands.
+
+```bash
+ll="ls -l"
+```
+
+To execute a command alias:
+```bash
+$ll
+```
+
+See all aliases set in the shell
+```bash
+alias
+```
+
+---
+
+## Conditionals
+
+bash supports the usual if/else if/else controls:
+
+```bash
+#!/bin/bash
+T1="foo"
+T2="bar"
+if [ "$T1" == "$T2" ]; then
+    echo expression evaluated as true
+else
+    echo expression evaluated as false
+fi
+```
+
+---
+
+## Conditionals
+
+bash supports both `for` and `while` loops:
+
+```bash
+#!/bin/bash
+for i in $( ls ); do
+    echo item: $i
+done
+```
+
+```bash
+#!/bin/bash 
+COUNTER=0
+while [  $COUNTER -lt 10 ]; do
+	echo The counter is $COUNTER
+	let COUNTER=COUNTER+1 
+done
+```
+
+---
+
+## Functions
+
+A function with a local variable:
+```bash
+#!/bin/bash
+HELLO=Hello 
+function hello {
+        local HELLO=World
+        echo $HELLO
+}
+echo $HELLO
+hello
+echo $HELLO
+```
+
+A function with an argument:
+```bash
+#!/bin/bash 
+function e {
+    echo $1 
+}  
+e Hello
+e World
+```
+
+---
+
+class: center, middle
+name: grouping
+
+# Grouping
+
+---
+
+## Parentheses
+
+Commands grouped within parentheses are separate processes. Variables defined within the sub-process are not shared with the parent process.
+```bash
+a=1
+(
+a=2
+)
+echo $a
+# prints 1
+```
+
+---
+
+## Braces
+
+Commands grouped with braces do not spawn a sub-process, so variables therein are shared:
+```bash
+a=1
+{
+a=2
+}
+echo $a
+# prints 2
+```
+
+---
+
+class: center, middle
+name: automation
+
+# Automation
+
+---
+
+## Startup Scripts
+
+Bash is used for everyday automation by developers:
+- Every time a user logs into a user logs in, a bash script named `.bash_profile` is automatically run.
+- Every time a new command shell is started, a script named `.bash_rc` is automatically run.
+
+Place whatever bash commands you want in files by either of these names in your user account home directory in order to take advantage of this feature.
+
+---
+
+## Software Development Automation
+
+Agile Software Developers depend upon automation to simplify and speed up many pedestrian tasks.  For example, in "continuous integration" unit tests are automatically execute anytime the codebasse in version control is modified.
+
+A fragment of such a script that could be used in Jenkins, an automation tool:
+```bash
+#!/bin/bash
+if [[ $BRANCH_NAME == "master" ]] || [[ $BRANCH_NAME == "master_dev" ]]
+then
+    ./runUnitTests.sh $REPOSITORY_NAME $BASE_BUILD_CORE $BRANCH_NAME $BUILD_NUMBER || echo "The npm may fail but the report exists"
+fi
+```
