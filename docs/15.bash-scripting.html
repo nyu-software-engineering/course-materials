@@ -42,8 +42,8 @@ bash is the most commonly used shell for Unix/Linux
 ## Interfaces
 
 bash commands can be run in one of two ways:
-# entered idiosyncratically into the command line
-# saved into a file (usually given the .sh extension) and executed as a batch
+- entered idiosyncratically into the command line
+- saved into a file (usually given the .sh extension) and executed as a batch
 
 ---
 
@@ -130,7 +130,7 @@ PATH=$PATH:/Users/foo/Downloads/spyware
 
 ---
 
-## Time Keeping
+## Time-Keeping
 
 The `time` command can help determine how long processes take to execute.  It reports:
 - **real time** - time the process took in minutes / seconds
@@ -142,10 +142,7 @@ Measure the time taken by the `ls -la` command:
 time ls -la
 ```
 
-Add a directory to the PATH
-```bash
-PATH=$PATH:/Users/foo/Downloads/spyware
-```
+---
 
 ## Pipes
 
@@ -240,10 +237,11 @@ fi
 
 ---
 
-## Conditionals
+## Loops
 
 bash supports both `for` and `while` loops:
 
+For:
 ```bash
 #!/bin/bash
 for i in $( ls ); do
@@ -251,6 +249,7 @@ for i in $( ls ); do
 done
 ```
 
+While:
 ```bash
 #!/bin/bash 
 COUNTER=0
@@ -353,3 +352,15 @@ then
     ./runUnitTests.sh $REPOSITORY_NAME $BASE_BUILD_CORE $BRANCH_NAME $BUILD_NUMBER || echo "The npm may fail but the report exists"
 fi
 ```
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+Thank you. Bye.
