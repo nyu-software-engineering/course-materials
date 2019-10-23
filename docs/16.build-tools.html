@@ -161,12 +161,26 @@ Make, included in UNIX starting in 1976, and the many automation tools derived f
 
 It was created to solve the all-too-common problem of developers wasting time debugging builds where the problem was human error in performing the build, not software bugs in the code.
 
+Key features:
+- used primarily for C and C++ development, but can be used as generaal purpose automation tool
+- build script written in an idiosyncratic script file named `Makefile`
+- allows multiple build targets
+- tracks dependencies
+- performs minimal recompilation
+
 ---
 
 ## Ant
 
 Apache Ant, begun in 2000, is a popular automated build tool that was designed explicitly to address some of the shortcomings of Make for Java builds.
 
+Key features:
+- open source
+- build scripts written in XML in a file named `build.xml`
+- supports same basic functionality as Make, but...
+- is platform-agnostic, unlike Make
+- contains a built-in recognition of common steps in building Java projects, unlike Make
+- integrates with unit testing frameworks, such as JUnit
 
 ---
 
@@ -174,9 +188,14 @@ Apache Ant, begun in 2000, is a popular automated build tool that was designed e
 
 Apache Maven is a successor to Apache Ant, initially released in 2004, that aims to address some of Ant's shortcomings, plus adding some additional features. 
 
-Like Ant, Maven scripts are written in XML.
-
-Unlike Ant, Maven takes a "convention over configuration" point of view.
+Key features:
+- open source
+- build scripts written in XML in a file named `pom.xml`
+- supports same basic functionality as Ant, but...
+- unlike Ant, Maven takes a "**convention over configuration**" approach
+- supports multiple languages, not just Java (although in reality it is mostly used for Java)
+- plug-in architecture allows 3rd-party tools to be integrated into Maven builds
+- maintains a repository of plug-ins for easy discovery and installation
 
 ---
 
@@ -184,11 +203,11 @@ Unlike Ant, Maven takes a "convention over configuration" point of view.
 
 Gradle is [yet another] open source build automation tool primarily focused on Java projects. 
 
-It has many similarities to Maven and Ant before it, and a few improvements:
-- build scripts can be written in Groovy, not Java or XML
-- integrates with Ant and Maven scripts, if those are necessary
--
-
+Key features:
+- open source
+- build scripts written in Groovy in a file named `build.gradle`
+- supports same basic functionality as Maven, but...
+- easier to customize a build than in Maven
 
 ---
 
@@ -196,7 +215,22 @@ It has many similarities to Maven and Ant before it, and a few improvements:
 
 Grunt is a Javascript-specific build automation tool, started in 2012, that can be setup to automate repetitive build-related tasks like minification of code, compilation, unit testing, code linting, etc.
 
-Key difference: written in and used for Javascript.
+Key features:
+- open source
+- build scripts written in Javascript in a file named `Gruntfile`
+- attempts to bring the joy of Ant/Maven/Gradle-style automated builds specifically into the world of Javascript projects.
+
+---
+
+## NPM
+
+In many ways, Node Package Manager (NPM) itself can be considered a build tool.
+
+NPM includes:
+- tracking dependencies (in the package.json file)
+- automated builds (by running `npm install`)
+- integration with unit testing (by adding a `test` script to package.json)
+- allows any arbitrary script to be run (by adding scripts to package.json)
 
 ---
 
