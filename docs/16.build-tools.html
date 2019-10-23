@@ -1,0 +1,211 @@
+---
+layout: presentation
+title: System Build Tools
+permalink: /build-tools/
+---
+
+class: center, middle
+
+# Build Tools
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. [Overview](#overview)
+2. [Common Features of Build Tools](#features)
+3. [Stages](#stages)
+4. [Continuous Integration](#continuous-integration)
+5. [Popular Build Tools](#popular-build-tools)
+6. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: overview
+
+# Overview
+
+---
+
+## Concept
+
+System building is the process of creating complete, executable system by compiling and linking the system components, external libraries, configuration files, and other information. 
+
+---
+
+## Challenge
+
+System building must take into account many complex environmental and programmatic factors, and steps must often be performed in a particular sequence in order for the build to succeed. 
+
+---
+
+## Solution
+
+Automated build tools are generally necessary to handle the complexity. 
+
+---
+
+class: center, middle
+name: features
+
+# Common Features of Build Tools
+
+---
+
+## Build Script Generation
+
+The build system should analyze the program that is being built, identify dependent components, and automatically generate a build script (configuration file). 
+
+The system should also support the manual creation and editing of these build scripts.
+
+---
+
+## Version Control Integration
+
+The build system should be able to check out the required versions of components from a version control system.
+
+---
+
+## Minimal Recompilation
+
+The build system should work out what source code needs to be recompiled and set up compilations as necessary.
+
+---
+
+## Executable System Creation
+
+The build system should link the compiled object code files with each other and with other required files, such as libraries and configuration files, to create an executable system
+
+---
+
+## Test Automation
+
+Build systems should be able to integrate with test automation tools such as xUnit other similar unit testing tools which check that the build has not been "broken" by the changes.
+
+---
+
+## Reporting
+
+The build system should provide reports about the success or failure of the build and the tests that have been run.
+
+---
+
+## Documentation Generation
+
+The build system may be able to generate release notes about the build and system help pages automatically.
+
+---
+
+class: center, middle
+name: stages
+
+# Stages
+
+---
+
+## Developer's Machine
+
+Developers may wish to test and build locally before performing the 'official' build. 
+
+They will typically check out the latest version from the version control system and try to build it locally.
+
+The developer's machine often differs significantly from the target machine that code will be deployed to.
+
+---
+
+## Build Server
+
+Used to build the definitive version of the system. 
+
+Should integrate with the version control system to build the latest.
+
+---
+
+## Target Machine 
+
+The platform on which the system is ultimately intended to execute. This may be significantly different from the development machines and build servers. 
+
+Keeping the developer's machines and the build server environment in close emulation of the Target Environment is a whole 'nother area of automation.
+
+In cases where the target machines differ significantly from the others, testing cannot be complete until done on a target machine.
+
+---
+
+class: center, middle
+name: continuous-integration
+
+# Continuous Integration
+
+---
+
+## Automated Build and Test
+
+Agile methodology promotes the practice of very frequent automated builds and automated testing once the build is done - such automated or semi-automated processes in the software engineering lifecycle are collectively known as **continuous integration** (CI).
+
+**Jenkins** and **Travis CI** are two popular tools for performing Continuous Integration - there are many others as well.
+
+---
+
+class: center, middle
+name: popular-build-tools
+
+# Popular Build Tools
+
+---
+
+## Make
+
+Make, included in UNIX starting in 1976, and the many automation tools derived from the original make, is considered a classic build automation tool. 
+
+It was created to solve the all-too-common problem of developers wasting time debugging builds where the problem was human error in performing the build, not software bugs in the code.
+
+---
+
+## Ant
+
+Apache Ant, begun in 2000, is a popular automated build tool that was designed explicitly to address some of the shortcomings of Make for Java builds.
+
+
+---
+
+## Maven
+
+Apache Maven is a successor to Apache Ant, initially released in 2004, that aims to address some of Ant's shortcomings, plus adding some additional features. 
+
+Like Ant, Maven scripts are written in XML.
+
+Unlike Ant, Maven takes a "convention over configuration" point of view.
+
+---
+
+## Gradle
+
+Gradle is [yet another] open source build automation tool primarily focused on Java projects. 
+
+It has many similarities to Maven and Ant before it, and a few improvements:
+- build scripts can be written in Groovy, not Java or XML
+- integrates with Ant and Maven scripts, if those are necessary
+-
+
+
+---
+
+## Grunt
+
+Grunt is a Javascript-specific build automation tool, started in 2012, that can be setup to automate repetitive build-related tasks like minification of code, compilation, unit testing, code linting, etc.
+
+Key difference: written in and used for Javascript.
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+Thank you. Bye.
