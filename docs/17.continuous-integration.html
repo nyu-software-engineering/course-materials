@@ -1,0 +1,264 @@
+---
+layout: presentation
+title: Continuous Integration
+permalink: /continuous-integration/
+---
+
+class: center, middle
+
+# Continuous Integration
+Agile Software Development & DevOps
+
+---
+
+# Agenda
+
+1. [Overview](#overview)
+4. [Typical Workflow](#ci-workflow)
+4. [Best Practices](#best-practices)
+5. [Travis CI](#travis-ci)
+6. [Software as a Service](#software-as-service)
+7. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: overview
+
+# Overview
+
+---
+
+## Concept
+
+As developers work on a project, they make changes.  
+
+Every time a change is made, there is a risk of bugs being introduced.
+
+In order to discover bugs, the software must be periodically built and tested.
+
+**Continous Integration (CI)** is the automated process of building and testing software everytime a component of the system changes.
+
+---
+
+## Benefits
+
+Automated Continuous Integration has several benefits:
+- uncover bugs more quickly through frequent builds, tests, and notifications
+- improve quality
+- reduce time to validate builds
+- reduce human labor costs
+
+---
+
+class: center, middle
+name: ci-workflow
+
+# Typical Workflow
+
+---
+
+## Version Control
+
+When a developer makes changes to a system, they typically check those changes into a version control system.
+
+A Continuous Integration pipeline will be notified (either by continually checking the version control logs, or by receiving an API call from the version control system) whenever a new change has been made.
+
+---
+
+## Build System
+
+Once a change to the version control repository has been detected, the Continous Integration pipeline will automatically trigger a new build to begin in order to be able to test the system once the build is done.
+
+Build Systems typically remove any artefacts from previous builds, and assemble the system from scratch.
+
+Builds can occur on a developer's local machine, on a build server, or even on the target production server.
+
+In a Continuous Integration pipeline, the build system then triggers the testing framework to begin.
+
+---
+
+## Testing Framework
+
+Once a fresh build is complete, the testing framework will run automated tests on the system.
+
+Unit Tests, Integration Tests, System Tests, and any other tests that support automation can all be executed.
+
+Once testing is complete, developers are notified of the success or failure of all tests.
+
+---
+
+## Notifications
+
+Developers are notified, immediately upon completion of the build and test phases, whether each of the steps succeeded or failed.
+
+With most Continuous Integration tools, notifications can be sent via 
+- email
+- SMS
+- Slack messages
+- notification apps
+- calls to any arbitrary API endpoint for custom notifications or follow-up automated steps
+
+---
+
+## Badges
+
+In popular project management tools such as GitHub, badges automatically posted to a repository's README.md can indicate the last known success or failure of the build and tests for all to see.
+
+![Continuous Integration badges](../images/continuous_integration_badges.png)
+
+---
+
+class: center, middle
+name: best-practices
+
+# Best Practices
+
+---
+
+## Commit small changes
+Committing small changes to version control limits the scope of what has changed so failures in building or testing are more quickly identified and remedied.
+
+---
+
+## You break it, you fix it!
+If a given developer has broken the build, it is their responsibility to fix it.
+
+Developers should expect to always be on call to fix broken builds.
+
+---
+
+## Test the right stuff
+It's common to miss obvious bugs because automated unit and integration tests have poor code coverage or test the wrong things.
+
+---
+
+## Plan on producing a status, a log, and an artefact.
+- the result is whether the build succeeded or failed
+- the log contains a list of the steps that were completed in the build, and the results of all tests
+- the artifact is the resultant system, which can be uploaded to a server and tagged with an automatically incrementing build number
+
+---
+
+class: center, middle
+name: travis-ci
+
+# Travis CI
+
+---
+
+## Hosted continuous integration service
+Travis CI is a proprietary hosted continuous integration web service with an especially attractive offer of free usage for open source GitHub repositories. 
+
+---
+
+## Virtual build servers
+When a change is detected in version control, Travis boots up a new virtual server.
+
+Travis clones the version control repository into the virtual machine, and performs the build and test.
+
+---
+
+## Key features
+- hosted continuous integration solution
+- free for open source projects
+- at its simplest, requires the addition of a configuration file to a repository
+- supports building and testing of many programming languages
+- integrates with other popular DevOps tools and practices
+
+---
+
+## Basic configuration
+Travis CI's build and test configuration is written in YAML (Yet Another Markup Language) and saved into a file named `.travis.yml` in the main directory of your project.
+
+Node.js example:
+```yaml
+language: node_js
+node_js:
+  - "node"
+  - "12"
+```
+
+Python example:
+```yaml
+language: python
+python:
+  - "3.4"
+  - "3.5"
+```
+
+---
+
+## More configuration
+In addition to basic configuration, Travis supports more detailed instructions and can run arbitrary code at various lifecycle points in the build.
+
+```yaml
+language: python
+python:
+  - "3.4"
+  - "3.5"
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - pytest
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master  
+```
+
+---
+
+## GitHub integration
+To link Travis CI to a GitHub repository, go to [travis-ci.com](https://travis-ci.com). 
+
+Follow the instructions there to link to a GitHub repository. You will be asked to authorize the app on GitHub, and then can modify settings within the travis web app. The setup is relatively straightforward.
+
+As a best practice, have Travis CI perform automated builds on pull requests. This allows the pull request reviewer to be sure the code builds and passes automated tests prior to merging the code.
+
+---
+
+## Slack integration
+Travis CI can send notifications to Slack indicating the results of the latest build. To do so, the Travis CI app must be authorized for the given Slack workspace - this can be done by your instructor.
+
+Posting build results to Slack with every commit to every project will quickly eat up message limits for workspaces with Slack's free-tier pricing.
+
+---
+
+## Badges
+You can embed build status badges that Travis will use to automatically show the latest status of your build into your README.md.
+
+The URLs for status images are shown on your Travis CI Repository page:
+1. Click the status image in the top right to open a dialog box containing common templates for the status image URL in markdown, html, etc.
+2. Copy the Markdown and paste it into the README.md.  Commit this change to GitHub.
+
+---
+
+class: center, middle
+name: software-as-service
+
+# Software as a Service
+
+---
+
+## Badges
+Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in-hand with Software as a Service (SaaS). 
+
+SaaS systems are deployed not to the customers' local machines, but to the software distributor's own servers. 
+
+Doing so allows the software distributor to maintain control and ownership of software at all times while granting access to the software to customers / end-users, rather than actually deploying software on customers' own machines. 
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+Thank you. Bye.
