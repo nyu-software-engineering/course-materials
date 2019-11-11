@@ -16,6 +16,11 @@ Agile Software Development & DevOps
 1. [Overview](#overview)
 2. [History](#history)
 3. [Criticisms](#criticisms)
+4. [Creational](#creational)
+5. [Structural](#structural)
+6. [Behavioral](#behavioral)
+7. [Conclusions](#conclusions)
+
 
 
 ---
@@ -61,7 +66,7 @@ name: history
 
 ## Philosophy
 
-Seneca The Younger spoke of patterns circa 65 AD in his letter to his friend, Lucilius, now known as "[On Sharing Knowledge](https://en.m.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_6)":
+Seneca The Younger spoke of the value of abstract patterns versus their concrete implementations circa 65 AD in his letter to his friend, Lucilius, now referred to as "[On Sharing Knowledge](https://en.m.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_6)":
 > The way is long if one follows precepts, but short and helpful, if one follows patterns.
 
 ---
@@ -107,6 +112,99 @@ A common criticism of Design Patterns is that their necessity indicates flaws in
 
 Another criticism holds that Design Patterns can lead to overly complex and verbose code, when a simpler unpatterned solution might be simpler and easier to maintain.
 - [Read more about this view](https://web.archive.org/web/20120224000044/http://parand.com/say/index.php/2005/07/18/i-hate-patterns/)
+
+---
+
+class: center, middle
+name: creational
+
+# Creational
+
+---
+
+## Prototype
+
+A fully initialized instance to be copied or cloned.
+
+Useful when the setup of an object is time/resource consuming, and you do not want to repeat it more than once, if possible.
+
+---
+
+## Builder
+
+Separates object construction from its representation. 
+
+The builder pattern provides a simple interface to create an object that actually has a complex structure.
+
+Useful when there's a complex object structure that is complicated to build.
+
+---
+
+## Singleton
+
+A class of which only a single instance is allowed to exist.
+
+Useful when you need only one object of that class to exist.
+
+---
+
+class: center, middle
+name: structural
+
+# Structural
+
+---
+
+## Proxy
+
+An object representing another object. It's an imposter! Hides the complexity of the object it represents.
+
+Example: credit card is a proxy for a bank account.
+
+---
+
+## Facade
+
+A single class that represents the entire subsystem.
+
+Useful for web applications. Reducing network calls. Reduces coupling (bewteen web layer and back-end). Helps rollback all steps if one fails.
+
+---
+
+## Decorator
+
+Adds responsibility to objects dynamically. Makes it easy to add behavior at runtime.
+
+---
+
+class: center, middle
+name: behavioral
+
+# Behavioral
+
+---
+
+## Chain of responsibility
+
+A way of passing a request between a chain of objects.
+
+A message passes through a series of objects until one of them is able to handle it, at which point is doesn't get passed any further.
+
+---
+
+## Iterator
+
+Sequentially access the elements in a collection.
+
+Useful when the internal representation of a collection of objects isn't important, and you simply want to be able iterate through the objects in the collection.
+
+---
+
+## Observer
+
+A way of notifying a change to an object to a number of other objects. Objects can be registered to receive notifications.
+
+Situation: When one of the objects changes, it needs to let several of the other objects know.
 
 ---
 
