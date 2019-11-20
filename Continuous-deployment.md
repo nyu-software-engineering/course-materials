@@ -89,7 +89,7 @@ npm -v
 
 ## Install a few common modules globally
 Install the popular Node.js app manager, PM2.  This is used to keep a Node.js app running as a daemon and restarts it automatically if it crashes:
-	```bash
+```bash
 npm install -g pm2
 ```
 
