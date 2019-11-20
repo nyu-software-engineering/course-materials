@@ -514,9 +514,9 @@ Now that we know how to deploy a Node app, we can automate the process such that
 Automation servers, such as Travis CI or Jenkins, can easily trigger scripts to run when changes to the codebase are detected.
 
 These automation tools can run a bash script that you add to your repository which...
-# connects via SSH to the web server
-# pulls the latest code from github to the server
-# re-starts the web app
+1. connects via SSH to the web server
+1. pulls the latest code from github to the server
+1. re-starts the web app
 
 ---
 
@@ -536,6 +536,8 @@ class: center, middle
 In order to have your web app appear when a web browser visits your server on port 80 - the default port for HTTP web requests - you will need to set up `nginx` to act as a reverse proxy "front server".  
 
 `nginx` can direct all HTTP requests at port 80 to your node.js server to any port of your choosing.
+
+This is not necessary for continuous deployment, but puts a finishing touch to your work.
 
 ---
 
