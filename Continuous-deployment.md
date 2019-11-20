@@ -106,7 +106,9 @@ npm install -g http-server
 ## Try serving a simple web page
 
 Create a super-simple home page in a file named `index.html`:
+```bash
 echo "Hello World!" > index.html
+```
 
 Run the http-server module:
 ```bash

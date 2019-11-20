@@ -19,6 +19,10 @@ Agile Software Development & DevOps
 1. [SSH into a Digital Ocean Droplet](#ssh-digital-ocean)
 1. [Update CentOS](#update-centos)
 1. [Install Node.js on CentOS](#install-node)
+1. [Create a regular user account](#create-user)
+1. [Deploying](#deploying)
+1. [Deploying continuously](#continuous-deployment)
+1. [Install nginx reverse proxy server](#install-nginx)
 
 ---
 
@@ -52,7 +56,7 @@ name: production-environment
 ---
 
 ## Hosting levels
-There are several levels of hosting available for web applications, with many companies catering to each type
+There are several levels of hosting available for web applications, with many companies and services catering to each type
 - Shared hosting
 - Virtual Private Servers (VPS)
 - Dedicated machines
@@ -72,7 +76,7 @@ With shared hosting, a developer receives an account on a web server shared by h
 With VPS, a developer receives a virtual machine running on a physical machine shared by hundreds, if not thousands, of other users.
 - A step up from shared hosting
 - Developers usually have discretion to do whatever they want in their virtual machine
-- Each virtual machine runs in an isolated, sandboxed environment
+- Each virtual machine runs in an isolated, sandboxed environment, so one account is unaffected by resourcee usage of another
 
 ---
 
@@ -102,7 +106,7 @@ The world of cloud deployment is dominated by a few players:
 - Microsoft Azure
 - Google Cloud Platform
 
-These are industrial-strength hosting solutions with obtuse interfaces and extensive capabilities that may be overkill and intimidating for most ordinary mortals.
+These are industrial-strength hosting solutions with obtuse interfaces and extensive capabilities that may be overkill and intimidating for non-specialists.
 
 ---
 
@@ -124,7 +128,7 @@ Whereas IaaS provides the hardware and networking of a cloud deployment, PaaS pr
 - Platform.sh
 - Google App Engine
 
-From PaaS, developers receive an environment with software systems already setup with an appropriate inrastructure and they can simply get to work on a specific type of project development.
+From PaaS, developers receive an environment with platform systems already setup on an appropriate cloud compute and storage inrastructure and they can simply get to work on a specific type of project development.
 
 ---
 
@@ -144,9 +148,11 @@ We will create an account with the cloud provider, Digital Ocean and set up SSH 
 * Create a Droplet - select the cheapest plan with no extra options
 * Choose CentOS as the operating system
 
-* Disclaimer: I receive a referral fee if you end up paying for a Digital Ocean account, but it saves you money to use the referral.
+ * Disclaimer: I receive a referral fee if you end up paying for a Digital Ocean account, but using this link saves you money.
 
 ---
+
+name: create-ssh-public-key
 
 ## Create a local  SSH key
 Create an assymetric pair of keys locally (on your own computer):
@@ -156,7 +162,7 @@ ssh-keygen -t rsa
 
 Save the keys into the default file presented.  Do not set a password.
 
-This creates two keys in two files:
+This creates two keys in two files located within your user account's hidden `.ssh` directory:
 * id_rsa - your private key... never share this with anyone
 * id_rsa.pub - your public key... feel free to share this
 
@@ -170,7 +176,7 @@ The following example shows how to do this for a user named `foobar` on a Mac.
 cat /Users/foobar/.ssh/id_rsa.pub | pbcopy
 ```
 
-Now paste this into the Digital Ocean SSH Key page and save.
+Now paste this into your Digital Ocean account's `Security` / `SSH Keys` page and save.
 
 ---
 
@@ -181,6 +187,11 @@ With SSH keys in place on both your local machine and the Digital Ocean server, 
 ```
 ssh root@123.456.789
 ```
+
+---
+
+## Where we are
+You now have a virtual CentOS machine hosted on the cloud and can log into it from your own machine without a password.
 
 ---
 
@@ -246,6 +257,11 @@ yum -y install git
 
 ---
 
+## Where we are
+You now have an up-to-date CentOS server on the Cloud with some useful development tools.
+
+---
+
 class: center, middle
 name: install-node
 
@@ -282,10 +298,307 @@ npm -v
 
 ---
 
-## Install useful modules
+## Install an app manager
+Install the popular Node.js app manager, PM2.  This is used to keep a Node.js app running as a daemon and restarts it automatically if it crashes:
+```
+npm install -g pm2
+```
 
 ---
 
+## Have the app manager launch at system startup
+If you desire PM2 to launch automatically when the server boots up and start any Node.js applications it has been set to manage, the following command will output a command which you can copy/paste and run:
+```
+pm2 startup systemd
+```
+
+---
+
+## Try out a super-simple web server
+Install simple http server so we can quickly serve web pages for testing:
+```bash
+npm install -g http-server
+```
+
+---
+
+## Try loading a web page
+Create a super-simple home page in a file named `index.html`:
+```
+echo "Hello World!" > index.html
+```
+
+Run the http-server module:
+```
+http-server
+```
+
+Various IP addresses of the server should be displayed.  The address 127.0.0.1 is a private address that only refers to the server from the server itself - ignore it.  
+- Copy the next one, which is your IP address on the Internet.
+- Paste the IP address into the address bar of a web browser and hit Enter.
+
+---
+
+## Where we are
+You have now published a [super simple] Node.js web app on a CentOS machine living on The Cloud to The Web!
+
+You may now stop this server and delete the `index.html` file whenever you desire.
+
+---
+
+class: center, middle
+name: create-user
+
+# Create a regular user account
+
+---
+
+## Concept
+It is best practice to only use superadministrator accounts, such as `root`, when absolutely necessary.  
+
+Doing development while logged in as a superuser could facilitate avoidable accidents and could inadvertently introduce security vulnerabilities.
+
+We will create a "regular" user account for all developers.
+
+---
+
+## Create a new user account
+Create a regular user account that you will use to set up an app:
+```
+adduser foobar
+```
+
+---
+
+## Grant admin permissions
+Add this user to the group of administrators of this machine.  On CentOS, all users in the `wheel` group can use the `sudo` command to run commands as the `root` administrator user:
+```
+usermod -aG wheel foobar 
+```
+
+---
+
+## Set a password
+Set a password for this user.  Enter a password when prompted:
+```
+passwd fooobar
+```
+
+---
+
+## Switch to the regular user account
+Switch to the new user account:
+```
+sudo su - foobar
+```
+
+---
+
+## Discover who you really are
+```
+whoami
+```
+
+---
+
+## Navigate to home directory
+Change to this user's home directory:
+```
+cd ~
+```
+
+---
+
+## Set up SSH keys for the regular account
+Set up the SSH keys to allow connections without passwords to this account.  Only the user itself should be able to see this directory:
+```
+mkdir .ssh
+chmod 700 .ssh
+```
+
+Create a file inside that directory:
+```
+touch .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
+```
+
+Copy and paste the same [SSH public key](#create-ssh-public-key) from your local machine that you pasted into Digital Ocean's SSH key page into this `authorized_keys` file using a command-line text editor of your choice, such as vim or emacs.
+
+Save the file and quit the text editor.
+
+---
+
+## Log out of the server
+First return from the regular user account back to the root account:
+```
+exit
+```
+
+Log out of the server completely:
+```
+logout
+```
+
+Your command shell has now returned to your local machine.
+
+---
+
+## Log in as a regular user
+SSH again to the server as the regular user account.  Replace the example username and IP address below with your own:
+```
+ssh foobar@123.456.789
+```
+
+---
+
+## Where we are
+This server is now ready for you to develop and deploy a Node.js web app.
+
+---
+
+name: deploying
+class: center, middle
+
+# Deploying
+
+---
+
+## Concept
+We can deploy a node application to the server.
+
+---
+
+## Determine your server's IP address
+Determine your server's IP address using `ip addr` or `ifconfig` - from either command, you will see several IP addresses output by.  Ignore the `loopback` address, which simply represents the address of your server when it talks to itself, and look for the ethernet `eth0` addresss:
+```
+ip addr
+```
+
+---
+
+## Clone from GitHub
+Clone an application from GitHub
+```
+git clone https://your_github_repository_url.git
+```
+
+---
+
+## Start the Node app with PM2
+Start your application with PM2.
+```
+cd your_app_directory
+pm2 start npm -- start
+```
+
+---
+
+## Verify it works
+Point a web browser to your server's IP address with the port you are using to run Node.js.
+
+---
+
+name: continuous-deployment
+class: center, middle
+
+# Deploying continuously
+
+---
+
+## Concept
+Now that we know how to deploy a Node app, we can automate the process such that every time the master branch of our codebase changes, a script will update the code on the server and re-start it.
+
+---
+
+## Automation
+Automation servers, such as Travis CI or Jenkins, can easily trigger scripts to run when changes to the codebase are detected.
+
+These automation tools can run a bash script that you add to your repository which...
+# connects via SSH to the web server
+# pulls the latest code from github to the server
+# re-starts the web app
+
+---
+
+## DIY
+Create a bash script which automates deployment and have Travis CI run this script anytime the `master` branch is updated.
+
+---
+
+name: install-nginx
+class: center, middle
+
+# Install nginx reverse proxy server
+
+---
+
+## Concept
+In order to have your web app appear when a web browser visits your server on port 80 - the default port for HTTP web requests - you will need to set up `nginx` to act as a reverse proxy "front server".  
+
+`nginx` can direct all HTTP requests at port 80 to your node.js server to any port of your choosing.
+
+---
+
+## Other advantages of nginx
+Other advantages to using nginx are:
+- easy serving of cached *static files*, rather than running dynamic scripts in response to each request
+- easy setup of *https* instead of regular http for secure/encryptic requests/responses
+- easy set up of *load balancing*, where multiple instances of your server share the burden of responding to requests
+
+---
+
+## Install the EPEL repository
+First, we must install the EPEL repository, which incluldes "extra packages for enterprise linux", including nginx:
+```
+ssh sudo yum install -y epel-release
+```
+
+---
+
+## Install nginx
+Install nginx:
+```
+ssh sudo yum install -y nginx
+```
+
+---
+
+## Start nginx
+Start nginx by using `systemctl` a process manager for system-related tools:
+```
+systemctl start nginx
+```
+
+Verify nginx starteed:
+```
+systemctl status nginx
+```
+
+Have nginx start automatically whenver the system reboots:
+```
+sudo systemctl enable nginx
+```
+
+---
+
+## Validate the nginx is working
+If you now use a web browser to navigate to `http://your_ip_address`, you should see a message that `nginx` has been installed and is running.
+
+--- 
+
+## nginx settings
+By default, nginx serves files located in the `/usr/share/nginx/html` directory.  You can place files in that directory to publish them.  To change this server root directory, edit the configuration in `/etc/nginx/conf.d/default.conf`.
+
+Nginx can host multiple web servers, known as Virtual Hosts.  To set up virtual hosts, add new configuration files to `/etc/nginx/conf.d` - any files in this directory named `*.conf` are loaded when nginx is started.
+
+---
+
+## Where we are
+You are now ready to configure nginx to forward requests for port 80 to another port where your node.js app is running.
+
+---
+
+name: conclusions
 class: center, middle
 
 # Conclusions
