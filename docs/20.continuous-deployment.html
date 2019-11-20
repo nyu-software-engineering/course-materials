@@ -586,7 +586,7 @@ sudo systemctl enable nginx
 ## Validate the nginx is working
 If you now use a web browser to navigate to `http://your_ip_address`, you should see a message that `nginx` has been installed and is running.
 
---- 
+---
 
 ## nginx settings
 By default, nginx serves files located in the `/usr/share/nginx/html` directory.  You can place files in that directory to publish them.  To change this server root directory, edit the configuration in `/etc/nginx/conf.d/default.conf`.
@@ -597,6 +597,8 @@ Nginx can host multiple web servers, known as Virtual Hosts.  To set up virtual 
 
 ## Where we are
 You are now ready to configure nginx to forward requests for port 80 to another port where your node.js app is running.
+
+To do this, you must modify nginx's settings.
 
 ---
 
