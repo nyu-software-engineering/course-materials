@@ -15,6 +15,7 @@ Agile Software Development & DevOps
 
 1. [Overview](#overview)
 1. [A Brief History of Virtualization](#virtualization)
+1. [Containers in Detail](#containers)
 1. [Conclusions](#conclusions)
 
 ---
@@ -69,7 +70,44 @@ Virtual machines have protections against one consuming the resources of another
 ## Containers
 Containers are a refinement of the concept of a virtual machine.
 
-![Virtualization evolution](https://knowledge.kitchen/Introduction_to_containers#/media/File:Comparison_of_server_virtualization_systems.png)
+Containers only include the bare minimum environment setup necessary for the application they have hosted within them to run.
+
+![Virtualization evolution](https://knowledge.kitchen/mediawiki/images/d/d3/Comparison_of_server_virtualization_systems.png)
+
+---
+
+name: containers
+class: center, middle
+
+# Containers in Detail
+
+---
+
+## Image
+A container's configuration is specified in its "image"
+- images are the stuff from which containers are made
+- i.e. containers are instances of an image
+- creating a container is achieved by designing an image and instantiating it
+- a single image can be instantiated into many containers, which can then be run across many different machines, if desired
+
+---
+
+## Registry
+Registries :
+- a central server that hosts images
+- allow sharing of those images with teammates and/or the public
+- essentially the same concept as repositories in version control
+
+Examples:
+- [Docker Hub](https://hub.docker.com/) and [Docker Store](https://store.docker.com/)
+
+---
+
+## Security
+
+Containers do not run in total isolation from one-another.  This currently makes containers a bit less secure than more isolated environments.
+
+However, containers can improve the reliability of testing, since since testing, development, and deployment environments are all set up the same way - as reproducible, portable containers.
 
 ---
 
