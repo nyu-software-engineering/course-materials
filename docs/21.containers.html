@@ -29,7 +29,7 @@ name: overview
 
 ## Concept
 
-A container is a standardized, highly portable, self-contained virtual environment within which application code can run.
+A container is a small, standardized, portable, self-contained virtual environment within which application code can run.
 
 Containers represent a major evolutionary step in the history of system virtualization.
 
@@ -108,6 +108,15 @@ Examples:
 Containers do not run in total isolation from one-another.  This currently makes containers a bit less secure than more isolated environments.
 
 However, containers can improve the reliability of testing, since since testing, development, and deployment environments are all set up the same way - as reproducible, portable containers.
+- [Many traditional operations experts have concerns](https://www.youtube.com/watch?v=PivpCKEiQOQ)
+
+---
+
+## Automation
+
+Containers can be integrated with automation tools, such as Travis CI or Jenkins or via settings within container registries such as Docker Hub.
+- every time a build or some other automation is complete, a container containing all security tests can be run
+- see more on [linking GitHub to Docker](https://docs.docker.com/docker-hub/builds/link-source/) for [automated builds on commit](https://docs.docker.com/docker-hub/builds/#link-to-a-hosted-repository-service)
 
 ---
 
