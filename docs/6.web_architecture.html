@@ -722,9 +722,10 @@ A growing trend for scalable apps is the **microservices architecture**.
 
 ---
 
-template: microservices-5
+template: microservices
 name: microservices-6
 
+## Microservices architecture
 - Multiple single-purpose servers each handle a single discrete duty of the back-end. 
 
 ---
@@ -732,7 +733,21 @@ name: microservices-6
 template: microservices-6
 name: microservices-7
 
-- A "gateway" server coordinates the calls to the microservices and provides a unified interface to the client.
+- Each microservice has its own codebase maintained independently of the others.
+
+---
+
+template: microservices-7
+name: microservices-8
+
+- There is no need for all microservices to use the same technology stack.
+
+---
+
+template: microservices-7
+name: microservices-8
+
+- A "gateway API" server coordinates the calls to the microservices and provides a unified API to the client.
 
 ---
 
