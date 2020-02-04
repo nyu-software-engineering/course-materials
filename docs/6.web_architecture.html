@@ -479,6 +479,7 @@ Used to indicate interaative behaviors of a web page.
 template: front-end
 name: front-end-6
 
+## It's up to a client's interpretation
 A web browser client receives the HTML, CSS, and Javascript code from the server, and then interprets it.
 
 ![Client server responsibilities](../images/client_server_front_back_ends.png)
@@ -538,6 +539,7 @@ Back-end technologies are those languages or programs used to control the behavi
 template: back-end
 name: back-end-2
 
+## Server's control what the client views
 The server can be programmed to modify thee HTML, CSS, and Javascript code that is sent to the client in response to the request.
 
 ![Client server responsibilities](../images/client_server_front_back_ends.png)
@@ -658,19 +660,9 @@ template: databases
 name: databases-5
 
 ## Serverless databases
-A growing pattern is the "serverless architecture", where the server provides the initial front-end code to the client, but further data is sent/received by front-end Javascript directly to/from the database.
+A growing market is the "serverless database", where the server provides the initial front-end code to the client, but further data is sent/received by front-end Javascript directly to/from the database.
 
 ![Serverless databases](../images/client_server_databases_serverless.png)
-
----
-
-template: databases
-name: databases-6
-
-## Microservices architecture
-Serverless databases are increasingly used in a **microservices architecture**, where multiple servers and/or databases each handle discrete duties of the back-end that would in the past have been handled by a single **monolithic server** that handled all back-end duties.
-
-![Microservices](../images/client_server_microservices.png)
 
 ---
 
@@ -681,6 +673,72 @@ name: databases-6
 There are some limited data storage capabilities of web browsers, where data used by a web site is stored locally on the client machine.
 - **Cookies** - often used to store tracking codes that are secretly passed to the server in an HTTP header with every request
 - **LocalStorage** - often used to store larger block of data, such as web pagee content that can be displayed even when browser is offline
+
+---
+
+name: microserviecs
+
+# Monolithic vs microservices
+
+---
+
+template: microservices
+name: microservices-1
+
+## Monolithic architecture
+What we have been discussing until now is termed a **monolithic** architecture
+
+---
+
+template: microservices-1
+name: microservices-2
+
+- One server directly handles all back-end tasks
+
+---
+
+template: microservices-2
+name: microservices-3
+
+- The "traditional" architecture for web and mobile apps
+
+---
+
+template: microservices-3
+name: microservices-4
+
+- Over time, the codebase tends to grow *larger*, *more complex* and *tangled* and becomes difficult to maintain
+
+---
+
+template: microservices
+name: microservices-5
+
+## Microservices architecture
+A growing trend for scalable apps is the **microservices architecture**.
+
+![Microservices](../images/client_server_microservices.png)
+
+---
+
+template: microservices-5
+name: microservices-6
+
+- Multiple single-purpose servers each handle a single discrete duty of the back-end. 
+
+---
+
+template: microservices-6
+name: microservices-7
+
+- For example, one might handle authentication, while another might serve grades to authenticated student users.
+
+---
+
+template: microservices-7
+name: microservices-8
+
+- Multiple microservices communicate with one-another via public APIs.
 
 ---
 
