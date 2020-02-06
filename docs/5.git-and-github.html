@@ -584,14 +584,28 @@ Take the changes from one branch or repository and incorporate them into another
 template: merge
 name: merge-1
 
+- If both branches include recent changes to the same lines of code, `git` will inform you of a conflict.
+
+---
+
+template: merge-1
+name: merge-2
+
+- Any such merge conflicts must be manually resolved using your preferred editor.
+
+---
+
+template: merge-2
+name: merge-3
+
 ![Merge](../images/git_merge.png)
 
 ---
 
 template: merge
-name: merge-2
+name: merge-4
 
-A typical workflow:
+- A typical workflow:
 ```bash
 # download the latest code from the 'origin' remote, including any and all branches
 git fetch origin
@@ -612,20 +626,6 @@ git merge some-branch-name
 git branch -d some-branch-name
 
 ```
-
----
-
-template: merge
-name: merge-3
-
-If both branches include recent changes to the same lines of code, `git` will inform you of a conflict.
-
----
-
-template: merge-2
-name: merge-3
-
-- Any such merge conflicts must be manually resolved using your preferred editor.
 
 ---
 
