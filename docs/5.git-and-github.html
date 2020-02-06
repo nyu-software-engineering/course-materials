@@ -95,10 +95,12 @@ name: tiers
 template: tiers
 name: tiers-1
 
-Git version control depends upon three tiers, or three places where code is stored.
+Git version control depends upon three tiers, or three places where files are stored.
 - Working copy
 - Staging index 
 - Repository
+
+![Git tiers](../images/git_tiers.png)
 
 ---
 
@@ -118,36 +120,50 @@ name: tiers-3
 ---
 
 template: tiers-3
-name: tiers-3a
+name: tiers-4
 
 - Your 'normal' files you are familiar with.
 
 ---
 
+template: tiers-4
+name: tiers-35
+
+![Working tree](../images/git_working_tree.png)
+
+---
+
 template: tiers
-name: tiers-4
+name: staging-index
 
 ## Staging index
 A holding area for changes thata *might* be included in the project's official history.
 
 ---
 
-template: tiers-4
-name: tiers-5
+template: staging-index
+name: staging-index-1
 
 - Allows developers pick and choose which changed files to include in the next commit to the repository
 
 ---
 
-template: tiers-5
-name: tiers-6
+template: staging-index-1
+name: staging-index-2
 
 - [Read more](https://gitolite.com/uses-of-index.html) about some benefits of this
 
 ---
 
-template: tiers-6
-name: tiers-7
+template: staging-index-2
+name: staging-index-3
+
+![Staging index](../images/git_staging_index.png)
+
+---
+
+template: staging-index
+name: staging-index-4
 
 ```bash
 # add any changed files within the working directory to the staging index
@@ -156,8 +172,8 @@ git add .
 
 ---
 
-template: tiers-7
-name: tiers-8
+template: staging-index-4
+name: staging-index-5
 
 ```bash
 # add only one file to the staging index
@@ -167,29 +183,36 @@ git add my_staging_index_slide.md
 ---
 
 template: tiers
-name: tiers-8
+name: repository
 
 ## Repository
 The official history of the project, including the history of all committed files.
 
 ---
 
-template: tiers-8
-name: tiers-9
+template: repository
+name: repository-1
 
 - With each commit, changed files in the staging index are moved to the repository
 
 ---
 
-template: tiers-9
-name: tiers-10
+template: repository-1
+name: repository-2
 
 - A short message describes the chanes included in each commit
 
 ---
 
-template: tiers-10
-name: tiers-11
+template: repository-2
+name: repository-3
+
+![Repository](../images/git_repository.png)
+
+---
+
+template: repository
+name: repository-4
 
 ```bash
 # commit any files in the staging index to the repository
@@ -249,6 +272,12 @@ name: clone-3
 # clone a remote repository onto the local machine
 git clone https://github.com/your-github-handle/your-repository-name.git
 ```
+---
+
+template: clone
+name: clone-4
+
+![Clone](../images/git_clone.png)
 
 ---
 
@@ -274,6 +303,13 @@ name: fork-2
 
 ---
 
+template: fork
+name: fork-3
+
+![Fork](../images/git_fork.png)
+
+---
+
 template: terminology
 name: master
 
@@ -286,6 +322,13 @@ template: master
 name: master-1
 
 - The default line of code that all commits are placed into unless other branch lines are created.
+
+---
+
+template: master-1
+name: master-2
+
+![Master branch](../images/git_master.png)
 
 ---
 
@@ -314,19 +357,16 @@ name: branch-2
 template: branch-2
 name: branch-3
 
-```bash
-# see a list of all branches in the local repository
-git branch
-```
+![Feature branch](../images/git_branch.png)
 
 ---
 
-template: branch-3
+template: branch
 name: branch-4
 
 ```bash
-# create a new branch
-git branch experiment1
+# see a list of all branches in the local repository
+git branch
 ```
 
 ---
@@ -335,14 +375,24 @@ template: branch-4
 name: branch-5
 
 ```bash
+# create a new branch
+git branch experiment1
+```
+
+---
+
+template: branch-5
+name: branch-6
+
+```bash
 # switch to the new branch
 git checkout experiment1
 ```
 
 --
 
-template: branch-5
-name: branch-6
+template: branch-6
+name: branch-7
 
 ```bash
 # switch back to the master branch
@@ -380,7 +430,7 @@ name: remote-3
 
 ---
 
-template: remote-3
+template: remote
 name: remote-4
 
 ```bash
@@ -400,8 +450,8 @@ git remote add origin https://github.com/your-github-handle/your-repository-name
 
 ---
 
-template: remote-4
-name: remote-5
+template: remote-5
+name: remote-6
 
 ```bash
 # inform git of a remote and give it the nickname 'upstream'
@@ -429,6 +479,13 @@ name: pull-1
 template: pull-1
 name: pull-2
 
+![Pull](../images/git_pull.png)
+
+---
+
+template: pull
+name: pull-3
+
 ```bash
 # download any changes in the master branch from the 'origin' remote repository to the local repository
 git pull origin master
@@ -436,8 +493,8 @@ git pull origin master
 
 ---
 
-template: pull-2
-name: pull-3
+template: pull-3
+name: pull-4
 
 ```bash
 # download any changes in the master branch from the 'upstream' remote repository to the local repository
@@ -457,6 +514,13 @@ Upload changes from the local repository to a remote repository.
 template: push
 name: push-1
 
+![Push](../images/git_push.png)
+
+---
+
+template: push
+name: push-2
+
 ```bash
 # Upload any changs in the master branch from the local repository to the 'origin' remote repository
 git push origin master
@@ -464,8 +528,8 @@ git push origin master
 
 ---
 
-template: push-1
-name: push-2
+template: push-2
+name: push-3
 
 ```bash
 # Upload any changs in the master branch from the local repository to the 'upstream' remote repository
@@ -520,6 +584,13 @@ Take the changes from one branch or repository and incorporate them into another
 template: merge
 name: merge-1
 
+![Merge](../images/git_merge.png)
+
+---
+
+template: merge
+name: merge-2
+
 A typical workflow:
 ```bash
 # download the latest code from the 'origin' remote, including any and all branches
@@ -545,7 +616,7 @@ git branch -d some-branch-name
 ---
 
 template: merge
-name: merge-2
+name: merge-3
 
 If both branches include recent changes to the same lines of code, `git` will inform you of a conflict.
 
