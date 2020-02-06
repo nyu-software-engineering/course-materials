@@ -263,7 +263,7 @@ template: branch-2
 name: branch-3
 
 ```bash
-# see a list of all branches
+# see a list of all branches in the local repository
 git branch
 ```
 
@@ -332,6 +332,17 @@ template: remote-3
 name: remote-4
 
 ```bash
+# view a list of all currently known remotes
+git remote -v
+```
+
+---
+
+template: remote-4
+name: remote-5
+
+```bash
+# inform git of a remote and give it the nickname 'origin'
 git remote add origin https://github.com/your-github-handle/your-repository-name.git
 ```
 
@@ -341,6 +352,7 @@ template: remote-4
 name: remote-5
 
 ```bash
+# inform git of a remote and give it the nickname 'upstream'
 git remote add upstream https://github.com/some-other-github-handle/some-other-repository-name.git
 ```
 
@@ -351,7 +363,7 @@ name: pull
 
 ## Pull
 
-Download changes from a remote repository to the local repository.
+Download and merge any changes *in the current branch* from a remote repository to the local repository.
 
 ---
 
@@ -366,6 +378,7 @@ template: pull-1
 name: pull-2
 
 ```bash
+# download any changes in the master branch from the 'origin' remote repository to the local repository
 git pull origin master
 ```
 
@@ -375,22 +388,62 @@ template: pull-2
 name: pull-3
 
 ```bash
+# download any changes in the master branch from the 'upstream' remote repository to the local repository
 git pull upstream master
 ```
 
 ---
 
-# Git Terminology
-## Push
+template: terminology
+name: push
 
+## Push
 Upload changes from the local repository to a remote repository.
 
 ---
 
-# Git Terminology
-## Merge
+template: push
+name: push-1
 
+```bash
+# Upload any changs in the master branch from the local repository to the 'origin' remote repository
+git push origin master
+```
+
+---
+
+template: terminology
+name: merge
+
+## Merge
 Take the changes from one branch or repository and incorporate them into another branch or repository.
+
+---
+
+template: merge
+name: merge-1
+
+A typical workflow:
+```bash
+# download the latest code from the 'origin' remote, including any and all branches
+git fetch origin
+
+# switch to a branch whose code you want to merge into the master branch
+# add the `-b` flag if this branch has not yet been created before
+git checkout some-branch-name
+
+# make some chages to the code in this branch, if desired using your preferred editor
+
+# switch back to the master branch
+git checkout master
+
+# incorporaate any changes in the branch into the code in the master branch
+git merge some-branch-name
+
+# delete the branch now that we're done with it
+git branch -d some-branch-name
+
+```
 
 ---
 
