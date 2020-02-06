@@ -26,7 +26,6 @@ Agile Software Development & DevOps
 
 ---
 
-class: center, middle
 name: introductions
 
 # Introductions
@@ -37,8 +36,9 @@ name: introductions
 ## Git
 
 The world's most popular open source version control system.
-- Distributed
-- Repository versioning
+- **Distributed** - all developers maintain and share the code in their own local repositories, with no single central authority.
+- **Repository versioning** - a new version number is issued for the repository as a whole, even when only one file has changed.
+- Created by **Linus Torvalds** to help Linux kernel developers collaborate
 
 ---
 
@@ -46,19 +46,20 @@ The world's most popular open source version control system.
 ## GitHub
 
 A web app used for hosting remote Git repositoriess.
-- Gives public open-source projects free hosting
-- Owned by Microsoft
+- Free hosting of public open-source projects
+- Free hosting of private projects for students (or so I hear)
+- Acquired by Microsoft for $7.5 billion in 2018
 
 ---
 
-class: center, middle
 name: tiers
 
 # Three-Tier Model
 
 ---
 
-# Three-Tier Model
+template: tiers
+name: tiers-1
 
 Git version control depends upon three tiers, or three places where code is stored.
 - Working copy
@@ -67,30 +68,83 @@ Git version control depends upon three tiers, or three places where code is stor
 
 ---
 
-# Three-Tier Model
-## Working copy
+template: tiers
+name: tiers-2
 
+## Working copy
 The copy of the files that a developer works on.  
 
-Not tracked by git.
+---
+
+template: tiers-2
+name: tiers-3
+
+- Not tracked by git.
 
 ---
 
-# Three-Tier Model
+template: tiers
+name: tiers-4
+
 ## Staging index
-
-Files placed here are tracked and ready to be committed to the repository, if desired.
+A holding area for changes thata *might* be included in the project's official history.
 
 ---
 
-# Three-Tier Model
-## Repository
+template: tiers-4
+name: tiers-5
 
+- Allows developers pick and choose which changed files to include in the next commit to the repository
+
+---
+
+template: tiers-5
+name: tiers-6
+
+- [Read more](https://gitolite.com/uses-of-index.html) about some benefits of this
+
+---
+
+template: tiers-6
+name: tiers-7
+
+```bash
+git add .
+```
+
+---
+
+template: tiers
+name: tiers-8
+
+## Repository
 The official history of the project, including the history of all committed files.
 
 ---
 
-class: center, middle
+template: tiers-8
+name: tiers-9
+
+- With each commit, changed files in the staging index are moved to the repository
+
+---
+
+template: tiers-9
+name: tiers-10
+
+- A short message describes the chanes included in each commit
+
+---
+
+template: tiers-10
+name: tiers-11
+
+```bash
+git commit -m "Updating slide about git repositories"
+```
+
+---
+
 name: terminology
 
 # Git Terminology
@@ -176,7 +230,6 @@ Take the changes from one branch or repository and incorporate them into another
 
 ---
 
-class: center, middle
 name: local-repository
 
 # Creating a Local Repository
@@ -221,7 +274,6 @@ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 
 ---
 
-class: center, middle
 name: tracking
 
 # Tracking Changes with the Local Repository
@@ -248,7 +300,6 @@ git add .
 
 ---
 
-class: center, middle
 name: committing
 
 # Committing Changes to the Local Repository
@@ -272,7 +323,6 @@ git commit -m 'resolving bug #23'
 
 ---
 
-class: center, middle
 name: sharing
 
 # Sharing Changes with Other Developers
@@ -304,7 +354,6 @@ git push
 
 ---
 
-class: center, middle
 name: conflicts
 
 # Merge Conflicts
@@ -327,7 +376,6 @@ Git will merge code automatically, if possible, and ask the developer to do it t
 
 ---
 
-class: center, middle
 
 # Configuration
 
@@ -364,7 +412,6 @@ Example: https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f
 
 ---
 
-class: center, middle
 name: conclusions
 
 # Conclusions
