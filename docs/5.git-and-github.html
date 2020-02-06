@@ -644,6 +644,7 @@ A local repository can be created in one of two ways:
 ---
 
 template: local-repository
+name: local-repository-1
 
 ## From scratch
 
@@ -655,7 +656,8 @@ git init
 
 ---
 
-template: local-repository
+template: local-repository-1
+name: local-repository-2
 
 ## From scratch
 
@@ -666,7 +668,7 @@ git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git
 
 ---
 
-template: local-repository
+template: local-repository-2
 
 ## As a clone of another repository
 
@@ -683,6 +685,7 @@ name: tracking
 ---
 
 template: tracking
+name: tracking-1
 
 Changes in the Working Copy (adding, modifying, or deleting files) are not tracked.
 
@@ -690,7 +693,8 @@ Files must be added to the staging index in order to be tracked.
 
 ---
 
-template: tracking
+template: tracking-1
+name: tracking-2
 
 ## Add files to the staging index
 
@@ -710,6 +714,7 @@ name: committing
 ---
 
 template: committing
+name: committing-1
 
 The staging index does not maintain the history of all changes.
 
@@ -717,7 +722,9 @@ Changes must be moved to the repository in order to be fully archived.
 
 ---
 
-template: committing
+template: committing-1
+name: committing-2
+
 ## Committing changes to the repository
 
 ```bash
@@ -764,6 +771,7 @@ name: conflicts
 ---
 
 template: conflicts
+name: conflicts-1
 
 Conflicts may occur in a number of scenarios:
 - When `pulling` code from a remote repository to a local repository.
@@ -773,7 +781,8 @@ Conflicts may occur in a number of scenarios:
 
 ---
 
-template: conflicts
+template: conflicts-1
+name: conflicts-2
 
 Git will merge code automatically, if possible, and ask the developer to do it themselves, if not.
 
