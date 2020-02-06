@@ -440,6 +440,41 @@ git push upstream master
 ---
 
 template: terminology
+name: fetch
+
+## Fetch
+Download *all branches* from a remote repository to the local repository.
+
+---
+
+template: fetch
+name: fetch-1
+
+- This can be useful to see changes made by others
+
+---
+
+template: fetch-1
+name: fetch-2
+
+```bash
+# download all branches from the 'origin' remote repository
+git fetch origin
+```
+
+---
+
+template: fetch-2
+name: fetch-3
+
+```bash
+# download all branches from the 'upstream' remote repository
+git fetch upstream
+```
+
+---
+
+template: terminology
 name: merge
 
 ## Merge
