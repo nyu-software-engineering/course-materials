@@ -24,7 +24,6 @@ Agile Software Development & DevOps
 
 ---
 
-class: center, middle
 name: motivations
 
 # Motivations
@@ -77,7 +76,6 @@ The need to allow developers to try out new directions or ideas without concern 
 
 ---
 
-class: center, middle
 name: repositories
 
 # Repositories
@@ -112,76 +110,78 @@ When multiple developers are collaborating using a centralized version control s
 
 ---
 
-class: center, middle
 name: trunk
 
 # Trunk
 
 ---
 
-# Trunk
+template: trunk
+name: trunk-1
 
 The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
-
 ---
 
-# Trunk
+template: trunk-1
+name: trunk-2
+
 ## Benefits
-
 Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
-
 ---
 
-# Trunk
-## Drawbacks
+template: trunk-2
+name: trunk-3
 
+## Drawbacks
 If developers work directly on the code in the trunk (known as 'trunk-based development') without a very careful workflow, bugs may appear in the trunk code, corrupting it.
 
 ---
 
-class: center, middle
 name: branches
 
 # Branches
 
 ---
 
-# Branches
+template: branches
+name: branches-1
 
 Branches represent variants of the code at any given point in time time.  They are departures from the main line in the repository.
-
 ---
 
-# Branches
+template: branches-1
+name: branches-2
+
 ## Benefits
-
 Those wary of working directly on the trunk often make changes in isolated branches, separate from the trunk, and then 'merge' the changes into the code in the trunk once they are sure they have no bugs.
-
 ---
 
-# Branches
+template: branches-2
+name: branches-3
+
 ## Drawbacks
 
 If multiple developers work independently in separate branches for long periods of time, they may end up in 'merge hell', where the trunk has changed drastically since the time when they started the offshoot branch.
 
 ---
 
-class: center, middle
-name: versioning-typese
+name: versioning-types
 
 # File vs. Repository Versioning
 
 ---
 
-# File vs. Repository Versioning
+template: versioning-types
 
 When a change is made to a file, a new version number is issued.
-- In *file versioning systems*, a new version number is issued only for the file that has been changed.
-- In *repository versioning systems*, a new version number is issued for the repository as a whole, even when only one file has changed.
+- In **file versioning systems**, a new version number is issued only for the file that has been changed.
+- In **repository versioning systems**, a new version number is issued for the repository as a whole, even when only one file has changed.
 
 ---
 
-# File vs. Repository Versioning
+template: versioning-types
+name: file-versioning
+
 ## File Versioning
 Each file in the repository has its own version number - so frequently changed files will typically have higher version numbers than stable files.
 
@@ -193,7 +193,9 @@ Each file in the repository has its own version number - so frequently changed f
 
 ---
 
-# File vs. Repository Versioning
+template: versioning-types
+name: repo-versioning
+
 ## Repository Versioning
 Any changes trigger a new version number of the entire repository.
 
@@ -205,41 +207,40 @@ Any changes trigger a new version number of the entire repository.
 
 ---
 
-class: center, middle
 name: centralization
 
 # Centralized vs. Distributed Versioning
 
 ---
 
-# Centralized vs. Distributed Versioning
+template: centralization
+name: centralization-1
 
 Version control systems can either allow for centralized or decentralized control:
-- In *centralized version control systems*, one repository maintains the single authoritive copy of the code at all times.
-- In *distributed version control systems*, all developers maintain and share the code in their own local repositories, with no single central authority.
-
+- In **centralized version control systems**, one repository maintains the single authoritive copy of the code at all times.
+- In **distributed version control systems**, all developers maintain and share the code in their own local repositories, with no single central authority.
 ---
 
-# Centralized vs. Distributed Systems
-## Centralized Systems
+template: centralization
+name: centralization-2
 
+## Centralized Systems
 ### Benefits
 - Avoid conflicts by usually requiring developers to "check out" a file to change it and then "check in" the file when done.
-
 ---
 
-# Centralized vs. Distributed Systems
-## Centralized Systems
+template: centralization-2
+name: centralization-3
 
 ### Drawbacks
 - Doesn't allow individual developers to track their own experiments before sharing them
 - Doesn't allow tracking while offline and disconnected from the central server.
-
 ---
 
-# Centralized vs. Distributed Systems
-## Distributed Systems
+template: centralization
+name: centralization-4
 
+## Distributed Systems
 ### Benefits
 - Allows each developer to track their own work with all the features of version control on their local machines.
 - Allows tracking while offline and disconnected from the central server.
@@ -247,15 +248,14 @@ Version control systems can either allow for centralized or decentralized contro
 
 ---
 
-# Centralized vs. Distributed Systems
-## Distributed Systems
+template: centralization-4
+name: centralization-5
 
 ### Drawbacks
 - Without a careful workflow, developers may fall out of sync with one-another, leading to 'merge hell'.
 
 ---
 
-class: center, middle
 name: examples
 
 # Examples
@@ -275,7 +275,6 @@ name: examples
 
 ---
 
-class: center, middle
 name: conclusions
 
 # Conclusions
