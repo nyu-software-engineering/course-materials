@@ -429,6 +429,16 @@ git push origin master
 
 ---
 
+template: push-1
+name: push-2
+
+```bash
+# Upload any changs in the master branch from the local repository to the 'upstream' remote repository
+git push upstream master
+```
+
+---
+
 template: terminology
 name: merge
 
@@ -461,6 +471,20 @@ git merge some-branch-name
 git branch -d some-branch-name
 
 ```
+
+---
+
+template: merge
+name: merge-2
+
+If both branches include recent changes to the same lines of code, `git` will inform you of a conflict.
+
+---
+
+template: merge-2
+name: merge-3
+
+- Any such merge conflicts must be manually resolved using your preferred editor.
 
 ---
 
