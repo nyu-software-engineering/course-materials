@@ -109,6 +109,7 @@ template: tiers-6
 name: tiers-7
 
 ```bash
+# add any changed files within the working directory to the staging index
 git add .
 ```
 
@@ -140,6 +141,7 @@ template: tiers-10
 name: tiers-11
 
 ```bash
+# commit any files in the staging index to the repository
 git commit -m "Updating slide about git repositories"
 ```
 
@@ -151,7 +153,8 @@ name: terminology
 
 ---
 
-# Git Terminology
+template: terminology
+name: terminology-1
 
 A few terms we must familiarize ourselves with.
 - Clone
@@ -159,52 +162,221 @@ A few terms we must familiarize ourselves with.
 - Master
 - Branch
 - Remote
-- Push
 - Pull
+- Push
 - Merge
 
 ---
 
-# Git Terminology
-## Clone
+template: terminology
+name: clone
 
-A new repository made by copying an existing repository.
+## Clone
+A new repository made by copying files from an existing repository.
+
+---
+
+template: clone
+name: clone-1
+
 - Typically involves creating a new local repository that is a copy of an existing remote repository.
+
+---
+
+template: clone-1
+name: clone-2
+
 - The new repository automatically keeps a link to the `origin` remote repository from which it came.
 
 ---
 
-# Git Terminology
-## Fork
+template: clone-2
+name: clone-3
 
+```bash
+# clone a remote repository
+git clone https://github.com/your-github-handle/your-repository-name.git
+```
+
+---
+
+template: terminology
+name: fork
+
+## Fork
 Not a Git term, but rather a term used by remote repository hosting providers such as GitHub.
 
-A fancy word for creating a remote clone of a remote repository.
+---
+
+template: fork
+name: fork-1
+
+- A fancy word for creating a remote [clone](#clone) of a remote repository.
 
 ---
 
-# Git Terminology
+template: fork-1
+name: fork-2
+
+- A fork of a GitHub repository creates a clone of that repository in the active user's own GitHub account
+
+---
+
+template: terminology
+name: master
+
 ## Master
-
-The term for the `trunk` line of code in Git.
-
-Git treats `master` as a branch with a special name.
+The Git term for the `trunk` line of code.
 
 ---
 
-# Git Terminology
+template: master
+name: master-1
+
+- The default line of code that all commits are placed into unless other branch lines are created.
+
+---
+
+template: terminology
+name: branch
+
 ## Branch
-
-The term for an offshoot of the `trunk` line of code in Git.
+The term for an offshoot of the `trunk` or `master` line of code.
 
 ---
 
-# Git Terminology
-## Remote
+template: branch
+name: branch-1
 
+- creating a branch allows developers to work on new code in isolation with no effect on the main `trunk` line.
+
+---
+
+template: branch-1
+name: branch-2
+
+- code in a branch can be `merged` into the trunk branch at any time, if desired
+
+---
+
+template: branch-2
+name: branch-3
+
+```bash
+# see a list of all branches
+git branch
+```
+
+---
+
+template: branch-3
+name: branch-4
+
+```bash
+# create a new branch
+git branch experiment1
+```
+
+---
+
+template: branch-4
+name: branch-5
+
+```bash
+# switch to the new branch
+git checkout experiment1
+```
+
+--
+
+template: branch-5
+name: branch-6
+
+```bash
+# switch back to the master branch
+git checkout master
+```
+
+---
+
+template: terminology
+name: remote
+
+## Remote
 A term used to mean a remote repository that the local repository is linked to.
+
+---
+
+template: remote
+name: remote-1
+
 - Typically, this refers to the remote repository from which a local repository was cloned.
-- Can be given nicknames, such as "origin" or "upstream"
+
+---
+
+template: remote-1
+name: remote-2
+
+- The nickname `origin` is usually used to refer to the original remote repository from which the local repository was cloned.
+
+---
+
+template: remote-2
+name: remote-3
+
+- The nickname `upstream` is also sometimes used to refer to a remote repository from which the `origin` repository was originally forked.
+
+---
+
+template: remote-3
+name: remote-4
+
+```bash
+git remote add origin https://github.com/your-github-handle/your-repository-name.git
+```
+
+---
+
+template: remote-4
+name: remote-5
+
+```bash
+git remote add upstream https://github.com/some-other-github-handle/some-other-repository-name.git
+```
+
+---
+
+template: terminology
+name: pull
+
+## Pull
+
+Download changes from a remote repository to the local repository.
+
+---
+
+template: pull
+name: pull-1
+
+- It's good practice to `pull` before you `push`.
+
+---
+
+template: pull-1
+name: pull-2
+
+```bash
+git pull origin master
+```
+
+---
+
+template: pull-2
+name: pull-3
+
+```bash
+git pull upstream master
+```
 
 ---
 
@@ -212,14 +384,6 @@ A term used to mean a remote repository that the local repository is linked to.
 ## Push
 
 Upload changes from the local repository to a remote repository.
-
----
-
-# Git Terminology
-## Pull
-
-Download changes from a remote repository to the local repository.
-- It's good practice to `pull` before you `push`.
 
 ---
 
