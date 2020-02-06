@@ -636,15 +636,14 @@ name: local-repository
 ---
 
 template: local-repository
+name: local-repository-1
 
-A local repository can be created in one of two ways:
-- From scratch
-- As a clone of another repository
+A local repository can be created in one of two ways.
 
 ---
 
-template: local-repository
-name: local-repository-1
+template: local-repository-1
+name: local-repository-2
 
 ## From scratch
 
@@ -656,10 +655,8 @@ git init
 
 ---
 
-template: local-repository-1
-name: local-repository-2
-
-## From scratch
+template: local-repository-2
+name: local-repository-3
 
 If you later decide to link a local repository to a remote repository:
 ```bash
@@ -668,7 +665,7 @@ git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git
 
 ---
 
-template: local-repository-2
+template: local-repository-3
 
 ## As a clone of another repository
 
@@ -724,8 +721,6 @@ Changes must be moved to the repository in order to be fully archived.
 
 template: committing-1
 name: committing-2
-
-## Committing changes to the repository
 
 ```bash
 git commit -m 'resolving bug #23'
@@ -834,5 +829,5 @@ name: conclusions
 
 template: conclusions
 
-Thank you. Bye.
-
+You now know the basics of using Git and its relationship to GitHub.
+- Thank you. Bye.
