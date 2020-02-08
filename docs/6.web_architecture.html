@@ -16,12 +16,13 @@ how the pieces fit together
 1. [The Internet](#internet)
 2. [The World Wide Web](#web)
 3. [Clients and Servers](#client-server)
-4. [Hypertext Transfer Protocol](#http)
-5. [Front-End Technologies](#front-end)
-6. [Back-End Technologies](#back-end)
-7. [Databases](#databases)
-7. [Monolithic vs Microservices Architectures](#microservices)
-8. [Conclusions](#conclusions)
+4. [Layered Architecture](#layered-architecture)
+5. [Hypertext Transfer Protocol](#http)
+6. [Front-End Technologies](#front-end)
+7. [Back-End Technologies](#back-end)
+8. [Databases](#databases)
+9. [Monolithic vs Microservices Architectures](#microservices)
+10. [Conclusions](#conclusions)
 
 ---
 
@@ -327,6 +328,53 @@ In peer-to-peer networks, such as [BitTorrent](https://en.wikipedia.org/wiki/Bit
 
 ---
 
+name: layered-architecture
+
+# Layered Architecture
+
+---
+
+template: layered-architecture
+name: layered-architecture-1
+
+## Overview
+- communication between clients and servers (or among peers) over the Internet is standardized
+
+---
+
+template: layered-architecture-1
+name: layered-architecture-2
+
+- a set of Internet Protocols control the languages used in these interactions
+
+---
+
+template: layered-architecture-2
+name: layered-architecture-3
+
+- these protocols are designed in a **layered architecture**, where protocols in each layer depend and upon the protocols in the layer directly below it.
+
+---
+
+template: layered-architecture
+name: layered-architecture-4
+
+## Diagram of layers
+
+![The Internet's layered architecture](../images/internet_layered_architecture.png)
+
+---
+
+template: layered-architecture-4
+name: layered-architecture-5
+
+- **HTTP** is concerned with properly generating requests and responses and sending them via TCP
+- **TCP** is used to ensure successful transmmission of request/response data from one computer to another using IP
+- **IP** makes sure data packets are packaged and addressed correctly
+- **Various networking protocols** are then used to pass the data along local and regional networks
+
+---
+
 name: http
 
 # Hypertext Transfer Protocol
@@ -475,16 +523,12 @@ name: front-end-3
 Used to indicate the content and semantic *meaning* of the content on a web page.
 
 ```html
-    <main>
-        <section>
-            <article>
-                <h1>Jaberwocky</h1>
-                <p id="p1">Twas brillig and the slithy toves did gyre and gimble in the wabe:</p>
-                <a id="more" href="#">click to see more</p>
-                <p id="p2">All mimsy were the borogoves, and the mome raths outgrabe.</p>
-            </article>
-        </section>
-    </main>
+<article>
+    <h1>Jaberwocky</h1>
+    <p id="p1">Twas brillig and the slithy toves did gyre and gimble in the wabe:</p>
+    <a id="more" href="#">click to see more</p>
+    <p id="p2">All mimsy were the borogoves, and the mome raths outgrabe.</p>
+</article>
 ```
 
 ---
