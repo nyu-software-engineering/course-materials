@@ -474,6 +474,19 @@ name: front-end-3
 ## HTML
 Used to indicate the content and semantic *meaning* of the content on a web page.
 
+```html
+    <main>
+        <section>
+            <article>
+                <h1>Jaberwocky</h1>
+                <p id="p1">Twas brillig and the slithy toves did gyre and gimble in the wabe:</p>
+                <a id="more" href="#">click to see more</p>
+                <p id="p2">All mimsy were the borogoves, and the mome raths outgrabe.</p>
+            </article>
+        </section>
+    </main>
+```
+
 ---
 
 template: front-end
@@ -482,6 +495,18 @@ name: front-end-4
 ## CSS
 Used to indicate the style and presentation of a web page.
 
+```css
+/* styles for the second paragraph */
+#p2 {
+    display: none; /* hide the second stanza by default */
+}
+
+/* styles for the link */
+#more {
+    color: red; /* make the text red */
+    text-decoration: none; /* remove the default underline from the link */
+}
+```
 ---
 
 template: front-end
@@ -489,6 +514,13 @@ name: front-end-5
 
 ## Javascript
 Used to indicate interaative behaviors of a web page.
+
+```javascript
+// when the link is clicked...
+$('#more').click(function() {
+    $('#p2').show(); // make the second stanza appear
+});
+```
 
 ---
 
