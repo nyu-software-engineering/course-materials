@@ -121,7 +121,7 @@ console.log(data); // expected output: [10, 'ha!', 30]
 ---
 
 template: basics
-name: output
+name: output-1
 
 ## Output to console
 `console.log()` outputs text to the console.
@@ -132,11 +132,21 @@ let stuff = 'some text'
 console.log('This is ' + stuff + '.''); // expected output: 'This is some text.'
 ```
 
+---
+
+template: output-1
+name: output-2
+
 Template syntax enapsulating a string with backtics
 ```javascript
 let stuff = 'some text'
 console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
 ```
+
+---
+
+template: output-2
+name: output-3
 
 Template syntax will accept any expression
 ```javascript
@@ -148,7 +158,7 @@ console.log(`The result is ${ x + y }.`); // expected output: 'The result is 15.
 ---
 
 template: basics
-name: for-loops
+name: for-loops-1
 
 ## For loops
 The expected behavior.
@@ -160,6 +170,11 @@ for (let i=1; i<6; i++) {
 }
 ```
 
+---
+
+template: for-loops-1
+name: for-loops-2
+
 ```javascript
 // infinite loop
 for (let i=1; true; i++) {
@@ -170,7 +185,7 @@ for (let i=1; true; i++) {
 ---
 
 template: basics
-name: while-loops
+name: while-loops-1
 
 ## While loops
 The expected behavior.
@@ -183,6 +198,11 @@ while (i < 6) {
     i++;
 }
 ```
+
+---
+
+template: while-loops-1
+name: while-loops-2
 
 ```javascript
 let i = 0;
@@ -209,6 +229,7 @@ const me = {
 };
 
 console.log(`My name is ${me.name}.`); // expected output: "My name is Foo Barstein"
+
 ```
 
 ---
@@ -226,6 +247,7 @@ robotMe.isRobot = true; // modify this new object in some way
 
 console.log(`me ${me.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
 console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
+
 ```
 
 ---
@@ -272,6 +294,11 @@ function doSomething1() {
 doSomething1(); // call the function
 ```
 
+---
+
+template: functions-1
+name: functions-2
+
 ```javascript
 // define a function the most simple way with two parameters
 function doSomething2(x, y) {
@@ -279,6 +306,11 @@ function doSomething2(x, y) {
 }
 doSomething2('hello', 'world'); // call the function with arguments
 ```
+
+---
+
+template: functions-2
+name: functions-3
 
 ```javascript
 // define a function the most simple way with two parameters and a return value
@@ -292,8 +324,42 @@ console.log( doSomething3('hello', 'world') ); // call the function and use its 
 ---
 
 template: functions
-name: functions-2
+name: functions-4
 
 ## Anonymous functions
 Functions in Javascript can be nameless.
 
+```javascript
+// define an anonymous function, but assign a variable to refer to it
+const doSomething1 = function () {
+    console.log('doSomething1 is running');
+}
+doSomething1(); // call the function
+```
+
+---
+
+template: functions-4
+name: functions-5
+
+```javascript
+// define an anonymous function with parameters, but assign a variable to refer to it
+const doSomething2 = function (x, y) {
+    console.log(`doSomething2 is running with x=${x} and y=${y}.`);
+}
+doSomething2('hello', 'world'); // call the function with arguments
+```
+
+---
+
+template: functions-5
+name: functions-6
+
+```javascript
+// define an anonymous function with parameters and a return value, but assign a variable to refer to it
+const doSomething3 = function (x, y) {
+    const msg = `doSomething3 is running with x=${x} and y=${y}.`;
+    return msg;
+}
+console.log( doSomething3('hello', 'world') ); // call the function and use its return value
+```
