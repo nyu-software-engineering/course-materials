@@ -652,6 +652,7 @@ template: destructuring
 name: destructuring-1
 
 ## Arrays
+Values in an array can be extracted into separate variables upon assignment:
 ```javascript
 // asssign the first two values in an array to two variables in one statement
 const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
@@ -662,6 +663,7 @@ const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 template: destructuring-1
 name: destructuring-2
 
+The remaining values can be lumped together:
 ```javascript
 const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
 ```
@@ -671,6 +673,7 @@ const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
 template: destructuring-2
 name: destructuring-3
 
+Function parameters can follow this same syntax:
 ```javascript
 function foo(a, b, ...args) {
     console.log(`a = ${a}`); // expected output: 10
@@ -686,7 +689,7 @@ template: destructuring
 name: destructuring-4
 
 ## Objects
-
+Values within an object can be destructured.
 ```javascript
 // destructuring can also be done with objects
 const person = {
@@ -701,42 +704,45 @@ const person = {
     } 
 };
 
-const {name, age} = person; // destructure the object to extract just name and age
+---
+
+template: destructuring-4
+name: destructuring-5
+
+```javascript
+const {name, age} = person; // name='Foo Barstein', age=72
 console.log(`name = ${name}`); // expected output: 'Foo Barstein'
 console.log(`age = ${age}`); // expected output: 72
-
 ```
 
 ---
 
 template: destructuring
-name: destructuring-5
+name: destructuring-6
 
 ## Objects
 
+Variable names do not need to match field names in the objects being destructured:
 ```javascript
-// variable names do not need to match field names in the objects being destructured
-const {name : fullName, age : apparentAge} = person;
+const {name : fullName, age : apparentAge} = person; // { fullName: 'Foo Barstein', apparentAge: 72 }
 console.log(`fullName = ${fullName}`); // expected output: 'Foo Barstein'
 console.log(`apparentAge = ${apparentAge}`); // expected output: 72
 ```
 
 ---
 
-template: destructuring-5
-name: destructuring-6
+template: destructuring-6
+name: destructuring-7
 
+Nested objects can be destructured as well:
 ```javascript
-// nested objects can be destructured as well
 const {
     email,
     address: {
         city // create a variable for this field only
     }
 } = person;
-console.log('\n-- Destructuring a nested object --')
 console.log(`email = ${email}`); // expected output: 'fb1258@teleworm.us'
 console.log(`city = ${city}`); // expected output: 'Beni Brahim''
 ```
-
 
