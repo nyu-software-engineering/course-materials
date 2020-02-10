@@ -71,6 +71,13 @@ name: overview-5
 template: overview-5
 name: overview-6
 
+- at least 5 different syntaxes for defining functions
+
+---
+
+template: overview-6
+name: overview-7
+
 - two very different common use-cases: client-side and server-side programming
 
 ---
@@ -420,7 +427,7 @@ name: arrow-functions-4
 Function syntax can be even further reduced.
 
 ```javascript
-// even further reduced syntax with implied return statement
+// even further reduced syntax for a function with only a return statement... so no curly braces required
 const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`;
 console.log( doSomething4('hello', 'world') ); // call the function and use its return value
 ```
@@ -431,8 +438,120 @@ template: arrow-functions-4
 name: arrow-functions-5
 
 ```javascript
-// even further reduced syntax with no parantheses around parameters
-const doSomething4 = x, y => `doSomething4 is running with x=${x} and y=${y}.`;
-console.log( doSomething4('hello', 'world') ); // call the function and use its return value
+// even further reduced syntax with no parentheses around a single parameter
+const doSomething5 = x => `doSomething5 is running with x=${x}.`;
+console.log( doSomething5('hello') ); // call the function and use its return value
 ```
+
+---
+
+template: arrow-functions-5
+name: arrow-functions-6
+
+```javascript
+// a special shorthand syntax for defining methods within objects
+const fido = {
+    name: "Fido",
+    breed: "Schnauzer",
+    bark(message) {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+
+```
+
+---
+
+name: arrays
+
+# Arrays
+
+---
+
+template: arrays
+name: arrays-1
+
+## Basics
+Arrays behave as expected.
+
+```javascript
+// generate an array from a string
+let fruits = "avocado,tomato,banana".split(",");
+console.log(`Do you love ${fruits[1]}?`); // output "Do you love tomato?"
+```
+
+---
+
+template: arrays-1
+name: arrays-2
+
+```javascript
+// add an element to an array
+fruits.push("pepper");
+```
+
+---
+
+template: arrays-2
+name: arrays-3
+
+```javascript
+// find index position of element by value
+const fruit = 'pepper';
+let pos = fruits.indexOf(fruit);
+console.log(`${fruit} is located in the array at index ${pos}.`);
+```
+
+---
+
+template: arrays-4
+name: arrays-5
+
+```javascript
+// delete last element from the array
+fruits.pop();
+```
+
+---
+
+template: arrays-5
+name: arrays-6
+
+```javascript
+// indexOf returns -1 if value not found in arraay
+pos = fruits.indexOf(fruit); // 'pepper' is no longer there, so -1 is returned
+console.log(`${fruit} is now located in the array at index ${pos}.`);
+```
+
+---
+
+template: arrays
+name: arrays-7
+
+## Map function
+Iterates through array values.
+```javascript
+// iterate through each value in array and pass it as an argument to a function
+fruits.map( (val) => {
+    console.log(`This fruit is ${val}!`);
+} );
+
+```
+
+---
+
+template: arrays
+name: arrays-8
+
+## Filter function
+Create a subset of an array.
+```javascript
+// create a new array with a subset of the original values
+fruits = fruits.filter( (val, i, arr) => {
+    return val != 'banana'; // returns true for all fruits except banana
+} );
+console.log(fruits);
+```
+
+
 
