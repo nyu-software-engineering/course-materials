@@ -1,0 +1,292 @@
+---
+layout: presentation
+title: Introduction to Javascript
+permalink: /javascript-intro/
+---
+
+class: center, middle
+
+# Introduction to Javascript
+for programmers of other languages
+
+---
+
+# Agenda
+
+1. [Overview](#overview)
+1. [The Basics](#basics)
+1. [Objects](#objects)
+1. [Functions](#functions)
+1. [Arrays](#arrays)
+1. [Using APIs](#apis)
+1. [Higher-Order Functions](#higher-order-functions)
+1. [Destructuring and Unpacking](#destructuring)
+1. [Importing & Exporting Modules](#modules)
+10. [Conclusions](#conclusions)
+
+---
+
+name: overview
+
+# Overview
+
+---
+
+template: overview
+name: overview-1
+
+## Concept
+Javascript, also known as ECMAScript, has a few unusual features that trouble programmers of other languages.
+
+---
+
+template: overview-1
+name: overview-2
+
+- loose typing of variables
+
+---
+
+template: overview-2
+name: overview-3
+
+- prototypal inheritance (no classes!)
+
+---
+
+template: overview-3
+name: overview-4
+
+- insular jargon like 'hoisting', 'closures', 'destructuring', and 'unpacking'
+
+---
+
+template: overview-4
+name: overview-5
+
+- two comparison operators, == and ===
+
+---
+
+template: overview-5
+name: overview-6
+
+- two very different common use-cases: client-side and server-side programming
+
+---
+
+name: basics
+
+# The Basics
+
+---
+
+template: basics
+name: variables
+
+## Variable declaration
+Three keywords to declare a variable:
+- **let** - for defining block-scoped variables
+- **const** - for defining block-scoped variables that cannot be reassigned to a new value
+- **var** - for defining function-scoped variables, or global variables if not declared within a function... present for legacy purposes and should not be used in new code
+
+---
+
+template: basics
+name: variables-1
+
+## Let example
+
+```javascript
+// non-constant variables are declared with the let keyword 
+let it = true; // it's true!
+it = (it) ? false : true; // reassign it to be its opposite using the ternary operator
+console.log(`It is ${it}!`); // expected output: 'It is true!'
+```
+
+---
+
+template: basics
+name: variables-2
+
+## Const example
+
+```javascript
+// constants are declared with the const keyword
+const data = [10, 20, 30];  // a variable that can't be reassigned!
+message[1] = 'ha!'; // but this is not variable reassignment!
+console.log(data); // expected output: [10, 'ha!', 30]
+```
+
+---
+
+template: basics
+name: output
+
+## Output to console
+`console.log()` outputs text to the console.
+
+Basic usage
+```javascript
+let stuff = 'some text'
+console.log('This is ' + stuff + '.''); // expected output: 'This is some text.'
+```
+
+Template syntax enapsulating a string with backtics (`)
+```javascript
+let stuff = 'some text'
+console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
+```
+
+Template syntax will accept any expression
+```javascript
+const x = 5;
+const y = 10;
+console.log(`The result is ${ x + y }.`); // expected output: 'The result is 15.'
+```
+
+---
+
+template: basics
+name: for-loops
+
+## For loops
+The expected behavior.
+
+```javascript
+// iterate 5 times
+for (let i=1; i<6; i++) {
+    console.log(`For loop iteration #${i}`);
+}
+```
+
+```javascript
+// infinite loop
+for (let i=1; true; i++) {
+    console.log(`For loop iteration #${i}`);
+}
+```
+
+---
+
+template: basics
+name: while-loops
+
+## While loops
+The expected behavior.
+
+```javascript
+// iterate 5 times
+let i = 1;
+while (i < 6) {
+    console.log(`While loop iteration #${i}`);
+    i++;
+}
+```
+
+```javascript
+let i = 0;
+while (true) {
+    console.log(`While loop iteration #${i}`);
+    i++;
+}
+```
+
+---
+
+template: basics
+name: objects-1
+
+## Instantiating objects
+Javascript objects are generally instantiated directly, without the need for a class.  
+
+```javascript
+const me = {
+    name: "Foo Barstein",
+    phone: "212-666-1212",
+    age: 63,
+    isRobot: false
+};
+
+console.log(`My name is ${me.name}.`); // expected output: "My name is Foo Barstein"
+```
+
+---
+
+template: basics
+name: objects-2
+
+## Objects can be extended by simply copying them
+Javascript uses prototypal inheritance, where one object uses another as the prototype from which it is based.
+
+```javascript
+// make a copy of an object - this is prototypal inheritance
+const robotMe = Object.create(me); // creates a new object based on the original prototype
+robotMe.isRobot = true; // modify this new object in some way
+
+console.log(`me ${me.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
+console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
+```
+
+---
+
+template: basics
+name: objects-3
+
+## Methods in objects
+The `this` keyword refers to the object a method is called on. The method is declared in a shorthand syntax
+
+```javascript
+// an object with a method belonging to it
+const fido = {
+    name: "Fido",
+    breed: "Schnauzer",
+    bark(message) {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+
+// call the bark method on the fido object
+fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
+```
+
+---
+
+name: functions
+
+# Functions
+
+---
+
+template: functions
+name: functions-1
+
+## Simple functions
+The `function` keyword.
+
+```javascript
+// define a function the most simple way
+function doSomething1() {
+    console.log('doSomething1 is running');
+}
+doSomething1(); // call the function
+```
+
+```javascript
+// define a function the most simple way with two parameters
+function doSomething2(x, y) {
+    console.log(`doSomething2 is running with x=${x} and y=${y}.`);
+}
+doSomething2('hello', 'world'); // call the function with arguments
+```
+
+```javascript
+// define a function the most simple way with two parameters and a return value
+function doSomething3(x, y) {
+    const msg = `doSomething3 is running with x=${x} and y=${y}.`;
+    return msg;
+}
+console.log( doSomething3('hello', 'world') ); // call the function and use its return value
+```
+
+
