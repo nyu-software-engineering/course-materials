@@ -19,7 +19,7 @@ for programmers of other languages
 1. [Functions](#functions)
 1. [Arrays](#arrays)
 1. [Higher-Order Functions](#higher-order-functions)
-1. [Destructuring and Unpacking](#destructuring)
+1. [Destructuring](#destructuring)
 1. [Importing & Exporting Modules](#modules)
 10. [Conclusions](#conclusions)
 
@@ -574,7 +574,6 @@ name: arrays-9
 ## Arrays of objects
 A common data format used by APIs to pass data between clients and servers.
 ```javascript
-// an array of objects, where each object represents a product for sale
 const products = [
    {
      id: 1,
@@ -641,3 +640,48 @@ name: higher-order-functions-3
 bar(foo, 5);
 ```
 
+---
+
+name: destructuring
+
+# Destructuring
+
+---
+
+template: destructuring
+name: destructuring-1
+
+Values within arrays and objects can be extracted into separate variables easily.
+
+Destructuring an array:
+```javascript
+// asssign the first two values in an array to two variables in one statement
+const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
+```
+
+---
+
+template: destructuring-1
+name: destructuring-2
+
+Also unpacking the rest:
+```javascript
+// do the same, but also lump the rest into a single array... 
+const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
+```
+
+---
+
+template: destructuring-2
+name: destructuring-3
+
+Similar syntaax can be used for function parameters
+```javascript
+// receive a few separate arguments and lump the rest into an array
+function foo(a, b, ...args) {
+    console.log(`a = ${a}`); // expected output: 10
+    console.log(`b = ${b}`); // expected output: 20
+    console.log(`args = ${args}`); // expected output: [30,40,50]
+}
+foo(10, 20, 30, 40, 50); // pass values as separate arguments
+```
