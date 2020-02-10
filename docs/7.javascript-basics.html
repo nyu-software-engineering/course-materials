@@ -280,6 +280,32 @@ fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
 
 ---
 
+template: basics
+name: comparison-1
+
+## Equality
+
+Javascript performs some type coersion automatically:
+```javascript
+1 == '1'; // true
+true == 1; // true
+undefined == null; // true
+```
+
+---
+
+template: comparison-1
+name: comparison-2
+
+Whereas the `==` compares by coerced value, the `===` operator compares by value but also by type.
+```javascript
+1 === '1'; // false
+true === 1; // false
+undefined === null; // false
+```
+
+---
+
 name: functions
 
 # Functions
