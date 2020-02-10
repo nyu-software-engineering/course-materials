@@ -871,9 +871,9 @@ name: importing-5
 template: importing
 name: importing-1
 
-## Exporting
+## CommonJS exporting
 
-CommonJS export syntax:
+Basic CommonJS exporting syntax:
 ```
 // imagine you had a variable foo, a function bar, and an object baz - all can be exported
 
@@ -881,26 +881,18 @@ CommonJS export syntax:
 module.exports = {foo , bar, baz}; // note the CommonJS syntax!
 ```
 
-With CommonJS, you could also have exported each individually:
+With CommonJS, you could also have exported each variable individually:
 ```javascript
 module.exports.foo = 5; // a number
 module.exports.bar = () => { console.log('hello world!') }; // a function
 module.exports.baz = { x: 5, y: 10 }; // an object
 ```
 
-ES6 export syntax:
-```
-// imagine you had a variable foo, a function bar, and an object baz - all can be exported
-
-// export these all to make them available for import into another Javscript file
-export {foo , bar, baz}; // note the ES6 syntax!
-```
-
-With ES6, you could also have exported each individually:
+Or even without the `module` prefix:
 ```javascript
-export let foo = 5; // a number
-export let bar = () => { console.log('hello world!') }; // a function
-export let baz = { x: 5, y: 10 }; // an object
+exports.foo = 5; // a number
+exports.bar = () => { console.log('hello world!') }; // a function
+exports.baz = { x: 5, y: 10 }; // an object
 ```
 
 ---
@@ -908,18 +900,75 @@ export let baz = { x: 5, y: 10 }; // an object
 template: importing
 name: importing-2
 
-## Importing
+## ES6 exporting
+Basic ES6 exporting syntax:
+```
+// imagine you had a variable foo, a function bar, and an object baz - all can be exported
 
-CommonJS import syntax:
-```javascript
-// import named exports using the require function
-const { foo, bar, baz } = require('./10.exporting')
+// export these all to make them available for import into another Javscript file
+export {foo , bar, baz}; // note the ES6 syntax!
 ```
 
-ES6 import syntax:
+With ES6, you could also have exported each variable individually:
 ```javascript
-// import named exports using the import keyword
-import { foo, bar, baz } from './10.exporting'
+export let foo = 5; // a number
+export let bar = () => { console.log('hello world!') }; // a function
+export let baz = { x: 5, y: 10 }; // an object
+```
+
+Or you can specify one of them as the `default` export, if desired:
+```javascript
+export let foo = 5; // a number
+export default let bar = () => { console.log('hello world!') }; // a function
+export let baz = { x: 5, y: 10 }; // an object
+```
+
+
+---
+
+template: importing
+name: importing-3
+
+## CommonJS importing
+
+Import named exports using the `require` function:
+```javascript
+const { foo, bar, baz } = require('./10.exporting'); 
+```
+
+Or import the entire module and access the named exports separately:
+```javascript
+const myModule = require('./10.exporting'); // import module as a whole
+
+console.log(myModule.foo); // access a value exported in the module
+myModule.bar(); // access a function exported in the module
+```
+
+---
+
+template: importing
+name: importing-4
+
+## ES6 importing
+
+Import named exports using the `import` keyword:
+```javascript
+import { foo, bar, baz } from './10.exporting';
+```
+
+Or give each import a different name than in the module:
+```javascript
+import { foo as f, bar as b1, baz as b2 } from './10.exporting';
+```
+
+If the module specified a `default` export, we can import only that - note the syntax:
+```javascript
+import bar from './10.exporting';
+```
+
+We can also import the default export in combination with some named exports:
+```javascript
+import bar, {foo, baz} from './10.exporting'; // the default export is 'bar'
 ```
 
 ---
