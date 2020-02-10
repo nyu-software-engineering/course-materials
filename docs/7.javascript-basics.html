@@ -18,7 +18,6 @@ for programmers of other languages
 1. [Objects](#objects)
 1. [Functions](#functions)
 1. [Arrays](#arrays)
-1. [Using APIs](#apis)
 1. [Higher-Order Functions](#higher-order-functions)
 1. [Destructuring and Unpacking](#destructuring)
 1. [Importing & Exporting Modules](#modules)
@@ -563,7 +562,8 @@ Create a subset of an array.
 fruits = fruits.filter( (val, i, arr) => {
     return val != 'banana'; // returns true for all fruits except 'banana'
 } );
-console.log(fruits); expected output: ['avocado', 'tomato']
+
+console.log(fruits); // expected output: ['avocado', 'tomato']
 ```
 
 ---
@@ -579,18 +579,16 @@ const products = [
    {
      id: 1,
      title: 'Boa, emerald green tree',
-     country: 'Russia',
      price: '$31.82',
      description: 'Sed ante. Vivamus tortor. Duis mattis egestas metus.'
    },
    {
      id: 2,
      title: 'Bleu, blue-breasted cordon',
-     country: 'Ethiopia',
      price: '$35.66',
      description: 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.'
-   }
-]
+   } // imagine there were more product objects...
+];
 ```
 
 ```javascript
@@ -600,3 +598,46 @@ products.map( (product) => {
     console.log(`${product.title} - ${product.price}`)
 });
 ```
+
+---
+
+name: higher-order-functions
+
+# Higher Order Functions
+
+---
+
+template: higher-order-functions
+name: higher-order-functions-1
+
+Functions can be passed as arguments to other functions.
+
+```javascript
+// a simple function that prints out its argument
+const foo = (val) => { 
+    console.log(`val = ${val}`) 
+};
+```
+
+---
+
+template: higher-order-functions-1
+name: higher-order-functions-2
+
+```javascript
+// another function that takes another function as its argument
+const bar = (func, arg) => {
+    func(arg); // call the function that was received, whatever it is, and pass it the argument that was received
+}
+```
+
+---
+
+template: higher-order-functions-2
+name: higher-order-functions-3
+
+```javascript
+// pass the foo function to the bar function as an argument
+bar(foo, 5);
+```
+
