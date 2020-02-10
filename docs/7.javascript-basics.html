@@ -22,6 +22,7 @@ for programmers of other languages
 1. [Using APIs](#apis)
 1. [Destructuring](#destructuring)
 1. [Importing & Exporting Modules](#modules)
+1. [Web Browser Implementation vs Node.js Implementation](#implementations)
 10. [Conclusions](#conclusions)
 
 ---
@@ -217,66 +218,6 @@ while (true) {
     console.log(`While loop iteration #${i}`);
     i++;
 }
-```
-
----
-
-template: basics
-name: objects-1
-
-## Instantiating objects
-Javascript objects are generally instantiated directly, without the need for a class.  
-
-```javascript
-const me = {
-    name: "Foo Barstein",
-    phone: "212-666-1212",
-    age: 63,
-    isRobot: false
-};
-
-console.log(`My name is ${me.name}.`); // expected output: "My name is Foo Barstein"
-
-```
-
----
-
-template: basics
-name: objects-2
-
-## Objects can be extended by simply copying them
-Javascript uses prototypal inheritance, where one object uses another as the prototype from which it is based.
-
-```javascript
-// make a copy of an object - this is prototypal inheritance
-const robotMe = Object.create(me); // creates a new object based on the original prototype
-robotMe.isRobot = true; // modify this new object in some way
-
-console.log(`me ${me.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
-console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
-
-```
-
----
-
-template: basics
-name: objects-3
-
-## Methods in objects
-The `this` keyword refers to the object a method is called on. The method is declared in a shorthand syntax
-
-```javascript
-// an object with a method belonging to it
-const fido = {
-    name: "Fido",
-    breed: "Schnauzer",
-    bark(message) {
-        console.log(`${this.name} the ${this.breed} says, '${message}'`);
-    }
-}
-
-// call the bark method on the fido object
-fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
 ```
 
 ---
@@ -484,6 +425,118 @@ const fido = {
     }
 }
 
+```
+
+---
+
+name: objects
+
+# Objects
+
+---
+
+template: objects
+name: objects-1
+
+## Instantiating objects
+Javascript objects are generally instantiated directly, without the need for a class.  
+
+```javascript
+const me = {
+    name: "Foo Barstein",
+    phone: "212-666-1212",
+    age: 63,
+    isRobot: false
+};
+
+console.log(`My name is ${me.name}.`); // expected output: "My name is Foo Barstein"
+
+```
+
+---
+
+template: objects
+name: objects-2
+
+## Objects can be extended by simply copying them
+Javascript uses prototypal inheritance, where one object uses another as the prototype from which it is based.
+
+```javascript
+// make a copy of an object - this is prototypal inheritance
+const robotMe = Object.create(me); // creates a new object based on the original prototype
+robotMe.isRobot = true; // modify this new object in some way
+
+console.log(`me ${me.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
+console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
+
+```
+
+---
+
+template: objects
+name: objects-3
+
+## Methods in objects
+The `this` keyword refers to the object a method is called on. The method is declared in a shorthand syntax
+
+```javascript
+// an object with a method belonging to it
+const fido = {
+    name: "Fido",
+    breed: "Schnauzer",
+    bark(message) {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+
+// call the bark method on the fido object
+fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
+```
+
+---
+
+template: objects
+name: objects-4
+
+## Constructing objects with a function caall
+Objects can alternatively be instantiated by calling a function.
+
+```javascript
+function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+    this.bark = (message) => {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+
+// instantiate an object and call its method
+let fido = new Dog('Fido', 'Schnauzer');
+fido.bark('Woof!');
+```
+
+---
+
+template: objects
+name: objects-5
+
+## Constructing objects with a class definition
+Objects can alternatively be instantiated with from a class definition.  This is `syntactic sugar` and not a real feature of the language.
+
+```javascript
+class Dog {
+    constructor(name, breed) {
+        this.name = name;
+        this.breed = breed;
+    }
+    bark(message) {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+
+// instantiate an object and call its method
+let fido = new Dog('Fido', 'Schnauzer');
+fido.bark('Woof!');
 ```
 
 ---
@@ -970,6 +1023,47 @@ We can also import the default export in combination with some named exports:
 ```javascript
 import bar, {foo, baz} from './10.exporting'; // the default export is 'bar'
 ```
+
+---
+
+name: implementations
+
+# Web Browser Implementations vs. Node.js Implementations
+
+---
+
+template: implementations
+name: implementations-1
+
+Javascript can be run either within a web page loaded by a web browser (i.e. client-side) or on an HTTP server using Node.js.  There are some key differences.
+
+---
+
+template: implementations-1
+name: implementations-2
+
+- Javascript in the web browser is primarily focused on interacting with the browser's Document Object Model (DOM) - an object created automatically by the browser itself that contains and allows the Javsacript to read and modify all the contents, styles, and behaviors of the web page currently loaded in the browser's memory. 
+
+---
+
+template: implementations-2
+name: implementations-3
+
+- Node.js runs on the server, where there is no currently-loaded web page.  So the DOM does not exist and is not of any use in controlling server behavior.
+
+---
+
+template: implementations-3
+name: implementations-4
+
+- There are myriad web browsers with myriad different versions in active use by people across The Web.  Programming Javascript that will work in all of them usually means taking a lowest-common denominator approach and sticking to language features that have been around for many years.
+
+---
+
+template: implementations-4
+name: implementations-5
+
+- You control the server, including which version of Javascript is supported.  So you can guarantee support for whichever version of Node.js you choose to program in.
 
 ---
 
