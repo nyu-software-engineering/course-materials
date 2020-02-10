@@ -476,8 +476,8 @@ Arrays behave as expected.
 
 ```javascript
 // generate an array from a string
-let fruits = "avocado,tomato,banana".split(",");
-console.log(`Do you love ${fruits[1]}?`); // output "Do you love tomato?"
+let fruits = "avocado,tomato,banana".split(","); // returns ['avocado, 'tomato', 'banana']
+console.log(`Do you love ${fruits[1]}?`); // expected output "Do you love tomato?"
 ```
 
 ---
@@ -487,7 +487,7 @@ name: arrays-2
 
 ```javascript
 // add an element to an array
-fruits.push("pepper");
+fruits.push("pepper"); // fruits now has ['avocado, 'tomato', 'banana', 'pepper']
 ```
 
 ---
@@ -498,8 +498,20 @@ name: arrays-3
 ```javascript
 // find index position of element by value
 const fruit = 'pepper';
-let pos = fruits.indexOf(fruit);
+let pos = fruits.indexOf(fruit); // returns 3
 console.log(`${fruit} is located in the array at index ${pos}.`);
+```
+
+---
+
+template: arrays
+name: arrays-4
+
+## Basics 
+Continued.
+```javascript
+// delete last element from the array
+fruits.pop(); // fruits now has ['avocado, 'tomato', 'banana']
 ```
 
 ---
@@ -508,8 +520,9 @@ template: arrays-4
 name: arrays-5
 
 ```javascript
-// delete last element from the array
-fruits.pop();
+// indexOf returns -1 if value not found in arraay
+pos = fruits.indexOf('pepper'); // 'pepper' is no longer there, so -1 is returned
+console.log(`${fruit} is now located in the array at index ${pos}.`);
 ```
 
 ---
@@ -518,9 +531,9 @@ template: arrays-5
 name: arrays-6
 
 ```javascript
-// indexOf returns -1 if value not found in arraay
-pos = fruits.indexOf(fruit); // 'pepper' is no longer there, so -1 is returned
-console.log(`${fruit} is now located in the array at index ${pos}.`);
+// join all elements in array into a comma-separated string
+const stringAgain = fruits.join(','); returns 'avocado,tomato, banana'
+console.log(`The fruits are ${stringAgain}.`);
 ```
 
 ---
@@ -548,10 +561,42 @@ Create a subset of an array.
 ```javascript
 // create a new array with a subset of the original values
 fruits = fruits.filter( (val, i, arr) => {
-    return val != 'banana'; // returns true for all fruits except banana
+    return val != 'banana'; // returns true for all fruits except 'banana'
 } );
-console.log(fruits);
+console.log(fruits); expected output: ['avocado', 'tomato']
 ```
 
+---
 
+template: arrays
+name: arrays-9
 
+## Arrays of objects
+A common data format used by APIs to pass data between clients and servers.
+```javascript
+// an array of objects, where each object represents a product for sale
+const products = [
+   {
+     id: 1,
+     title: 'Boa, emerald green tree',
+     country: 'Russia',
+     price: '$31.82',
+     description: 'Sed ante. Vivamus tortor. Duis mattis egestas metus.'
+   },
+   {
+     id: 2,
+     title: 'Bleu, blue-breasted cordon',
+     country: 'Ethiopia',
+     price: '$35.66',
+     description: 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.'
+   }
+]
+```
+
+```javascript
+// loop through each product
+products.map( (product) => {
+    // print the title and price of each product
+    console.log(`${product.title} - ${product.price}`)
+});
+```
