@@ -18,6 +18,7 @@ for programmers of other languages
 1. [Objects](#objects)
 1. [Functions](#functions)
 1. [Arrays](#arrays)
+1. [Using APIs](#apis)
 1. [Higher-Order Functions](#higher-order-functions)
 1. [Destructuring](#destructuring)
 1. [Importing & Exporting Modules](#modules)
@@ -621,6 +622,42 @@ const products = [
 products.map( (product) => {
     // print the title and price of each product
     console.log(`${product.title} - ${product.price}`)
+});
+```
+
+---
+
+name: apis
+
+# Using APIs
+
+---
+
+template: apis
+name: apis-1
+
+Fetching data from APIs requires asynchronous programming.
+```javascript
+const https = require('https'); // using node's built-in http module for http requests
+const apiUrl = "https://my.api.mockaroo.com/users.json?key=d9ddfc40"; // a mock-API for demo purposes
+
+https.get(apiUrl, (response) => {
+  let data = ''; // this will hold all data received from the server's response
+
+  response.on('data', (chunk) => {
+    // this function is called every time a byte of data has been recieved from the server.
+    data += chunk;
+  });
+
+  response.on('end', () => {
+    // this function is called when the end of the response is received
+    let products = JSON.parse(data); // convert string to object
+    console.log( products ); // output the data received from the server
+  });
+  
+}).on("error", (err) => {
+  // this function is called if there is an error
+  console.log("Error: " + err.message);
 });
 ```
 
