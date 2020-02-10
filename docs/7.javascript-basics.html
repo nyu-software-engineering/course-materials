@@ -898,6 +898,26 @@ exports.baz = { x: 5, y: 10 }; // an object
 ---
 
 template: importing
+name: importing-3
+
+## CommonJS importing
+
+Import named exports using the `require` function:
+```javascript
+const { foo, bar, baz } = require('./10.exporting'); 
+```
+
+Or import the entire module and access the named exports separately:
+```javascript
+const myModule = require('./10.exporting'); // import module as a whole
+
+console.log(myModule.foo); // access a value exported in the module
+myModule.bar(); // access a function exported in the module
+```
+
+---
+
+template: importing
 name: importing-2
 
 ## ES6 exporting
@@ -923,26 +943,6 @@ export default let bar = () => { console.log('hello world!') }; // a function
 export let baz = { x: 5, y: 10 }; // an object
 ```
 
-
----
-
-template: importing
-name: importing-3
-
-## CommonJS importing
-
-Import named exports using the `require` function:
-```javascript
-const { foo, bar, baz } = require('./10.exporting'); 
-```
-
-Or import the entire module and access the named exports separately:
-```javascript
-const myModule = require('./10.exporting'); // import module as a whole
-
-console.log(myModule.foo); // access a value exported in the module
-myModule.bar(); // access a function exported in the module
-```
 
 ---
 
