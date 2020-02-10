@@ -824,3 +824,113 @@ console.log(`email = ${email}`); // expected output: 'fb1258@teleworm.us'
 console.log(`city = ${city}`); // expected output: 'Beni Brahim''
 ```
 
+---
+
+name: importing
+
+# Importing & Exporting
+
+---
+
+template: importing
+name: importing-1
+
+## Concept
+Javascript today allows modular reuse of your own code or that of 3rd parties through its module functionality.
+
+---
+
+template: importing-1
+name: importing-2
+
+- the Node Package Manager (NPM) provides easy ways to manage the download, installation, and configuration of open soure 3rd party code libraries.
+
+---
+
+template: importing-2
+name: importing-3
+
+- Node supports two different ways of importing/exporting modules: the [CommonJS](https://en.wikipedia.org/wiki/CommonJS) way, and the [ECMAScript 2015](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015) (ES6) way - these are competing standards.
+
+---
+
+template: importing-3
+name: importing-4
+
+- Node originally supported the CommonJS module specification before ES6 was released, since there was nothing in the ECMAScript specification for importing/exporting at that time.
+
+---
+
+template: importing-4
+name: importing-5
+
+- Once ES6 arrived, Node added support for its module specification, but a special `'type': 'module'` setting must be added to every Node project's config file named `package.json` for the ES6 module functionality to kick in.
+
+---
+
+template: importing
+name: importing-1
+
+## Exporting
+
+CommonJS export syntax:
+```
+// imagine you had a variable foo, a function bar, and an object baz - all can be exported
+
+// export these all to make them available for import into another Javscript file
+module.exports = {foo , bar, baz}; // note the CommonJS syntax!
+```
+
+With CommonJS, you could also have exported each individually:
+```javascript
+module.exports.foo = 5; // a number
+module.exports.bar = () => { console.log('hello world!') }; // a function
+module.exports.baz = { x: 5, y: 10 }; // an object
+```
+
+ES6 export syntax:
+```
+// imagine you had a variable foo, a function bar, and an object baz - all can be exported
+
+// export these all to make them available for import into another Javscript file
+export {foo , bar, baz}; // note the ES6 syntax!
+```
+
+With ES6, you could also have exported each individually:
+```javascript
+export let foo = 5; // a number
+export let bar = () => { console.log('hello world!') }; // a function
+export let baz = { x: 5, y: 10 }; // an object
+```
+
+---
+
+template: importing
+name: importing-2
+
+## Importing
+
+CommonJS import syntax:
+```javascript
+// import named exports using the require function
+const { foo, bar, baz } = require('./10.exporting')
+```
+
+ES6 import syntax:
+```javascript
+// import named exports using the import keyword
+import { foo, bar, baz } from './10.exporting'
+```
+
+---
+
+name: conclusions
+
+# Conclusions
+
+---
+
+You now understand some basics of Javascript and are ready to dive into Express.js and React!
+- Thank you.  Bye
+
+
