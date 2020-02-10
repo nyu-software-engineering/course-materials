@@ -363,3 +363,76 @@ const doSomething3 = function (x, y) {
 }
 console.log( doSomething3('hello', 'world') ); // call the function and use its return value
 ```
+
+---
+
+name: arrow-functions
+
+# Arrow functions
+
+---
+
+template: arrow-functions
+name: arrow-functions-1
+
+A simplified function syntax without the `function` keyword.
+
+```javascript
+// an arrow function with no parameters or return value
+const doSomething1 = () => {
+    console.log('doSomething1 is running');
+}
+doSomething1(); // call the function
+```
+
+---
+
+template: arrow-functions-1
+name: arrow-functions-2
+
+```javascript
+// an arrow function with parameters
+const doSomething2 = (x, y) => {
+    console.log(`doSomething2 is running with x=${x} and y=${y}.`);
+}
+doSomething2('hello', 'world'); // call the function with arguments
+```
+
+---
+
+template: arrow-functions-2
+name: arrow-functions-3
+
+```javascript
+// an arrow function with parameters and a return value
+const doSomething3 = (x, y) => {
+    const msg = `doSomething3 is running with x=${x} and y=${y}.`;
+    return msg;
+}
+console.log( doSomething3('hello', 'world') ); // call the function and use its return value
+```
+
+---
+
+template: arrow-functions
+name: arrow-functions-4
+
+Function syntax can be even further reduced.
+
+```javascript
+// even further reduced syntax with implied return statement
+const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`;
+console.log( doSomething4('hello', 'world') ); // call the function and use its return value
+```
+
+---
+
+template: arrow-functions-4
+name: arrow-functions-5
+
+```javascript
+// even further reduced syntax with no parantheses around parameters
+const doSomething4 = x, y => `doSomething4 is running with x=${x} and y=${y}.`;
+console.log( doSomething4('hello', 'world') ); // call the function and use its return value
+```
+
