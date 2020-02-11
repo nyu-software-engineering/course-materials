@@ -1158,35 +1158,37 @@ name: implementations
 template: implementations
 name: implementations-1
 
-Javascript can be run either within a web page loaded by a web browser (i.e. client-side) or on an HTTP server using Node.js.  There are some key differences.
+## Differences
+Javascript can be run either *within a web page* loaded by a web browser (i.e. client-side) or *on an HTTP server* using Node.js.  There are some key differences.
 
 ---
 
 template: implementations-1
 name: implementations-2
 
-- Javascript in the web browser is primarily focused on interacting with the browser's Document Object Model (DOM) - an object created automatically by the browser itself that contains and allows the Javsacript to read and modify all the contents, styles, and behaviors of the web page currently loaded in the browser's memory. 
+- *Javascript in the web browser* is primarily focused on interacting with the browser's [Document Object Model](https://knowledge.kitchen/Document_Object_Model) (DOM) - an object created automatically by the browser itself that contains and allows the Javsacript to modify all the contents, styles, and behaviors of the web page currently loaded in the browser's memory. 
 
 ---
 
 template: implementations-2
 name: implementations-3
 
-- Node.js runs on the server, where there is no currently-loaded web page.  So the DOM does not exist and is not of any use in controlling server behavior.
+- *Node.js runs on the server*, where there is no currently-loaded web page.  So the DOM does not exist and is not of any use in controlling server behavior.  Node.js has its own set of [built-in variables and objects](https://knowledge.kitchen/Node.js_notes#Global_variables).
 
 ---
 
-template: implementations-3
+template: implementations
 name: implementations-4
 
-- There are myriad web browsers with myriad different versions in active use by people across The Web.  Programming Javascript that will work in all of them usually means taking a lowest-common denominator approach and sticking to language features that have been around for many years.
+## Differences (continued)
+- There are *myriad web browsers* with *myriad different versions* in active use by people across The Web.  Programming Javascript that will work in all of them usually means taking a 8lowest-common denominator approach* and sticking to language features that have been around for many years.
 
 ---
 
 template: implementations-4
 name: implementations-5
 
-- You control the server, including which version of Javascript is supported.  So you can guarantee support for whichever version of Node.js you choose to program in.
+- Unlike with the web browser, *you control the server*, including which version of Javascript is supported.  So you can guarantee support for whichever version of Node.js you choose to program in.
 
 ---
 
