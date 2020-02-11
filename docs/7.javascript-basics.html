@@ -19,6 +19,7 @@ for programmers of other languages
 1. [Functions](#functions)
 1. [Arrays](#arrays)
 1. [Higher-Order Functions](#higher-order-functions)
+1. [Asynchronicity](#asynchronicity)
 1. [Using APIs](#apis)
 1. [Destructuring](#destructuring)
 1. [Importing & Exporting Modules](#modules)
@@ -732,13 +733,14 @@ template: asynchronicity
 name: asynchronicity-1
 
 ## Overview
-Javascript has two primary features to handle asynchronicity in code.
+Javascript has three features to handle asynchronicity in code.
 - Callbacks
 - Promises
+- Async/await
 
 ---
 
-template: asynchronicity-1
+template: asynchronicity
 name: asynchronicity-2
 
 ## Callbacks
@@ -764,7 +766,7 @@ doIt(
 ```
 ---
 
-template: asynchronicity-1
+template: asynchronicity
 name: asynchronicity-2
 
 ## Promises
@@ -788,6 +790,17 @@ let doIt = () => {
 doIt()
   .then( res => { console.log(`Success: ${res}`); } )
   .catch(err => { console.log(`Failure: ${err}`); } )
+```
+
+---
+
+template: asynchronicity
+name: asynchronicity-3
+
+## Async / await
+Async/await works in addition to basic Promises to make them simpler to read.
+
+```javascript
 ```
 
 ---
