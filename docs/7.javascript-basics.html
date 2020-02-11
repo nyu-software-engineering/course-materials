@@ -775,7 +775,7 @@ Promises are a language feature that allow programmers to specify two functions:
 ```javascript
 // a function that returns a Promise
 let doIt = () => {
-    // imagine this function performed an asynchronous task that took a long time...
+    // imagine this function performed a task that took a long time...
 
     // ultimately, it returns a promise
     return new Promise( (resolve, reject) => {
@@ -797,12 +797,52 @@ doIt()
 template: asynchronicity
 name: asynchronicity-3
 
-## Async / await
-Async/await works in addition to basic Promises to make them simpler to read.
+## Async
+The `async` keyword works on top of Promises to make their syntax simpler to read.  
+- It can be placed in front of any function definition - this means the function's return value is guaranteed to be returned as a Promise, regardless of what the return statement says.
 
 ```javascript
+let doIt = async () => {
+    // imagine this function performed a task that took a long time...
+
+    // ultimately, it returns a promise, even without saying so
+    let rand = parseInt(Math.random() * 10) + 1;
+
+    if (rand < 5) return Promise.resolve('hooraah!'); // success!
+    else return Promise.reject('boo!'); // failure!
+}
+
+// call the function, pass functions to handle its success or failure, whenever it completes
+doIt()
+  .then( res => { console.log(`Success: ${res}`); } )
+  .catch( err => { console.log(`Failure: ${err}`);} );
 ```
 
+---
+
+template: asynchronicity
+name: asynchronicity-4
+
+## Await
+The `await` keyword can be used within any `async` function.  
+- `await` forces the program to wait for a Promise to complete before moving on to the next line of code.
+
+```javascript
+let doIt = async () => {
+    // the code below creates a Promise that pauses for 2 seconds and then resolves
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("done!"), 2000);
+    });
+
+    let result = await promise; // wait until the promise resolves
+    console.log(result);
+    return 'hoorah1'; // any async function returns its value as a Promise resolve automatically, if not specified.
+}
+// call the function, pass functions to handle its success or failure, whenever it completes
+doIt()
+  .then( res => { console.log(`Success: ${res}`); } )
+  .catch( err => { console.log(`Failure: ${err}`);} );
+```
 ---
 
 name: apis
