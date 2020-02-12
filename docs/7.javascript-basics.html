@@ -123,9 +123,13 @@ name: variables-1
 ```javascript
 // non-constant variables are declared with the let keyword 
 let it = true; // it's true!
+
 it = (it) ? false : true; // reassign it to be its opposite using the ternary operator
-console.log(`It is ${it}!`); // expected output: 'It is true!'
+
+console.log(`It is ${it}!`); // expected output: 'It is false!'
 ```
+
+[Try it!](https://repl.it/repls/BlandFlickeringPolygon)
 
 ---
 
@@ -137,7 +141,9 @@ name: variables-2
 ```javascript
 // constants are declared with the const keyword
 const data = [10, 20, 30];  // a variable that can't be reassigned!
-message[1] = 'ha!'; // but this is not variable reassignment!
+
+data[1] = 'ha!'; // but this is not variable reassignment!
+
 console.log(data); // expected output: [10, 'ha!', 30]
 ```
 
@@ -151,9 +157,12 @@ name: output-1
 
 Basic usage
 ```javascript
-let stuff = 'some text'
-console.log('This is ' + stuff + '.''); // expected output: 'This is some text.'
+let stuff = 'some text';
+
+console.log('This is ' + stuff + '.'); // expected output: 'This is some text.'
 ```
+
+[Try it!](https://repl.it/repls/EarnestLankyCable)
 
 ---
 
@@ -162,9 +171,13 @@ name: output-2
 
 Template syntax enapsulating a string with backtics
 ```javascript
-let stuff = 'some text'
+let stuff = 'some text';
+
 console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
 ```
+
+[Try it!](https://repl.it/repls/FirsthandRoastedAmoebas)
+
 
 ---
 
@@ -175,8 +188,11 @@ Template syntax will accept any expression
 ```javascript
 const x = 5;
 const y = 10;
+
 console.log(`The result is ${ x + y }.`); // expected output: 'The result is 15.'
 ```
+
+[Try it!](https://repl.it/repls/ColorfulProfitableLocatorprogram)
 
 ---
 
@@ -193,6 +209,8 @@ for (let i=1; i<6; i++) {
 }
 ```
 
+[Try it!](https://repl.it/repls/GrowingElatedProgrammingtool)
+
 ---
 
 template: for-loops-1
@@ -204,6 +222,8 @@ for (let i=1; true; i++) {
     console.log(`For loop iteration #${i}`);
 }
 ```
+
+[Try it!](https://repl.it/repls/TiredLeanLanservers)
 
 ---
 
@@ -222,6 +242,8 @@ while (i < 6) {
 }
 ```
 
+[Try it!](https://repl.it/repls/DarkmagentaPuzzledUnix)
+
 ---
 
 template: while-loops-1
@@ -234,6 +256,8 @@ while (true) {
     i++;
 }
 ```
+
+[Try it!](https://repl.it/repls/NonstopNewOpposites)
 
 ---
 
@@ -323,8 +347,11 @@ Functions in Javascript can be nameless.
 const doSomething1 = function () {
     console.log('doSomething1 is running');
 }
+
 doSomething1(); // call the function
 ```
+
+[Try it!](https://repl.it/repls/DeeppinkSecondaryReference)
 
 ---
 
@@ -336,8 +363,11 @@ name: functions-5
 const doSomething2 = function (x, y) {
     console.log(`doSomething2 is running with x=${x} and y=${y}.`);
 }
+
 doSomething2('hello', 'world'); // call the function with arguments
 ```
+
+[Try it!](https://repl.it/repls/ShadyNavyblueGravity)
 
 ---
 
@@ -350,8 +380,11 @@ const doSomething3 = function (x, y) {
     const msg = `doSomething3 is running with x=${x} and y=${y}.`;
     return msg;
 }
+
 console.log( doSomething3('hello', 'world') ); // call the function and use its return value
 ```
+
+[Try it!](https://repl.it/repls/InferiorRecursiveInitialization)
 
 ---
 
@@ -371,8 +404,11 @@ A simplified function syntax without the `function` keyword.
 const doSomething1 = () => {
     console.log('doSomething1 is running');
 }
+
 doSomething1(); // call the function
 ```
+
+[Try it!](https://repl.it/repls/SoggyReliableEnterprise)
 
 ---
 
@@ -384,8 +420,11 @@ name: arrow-functions-2
 const doSomething2 = (x, y) => {
     console.log(`doSomething2 is running with x=${x} and y=${y}.`);
 }
+
 doSomething2('hello', 'world'); // call the function with arguments
 ```
+
+[Try it!](https://repl.it/repls/WhirlwindWastefulSeahorse)
 
 ---
 
@@ -398,8 +437,11 @@ const doSomething3 = (x, y) => {
     const msg = `doSomething3 is running with x=${x} and y=${y}.`;
     return msg;
 }
+
 console.log( doSomething3('hello', 'world') ); // call the function and use its return value
 ```
+
+[Try it!](https://repl.it/repls/StainedBlueContent)
 
 ---
 
@@ -414,6 +456,8 @@ const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`
 console.log( doSomething4('hello', 'world') ); // call the function and use its return value
 ```
 
+[Try it!](https://repl.it/repls/SalmonWarpedParentheses)
+
 ---
 
 template: arrow-functions-4
@@ -424,6 +468,8 @@ name: arrow-functions-5
 const doSomething5 = x => `doSomething5 is running with x=${x}.`;
 console.log( doSomething5('hello') ); // call the function and use its return value
 ```
+
+[Try it!](https://repl.it/repls/FunctionalHelplessPresses)
 
 ---
 
@@ -439,8 +485,10 @@ const fido = {
         console.log(`${this.name} the ${this.breed} says, '${message}'`);
     }
 }
-
+fido.bark();
 ```
+
+[Try it!](https://repl.it/repls/ImmaculateHurtfulLink)
 
 ---
 
@@ -454,9 +502,10 @@ template: objects
 name: objects-1
 
 ## Instantiating objects
-Javascript objects are generally instantiated directly, without the need for a class.  
+Javascript objects are usually instantiated directly, without the need for a class.
 
 ```javascript
+// an object
 const me = {
     name: "Foo Barstein",
     phone: "212-666-1212",
@@ -464,16 +513,21 @@ const me = {
     isRobot: false
 };
 
-console.log(`My name is ${me.name}.`); // expected output: "My name is Foo Barstein"
+// add a method to the object on the fly
+me.speak = function(message) {
+    console.log(`${this.name} says, "${message}".`);
+}
 
+me.speak('Hello!'); // expected output: 'Foo Barstein says, "Hello!".'
 ```
 
+[Try it!](https://repl.it/repls/CultivatedCautiousTrapezoid)
 ---
 
 template: objects
 name: objects-2
 
-## Objects can be extended by simply copying them
+## Objects can be sub-classed by simply copying them
 Javascript uses prototypal inheritance, where one object uses another as the prototype from which it is based.
 
 ```javascript
@@ -483,8 +537,9 @@ robotMe.isRobot = true; // modify this new object in some way
 
 console.log(`me ${me.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
 console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // expected output: "My name is Foo Barstein"
-
 ```
+
+[Try it!](https://repl.it/repls/BouncyQueasyLists)
 
 ---
 
@@ -508,6 +563,8 @@ const fido = {
 fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
 ```
 
+[Try it!](https://repl.it/repls/BurlyCircularSystemresource)
+
 ---
 
 template: objects
@@ -529,6 +586,8 @@ function Dog(name, breed) {
 let fido = new Dog('Fido', 'Schnauzer');
 fido.bark('Woof!');
 ```
+
+[Try it!](https://repl.it/repls/OverjoyedMurkyFlashmemory)
 
 ---
 
@@ -553,6 +612,8 @@ class Dog {
 let fido = new Dog('Fido', 'Schnauzer');
 fido.bark('Woof!');
 ```
+
+[Try it!](https://repl.it/repls/FancyKhakiZip)
 
 ---
 
@@ -735,6 +796,7 @@ name: higher-order-functions-3
 bar(foo, 5);
 ```
 
+[Try it!](https://repl.it/repls/UnacceptableUselessPriority)
 ---
 
 name: asynchronicity
@@ -763,48 +825,45 @@ Callbacks are functions that will be called when a certain task completes.
 ```javascript
 // a function that accepts two callbacks - one for success, one for failure
 let doIt = (callbackSuccess, callbackFailure) => {
-    // imagine this function performed an asynchronous task that took a long time...
-
-    // ultimately, when it's done, it calls the function that was passed to it
-    let rand = parseInt(Math.random() * 10) + 1;
-
-    if (rand < 5) callbackSuccess('hooraah!'); // success!
-    else callbackFailure('boo!'); // failure
+    /* imagine this function did an asynchronous task and then...:
+     *  - called callbackSuccess() function if task is successful
+     *  - called callbackFailure() function if task failed */
 }
 
 // call the function, pass two callback functions to handle its success or failure
 doIt( 
-    res => { console.log(`Success: ${result}`); },
+    res => { console.log(`Success: ${res}`); },
     err => { console.log(`Failure: ${err}`); } 
 );
 ```
+
+[Try it!](https://repl.it/repls/EarnestSimplisticMicroprogramming)
+
 ---
 
 template: asynchronicity
 name: asynchronicity-2
 
 ## Promises
-Promises are a language feature that allow programmers to specify two functions: one to be called automatically when a certain task is successfully completed and another to be called when that task fails.
+Promises are a language feature that allow programmers to specify two functions: one to be called automatically when a certain asynchronous task is successfully completed and another to be called when that task fails.
 
 ```javascript
 // a function that returns a Promise
 let doIt = () => {
-    // imagine this function performed a task that took a long time...
-
-    // ultimately, it returns a promise
     return new Promise( (resolve, reject) => {
-        let rand = parseInt(Math.random() * 10) + 1;
-
-        if (rand < 5) resolve('hooraah!'); // success!
-        else reject('boo!'); // failure!
+        /* imagine this function did an asynchronous task and then...:
+        *  - called resolve('hooraah') if task is successful
+        *  - called reject('boo!') if task failed */
     });
 }
 
 // call the function, pass functions to handle its success or failure, whenever it completes
 doIt()
   .then( res => { console.log(`Success: ${res}`); } )
-  .catch(err => { console.log(`Failure: ${err}`); } )
+  .catch( err => { console.log(`Failure: ${err}`); } )
 ```
+
+[Try it!](https://repl.it/repls/SnappyStaidJavabytecode);
 
 ---
 
@@ -817,20 +876,16 @@ The `async` keyword works on top of Promises to make their syntax simpler to rea
 
 ```javascript
 let doIt = async () => {
-    // imagine this function performed a task that took a long time...
-
-    // ultimately, it returns a promise, even without saying so
-    let rand = parseInt(Math.random() * 10) + 1;
-
-    if (rand < 5) return Promise.resolve('hooraah!'); // success!
-    else return Promise.reject('boo!'); // failure!
+    // this function automatically returns a Promise, even if it doesn't say so
+    return 'hoorah!';
 }
 
-// call the function, pass functions to handle its success or failure, whenever it completes
+// treat the function as if it returned a Promise, because it does!
 doIt()
   .then( res => { console.log(`Success: ${res}`); } )
-  .catch( err => { console.log(`Failure: ${err}`);} );
 ```
+
+[Try it!]()
 
 ---
 
@@ -843,20 +898,18 @@ The `await` keyword can be used within any `async` function.
 
 ```javascript
 let doIt = async () => {
-    // the code below creates a Promise that pauses for 2 seconds and then resolves
-    let promise = new Promise((resolve, reject) => {
-        setTimeout(() => resolve("done!"), 2000);
-    });
-
-    let result = await promise; // wait until the promise resolves
-    console.log(result);
-    return 'hoorah1'; // any async function returns its value as a Promise resolve automatically, if not specified.
+    /* imagine this function did an asynchronous task and then...:
+    *  - waited for the task to complete...
+    *  - returned the result of the task
 }
 // call the function, pass functions to handle its success or failure, whenever it completes
 doIt()
   .then( res => { console.log(`Success: ${res}`); } )
   .catch( err => { console.log(`Failure: ${err}`);} );
 ```
+
+[Try it!](https://repl.it/repls/ImmaculateSerpentineConditions)
+
 ---
 
 name: apis
@@ -888,24 +941,22 @@ const apiUrl = "https://my.api.mockaroo.com/users.json?key=d9ddfc40"; // a mock-
 
 // make an HTTP request to the API server
 https.get(apiUrl, (response) => {
-  let data = ''; // this will hold all data received from the server's response
 
   response.on('data', (chunk) => {
-    // this function is called automatically every time a chunk of data has been recieved from the server.
-    data += chunk;
+    // this callback function is called automatically every time a chunk of data has been recieved from the server.
   });
 
   response.on('end', () => {
-    // this function is called automatically when the end of the response is received
-    let products = JSON.parse(data); // convert string in response to object
-    console.log( products ); // output the data received from the server
+    // this callback function is caalled automatically when all data has been received from API
   });
   
 }).on("error", (err) => {
-  // this function is called automatically if there is an error
-  console.log("Error: " + err.message);
+  // this callback function is called automatically if there is an error
 });
 ```
+
+[Try it!](https://repl.it/repls/FaroffImpureCells)
+- [See the raw data returned by the API](https://my.api.mockaroo.com/users.json?key=d9ddfc40):
 
 ---
 
