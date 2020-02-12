@@ -838,9 +838,9 @@ Callbacks are functions that will be called when a certain task completes.
 ```javascript
 // a function that accepts two callbacks - one for success, one for failure
 let doIt = (callbackSuccess, callbackFailure) => {
-    /* imagine this function did an asynchronous task and then...:
-     *  - called callbackSuccess() function if task is successful
-     *  - called callbackFailure() function if task failed */
+    // imagine this function did an asynchronous task and then...
+    // - called callbackSuccess() function if task is successful
+    // - called callbackFailure() function if task failed
 }
 
 // call the function, pass two callback functions to handle its success or failure
@@ -864,9 +864,9 @@ Promises are a language feature that allow programmers to specify two functions:
 // a function that returns a Promise
 let doIt = () => {
     return new Promise( (resolve, reject) => {
-        /* imagine this function did an asynchronous task and then...:
-        *  - called resolve('hooraah') if task is successful
-        *  - called reject('boo!') if task failed */
+        // imagine this function did an asynchronous task and then...
+        // - called resolve('hooraah') if task is successful
+        // - called reject('boo!') if task failed
     });
 }
 
@@ -911,9 +911,9 @@ The `await` keyword can be used within any `async` function.
 
 ```javascript
 let doIt = async () => {
-    /* imagine this function did an asynchronous task and then...:
-    *  - waited for the task to complete...
-    *  - returned the result of the task
+    // imagine this function did an asynchronous task and then...
+    // - waited for the task to complete...
+    // - returned the result of the task as a Promise (like all async functions do)
 }
 // call the function, pass functions to handle its success or failure, whenever it completes
 doIt()
