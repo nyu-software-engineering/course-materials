@@ -155,9 +155,7 @@ template: basics
 name: output-1
 
 ## Output to console
-`console.log()` outputs text to the console.
-
-Basic usage
+Basic output to the console
 ```javascript
 let stuff = 'some text';
 
@@ -220,6 +218,18 @@ for (let i=1; true; i++) {
 
 ---
 
+template: for-loops-2
+name: for-loops-3
+
+```javascript
+// infinite loop
+for (someValue in someArrya) {
+    console.log(`The value is #${someValue}`);
+}
+```
+
+---
+
 template: basics
 name: while-loops-1
 
@@ -277,7 +287,7 @@ undefined === null; // false
 
 name: functions
 
-# Regular
+# Regular Functions
 
 ---
 
@@ -296,11 +306,10 @@ doSomething1(); // call the function
 
 ---
 
-template: functions
+template: functions-1
 name: functions-2
 
 And with parameters...
-
 ```javascript
 // define a function the most simple way with two parameters
 function doSomething2(x, y) {
@@ -311,11 +320,10 @@ doSomething2('hello', 'world'); // call the function with arguments
 
 ---
 
-template: functions
+template: functions-2
 name: functions-3
 
 And with a return value...
-
 ```javascript
 // define a function the most simple way with two parameters and a return value
 function doSomething3(x, y) {
@@ -477,25 +485,6 @@ console.log( doSomething5('hello') ); // call the function and use its return va
 
 ---
 
-template: arrow-functions-5
-name: arrow-functions-6
-
-```javascript
-// a special shorthand syntax for defining methods within objects
-const fido = {
-    name: "Fido",
-    breed: "Schnauzer",
-    bark(message) {
-        console.log(`${this.name} the ${this.breed} says, '${message}'`);
-    }
-}
-fido.bark();
-```
-
-[Try it!](https://repl.it/repls/ImmaculateHurtfulLink)
-
----
-
 name: objects
 
 # Objects
@@ -526,10 +515,30 @@ me.speak('Hello!'); // expected output: 'Foo Barstein says, "Hello!".'
 ```
 
 [Try it!](https://repl.it/repls/CultivatedCautiousTrapezoid)
+
 ---
 
 template: objects
 name: objects-2
+
+There is a special shorthand syntax for methods within objects
+```javascript
+const fido = {
+    name: "Fido",
+    breed: "Schnauzer",
+    bark(message) {
+        console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    }
+}
+fido.bark();
+```
+
+[Try it!](https://repl.it/repls/ImmaculateHurtfulLink)
+
+---
+
+template: objects
+name: objects-3
 
 ## Objects can be sub-classed by simply copying them
 Javascript uses prototypal inheritance, where one object uses another as the prototype from which it is based.
@@ -548,7 +557,7 @@ console.log(`robotMe ${robotMe.isRobot ? 'is indeed' : 'is not'} a robot.`); // 
 ---
 
 template: objects
-name: objects-3
+name: objects-4
 
 ## Methods in objects
 The `this` keyword refers to the object a method is called on. The method is declared in a shorthand syntax
@@ -572,7 +581,7 @@ fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
 ---
 
 template: objects
-name: objects-4
+name: objects-5
 
 ## Constructing objects with a function caall
 Objects can alternatively be instantiated by calling a function.
@@ -596,7 +605,7 @@ fido.bark('Woof!');
 ---
 
 template: objects
-name: objects-5
+name: objects-6
 
 ## Constructing objects with a class definition
 Objects can alternatively be instantiated with from a class definition.  This is `syntactic sugar` and not a real feature of the language.
