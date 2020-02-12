@@ -1272,6 +1272,67 @@ name: implementations-5
 
 ---
 
+template: implementations
+name: implementations-6
+
+## Browser example
+Imagine the following HTML code for a button and a picture of a donkey.
+```html
+<button id="clickme">Click me please</button>
+<img id="neigh" src='images/donkey.jpg' />
+```
+
+And let's say we had the following CSS code to hide the donkey when the page loads:
+```css
+/* this will cause the donkey to be hidden when the page first loads */
+img#neigh { display: none; }
+```
+
+The following client-side Javascript, using the popular [JQuery](https://jquery.com) framework, will wait for the user to click the button and then will run the callback function:
+```javascript
+$('button#clickme').click( function() {
+    // make donkey will appear
+    $('img#neigh').show();
+});
+```
+
+---
+
+template: implementations
+name: implementations-7
+
+## Server example
+The following server-side code, using the popular [Express.js](https://expressjs.com) framework, will wait for a client to make an HTTP GET or POST request the '/foo' resource and will then respond.
+```javascript
+const app = require('express'); // CommonJS import style!
+const app = express(); // get an Express object
+const bodyParser = require('body-parser'); // helps process incoming HTTP POST data
+
+// load useful middlewares ..  these help parse HTTP POST request data before we process it
+app.use(bodyParser.urlencoded({ extended: true} ) ); // decode url-encoded incoming POST data
+app.use(bodyParser.json() ); // decode JSON-formatted incoming POST data
+
+// set up a 'route'... i.e. a callback function to run when a particular request comes in
+app.get('/foo'), function (request, response) {
+    response.send('bar'); // send the response
+}
+
+// another one just for fun... this one waits for an HTTP POST request for the same URL
+app.post('/foo'), function (request, response) {
+    // let's assume the client has sent some POST data with the user's name
+    response.send(`Hello, ${req.body.name}!`); // send the response
+}
+```
+
+---
+
+template: implementations-4
+name: implementations-5
+
+- Unlike with the web browser, *you control the server*, including which version of Javascript is supported.  So you can guarantee support for whichever version of Node.js you choose to program in.
+
+---
+
 name: conclusions
 
 # Conclusions
