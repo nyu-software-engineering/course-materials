@@ -16,7 +16,9 @@ for programmers of other languages
 1. [Overview](#overview)
 1. [The Basics](#basics)
 1. [Objects](#objects)
-1. [Functions](#functions)
+1. [Regular Functions](#functions)
+1. [Anonymous Functions](#anonymous-functions)
+1. [Arrow Functions](#arrow-functions)
 1. [Arrays](#arrays)
 1. [Higher-Order Functions](#higher-order-functions)
 1. [Asynchronicity](#asynchronicity)
@@ -162,8 +164,6 @@ let stuff = 'some text';
 console.log('This is ' + stuff + '.'); // expected output: 'This is some text.'
 ```
 
-[Try it!](https://repl.it/repls/EarnestLankyCable)
-
 ---
 
 template: output-1
@@ -175,9 +175,6 @@ let stuff = 'some text';
 
 console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
 ```
-
-[Try it!](https://repl.it/repls/FirsthandRoastedAmoebas)
-
 
 ---
 
@@ -209,8 +206,6 @@ for (let i=1; i<6; i++) {
 }
 ```
 
-[Try it!](https://repl.it/repls/GrowingElatedProgrammingtool)
-
 ---
 
 template: for-loops-1
@@ -222,8 +217,6 @@ for (let i=1; true; i++) {
     console.log(`For loop iteration #${i}`);
 }
 ```
-
-[Try it!](https://repl.it/repls/TiredLeanLanservers)
 
 ---
 
@@ -242,8 +235,6 @@ while (i < 6) {
 }
 ```
 
-[Try it!](https://repl.it/repls/DarkmagentaPuzzledUnix)
-
 ---
 
 template: while-loops-1
@@ -256,9 +247,6 @@ while (true) {
     i++;
 }
 ```
-
-[Try it!](https://repl.it/repls/NonstopNewOpposites)
-
 ---
 
 template: basics
@@ -289,14 +277,13 @@ undefined === null; // false
 
 name: functions
 
-# Functions
+# Regular
 
 ---
 
 template: functions
 name: functions-1
 
-## Simple functions
 The `function` keyword.
 
 ```javascript
@@ -309,8 +296,10 @@ doSomething1(); // call the function
 
 ---
 
-template: functions-1
+template: functions
 name: functions-2
+
+And with parameters...
 
 ```javascript
 // define a function the most simple way with two parameters
@@ -322,8 +311,10 @@ doSomething2('hello', 'world'); // call the function with arguments
 
 ---
 
-template: functions-2
+template: functions
 name: functions-3
+
+And with a return value...
 
 ```javascript
 // define a function the most simple way with two parameters and a return value
@@ -336,10 +327,15 @@ console.log( doSomething3('hello', 'world') ); // call the function and use its 
 
 ---
 
-template: functions
-name: functions-4
+name: anonymous-functions
 
-## Anonymous functions
+# Anonymous Functions
+
+---
+
+template: anonymous-functions
+name: anonymous-functions-1
+
 Functions in Javascript can be nameless.
 
 ```javascript
@@ -355,8 +351,10 @@ doSomething1(); // call the function
 
 ---
 
-template: functions-4
-name: functions-5
+template: anonymous-functions
+name: anonymous-functions-2
+
+And with parameters...
 
 ```javascript
 // define an anonymous function with parameters, but assign a variable to refer to it
@@ -371,8 +369,10 @@ doSomething2('hello', 'world'); // call the function with arguments
 
 ---
 
-template: functions-5
-name: functions-6
+template: anonymous-functions
+name: anonymous-functions-3
+
+And with a return value...
 
 ```javascript
 // define an anonymous function with parameters and a return value, but assign a variable to refer to it
@@ -412,8 +412,10 @@ doSomething1(); // call the function
 
 ---
 
-template: arrow-functions-1
+template: arrow-functions
 name: arrow-functions-2
+
+And with parameters...
 
 ```javascript
 // an arrow function with parameters
@@ -428,8 +430,10 @@ doSomething2('hello', 'world'); // call the function with arguments
 
 ---
 
-template: arrow-functions-2
+template: arrow-functions
 name: arrow-functions-3
+
+And with a return value...
 
 ```javascript
 // an arrow function with parameters and a return value
