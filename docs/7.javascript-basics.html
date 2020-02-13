@@ -1393,14 +1393,6 @@ name: implementations-7
 ## Server example
 The following server-side code uses the popular [Express.js](https://expressjs.com) framework.
 ```javascript
-const express = require('express'); // CommonJS import style!
-const app = express(); // get an Express object
-const bodyParser = require('body-parser'); // helps process incoming HTTP POST data
-
-// load useful middlewares ..  these help parse HTTP POST request data before we process it
-app.use(bodyParser.urlencoded({ extended: true} ) ); // decode url-encoded incoming POST data
-app.use(bodyParser.json() ); // decode JSON-formatted incoming POST data
-
 // set up a 'route'... i.e. a callback function to run when a particular request comes in
 app.get('/foo', (request, response) => {
     response.send('bar'); // send the response
@@ -1412,6 +1404,8 @@ app.post('/foo', (request, response) => {
     response.send(`Hello, ${req.body.name}!`); // send the response
 });
 ```
+
+[Try it!](https://repl.it/repls/HarmfulFirmMultiprocessing)
 
 ---
 
