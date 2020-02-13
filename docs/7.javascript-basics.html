@@ -26,7 +26,7 @@ for programmers of other languages
 1. [Using APIs](#apis)
 1. [Destructuring](#destructuring)
 1. [Importing & Exporting Modules](#modules)
-1. [Web Browser Implementation vs Node.js Implementation](#implementations)
+1. [Implementation Differences](#implementations)
 10. [Conclusions](#conclusions)
 
 ---
@@ -587,7 +587,7 @@ const fido = {
         console.log(`${this.name} the ${this.breed} says, '${message}'`);
     }
 }
-fido.bark();
+fido.bark('Woof!');
 ```
 
 [Try it!](https://repl.it/repls/ImmaculateHurtfulLink)
@@ -640,7 +640,7 @@ fido.bark('Woof!'); //expected output: "Fido the Schnauzer says, 'Woof!'"
 template: objects
 name: objects-5
 
-## Constructing objects with a function caall
+## Constructing objects with a function call
 Objects can alternatively be instantiated by calling a function.
 
 ```javascript
@@ -1025,8 +1025,7 @@ https.get(apiUrl, (response) => {
 });
 ```
 
-[Try it!](https://repl.it/repls/FaroffImpureCells)
-- [See the raw data returned by the API](https://my.api.mockaroo.com/users.json?key=d9ddfc40):
+[Try it!](https://repl.it/repls/FaroffImpureCells) or [see the raw data returned by the API](https://my.api.mockaroo.com/users.json?key=d9ddfc40):
 
 ---
 
@@ -1042,7 +1041,6 @@ name: destructuring-1
 ## Arrays
 Values in an array can be extracted into separate variables upon assignment:
 ```javascript
-// asssign the first two values in an array to two variables in one statement
 const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 ```
 
@@ -1065,12 +1063,10 @@ const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
 template: destructuring-2
 name: destructuring-3
 
-Function parameters can follow this same **rest syntax**:
+Function parameters can follow this same syntax:
 ```javascript
 function foo(a, b, ...args) {
-    console.log(`a = ${a}`); // expected output: 10
-    console.log(`b = ${b}`); // expected output: 20
-    console.log(`args = ${args}`); // expected output: [30,40,50]
+    console.log(`a = ${a}, b = ${b}`, args = ${args}`); // args = [30, 40, 50]
 }
 foo(10, 20, 30, 40, 50); // pass values as separate arguments
 ```
@@ -1097,7 +1093,7 @@ let total = sum(...args); // spread the values in the array into multiple argume
 
 Or copying values from one array into another...
 ```javascript
-let myVals = [ 1, 2, 3, ...[4, 5, 6] ];
+let myVals = [ 1, 2, 3, ...[4, 5, 6] ]; // [1, 2, 3, 4, 5, 6]
 ```
 
 [Try it!](https://repl.it/repls/PerfumedScarceComputationalscience)
@@ -1145,7 +1141,7 @@ name: destructuring-6
 
 ## Objects
 
-Variable names do not need to match field names in the objects being destructured:
+Variable names do not need to match field names:
 ```javascript
 const {name : fullName, age : apparentAge} = person; // { fullName: 'Foo Barstein', apparentAge: 72 }
 console.log(`fullName = ${fullName}`); // expected output: 'Foo Barstein'
@@ -1326,7 +1322,7 @@ import bar, {foo, baz} from './10.exporting'; // the default export is 'bar'
 
 name: implementations
 
-# Web Browser Implementations vs. Node.js Implementations
+# Implementation Differences
 
 ---
 
@@ -1377,7 +1373,7 @@ Imagine the following HTML code for a button and a picture of a donkey.
 <img id="neigh" src='images/donkey.jpg' />
 ```
 
-And let's say we had the following CSS code to hide the donkey when the page loads:
+And let's say the following CSS code hid the donkey:
 ```css
 /* this will cause the donkey to be hidden when the page first loads */
 img#neigh { display: none; }
@@ -1397,7 +1393,7 @@ template: implementations
 name: implementations-7
 
 ## Server example
-The following server-side code, using the popular [Express.js](https://expressjs.com) framework, will wait for a client to make an HTTP GET or POST request the '/foo' resource and will then respond.
+The following server-side code uses the popular [Express.js](https://expressjs.com) framework.
 ```javascript
 const app = require('express'); // CommonJS import style!
 const app = express(); // get an Express object
@@ -1418,13 +1414,6 @@ app.post('/foo'), function (request, response) {
     response.send(`Hello, ${req.body.name}!`); // send the response
 }
 ```
-
----
-
-template: implementations-4
-name: implementations-5
-
-- Unlike with the web browser, *you control the server*, including which version of Javascript is supported.  So you can guarantee support for whichever version of Node.js you choose to program in.
 
 ---
 
