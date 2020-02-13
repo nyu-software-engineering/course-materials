@@ -19,6 +19,7 @@ for programmers of other languages
 1. [Regular Functions](#functions)
 1. [Anonymous Functions](#anonymous-functions)
 1. [Arrow Functions](#arrow-functions)
+1. [Immediately-Invoked Function Expressions](#iife)
 1. [Arrays](#arrays)
 1. [Higher-Order Functions](#higher-order-functions)
 1. [Asynchronicity](#asynchronicity)
@@ -148,6 +149,26 @@ data[1] = 'ha!'; // but this is not variable reassignment!
 
 console.log(data); // expected output: [10, 'ha!', 30]
 ```
+
+---
+
+template: basics
+name: variables-3
+
+## Scope example
+
+Imagine the following code?
+```javascript
+let x = 5;
+
+{
+  let x = 10;
+}
+
+console.log(x);
+```
+
+What is output?
 
 ---
 
@@ -460,7 +481,7 @@ console.log( doSomething3('hello', 'world') ); // call the function and use its 
 template: arrow-functions
 name: arrow-functions-4
 
-Function syntax can be even further reduced.
+Function syntax can be even further reduced if all the function does is return a value.
 
 ```javascript
 // even further reduced syntax for a function with only a return statement... so no curly braces required
@@ -469,6 +490,9 @@ console.log( doSomething4('hello', 'world') ); // call the function and use its 
 ```
 
 [Try it!](https://repl.it/repls/SalmonWarpedParentheses)
+
+Note that with this shorthand return statement, if the value returned is an object, that object must be encapsulated in parentheses.
+const getFoo = () => ({first: 'Foo', last: 'Barstein'});
 
 ---
 
@@ -482,6 +506,39 @@ console.log( doSomething5('hello') ); // call the function and use its return va
 ```
 
 [Try it!](https://repl.it/repls/FunctionalHelplessPresses)
+
+---
+
+name: iife
+
+# Immediately-Invoked Function Expressions
+
+---
+
+template: iife
+name: iife-1
+
+Wrapping a function in parentheses turns it into an expression.  
+- Adding function call parentheses immediately afterwards immediately invokes this function expression.
+
+A simple IIFE:
+```javascript
+( function doSomething() {
+    console.log('doing something');
+} )();
+```
+
+An anonymous arrow function turned into an IIFE:
+```javascript 
+( () => {
+    console.log('doing something');
+})();
+```
+
+Similar, but different:
+( message => console.log(message) )('doing something');
+
+[Try it!](https://repl.it/repls/TepidDeepskyblueInternalcommand)
 
 ---
 
@@ -989,22 +1046,26 @@ Values in an array can be extracted into separate variables upon assignment:
 const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 ```
 
+[Try it!](https://repl.it/repls/MindlessLazyTriangles)
+
 ---
 
 template: destructuring-1
 name: destructuring-2
 
-The remaining values can be lumped together:
+The remaining values can be lumped together - this is *rest syntax*:
 ```javascript
 const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
 ```
+
+[Try it!](https://repl.it/repls/MindlessLazyTriangles)
 
 ---
 
 template: destructuring-2
 name: destructuring-3
 
-Function parameters can follow this same syntax:
+Function parameters can follow this same **rest syntax**:
 ```javascript
 function foo(a, b, ...args) {
     console.log(`a = ${a}`); // expected output: 10
@@ -1014,6 +1075,33 @@ function foo(a, b, ...args) {
 foo(10, 20, 30, 40, 50); // pass values as separate arguments
 ```
 
+[Try it!](https://repl.it/repls/MindlessLazyTriangles)
+
+---
+
+template: destructuring
+name: destructuring-8
+
+## Spread syntax
+Spread syntax is the opposite of rest syntax - it dissolves an array into separate values in particular contexts.
+
+Such as when passing an array of arguments to a function.
+```javascript
+// a function that accepts two separate arguments
+function sum(x, y) {
+    return x + y;
+}
+let args = [10, 20];
+let total = sum(...args); // spread the values in the array into multiple arguments
+```
+
+Or copying values from one array into another...
+```javascript
+let myVals = [ 1, 2, 3, ...[4, 5, 6] ];
+```
+
+[Try it!](https://repl.it/repls/PerfumedScarceComputationalscience)
+
 ---
 
 template: destructuring
@@ -1021,8 +1109,9 @@ name: destructuring-4
 
 ## Objects
 Values within an object can be destructured.
+
+Take this object with a nested sub-object as a starting point...
 ```javascript
-// destructuring can also be done with objects
 const person = {
     age: 72, 
     name: "Foo Barstein",
@@ -1047,6 +1136,8 @@ console.log(`name = ${name}`); // expected output: 'Foo Barstein'
 console.log(`age = ${age}`); // expected output: 72
 ```
 
+[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
+
 ---
 
 template: destructuring
@@ -1060,6 +1151,8 @@ const {name : fullName, age : apparentAge} = person; // { fullName: 'Foo Barstei
 console.log(`fullName = ${fullName}`); // expected output: 'Foo Barstein'
 console.log(`apparentAge = ${apparentAge}`); // expected output: 72
 ```
+
+[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
 
 ---
 
@@ -1077,6 +1170,8 @@ const {
 console.log(`email = ${email}`); // expected output: 'fb1258@teleworm.us'
 console.log(`city = ${city}`); // expected output: 'Beni Brahim''
 ```
+
+[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
 
 ---
 

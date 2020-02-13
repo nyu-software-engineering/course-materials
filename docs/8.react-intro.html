@@ -98,10 +98,34 @@ function Hello(){
 }
 ```
 
+[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/1/)
+
 And if you know arrow functions, it can also be written this way:
 ```javascript
 const Hello = () => <p>Hello world!</p>;
 ```
+
+---
+
+template: components
+name: components-3
+
+Components can contain multiple user interface elements.
+- All components must have one 'root' element that encompases all other sub-elements.
+
+For example, a `div` is a generic container element that is often used to surround multiple sub-elements.
+```javascript
+function Hello(){
+    return (
+    	<div>
+            <h1>React Component</h1>
+            <p>Hello world!</p>
+    	</div>
+    )
+}
+```
+
+[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/5/)
 
 ---
 
