@@ -1348,7 +1348,7 @@ template: implementations
 name: implementations-4
 
 ## Differences (continued)
-- There are *myriad web browsers* with *myriad different versions* in active use by people across The Web.  Programming Javascript that will work in all of them usually means taking a 8lowest-common denominator approach* and sticking to language features that have been around for many years.
+- There are *myriad web browsers* with *myriad different versions* in active use by people across The Web.  Programming Javascript that will work in all of them usually means taking a *lowest-common denominator approach* and sticking to language features that have been supported by browsers for many years.
 
 ---
 
@@ -1383,6 +1383,8 @@ $('button#clickme').click( function() {
 });
 ```
 
+[Try it!](https://jsfiddle.net/barsteinfoo/qt7xzf9u/2/)
+
 ---
 
 template: implementations
@@ -1391,7 +1393,7 @@ name: implementations-7
 ## Server example
 The following server-side code uses the popular [Express.js](https://expressjs.com) framework.
 ```javascript
-const app = require('express'); // CommonJS import style!
+const express = require('express'); // CommonJS import style!
 const app = express(); // get an Express object
 const bodyParser = require('body-parser'); // helps process incoming HTTP POST data
 
@@ -1400,15 +1402,15 @@ app.use(bodyParser.urlencoded({ extended: true} ) ); // decode url-encoded incom
 app.use(bodyParser.json() ); // decode JSON-formatted incoming POST data
 
 // set up a 'route'... i.e. a callback function to run when a particular request comes in
-app.get('/foo'), function (request, response) {
+app.get('/foo', (request, response) => {
     response.send('bar'); // send the response
-}
+});
 
 // another one just for fun... this one waits for an HTTP POST request for the same URL
-app.post('/foo'), function (request, response) {
+app.post('/foo', (request, response) => {
     // let's assume the client has sent some POST data with the user's name
     response.send(`Hello, ${req.body.name}!`); // send the response
-}
+});
 ```
 
 ---
