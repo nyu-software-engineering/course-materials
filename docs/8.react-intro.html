@@ -14,7 +14,8 @@ for people who want to make something appear in a browser
 # Agenda
 
 1. [Overview](#overview)
-1. [Setup](#setup)
+1. [A Word About HTML & CSS](#html-css)
+1. [React Setup](#setup)
 1. [Components](#components)
 1. [JSX](#jsx)
 1. [Props](#props)
@@ -35,6 +36,144 @@ name: overview-1
 
 ## Something
 
+---
+
+name: html-css
+
+# A Word About HTML & CSS
+
+---
+
+template: html-css
+name: html-css-1
+
+## Concept
+Any web app browser understands three core web technologies:
+- **Hypertext Markup Language** (HTML) - controls the content present on the web page
+- **Cascading Style Sheets** (CSS) - controls the visual style of the content on the web page
+- **Javascript** (JS) - controls the iteractive behavior of the web page (what happens when a user clicks, types, moves them mouse, etc)
+
+---
+
+template: html-css
+name: html-1
+
+## HTML in three slides (slide 1)
+For any given web page, HTML code indicates the type of content to show as well as each piece of content's purpose, or semantic meaning.
+- A level 1 heading: `<h1>Puppies For Sale</h1>`
+- A paragraph: `<p>Buy now while supplies last!</p>`
+- An image of a lonely puppy: `<img src="images/lonely_puppy.jpg" />`
+- An article with a level 1 heading, an image of a sad puppy, and a paragraph with a link to another web page: 
+```html
+<article>
+    <h1>Puppies For Sale</h1>
+    <img src="images/lonely_puppy.jpg" />
+    <p>
+        Buy now while supplies last!
+        <a href="puppies.html">Learn more</a>
+    </p>
+</article>
+```
+
+---
+
+template: html-css
+name: html-2
+
+## HTML in three slides (slide 2)
+Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.
+```html
+<section>
+
+    <!-- the first article -->
+    <article>
+        <h1>Puppies For Sale</h1>
+        <img src="images/lonely_puppy.jpg" />
+        <p>
+            Buy now while supplies last!
+            <a href="puppies.html">Learn more</a>
+        </p>
+    </article>
+
+    <!-- the second article... notice its structural similarity to the first -->
+    <article>
+        <h1>Kittens For Sale</h1>
+        <img src="images/sad_kitten.jpg" />
+        <p>
+            Get 'em while they're hot!
+            <a href="kittens.html">Learn more</a>
+        </p>
+    </article>
+
+</section>
+```
+
+---
+
+template: html-css
+name: html-3
+
+## HTML in three slides (slide 3)
+Actually, we're more-or-less finished explaining HTML in 2 slides. 
+
+What you just learned is how content that will be displayed in the `body` of a web page is represented in HTML code.
+- Learn [a bit more about other necessary parts of an HTML document](https://nyu-computer-science.github.io/web-design/html/).
+
+---
+
+template: html-css
+name: css-1
+
+## CSS in three slides (slide 1)
+For any given web page, CSS code indicates the style to use for the content indicated by the HTML.
+- To give *all* level 2 headings green text: `h2 { color: green; }`
+- To give *all* paragraphs a pink background: `p { background-color: pink; }`
+- To set the width and height of *all* images: `img { width: 200px; height: 300px; }`
+- To give *all* articles a thick pink dotted border, a bold `georgia` font, and lots of space around the contents inside them: 
+```html
+article {
+    border: 10px dotted pink;
+    font-family: georgia;
+    font-weight: bold;
+    padding: 20px;
+}
+```
+
+---
+
+template: html-css
+name: css-2
+
+## CSS in three slides (slide 2)
+Let's say you had four paragraphs, but only wanted to style two of them the same.  Mark them with a `class` attribute in the HTML.  If you want to style only one, mark it with a unique `id` attribute:
+```html
+<p>Lorem ipsum dolor sit amet.</p>
+<p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
+<p id="a_really_special_paragraph">Dolor sit amet lorem ipsum.</p>
+<p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
+```
+
+And select only those paragraphs in the CSS:
+```css
+p.my_favorite_paragraphs {
+    box-shadow: 5px 5px 10px; /* a drop shadow */
+}
+p#a_really_special_paragraph {
+    font-size: 24px; /* relatively big */
+}
+```
+
+---
+
+template: html-css
+name: css-3
+
+## CSS in three slides (slide 3)
+One very important part of CSS code that we will not address here is how you place elements onto the web page in the location where you want them to go.
+
+There are a variety of ways... the latest greatest is to use so-called CSS Flexbox.
+- Learn [more about basic CSS](https://nyu-computer-science.github.io/web-design/css/) first.
+- Then learn [more about layouts with CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
 ---
 
 name: setup
