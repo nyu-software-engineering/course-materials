@@ -527,27 +527,24 @@ name: components-9
 ## Styling components (continued)
 Given the following JSX:
 ```html
-<div className="intro">
+<article className="intro">
         <h1 className="intro-heading">React Component</h1>
         <p className="intro-paragraph">Hello world!</p>
-</div>
+</article>
 ```
 
 React CSS must **select components by their `className` attribute**, not by the type of HTML element they are rendered as, since this may vary.
 ```css
 .intro { 
     border: 1px solid red; 
-    padding: 20px;
 }
 .intro-heading {
     font-family: georgia;
 }
-.intro-paragraph {
-    color: #505050;
-}
+/* etc */
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/pjfe9knc/3/)
+[Try it!](https://jsfiddle.net/barsteinfoo/pjfe9knc/5/)
 
 ---
 
@@ -642,7 +639,45 @@ name: state
 template: state
 name: state-1
 
-## Something
+## Concept
+In React, **state** variables help keep track of the internal state of the component.
+- In functional components, state variables must be initialized by calling React's `useState()` function.
+
+```javascript
+// create a state variable with default value 0
+// store a reference to the variable, and a reference to a function that can be called to change its value
+const [count, setCount] = useState(0);
+```
+
+The code creates a state variable naamed `count`.
+- pass `useState()` an argument with the default value you want a state variable to hold
+- `useState()` returns an array with two elements: a reference to that value and the definition of a function you can call to change the value
+- this returned array is then *destructured* into two variables
+
+---
+
+template: state
+name: state-2
+
+## Binding
+State variables can be inserted into any JSX component, just like any other Javascript expression.
+- Unlike other expressions, any changes to the value stored in the variable will be immediately updated in the component.
+
+```html
+function MyComponent() {
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <p>You clicked the button { count } times</p>
+            <button onClick={ () => setCount( count + 1 ) }>
+                Click me
+            </button>
+        </div>
+    )
+}
+```
+
+Anytime the button is clicked, the state variable is incremented, and the paragraph automatically shows the updated number.
 
 ---
 
