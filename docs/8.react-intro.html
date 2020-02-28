@@ -435,6 +435,44 @@ function Hello(){
 
 ---
 
+template: components
+name: components-4
+
+## Components are not exactly HTML
+While JSX components look almost identical to HTML code, they are not HTML and have some slightly different behavior.
+
+To add a class to an HTML element, you use the `class` attribute.
+```html
+<p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
+```
+
+To have React render that same HTML, you would have to use the `className` attribute in JSX (unlike HTML, all attributes in JSX have upper-camel case names):
+```html
+<p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
+```
+
+This is because `class` is a reserved word in Javascript, and JSX code is placed within Javascript code.
+
+---
+
+template: components
+name: components-5
+
+## Components are not exactly HTML (continued)
+Attributes in HTML typically have quotes around their values.
+```html
+<p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
+```
+
+If inserting a variable as the value for an attribute in JSX, you cannot surround the variable name in quotes.
+```html
+<p className={someVariable}>Ipsum dolor sit amet lorem.</p>
+```
+
+[Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
+
+---
+
 name: props
 
 # Props
@@ -444,7 +482,7 @@ name: props
 template: props
 name: props-1
 
-## Accepting props
+## Accepting arguments
 Props are arguments passed to a component that can influence its content or behavior.
 
 This custom `Article` component accepts a props object as its argument and inserts some of the values therein into the JSX content:
@@ -485,9 +523,7 @@ template: props
 name: props-3
 
 ## Functions as arguments
-Javascript, of course, can accept function definitions as arguments.  So values passed into the `props` object can thus be function definitions to run within the component, such as what to do when a user clicks on a particular part of the component.
-
-For example, this component will run any function passed as an argument named `action` when the user clicks the paragraph:
+Javascript, of course, can accept function definitions as arguments.  For example, this component will run any function passed as an argument named `action` whenever the user clicks the paragraph:
 ```javascript
 function Card(props) {
 	return (
@@ -498,12 +534,13 @@ function Card(props) {
 }
 ```
 
-We could easily pass the definition of the function to run from another component:
+We could easily pass the definition of the function from any component that includes an instaance of `Card` within it:
 ```javascript
-<Card action={ () => { alert("See what I mean?!") } } />
+<Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
+<Card action={ () => { fetch('https://my.api.mockaroo.com/users.json?key=d9ddfc40') } } />
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/okd64s7g/13/)
+[Try it!](https://jsfiddle.net/barsteinfoo/okd64s7g/20/)
 
 ---
 
@@ -511,8 +548,10 @@ template: props
 name: props-3
 
 ## Summary
-Props are a jargon word for arguments passed to a component.
+Props are a jargon word for arguments passed to a function.
 - when using JSX to mention a component, values are passed to the component as JSX attributes, e.g. `<Article heading="Free Kittens" />
+- any type of value can be passed as an argument to a component within the props object
+- Learn more about [components and props](https://reactjs.org/docs/components-and-props.html)
 
 ---
 
