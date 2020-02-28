@@ -15,7 +15,8 @@ for people who want to make something appear in a browser
 
 1. [Overview](#overview)
 1. [A Word About HTML & CSS](#html-css)
-1. [React Setup](#setup)
+1. [React Setup From Scratch](#setup)
+1. [React Setup From Git](#setup-git)
 1. [Components](#components)
 1. [Props](#props)
 1. [State](#state)
@@ -132,8 +133,7 @@ template: html-css
 name: html-2
 
 ## HTML in three slides (slide 2)
-Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.  
-[Try it!](https://jsfiddle.net/barsteinfoo/adgrp9zb/5/)
+Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.  [Try it!](https://jsfiddle.net/barsteinfoo/adgrp9zb/5/)
 ```html
 <section>
     <!-- the first article -->
@@ -242,7 +242,7 @@ Now that you have a mastery of HTML & CSS (!), you will use React.js to autogene
 
 name: setup
 
-# React setup
+# React Setup From Scratch
 
 ---
 
@@ -288,16 +288,32 @@ npx create-react-app front-end
 template: setup
 name: setup-4
 
-## Try it out
-To preview the app in a non-optimal state, try running it.
+## Remove git
+`create-react-app` automatically installs **git** version control tracking into the directory it creates for the React code.
+
+We will want to use git to track our entire project, not just the front-end generator code.  So we need to remove git from the `front-end` directory.
 
 ```bash
 cd front-end
+rm -rf .git # remove the hidden directory where git keeps its files
+rm .gitignore # remove the hidden git settings file
+```
+
+---
+
+template: setup
+name: setup-5
+
+## Try it out
+To preview the app in a non-optimal state, try running it.
+
+Verify that your working directory is `front-end` and start up the React preview script.
+```bash
 npm start
 ```
 
-This will run the script named `start` automatically included in the new app's configuration file - it launches the app.
-- All Node.js-based applications that use Node's built-in package manager, `npm`, have a configuration file like this named `package.json`.
+This will run the script named `start` automatically included in the new app's configuration file - it launches a preview of the app.
+- All Node.js-based applications that use Node's built-in package manager, `npm`, have a configuration file named `package.json` that can include start scripts like this.
 
 ---
 
@@ -333,9 +349,30 @@ You should familiarize with the React app files and directories.
 ---
 
 template: setup
-name: setup-3
+name: setup-7
 
-## Clone a React app
+## Set up git for the entire project
+Navigate to the main project directory where you will initialize git version control tracking.
+```bash
+cd .. # go up a level to the parent directory of both front-end and back-end
+git init # install git
+```
+
+Create a file named `.gitignore` that will inform git of files not to track.
+- Copy the contents of [this example `.gitignore`](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) into your file.
+
+---
+
+name: setup-git
+
+# React Setup From Git
+
+---
+
+template: setup-git
+name: setup-git-1
+
+## Clone a git repository
 If cloning an existing React app stored in a Git remote repository, use `git clone`, as with any git repository.
 
 ```bash
@@ -348,6 +385,7 @@ Navigate into this directory and run `npm install` in order to install any neces
 ```bash
 npm install
 ```
+
 ---
 
 name: components
@@ -602,10 +640,10 @@ Javascript, of course, can accept function definitions as arguments.  For exampl
 ```javascript
 function Card(props) {
 	return (
-  	<div>
-  	  <p onClick={props.action}>Click me!</p>
-  	</div>
-  )
+        <div>
+            <p onClick={props.action}>Click me!</p>
+        </div>
+    )
 }
 ```
 
