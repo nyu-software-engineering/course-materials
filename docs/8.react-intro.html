@@ -63,6 +63,16 @@ React.js programs themselves are not web apps - they comprise neither the front 
 
 ---
 
+template: overview
+name: overview-4
+
+## React.js components are standardized and reusable
+The key value proposition of React.js is that it produces standardized reusable code.
+- React comes with many built-in reusable components.
+- 
+
+---
+
 name: html-css
 
 # A Word About HTML & CSS
@@ -219,24 +229,121 @@ name: css-4
 
 ## Auto-generating HTML & CSS
 Now that you have a mastery of HTML & CSS (!), you will use React.js to autogenerate them for you.
-- React allows you to easily write reusable templates called components.
-- For example, you can define a template for an article with a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
+- React allows you to easily write reusable bits of HTML, CSS, and browser-based Javascript code called **components**.
+- For example, you can define a template for an article that contains a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
 
-[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/29/)
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/30/)
 
 ---
 
 name: setup
 
-# Setup
+# React setup
 
 ---
 
 template: setup
 name: setup-1
 
-## Something
+## Install Node.js
+Since React.js is built to run in it, a developer must first [install Node.js](https://nodejs.org)
+- pick the latest stable version for your system
 
+---
+
+template: setup
+name: setup-2
+
+## Create project directories
+If creating a React app from scratch, first create project directory where everything related to your app - front-end, back-end, and React code - will reside.
+
+```bash
+mkdir my-app
+cd my-app
+```
+
+Since you'll eventually need it, take the opportunity to make a sub-directory for the back-end code.
+```bash
+mkdir back-end
+```
+
+---
+
+template: setup
+name: setup-3
+
+## Create a starter React app
+In the project directory, create a React starter project - this will create the basic directory structure, install any necessary dependencies, set up configuration files, and include simple React app starter code that is immediately runnable.
+- Call the React app `front-end`, since it will be used to generate the front-end of a web app - this will create a `front-end` sub-directory where all React code will live.
+```bash
+npx create-react-app front-end
+```
+
+---
+
+template: setup
+name: setup-4
+
+## Try it out
+To preview the app in a non-optimal state, try running it.
+
+```bash
+cd front-end
+npm start
+```
+
+This will run the script named `start` automatically included in the new app's configuration file - it launches the app.
+- All Node.js-based applications that use Node's built-in package manager, `npm`, have a configuration file like this named `package.json`.
+
+---
+
+template: setup
+name: setup-5
+
+## Try generating HTML, CSS, and Javascript files
+The previous command previews the app.  To generate the proper HTML, CSS, and browser-based Javascript files that will ultimately comprise the app front-end, run the following:
+```bash
+npm run build
+```
+
+This will run the script named `build` automatically included in the `package.json` configuration file.
+- A new sub-directory named `build` will contain the generated files.
+
+---
+
+template: setup
+name: setup-6
+
+## Poke around the file system
+You should familiarize with the React app files and directories.
+- `build/` - where the generated HTML, CSS, and browser-based Javascript will automatically be placed.  Don't touch this!
+- `node_modules/` - where modules that this app depends upon will be automatically installed. Don't touch this!
+- `public/` - contains any static assets that should be copied into `build/` by the generator, such as favicon images, logo images, etc.
+- `src/` - contains the source code files that make up your app... this is where you will work on code
+- `src/index.js` - code that creates the outline of a basic HTML page and tells React to place the component named `App` onto the page. Don't touch this!
+- `src/index.css` - CSS code for basic page-wide style settings.
+- `src/App.js` - code for the `App` component loaded onto the page.
+- `src/App.css` - CSS code for styling the App component.
+- `package.json` - the standard `npm` type of configuration file with lots of app settings and a complete list of dependencies
+
+---
+
+template: setup
+name: setup-3
+
+## Clone a React app
+If cloning an existing React app stored in a Git remote repository, use `git clone`, as with any git repository.
+
+```bash
+git clone https://github.com/some-username/my-app.git
+```
+
+This will create a new directory named `my-app` (or whatever name the repository had) where all the project files are stored.
+
+Navigate into this directory and run `npm install` in order to install any necessary dependencies for this project listed in the project's `package.json` configutation file.
+```bash
+npm install
+```
 ---
 
 name: components
