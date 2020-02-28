@@ -17,7 +17,6 @@ for people who want to make something appear in a browser
 1. [A Word About HTML & CSS](#html-css)
 1. [React Setup](#setup)
 1. [Components](#components)
-1. [JSX](#jsx)
 1. [Props](#props)
 1. [State](#state)
 1. [Fetching Data From Servers and APIs](#fetch)
@@ -84,7 +83,7 @@ template: html-css
 name: html-css-1
 
 ## Concept
-Any web app browser understands three core web technologies:
+Any **web browser** understands the three core front-end web technologies:
 - **Hypertext Markup Language** (HTML) - controls the content present on the web page
 - **Cascading Style Sheets** (CSS) - controls the visual style of the content on the web page
 - **Javascript** (JS) - controls the iteractive behavior of the web page (how does the page change when a user clicks, types, moves them mouse, etc)
@@ -96,12 +95,12 @@ name: html-css-2
 
 ## Javascript
 In addition to controlling the interactive behaviors of web pages running in web browsers, Javascript has found new life in other environments:
-- writing Javascript to autogenerate HTML and CSS for a web app by using [React.js](https://reactjs.org/)
-- web [browser extensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) written in Javascript
-- scripts to automate processes in [Adobe Creative Suite](https://www.adobe.com/devnet/scripting.html)
-- interactive music and video composition with Cycling 74's [Max/MSP](https://cycling74.com/products/max/)
-- server-side programming with [Node.js](https://nodejs.org)
-- database queries in [MongoDB](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo), [Firebase](https://firebase.google.com/docs/reference/js/), and others
+- writing Javascript to autogenerate HTML and CSS for the front-end of a web app by using [React.js](https://reactjs.org/), of course.
+- web [browser extensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) written in Javascript.
+- server-side programming with [Node.js](https://nodejs.org).
+- scripts to automate image editing processes in [Adobe Creative Suite](https://www.adobe.com/devnet/scripting.html).
+- interactive music and video composition with Cycling 74's [Max/MSP](https://cycling74.com/products/max/).
+- database queries in [MongoDB](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo), [Firebase](https://firebase.google.com/docs/reference/js/), and others.
 - [Solidity](https://github.com/ethereum/solidity) is designed to be a Javascript-like language that runs on the Ethereum blockchain.
 
 ---
@@ -114,7 +113,7 @@ For any given web page, HTML code indicates the type of content to show as well 
 - A level 1 heading: `<h1>Puppies For Sale</h1>`
 - A paragraph: `<p>Buy now while supplies last!</p>`
 - An image of a lonely puppy: `<img src="images/lonely_puppy.jpg" />`
-- An article with a level 1 heading, an image of a sad puppy, and a paragraph with a link to another web page - [try it](https://jsfiddle.net/barsteinfoo/erq4hzya/2/): 
+- An article with a level 1 heading, an image of a sad puppy, and a paragraph with a link to another web page:
 ```html
 <article>
         <h1>Puppies For Sale</h1>
@@ -125,6 +124,7 @@ For any given web page, HTML code indicates the type of content to show as well 
         </p>
 </article>
 ```
+[Try it](https://jsfiddle.net/barsteinfoo/erq4hzya/2/)
 
 ---
 
@@ -132,7 +132,8 @@ template: html-css
 name: html-2
 
 ## HTML in three slides (slide 2)
-Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.  [Try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/5/)
+Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.  
+[Try it!](https://jsfiddle.net/barsteinfoo/adgrp9zb/5/)
 ```html
 <section>
     <!-- the first article -->
@@ -164,8 +165,8 @@ name: html-3
 ## HTML in three slides (slide 3)
 Actually, we're more-or-less finished explaining HTML in 2 slides. 
 
-What you just learned is how content that will be displayed in the `body` of a web page is represented in HTML code.
-- Learn [a bit more about other necessary parts of an HTML document](https://nyu-computer-science.github.io/web-design/html/).
+What you just learned is how to code for content that will be displayed in the `body` of a web page - the part of an HTML document that represents the visible content.
+- Learn [a bit more about HTML documents](https://nyu-computer-science.github.io/web-design/html/).
 
 ---
 
@@ -177,15 +178,16 @@ For any given web page, CSS code indicates the style to use for the content indi
 - Give *all* level 2 headings green text: `h2 { color: green; }`
 - Give *all* paragraphs a pink background: `p { background-color: pink; }`
 - Set the dimensions of *all* images: `img { width: 200px; height: 300px; }`
-- Give *all* articles a thick pink dotted border, a bold `serif` font, and lots of space around the contents inside them - [try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/6/): 
+- Give *all* articles a thick pink dotted border, a bold `serif` font, and lots of space around the contents inside them:
 ```css
 article {
-    border: 10px dotted pink;
-    font-family: georgia;
-    font-weight: bold;
-    padding: 20px;
+        border: 10px dotted pink;
+        font-family: georgia;
+        font-weight: bold;
+        padding: 20px;
 }
 ```
+[Try it!](https://jsfiddle.net/barsteinfoo/adgrp9zb/6/)
 
 ---
 
@@ -201,7 +203,7 @@ Let's say you had four paragraphs, and wanted to style only two of them the same
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-And select only the paragraphs that match these attributes in the CSS - [try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/8/):
+And select only the paragraphs that match these attributes in the CSS:
 ```css
 p.my_favorite_paragraphs {
     box-shadow: 5px 5px 10px; /* a drop shadow */
@@ -210,6 +212,7 @@ p#a_really_special_paragraph {
     font-size: 24px; /* relatively big */
 }
 ```
+[Try it!](https://jsfiddle.net/barsteinfoo/adgrp9zb/8/)
 
 ---
 
@@ -231,7 +234,7 @@ name: css-4
 ## Auto-generating HTML & CSS
 Now that you have a mastery of HTML & CSS (!), you will use React.js to autogenerate them for you.
 - React allows you to easily write reusable bits of HTML, CSS, and browser-based Javascript code called **components**.
-- For example, you can define a template for an article that contains a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
+- For example, you can define a template for an `article` that contains a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
 
 [Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/30/)
 
@@ -379,38 +382,44 @@ class Hello extends Component{
 }
 ```
 
+This embedding of HTML-like code into the middle of Javascript code is not ordinary Javacript - it is React's **JSX**.
+- JSX allows you to write your interface code in an HTML-like way that is familiar to most web and app developers
+- React automatically replaces JSX with the equivalent Javascript code to create these interface elements.
+
 ---
 
 template: components
 name: components-2
 
 ## Component functions
-Defining a component as a function simplifies the code a bit.
+Defining a component as a function is now the preferred way and simplifies the code a bit.
 
-Here is a component function named `Hello` that represents a paragraph of text.
-
+This functionaal component named `Hello` represents a paragraph of text:
 ```javascript
 function Hello(){
     return <p>Hello world!</p>
 }
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/1/)
-
-And if you know arrow functions, it can also be written this way:
+And if you know Javascript arrow functions, the same function can be written this way:
 ```javascript
 const Hello = () => <p>Hello world!</p>;
 ```
+
+[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/1/)
+
 
 ---
 
 template: components
 name: components-3
 
+## Multi-element components
 Components can contain multiple user interface elements.
-- All components must have one 'root' element that encompases all other sub-elements.
+- However, all components must have one 'root' element that encompases all other sub-elements.
 
-For example, a `div` is a generic container element that is often used to surround multiple sub-elements.
+A `div` is a generic container element that is often used for this purpose.
+Note the parentheses around the expression that is being returned - this is necessary.
 ```javascript
 function Hello(){
     return (
@@ -426,19 +435,6 @@ function Hello(){
 
 ---
 
-name: jsx
-
-# JSX
-
----
-
-template: jsx
-name: jsx-1
-
-## Something
-
----
-
 name: props
 
 # Props
@@ -448,7 +444,34 @@ name: props
 template: props
 name: props-1
 
-## Something
+## Concept
+Props are arguments passed to a component that can influence its content or behavior.
+
+For example - a custom `Article` component that accepts props as an argument:
+```javascript
+function Article(props) {
+    return (
+        <article>
+            <h1>{props.heading}</h1>
+            <p>{props.paragraph</p>
+        </article>
+    )
+}
+```
+
+And another component that includes two `Article` components within it:
+```javascript
+function Section() {
+    return (
+        <div>
+            <Article heading="Puppies for Sale" paragraph="Get 'em while they last!'" />
+            <Article heading="Free Kittens" paragraph="Anytime, anywhere!'" />
+        </div>
+    )
+}
+```
+
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/38/)
 
 ---
 
