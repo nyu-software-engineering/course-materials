@@ -430,12 +430,12 @@ Components can contain multiple user interface elements.
 - Note the parentheses around the expression that is being returned - this is necessary.
 ```javascript
 function Hello(){
-    return (
-    	<div>
-            <h1>React Component</h1>
-            <p>Hello world!</p>
-    	</div>
-    )
+        return (
+                <div>
+                    <h1>React Component</h1>
+                    <p>Hello world!</p>
+                </div>
+        )
 }
 ```
 
@@ -478,6 +478,30 @@ If inserting a variable or other expression as the value for an attribute in JSX
 ```
 
 [Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
+
+---
+
+template: components
+name: components-7
+
+## Components are not exactly HTML (continued again)
+HTML allows CSS styles to be written inline in an HTML element in a special `style` attribute.
+```html
+<p style="color: blue; background-color: pink;">Ipsum dolor sit amet lorem.</p>
+```
+
+JSX allows an object to be passed as the `style` attribute value.
+```javascript
+const pStyle = {
+    color: 'blue',
+    backgroundColor: pink; // notice the camelCase style property names, unlike HTML... this is Javascript!
+}
+```
+```html
+<p style={pStyle}>Ipsum dolor sit amet lorem.</p>
+```
+
+Inline styles are considered a bad practice in both React and in HTML. [Read more](https://reactjs.org/docs/dom-elements.html#style)
 
 ---
 
