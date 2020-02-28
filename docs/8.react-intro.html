@@ -744,6 +744,12 @@ Every time React renders a component onto the web page, such as when the page fi
 - The term "side-effect" comes from **[functional programming](https://www.youtube.com/watch?v=fsVL_xrYO0w)**, where it refers to running any code that is not the main purpose of a function, but is included within it for convenience.
 - In functional programaming, side-effects are considered bad code.  In React, they're included by design.
 
+---
+
+template: state
+name: state-4
+
+## Side-effects (continued)
 You can define a function that includes side-effects that will be executed every time a component is rendered and pass it to React's `useEffect` function.
 ```javascript
 useEffect(() => {
@@ -754,10 +760,10 @@ useEffect(() => {
 
 ---
 
-template: state-3
-name: state-3a
+template: state-4
+name: state-4a
 
-As you can see, we pass our custom function to React's `useEffect` function.  React will call our function every time the component is rendered or re-rendered.
+As you can see, we pass our custom function to React's `useEffect` function.  React will call our function every time the component is rendered.
 
 ---
 
