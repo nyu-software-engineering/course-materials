@@ -382,10 +382,6 @@ class Hello extends Component{
 }
 ```
 
-This embedding of HTML-like code into the middle of Javascript code is not ordinary Javacript - it is React's **JSX**.
-- JSX allows you to write your interface code in an HTML-like way that is familiar to most web and app developers
-- React automatically replaces JSX with the equivalent Javascript code to create these interface elements.
-
 ---
 
 template: components
@@ -393,33 +389,45 @@ name: components-2
 
 ## Component functions
 Defining a component as a function is now the preferred way and simplifies the code a bit.
-
-This functionaal component named `Hello` represents a paragraph of text:
 ```javascript
 function Hello(){
     return <p>Hello world!</p>
 }
 ```
 
-And if you know Javascript arrow functions, the same function can be written this way:
+The same function can be written this way, if you remember your fat arrow syntax:
 ```javascript
 const Hello = () => <p>Hello world!</p>;
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/1/)
 
-
 ---
 
 template: components
 name: components-3
 
+## JSX
+This embedding of HTML-like code into the middle of Javascript code is not ordinary Javacript - it is React's **JSX**.
+- JSX allows you to write your interface code in an HTML-like way that is familiar to most web and app developers
+- React automatically replaces JSX with the equivalent Javascript code to create these interface elements.
+
+```javascript
+function Foo() {
+    return (
+        <p>Doesn't this look a lot like HTML code in your Javascript?!</p>
+    )
+}
+```
+---
+
+template: components
+name: components-4
+
 ## Multi-element components
 Components can contain multiple user interface elements.
-- However, all components must have one 'root' element that encompases all other sub-elements.
-
-A `div` is a generic container element that is often used for this purpose.
-Note the parentheses around the expression that is being returned - this is necessary.
+- However, all components must have one 'root' element that encompasses all other sub-elements.
+- Note the parentheses around the expression that is being returned - this is necessary.
 ```javascript
 function Hello(){
     return (
@@ -436,7 +444,7 @@ function Hello(){
 ---
 
 template: components
-name: components-4
+name: components-5
 
 ## Components are not exactly HTML
 While JSX components look almost identical to HTML code, they are not HTML and have some slightly different behavior.
@@ -451,12 +459,12 @@ To have React render that same HTML, you would have to use the `className` attri
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-This is because `class` is a reserved word in Javascript, and JSX code is placed within Javascript code.
+This is because `class` is a reserved word in Javascript, and JSX code is placed within Javascript code, after all.
 
 ---
 
 template: components
-name: components-5
+name: components-6
 
 ## Components are not exactly HTML (continued)
 Attributes in HTML typically have quotes around their values.
@@ -464,7 +472,7 @@ Attributes in HTML typically have quotes around their values.
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-If inserting a variable as the value for an attribute in JSX, you cannot surround the variable name in quotes.
+If inserting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable name in quotes.
 ```html
 <p className={someVariable}>Ipsum dolor sit amet lorem.</p>
 ```
