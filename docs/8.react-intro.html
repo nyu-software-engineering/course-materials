@@ -34,7 +34,32 @@ name: overview
 template: overview
 name: overview-1
 
-## Something
+## React concept
+React.js is a tool for auto-generating HTML, CSS, and browser-based Javascript for web app client interfaces.
+- created and maintained by Facebook
+- built with [Node.js](https://nodejs.org) - a popular Javascript runtime environment most often used for back-end app development.
+- React.js scripts are written in Javascript with the addition of [React's unique JSX syntax](https://reactjs.org/docs/introducing-jsx.html)
+
+---
+
+template: overview
+name: overview-2
+
+## Choice of approach
+- HTML & CSS are *quite simple* languages for indicating the content and style of web pages, respectively.
+- Javascript is a *quite complex* language with many unusual but interesting features.
+- You may wonder why anyone would desire to exhange code written in such simple languages with code written in a highly complex language.
+
+---
+
+template: overview
+name: overview-3
+
+## React.js is neither front- nor back-end
+
+React.js programs themselves are not web apps - they comprise neither the front nor the back end.
+- React.js programs are run in order to generate client-side (i.e. front-end) HTML, CSS, and browser-based Javascript code.
+- These generated codes together comprise the front-end of an application.
 
 ---
 
@@ -66,6 +91,7 @@ In addition to controlling the interactive behaviors of web pages running in web
 - interactive music and video composition with Cycling 74's [Max/MSP](https://cycling74.com/products/max/)
 - server-side programming with [Node.js](https://nodejs.org)
 - database queries in [MongoDB](https://docs.mongodb.com/manual/reference/program/mongo/#bin.mongo), [Firebase](https://firebase.google.com/docs/reference/js/), and others
+- [Solidity](https://github.com/ethereum/solidity) is designed to be a Javascript-like language that runs on the Ethereum blockchain.
 
 ---
 
@@ -77,7 +103,7 @@ For any given web page, HTML code indicates the type of content to show as well 
 - A level 1 heading: `<h1>Puppies For Sale</h1>`
 - A paragraph: `<p>Buy now while supplies last!</p>`
 - An image of a lonely puppy: `<img src="images/lonely_puppy.jpg" />`
-- An article with a level 1 heading, an image of a sad puppy, and a paragraph with a link to another web page: 
+- An article with a level 1 heading, an image of a sad puppy, and a paragraph with a link to another web page - [try it](https://jsfiddle.net/barsteinfoo/erq4hzya/2/): 
 ```html
 <article>
         <h1>Puppies For Sale</h1>
@@ -95,7 +121,7 @@ template: html-css
 name: html-2
 
 ## HTML in three slides (slide 2)
-Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.
+Many web sites see the same basic content structures repeated across multiple pages, or repeated within a single page.  [Try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/5/)
 ```html
 <section>
     <!-- the first article -->
@@ -137,11 +163,11 @@ name: css-1
 
 ## CSS in three slides (slide 1)
 For any given web page, CSS code indicates the style to use for the content indicated by the HTML.
-- To give *all* level 2 headings green text: `h2 { color: green; }`
-- To give *all* paragraphs a pink background: `p { background-color: pink; }`
-- To set the width and height of *all* images: `img { width: 200px; height: 300px; }`
-- To give *all* articles a thick pink dotted border, a bold `georgia` font, and lots of space around the contents inside them: 
-```html
+- Give *all* level 2 headings green text: `h2 { color: green; }`
+- Give *all* paragraphs a pink background: `p { background-color: pink; }`
+- Set the dimensions of *all* images: `img { width: 200px; height: 300px; }`
+- Give *all* articles a thick pink dotted border, a bold `serif` font, and lots of space around the contents inside them - [try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/6/): 
+```css
 article {
     border: 10px dotted pink;
     font-family: georgia;
@@ -156,7 +182,7 @@ template: html-css
 name: css-2
 
 ## CSS in three slides (slide 2)
-Let's say you had four paragraphs, but only wanted to style two of them the same.  Mark them with a `class` attribute in the HTML.  If you want to style only one, mark it with a unique `id` attribute:
+Let's say you had four paragraphs, and wanted to style only two of them the same.  Mark them with a `class` attribute in the HTML.  If you want to uniquely style only one, mark it with an `id` attribute:
 ```html
 <p>Lorem ipsum dolor sit amet.</p>
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
@@ -164,7 +190,7 @@ Let's say you had four paragraphs, but only wanted to style two of them the same
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-And select only those paragraphs in the CSS:
+And select only the paragraphs that match these attributes in the CSS - [try it](https://jsfiddle.net/barsteinfoo/adgrp9zb/8/):
 ```css
 p.my_favorite_paragraphs {
     box-shadow: 5px 5px 10px; /* a drop shadow */
@@ -180,11 +206,23 @@ template: html-css
 name: css-3
 
 ## CSS in three slides (slide 3)
-One very important part of CSS code that we will not address here is how you place elements onto the web page in the location where you want them to go.
+That's almost it.  But there is one very important part of CSS code that we will not address here is how you place elements onto the web page in the location where you want them to go.
 
-There are a variety of ways... the latest greatest is to use so-called CSS Flexbox.
-- Learn [more about basic CSS](https://nyu-computer-science.github.io/web-design/css/) first.
+There are a variety of ways... the latest greatest is to use so-called CSS Flexbox - see [a simple example](https://jsfiddle.net/barsteinfoo/adgrp9zb/13/) - this also is what React uses.
+- First learn [more about basic CSS](https://nyu-computer-science.github.io/web-design/css/).
 - Then learn [more about layouts with CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox).
+
+---
+
+template: html-css
+name: css-4
+
+## Auto-generating HTML & CSS
+Now that you have a mastery of HTML & CSS (!), you will use React.js to autogenerate them for you.
+- React allows you to easily write reusable templates called components.
+- For example, you can define a template for an article with a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
+
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/29/)
 
 ---
 
