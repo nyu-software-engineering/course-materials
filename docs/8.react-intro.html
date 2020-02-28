@@ -485,7 +485,7 @@ template: components
 name: components-7
 
 ## Components are not exactly HTML (continued again)
-HTML allows CSS styles to be written inline in an HTML element in a special `style` attribute.
+HTML allows CSS styles to be written inline in an HTML element in a special `style` attribute:
 ```html
 <p style="color: blue; background-color: pink;">Ipsum dolor sit amet lorem.</p>
 ```
@@ -494,16 +494,66 @@ JSX requires a Javascript object to be passed as the `style` attribute value.
 ```javascript
 const pStyle = {
     color: 'blue',
-    backgroundColor: pink; // notice the camelCase style property names, unlike HTML... this is Javascript!
+    backgroundColor: pink; // notice the camelCase style property names - this is Javascript, not CSS!
 }
 ```
+And inserted into the JSX without quotes around it.
 ```html
 <p style={pStyle}>Ipsum dolor sit amet lorem.</p>
 ```
 
-Inline styles are considered a bad practice in both React and in HTML. 
-
 [Read more](https://reactjs.org/docs/dom-elements.html#style)
+
+---
+
+template: components
+name: components-8
+
+## Styling components
+- React developers are encouraged to use **one external CSS file for every one React component file**.
+- Inline styles, whether in React JSX or in plain HTML, are considered **a bad practice** - don't use them!
+- For example a component named `Article.js` should have a corresponding CSS file named `Article.css`
+- The component file then imports the CSS file using Javascript import syntax.
+
+```javascript
+import './Article.css';
+```
+
+---
+
+template: components
+name: components-9
+
+## Styling components (continued)
+CSS files used by React should select for React components by their className.
+
+For example, given the following JSX:
+```html
+<div className="intro">
+        <h1 className="intro-heading">React Component</h1>
+        <p className="intro-paragraph">Hello world!</p>
+</div>
+```
+
+The CSS file would target specific components using CSS class syntax, irrespective of which type of HTML element the component is ultimately generated as.
+```css
+.intro { 
+    border: 1px solid red; 
+    padding: 20px;
+}
+.intro-heading {
+    font-weight: normal;
+    font-size: 30px;
+    font-family: georgia;
+}
+.intro-paragraph {
+    color: #505050;
+    font-family: helvetica;
+}
+
+```
+
+
 
 ---
 
