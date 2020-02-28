@@ -444,10 +444,10 @@ name: props
 template: props
 name: props-1
 
-## Concept
+## Accepting props
 Props are arguments passed to a component that can influence its content or behavior.
 
-For example - a custom `Article` component that accepts props as an argument:
+This custom `Article` component accepts a props object as its argument and inserts some of the values therein into the JSX content:
 ```javascript
 function Article(props) {
     return (
@@ -459,19 +459,60 @@ function Article(props) {
 }
 ```
 
-And another component that includes two `Article` components within it:
+---
+
+template: props
+name: props-2
+
+## Passing props
+This custom `Section` component includes two `Article` components nested within it and passes each of them different values to be placed automatically into the `props` parameters of each.
 ```javascript
 function Section() {
     return (
-        <div>
+        <section>
             <Article heading="Puppies for Sale" paragraph="Get 'em while they last!'" />
             <Article heading="Free Kittens" paragraph="Anytime, anywhere!'" />
-        </div>
+        </section>
     )
 }
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/38/)
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/39/)
+
+---
+
+template: props
+name: props-3
+
+## Functions as arguments
+Javascript, of course, can accept function definitions as arguments.  So values passed into the `props` object can thus be function definitions to run within the component, such as what to do when a user clicks on a particular part of the component.
+
+For example, this component will run any function passed as an argument named `action` when the user clicks the paragraph:
+```javascript
+function Card(props) {
+	return (
+  	<div>
+  	  <p onClick={props.action}>Click me!</p>
+  	</div>
+  )
+}
+```
+
+We could easily pass the definition of the function to run from another component:
+```javascript
+<Card action={ () => { alert("See what I mean?!") } } />
+```
+
+[Try it!](https://jsfiddle.net/barsteinfoo/okd64s7g/13/)
+
+---
+
+template: props
+name: props-3
+
+## Summary
+Props are a jargon word for arguments passed to a component.
+- when using JSX to mention a component, values are passed to the component as JSX attributes, e.g. `<Article heading="Free Kittens" />
 
 ---
 
