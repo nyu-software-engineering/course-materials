@@ -490,7 +490,7 @@ HTML allows CSS styles to be written inline in an HTML element in a special `sty
 <p style="color: blue; background-color: pink;">Ipsum dolor sit amet lorem.</p>
 ```
 
-JSX allows an object to be passed as the `style` attribute value.
+JSX requires a Javascript object to be passed as the `style` attribute value.
 ```javascript
 const pStyle = {
     color: 'blue',
@@ -501,7 +501,9 @@ const pStyle = {
 <p style={pStyle}>Ipsum dolor sit amet lorem.</p>
 ```
 
-Inline styles are considered a bad practice in both React and in HTML. [Read more](https://reactjs.org/docs/dom-elements.html#style)
+Inline styles are considered a bad practice in both React and in HTML. 
+
+[Read more](https://reactjs.org/docs/dom-elements.html#style)
 
 ---
 
