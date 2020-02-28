@@ -318,7 +318,7 @@ This will run the script named `start` automatically included in the new app's c
 ---
 
 template: setup
-name: setup-5
+name: setup-6
 
 ## Try generating HTML, CSS, and Javascript files
 The previous command previews the app.  To generate the proper HTML, CSS, and browser-based Javascript files that will ultimately comprise the app front-end, run the following:
@@ -332,7 +332,7 @@ This will run the script named `build` automatically included in the `package.js
 ---
 
 template: setup
-name: setup-6
+name: setup-7
 
 ## Poke around the file system
 You should familiarize with the React app files and directories.
@@ -349,7 +349,7 @@ You should familiarize with the React app files and directories.
 ---
 
 template: setup
-name: setup-7
+name: setup-8
 
 ## Set up git for the entire project
 Navigate to the main project directory where you will initialize git version control tracking.
@@ -358,9 +358,20 @@ cd .. # go up a level to the parent directory of both front-end and back-end
 git init # install git
 ```
 
+---
+
+template: setup
+name: setup-9
+
+## Instruct git to ignore files that are not yours
 Create a file named `.gitignore` that will inform git of files not to track.
 - Copy the contents of [this example `.gitignore`](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) into your file.
 - Verify that your `.gitignore` includes a line to ignore React's `build` directory.  If not, add that rule.
+
+```bash
+build/
+**/build/
+```
 
 ---
 
@@ -688,7 +699,12 @@ In React, **state** variables help keep track of the internal state of the compo
 const [count, setCount] = useState(0);
 ```
 
-The code creates a state variable naamed `count`.
+---
+
+template: state-1
+name: state-1a
+
+This code creates a state variable named `count`.
 - pass `useState()` an argument with the default value you want a state variable to hold
 - `useState()` returns an array with two elements: a reference to that value and the definition of a function you can call to change the value
 - this returned array is then *destructured* into two variables
@@ -717,6 +733,31 @@ function MyComponent() {
 ```
 
 Anytime the button is clicked, the state variable is incremented, and the paragraph automatically shows the updated number.
+
+---
+
+template: state
+name: state-3
+
+## Side-effects
+Every time React renders a component onto the web page, such as when the page first loads or after a change in state, it is possible to run **side-effects*.
+- The term "side-effect" comes from **[functional programming](https://www.youtube.com/watch?v=fsVL_xrYO0w)**, where it refers to running any code that is not the main purpose of a function, but is included within it for convenience.
+- In functional programaming, side-effects are considered bad code.  In React, they're included by design.
+
+You can define a function that includes side-effects that will be executed every time a component is rendered and pass it to React's `useEffect` function.
+```javascript
+useEffect(() => {
+    // write whatever code you want run every time eh component renders.
+    console.log('the component has rendered!');
+});
+```
+
+---
+
+template: state-3
+name: state-3a
+
+As you can see, we pass our custom function to React's `useEffect` function.  React will call our function every time the component is rendered or re-rendered.
 
 ---
 
