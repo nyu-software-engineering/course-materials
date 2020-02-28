@@ -525,9 +525,7 @@ template: components
 name: components-9
 
 ## Styling components (continued)
-CSS files used by React should select for React components by their className.
-
-For example, given the following JSX:
+Given the following JSX:
 ```html
 <div className="intro">
         <h1 className="intro-heading">React Component</h1>
@@ -535,7 +533,7 @@ For example, given the following JSX:
 </div>
 ```
 
-The CSS file would target specific components using CSS class syntax, irrespective of which type of HTML element the component is ultimately generated as.
+React CSS must select components by their `className` attribute, not by the type of HTML element they are rendered as, since this may vary.
 ```css
 .intro { 
     border: 1px solid red; 
@@ -550,7 +548,6 @@ The CSS file would target specific components using CSS class syntax, irrespecti
     color: #505050;
     font-family: helvetica;
 }
-
 ```
 
 
