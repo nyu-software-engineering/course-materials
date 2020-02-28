@@ -627,9 +627,29 @@ function Article(props) {
 template: props
 name: props-2
 
+## Accepting arguments
+Using Javascript's object destructuring, this function could be rewritten:
+```html
+function Article( { heading, paragraph }) {
+    return (
+        <article>
+            <h1>{heading}</h1>
+            <p>{paragraph</p>
+        </article>
+    )
+}
+```
+
+---
+
+template: props
+name: props-3
+
 ## Passing props
-This custom `Section` component includes two `Article` components nested within it and passes each of them different values to be placed automatically into the `props` parameters of each.
-```javascript
+This custom `Section` component includes two `Article` components nested within it
+- Each `Article` is passed two values to be placed automatically into the `props` parameter object
+
+```html
 function Section() {
     return (
         <section>
@@ -645,10 +665,12 @@ function Section() {
 ---
 
 template: props
-name: props-3
+name: props-4
 
 ## Functions as arguments
-Javascript, of course, can accept function definitions as arguments.  For example, this component will run any function passed as an argument named `action` whenever the user clicks the paragraph:
+Javascript, of course, has **higher-order functions**, and can accept function definitions as arguments to a function call.  
+
+For example, this component will call any function passed to it as an argument named `action` whenever the user clicks the paragraph:
 ```javascript
 function Card(props) {
 	return (
@@ -659,7 +681,15 @@ function Card(props) {
 }
 ```
 
-We could easily pass the definition of the function from any component that includes an instaance of `Card` within it:
+Note the upperCamelCase spelling of the `onClick` attribute, like all JSX attributes.
+
+---
+
+template: props
+name: props-5
+
+## Functions as arguments (continued)
+We could easily pass the definition of the function to run as one of the `props` properties in the component that includes the `Card` component we defined:
 ```javascript
 <Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
 <Card action={ () => { fetch('https://my.api.mockaroo.com/users.json?key=d9ddfc40') } } />
@@ -670,10 +700,10 @@ We could easily pass the definition of the function from any component that incl
 ---
 
 template: props
-name: props-3
+name: props-6
 
 ## Summary
-Props are a jargon word for arguments passed to a function.
+Props are a jargon word for arguments passed to a function that represents a component.
 - when using JSX to include a component, arguments are passed to the component as JSX attributes, e.g. `<Article heading="Free Kittens" />`
 - any type of value can be passed as an argument to a component within the props object: a string, number, function definition, object, array, etc.
 - Learn more about [components and props](https://reactjs.org/docs/components-and-props.html)
@@ -705,9 +735,9 @@ template: state-1
 name: state-1a
 
 This code creates a state variable named `count`.
-- pass `useState()` an argument with the default value you want a state variable to hold
-- `useState()` returns an array with two elements: a reference to that value and the definition of a function you can call to change the value
-- this returned array is then *destructured* into two variables
+- pass `useState()` an argument with the default value you want the state variable to hold
+- `useState()` returns an array with two elements: a reference to that value and the definition of a function you can call to change that value
+- this returned array is then *destructured* into two separate variables
 
 ---
 
@@ -716,7 +746,18 @@ name: state-2
 
 ## Binding
 State variables can be inserted into any JSX component, just like any other Javascript expression.
-- Unlike other expressions, any changes to the value stored in the variable will be immediately updated in the component.
+
+```html
+<p>You clicked the button { count } times</p>
+```
+
+---
+
+template: state
+name: state-3
+
+## Binding (continued)
+Unlike other expressions, any changes to the value stored in a state variable will be immediately updated in the component.
 
 ```html
 function MyComponent() {
@@ -737,33 +778,28 @@ Anytime the button is clicked, the state variable is incremented, and the paragr
 ---
 
 template: state
-name: state-3
+name: state-4
 
 ## Side-effects
-Every time React renders a component onto the web page, such as when the page first loads or after a change in state, it is possible to run **side-effects*.
+Every time React renders a component onto the web page, such as when the page first loads or after a change in state, it is possible to run **side-effects**.
 - The term "side-effect" comes from **[functional programming](https://www.youtube.com/watch?v=fsVL_xrYO0w)**, where it refers to running any code that is not the main purpose of a function, but is included within it for convenience.
-- In functional programaming, side-effects are considered bad code.  In React, they're included by design.
+- In functional programaming, *side-effects are considered bad code*.  In React, they're included by design.
 
 ---
 
 template: state
-name: state-4
+name: state-5
 
 ## Side-effects (continued)
-You can define a function that includes side-effects that will be executed every time a component is rendered and pass it to React's `useEffect` function.
+You can define a function within the component that indicates any side-effects you desire, and pass it to React's `useEffect` function.
+- React's code will automatically executed this function any time a component is rendered or re-rendered. 
+
 ```javascript
 useEffect(() => {
     // write whatever code you want run every time eh component renders.
     console.log('the component has rendered!');
 });
 ```
-
----
-
-template: state-4
-name: state-4a
-
-As you can see, we pass our custom function to React's `useEffect` function.  React will call our function every time the component is rendered.
 
 ---
 
