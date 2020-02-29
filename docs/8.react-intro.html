@@ -523,7 +523,7 @@ Attributes in HTML typically have quotes around their values.
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-If inserting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable name in quotes.
+If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable name in quotes.
 ```html
 <p className={someVariable}>Ipsum dolor sit amet lorem.</p>
 ```
@@ -548,7 +548,7 @@ const pStyle = {
     backgroundColor: pink; // notice the camelCase style property names - this is Javascript, not CSS!
 }
 ```
-And inserted into the JSX without quotes around it.
+And injected into the JSX without quotes around it.
 ```html
 <p style={pStyle}>Ipsum dolor sit amet lorem.</p>
 ```
@@ -611,7 +611,7 @@ name: props-1
 ## Accepting arguments
 Props are arguments passed to a component that can influence its content or behavior.
 
-This custom `Article` component accepts a props object as its argument and inserts some of the values therein into the JSX content:
+This custom `Article` component accepts a props object as its argument and injects some of the values therein into the JSX content:
 ```html
 function Article(props) {
     return (
@@ -746,7 +746,7 @@ template: state
 name: state-2
 
 ## Binding
-State variables can be inserted into any JSX component, just like any other Javascript expression.
+State variables can be injected into any JSX component, just like any other Javascript expression.
 
 ```html
 <p>You clicked the button { count } times</p>
@@ -891,8 +891,127 @@ template: fetch
 name: fetch-1
 
 ## Concept
-It is often the case that front-end code fetches data from a back-end web server or API.
+It is often the case that front-end Javascript code fetches data from a back-end web server or API.
+- Some or all of that data is often then injected into the visible page
 
+How does front-end code request, receive, and process data from the back-end?
+
+---
+
+template: fetch
+name: fetch-2
+
+## Data structures
+Data retrieved from a server can come in any structure.  However, it's not uncommon to receive [an array of JSON objects](https://my.api.mockaroo.com/users.json?key=d9ddfc40).
+
+```javascript
+[
+    {
+        id: 1,
+        title: "Mule deer",
+        country: "Brazil",
+        price: "$27.77",
+        description: "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est."
+    },
+    {
+        id": 2,
+        title: "Monkey, bleeding heart",
+        country: "Malaysia",
+        price: "$13.30",
+        description: "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi."
+    },
+    // etc
+}
+```
+
+---
+
+template: fetch
+name: fetch-2
+
+## Axios
+Axios is a popular 3rd-party module that makes it easy to fetch data from a server.
+- The `axios` function makes an asynchronous request to a server
+- We can wait for that request to resolve and then retrieve the data.
+
+```javascript
+const result = await axios(
+    // retrieving some mock data about animals for sale
+    "https://my.api.mockaroo.com/users.json?key=d9ddfc40"
+);
+const data = result.data; // extract the data from the server response
+```
+
+---
+
+template: fetch-2
+name: fetch-2a
+
+In the case of React, we can also add that data a state variable we have previously initialized.
+
+```javascript
+setData(results.data);
+```
+
+---
+
+template: fetch
+name: fetch-3
+
+## Iterating through an array of objects
+Assuming the variable, `data`, contains an array of objects, we can iterate through it the standard way.
+
+```javascript
+data.map(item => (
+    console.log( item );
+))
+```
+
+---
+
+template: fetch
+name: fetch-4
+
+## Outputting JSX from an array
+In the case of React, where the data is stored in a state variable, we can place the loop within a JSX component.
+
+```html
+<div>
+    <h1>Animals For Sale</h1>
+    <section className="animals">
+    {data.map(item => (
+        <Animal key={item.id} details={item} />
+    ))}
+    </section>
+</div>
+```
+
+- For every element in the array, an `Animal` component will be rendered.
+- When rendering multiple instances of the same component, React requires you to pass each a unique identifier named `key`.
+- Note how we pass the entire object to the component in the `details` props attribute.
+
+---
+
+template: fetch
+name: fetch-5
+
+## Outputting JSX from an array
+The `Animal` component can now use the object's information by accessing it in the `props` parameter.
+
+```javascript
+function Animal(props) {
+    return (
+      <article className="animal">
+        <h2>{props.details.title}</h2>
+        <address>{props.details.country}</address>
+        <strong>{props.details.price}</strong>
+        <p>{props.details.description}</p>
+      </article>
+    );
+  }
+```
+
+[Try it!](https://codesandbox.io/s/agitated-dhawan-8bgez)
 
 ---
 
