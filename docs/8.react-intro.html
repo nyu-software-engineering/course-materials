@@ -20,6 +20,7 @@ for people who want to make something appear in a browser
 1. [Components](#components)
 1. [Props](#props)
 1. [State](#state)
+1. [Side-Effects](#side-effects)
 1. [Fetching Data From Servers and APIs](#fetch)
 1. [Conclusions](#conclusions)
 
@@ -777,10 +778,16 @@ Anytime the button is clicked, the state variable is incremented, and the paragr
 
 ---
 
-template: state
-name: state-4
+name: side-effects
 
-## Side-effects
+# Side-Effects
+
+---
+
+template: side-effects
+name: side-effects-1
+
+## Concept
 Every time React renders a component onto the web page, such as when the page first loads or after a change in state, it is possible to run **side-effects**.
 - The term "side-effect" comes from **[functional programming](https://www.youtube.com/watch?v=fsVL_xrYO0w)**, where it refers to running any code that is not the main purpose of a function, but is included within it for convenience.
 - In functional programaming, *side-effects are considered bad code*.  In React, they're included by design.
@@ -788,18 +795,80 @@ Every time React renders a component onto the web page, such as when the page fi
 ---
 
 template: state
-name: state-5
+name: side-effects-2
 
-## Side-effects (continued)
+## The useEffect function
 You can define a function within the component that indicates any side-effects you desire, and pass it to React's `useEffect` function.
-- React's code will automatically executed this function any time a component is rendered or re-rendered. 
+- React's code will automatically executed this callback function any time a component is rendered or re-rendered. 
 
 ```javascript
 useEffect(() => {
-    // write whatever code you want run every time eh component renders.
+    // write whatever code you want run every time the component renders.
     console.log('the component has rendered!');
 });
 ```
+
+---
+
+template: side-effects
+name: side-effects-3
+
+## Watching for state variable changes
+You may not want to run the code within `useEffect`'s callback function every time the component renders.
+
+An optional second argument accepts an array.  If any value in the array has changed since last time the component was rendered, the `useEffect` callbaack will be executed next time the component renders.
+
+```javascript
+useEffect(() => {
+    // write whatever code you want run every time the component renders.
+    console.log('the component has rendered!');
+}, [count] );
+```
+
+It is usually the practice to place state variables into this array.  This way this particular `useEffect` callback will be executed anytime there is a change to these state variables, but not to any others that may exist.
+
+---
+
+template: side-effects
+name: side-effects-4
+
+## Cleaning up after side-effect code
+Some side-effects will need to be undone if a component is removed from the page. 
+- **cleanup functions** can be given as the optional return value to any `useEffect` callback.
+
+```javascript
+useEffect(() => {
+    console.log('the component has rendered or re-rendered!');
+    return () => console.log('the component has been completely removed from the page!');
+}, [count] );
+```
+
+---
+
+template: side-effects
+name: side-effects-5
+
+## A practical example
+The following `useEffect` callback sets up an **eventListener** - a function to be called automatically whenever the browser window width changes.
+- If this component is completely removed from the page, the returned function will be called and it will remove this eventListener.
+- This way, any time this component is reloaded into a web page, it can start from scratch without worrying about any previously created eventListeners.
+
+```javascript
+useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); 
+```
+
+---
+
+template: side-effects-5
+name: side-effects-5a
+
+Note the blank array as second argument to `useEffect`
+- Any changes to this array cause the `useEffect` function to run... but this array has no values!
+- This is a way to make this `useEffect` callback to only be executed once any time this component is first used loaded onto a page.
 
 ---
 
