@@ -479,7 +479,7 @@ name: components-4
 Components can contain multiple user interface elements.
 - However, all components must have one 'root' element that encompasses all other sub-elements.
 - Note the parentheses around the expression that is being returned - this is necessary.
-```javascript
+```html
 function Hello(){
         return (
                 <div>
@@ -612,7 +612,7 @@ name: props-1
 Props are arguments passed to a component that can influence its content or behavior.
 
 This custom `Article` component accepts a props object as its argument and inserts some of the values therein into the JSX content:
-```javascript
+```html
 function Article(props) {
     return (
         <article>
@@ -672,7 +672,7 @@ name: props-4
 Javascript, of course, has **higher-order functions**, and can accept function definitions as arguments to a function call.  
 
 For example, this component will call any function passed to it as an argument named `action` whenever the user clicks the paragraph:
-```javascript
+```html
 function Card(props) {
 	return (
         <div>
@@ -691,7 +691,7 @@ name: props-5
 
 ## Functions as arguments (continued)
 We could easily pass the definition of the function to run as one of the `props` properties in the component that includes the `Card` component we defined:
-```javascript
+```html
 <Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
 <Card action={ () => { fetch('https://my.api.mockaroo.com/users.json?key=d9ddfc40') } } />
 ```
@@ -874,8 +874,8 @@ template: side-effects
 name: side-effects-6
 
 ## Running a side-effect only once
-Note the blank array as second argument to `useEffect` in the previous example.
-- Any changes to values in this array cause the `useEffect` function to run... but this array has no values!
+Note the blank array as second argument to `useEffect` in the [previous example](#side-effects-5).
+- As you know, any changes to values of variables in this array cause the `useEffect` function to run... but this array has no values!
 - This is the way to make this `useEffect` callback only be executed once when this component is first loaded onto a page.
 - This side-effect will not be re-called for any re-renders.
 
