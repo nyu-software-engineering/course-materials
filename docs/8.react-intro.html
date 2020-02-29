@@ -790,21 +790,22 @@ name: side-effects-1
 ## Concept
 Every time React renders a component onto the web page, such as when the page first loads or after a change in state, it is possible to run **side-effects**.
 - The term "side-effect" comes from **[functional programming](https://www.youtube.com/watch?v=fsVL_xrYO0w)**, where it refers to running any code that is not the main purpose of a function, but is included within it for convenience.
-- In functional programaming, *side-effects are considered bad code*.  In React, they're included by design.
+- In functional programming, *side-effects are considered bad code*.  In React, they're included by design.
 
 ---
 
-template: state
+template: side-effects
 name: side-effects-2
 
 ## The useEffect function
 You can define a function within the component that indicates any side-effects you desire, and pass it to React's `useEffect` function.
 - React's code will automatically executed this callback function any time a component is rendered or re-rendered. 
+- You can define as many separate `useEffect` callbacks as you'd like.
 
 ```javascript
 useEffect(() => {
     // write whatever code you want run every time the component renders.
-    console.log('the component has rendered!');
+    console.log('the component has rendered or re-rendered!');
 });
 ```
 
@@ -816,16 +817,22 @@ name: side-effects-3
 ## Watching for state variable changes
 You may not want to run the code within `useEffect`'s callback function every time the component renders.
 
-An optional second argument accepts an array.  If any value in the array has changed since last time the component was rendered, the `useEffect` callbaack will be executed next time the component renders.
+An **optional second argument** accepts an array.  If any variable in the array's value has changed since last time the component was rendered, the `useEffect` callback will be executed.
 
 ```javascript
 useEffect(() => {
     // write whatever code you want run every time the component renders.
-    console.log('the component has rendered!');
+    console.log('the component has rendered or re-rendered!');
 }, [count] );
 ```
 
-It is usually the practice to place state variables into this array.  This way this particular `useEffect` callback will be executed anytime there is a change to these state variables, but not to any others that may exist.
+---
+
+template: side-effects-3
+name: side-effects-3a
+
+It is usually the practice to place specific state variables you want to watch into this array.  
+- Any time those state variables have their values changed, the side-effect code will be run.
 
 ---
 
@@ -881,7 +888,9 @@ name: fetch
 template: fetch
 name: fetch-1
 
-## Something
+## Concept
+It is often the case that front-end code fetches data from a back-end web server or API.
+
 
 ---
 
