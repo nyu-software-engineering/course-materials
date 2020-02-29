@@ -870,12 +870,14 @@ useEffect(() => {
 
 ---
 
-template: side-effects-5
-name: side-effects-5a
+template: side-effects
+name: side-effects-6
 
-Note the blank array as second argument to `useEffect`
-- Any changes to this array cause the `useEffect` function to run... but this array has no values!
-- This is a way to make this `useEffect` callback to only be executed once any time this component is first used loaded onto a page.
+## Running a side-effect only once
+Note the blank array as second argument to `useEffect` in the previous example.
+- Any changes to values in this array cause the `useEffect` function to run... but this array has no values!
+- This is the way to make this `useEffect` callback only be executed once when this component is first loaded onto a page.
+- This side-effect will not be re-called for any re-renders.
 
 ---
 
