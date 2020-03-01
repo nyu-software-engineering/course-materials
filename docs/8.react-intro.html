@@ -7,7 +7,7 @@ permalink: /react-intro/
 class: center, middle
 
 # React.js Crash Course
-for people who want to make something appear in a browser
+for people who want to make something appear in a browser, but don't want to write HTML & CSS code
 
 ---
 
@@ -314,7 +314,7 @@ npm start
 ```
 
 This will run the script named `start` automatically included in the new app's configuration file - it launches a preview of the app.
-- All Node.js-based applications that use Node's built-in package manager, `npm`, have a configuration file named `package.json` that can include start scripts like this.
+- All Node.js-based applications that use Node's built-in package manager, `npm`, have a configuration file named `package.json` that can include the definition of start scripts like this.
 
 ---
 
@@ -367,7 +367,7 @@ name: setup-9
 ## Instruct git to ignore files that are not yours
 Create a file named `.gitignore` that will inform git of files not to track.
 - Copy the contents of [this example `.gitignore`](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f) into your file.
-- Verify that your `.gitignore` includes a line to ignore React's `build` directory.  If not, add that rule.
+- This `.gitignore` will make sure that the code you write is kept under version control, but not others' code or auto-generated code.
 
 ```bash
 build/
@@ -394,7 +394,7 @@ git clone https://github.com/some-username/my-app.git
 
 This will create a new directory named `my-app` (or whatever name the repository had) where all the project files are stored.
 
-Navigate into this directory and run `npm install` in order to install any necessary dependencies for this project listed in the project's `package.json` configutation file.
+Navigate into this directory and to any sub-directory where the standard `npm` configuration file named `package.json` is, and run `npm install` in order to install any necessary dependencies for this project.
 ```bash
 npm install
 ```
@@ -412,8 +412,8 @@ name: components-1
 
 ## Concept
 
-A component is a modular, reusable user interface element.
-- Javascript to define a components can be written in one of two ways: as a class, or as a function
+A React component is a modular, reusable user interface element.
+- Javascript to define components can be written in one of two ways: as a class, or as a function
 
 ---
 
