@@ -935,11 +935,11 @@ Axios is a popular 3rd-party module that makes it easy to fetch data from a serv
 - We can wait for that request to resolve and then retrieve the data.
 ```javascript
 // fetch some mock data about animals for sale
-const result = await axios(
+const response = await axios(
     "https://my.api.mockaroo.com/users.json?key=d9ddfc40"
 );
 // extract the data from the server response
-const data = result.data; 
+const data = response.data; 
 ```
 
 ---
@@ -949,7 +949,7 @@ name: fetch-2a
 
 In the case of React, we can also add that data a state variable we have previously initialized.
 ```javascript
-setData(results.data);
+setData(response.data);
 ```
 
 ---
@@ -1007,7 +1007,7 @@ function Animal(props) {
         <p>{props.details.description}</p>
       </article>
     );
-  }
+}
 ```
 
 [Try it!](https://codesandbox.io/s/agitated-dhawan-8bgez)
@@ -1024,6 +1024,7 @@ template: conclusions
 name: conclusions
 
 Now you have some understanding of using React to generate HTML, CSS, and Javascript for a client-side web pages.
+- A [https://github.com/bloombar/react-js-starter-app simple example project] is available for you to fork, clone, and try out.
 - Thank you.  Bye.
 
 ---
