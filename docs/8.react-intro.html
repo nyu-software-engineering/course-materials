@@ -22,6 +22,7 @@ for people who want to make something appear in a browser, but don't want to wri
 1. [State](#state)
 1. [Side-Effects](#side-effects)
 1. [Fetching Data From Servers and APIs](#fetch)
+1. [Linking From One Screen To Another](#links)
 1. [Conclusions](#conclusions)
 
 ---
@@ -233,11 +234,11 @@ template: html-css
 name: css-4
 
 ## Auto-generating HTML & CSS
-Now that you have a mastery of HTML & CSS (!), you will use React.js to autogenerate them for you.
+Now that you have a mastery of HTML & CSS (!), you will use React.js to autogenerate some of it for you.
 - React allows you to easily write reusable bits of HTML, CSS, and browser-based Javascript code called **components**.
-- For example, you can define a template for an `article` that contains a heading, photo, and paragraph, and then reuse that template across many pages or in many places within one page.
+- For example, you can define a template for an `Animal` that contains a heading, photo, and paragraph about a particular animal, and then reuse that template across many pages or in many places within one page.
 
-[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/30/)
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/42/)
 
 ---
 
@@ -446,7 +447,7 @@ The same function can be written this way, if you remember your Javascript fat a
 const Hello = () => <p>Hello world!</p>;
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/1/)
+[Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/11/)
 
 ---
 
@@ -473,7 +474,7 @@ name: components-4
 ## Multi-element components
 Components can contain multiple user interface elements.
 - However, all components must have one 'root' element that encompasses all other sub-elements.
-- Note the parentheses around the expression that is being returned - this is necessary.
+- Note the parentheses around the expression that is being returned - this is necessary for multi-element components. 
 ```html
 const Hello = () => {
         return (
@@ -493,19 +494,19 @@ template: components
 name: components-5
 
 ## Components are not exactly HTML
-While JSX components look almost identical to HTML code, they are not HTML and have some slightly different behavior.
+While JSX components look almost identical to HTML code, and *there is a React component for every HTML element by the same name*, they are not HTML and have some slightly different behavior.
 
-To add a class to an HTML element, you use the `class` attribute.
+For example, to add a class to an HTML element, you use the `class` attribute.
 ```html
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-To have React render that same HTML, you would have to use the `className` attribute in JSX (unlike HTML, all attributes in JSX have upper-camel case names):
+To have React render that same HTML, you would have to use the `className` attribute in JSX (unlike HTML, all attributes in JSX have lowerCamelCase names):
 ```html
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-This is because `class` is a reserved word in Javascript, and JSX code is placed within Javascript code, after all.
+This is because `class` is a reserved word in Javascript, and JSX code is transpiled to Javascript behind-the-scenes.
 
 ---
 
@@ -518,7 +519,7 @@ Attributes in HTML typically have quotes around their values.
 <p class="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable name in quotes.
+If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable in quotes, but it does have to be in curly brackets.
 ```html
 <p className={someVariable}>Ipsum dolor sit amet lorem.</p>
 ```
@@ -579,7 +580,7 @@ Given the following JSX:
 </article>
 ```
 
-React CSS must **select components by their `className` attribute**, not by the type of HTML element they are rendered as, since this may vary.
+React CSS should **select components by their `className` attribute**, not by the type of HTML element they are rendered as, since this may vary.
 ```css
 .intro { 
     border: 1px solid red; 
@@ -636,6 +637,8 @@ const Article = ( { heading, paragraph }) => {
 }
 ```
 
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/45/)
+
 ---
 
 template: props
@@ -656,7 +659,7 @@ const Section = () => {
 }
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/39/)
+[Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/43/)
 
 ---
 
@@ -686,7 +689,7 @@ name: props-5
 
 ## Functions as arguments (continued)
 We could easily pass the definition of the function to run as one of the `props` properties in the component that includes the `Card` component we defined:
-```html
+```javascript
 <Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
 <Card action={ () => { fetch('https://my.api.mockaroo.com/users.json?key=d9ddfc40') } } />
 ```
@@ -1006,6 +1009,49 @@ const Animal = (props) => {
 ```
 
 [Try it!](https://codesandbox.io/s/agitated-dhawan-8bgez)
+
+---
+
+name: links
+
+# Linking From One Screen To Another
+
+---
+
+template: links
+name: links-1
+
+## The 'a' component
+As with its HTML `a` element equivalent, the JSX `a` component provides the simplest a way to link from one screen to another.
+```html
+<a href="/puppies-for-sale">Click me!</a>
+```
+
+As with all JSX attributes, Javascript variables or expressions can be injected as the link's `href` attribute value if desired:
+```javascript
+<a href={ `/puppies/${puppyId}` }>Click me!</a>
+```
+
+---
+
+template: links
+name: links-1
+
+## The react-browser-dom module
+[react-browser-dom](https://reacttraining.com/react-router/web/guides/quick-start) is a 3rd-party module that provides streamlined navigation solutions, including:
+- setting up client-side **routes** - customized URLs in the browser address bar that are mapped to specific components
+- setting up a **global navigation** appears on all screens
+- and more...
+
+To include it in a project, use `npm install` to save it as a dependency in the `package.json` configuration file:
+```bash
+npm install --save react-router-dom
+```
+
+Then import into your code:
+```javascript
+import { BrowserRouter, Router, Switch, Link } from 'react-browser-dom';
+```
 
 ---
 
