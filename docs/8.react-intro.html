@@ -441,7 +441,7 @@ function Hello(){
 }
 ```
 
-The same function can be written this way, if you remember your fat arrow syntax:
+The same function can be written this way, if you remember your Javascript fat arrow syntax:
 ```javascript
 const Hello = () => <p>Hello world!</p>;
 ```
@@ -459,7 +459,7 @@ This embedding of HTML-like code into the middle of Javascript code is not ordin
 - React automatically replaces JSX with the equivalent Javascript code to create these interface elements.
 
 ```javascript
-function Foo() {
+const Foo = () => {
     return (
         <p>Doesn't this look a lot like HTML code in your Javascript?!</p>
     )
@@ -475,7 +475,7 @@ Components can contain multiple user interface elements.
 - However, all components must have one 'root' element that encompasses all other sub-elements.
 - Note the parentheses around the expression that is being returned - this is necessary.
 ```html
-function Hello(){
+const Hello = () => {
         return (
                 <div>
                     <h1>React Component</h1>
@@ -608,7 +608,7 @@ Props are arguments passed to a component that can influence its content or beha
 
 This custom `Article` component accepts a props object as its argument and injects some of the values therein into the JSX content:
 ```html
-function Article(props) {
+const Article = (props) => {
     return (
         <article>
             <h1>{props.heading}</h1>
@@ -626,7 +626,7 @@ name: props-2
 ## Accepting arguments
 Using Javascript's object destructuring, this function could be rewritten:
 ```html
-function Article( { heading, paragraph }) {
+const Article = ( { heading, paragraph }) => {
     return (
         <article>
             <h1>{heading}</h1>
@@ -646,7 +646,7 @@ This custom `Section` component includes two `Article` components nested within 
 - Each `Article` is passed two values to be placed automatically into the `props` parameter object
 
 ```html
-function Section() {
+const Section = () => {
     return (
         <section>
             <Article heading="Puppies for Sale" paragraph="Get 'em while they last!'" />
@@ -668,7 +668,7 @@ Javascript, of course, has **higher-order functions**, and can accept function d
 
 For example, this component will call any function passed to it as an argument named `action` whenever the user clicks the paragraph:
 ```html
-function Card(props) {
+const Card = (props) => {
 	return (
         <div>
             <p onClick={props.action}>Click me!</p>
@@ -756,7 +756,7 @@ name: state-3
 Unlike other expressions, any changes to the value stored in a state variable will be immediately updated in the component.
 
 ```html
-function MyComponent() {
+const MyComponent = () => {
     const [count, setCount] = useState(0);
     return (
         <div>
@@ -993,7 +993,7 @@ name: fetch-5
 The `Animal` component can now use the object's information by accessing it in the `props` parameter.
 
 ```javascript
-function Animal(props) {
+const Animal = (props) => {
     return (
       <article className="animal">
         <h2>{props.details.title}</h2>
