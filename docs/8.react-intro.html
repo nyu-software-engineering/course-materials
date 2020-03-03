@@ -1056,6 +1056,36 @@ import { BrowserRouter, Router, Switch, Link } from 'react-browser-dom';
 ---
 
 template: links
+name: links-2a
+
+## The react-browser-dom module (continued)
+
+For example, the following sets up a few mutually-exclusive routes, indicating the components that should be loaded at each URL.
+```javascript
+<BrowserRouter>
+    <Switch>
+        <Route path="/about">
+            <About />
+        </Route>
+
+        <Route path="/animals/:id" component={AnimalWrapper} />
+
+        <Route path="/animals">
+            <PrimaryNav />
+            <AnimalsList />
+        </Route>
+
+        <Route path="/">
+            <PrimaryNav />
+            <Home />
+        </Route>
+    </Switch>
+</BrowserRouter>
+```
+
+---
+
+template: links
 name: links-3
 
 ## The react-burger-menu module
