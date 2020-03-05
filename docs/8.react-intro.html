@@ -691,7 +691,7 @@ name: props-5
 We could easily pass the definition of the function to run as one of the `props` properties in the component that includes the `Card` component we defined:
 ```javascript
 <Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
-<Card action={ () => { fetch('https://my.api.mockaroo.com/users.json?key=d9ddfc40') } } />
+<Card action={ () => { fetch('https://my.api.mockaroo.com/animals.json?key=d9ddfc40') } } />
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/okd64s7g/20/)
@@ -900,7 +900,7 @@ template: fetch
 name: fetch-2
 
 ## Data structures
-Data retrieved from a server can come in any structure.  However, it's not uncommon to receive [an array of JSON objects](https://my.api.mockaroo.com/users.json?key=d9ddfc40).
+Data retrieved from a server can come in any structure.  However, it's not uncommon to receive [an array of JSON objects](https://my.api.mockaroo.com/animals.json?key=d9ddfc40).
 
 ```javascript
 [
@@ -934,7 +934,7 @@ Axios is a popular 3rd-party module that makes it easy to fetch data from a serv
 ```javascript
 // fetch some mock data about animals for sale
 const response = await axios(
-    "https://my.api.mockaroo.com/users.json?key=d9ddfc40"
+    "https://my.api.mockaroo.com/animals.json?key=d9ddfc40"
 );
 // extract the data from the server response
 const data = response.data; 
