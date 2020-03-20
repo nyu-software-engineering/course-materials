@@ -816,6 +816,29 @@ All Node.js projects using the Node Package Manager (NPM) contain a `package.jso
 
 ---
 
+template: automation
+name: education-automation
+
+## Education automation
+Your professor may even use bash scripts to automatically parse git logs to gauge the level of code activity of each student.
+- Such statistics do not show the **quality** of the contributions, which must be reviewed in other ways.
+
+```bash
+# loop through each contributor
+git log --format='%aN' | sort -u | while read user
+do
+	# show each contributor's stats
+    printf '%-25s' "- $user -"
+    echo -n $(git log --shortstat --author="$user" --after="$AFTER_DATE" --before="$BEFORE_DATE" | grep -E "Merge" | awk '{merges+=1} END {printf "merges: %03d | ", merges}')
+    echo -n $(git log --shortstat --author="$user" --after="$AFTER_DATE" --before="$BEFORE_DATE" | grep -E "fil(e|es) changed" | awk '{commits+=1; files+=$1; inserted+=$4; deleted+=$6} END {printf " commits: %05d | additions: %05d | deletions: %05d | files: %05d", commits, inserted, deleted, files }')
+    echo ""
+done
+```
+
+[Fork it and try it!](https://github.com/bloombar/git-developer-contribution-analysis)
+
+---
+
 template: software-dev-automation-7
 name: software-dev-automation-8
 
