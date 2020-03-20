@@ -23,40 +23,128 @@ Agile Software Development & DevOps
 
 ---
 
-class: center, middle
 name: overview
 
 # Overview
 
 ---
 
+template: overview
+name: concept
+
 ## Concept
 
-bash is the most commonly used shell for Unix/Linux
-- written by Brian Fox at the behest of Richard Stallman and the GNU project.
-- aimed to be a replacement for UNIX's Bourne shell
-- 'bash' is an acronym for 'Bourne-Again SHell'
+`bash` is the most commonly used **shell** for Unix/Linux
 
 ---
+
+template: concept
+name: concept-1
+
+- aimed to be a replacement for UNIX's proprietary Bourne shell, `sh`.
+
+---
+
+template: concept-1
+name: concept-2
+
+- 'bash' is an acronym for '**B**ourne-**A**gain **SH**ell'
+
+---
+
+template: concept-2
+name: concept-3
+
+- a 'shell' is a command line interpreter that allows users to interface with a computer operating system via text commands
+
+---
+
+template: concept-3
+name: concept-4
+
+- written by Brian Fox in 1989 at the behest of Richard Stallman, founder of the [GNU project](https://en.wikipedia.org/wiki/GNU_Project) that created GNU, the **free software** clone of UNIX we now call Linux
+
+---
+
+template: overview
+name: value
+
+## Value
+
+Of what use to us is a 30+-year old set of rudimentary operating system commands?
+
+---
+
+template: value
+name: value-1
+
+- knowledge of the command line is assumed of any software developer
+
+---
+
+template: value-1
+name: value-2
+
+- many common tasks are accomplished most quickly via simple shell commands
+
+---
+
+template: value-2
+name: value-3
+
+- some tasks simply cannot be performed any other way
+
+---
+
+template: value-3
+name: value-4
+
+- a shell script can automate away just about any repetitive task required of a developer
+
+---
+
+template: value-4
+name: value-5
+
+- automation is one of the main foci of the software engineer
+
+---
+
+template: overview
+name: interfaces
 
 ## Interfaces
 
-bash commands can be run in one of two ways:
-- entered idiosyncratically into the command line
-- saved into a file (usually given the .sh extension) and executed as a batch
+`bash` commands can be run in one of two ways:
 
 ---
 
-class: center, middle
+template: interfaces
+name: interfaces-1
+
+- entered idiosyncratically into the **command line**
+
+---
+
+template: interfaces-1
+name: interfaces-2
+
+- saved as a script into a **file** (usually given the `.sh` extension) and executed as a batch
+
+---
+
 name: script-file-setup
 
 # Script File Setup
 
 ---
 
+template: script-file-setup
+name: shebang
+
 ## Shebang
 
-The very first two characters in a bash script file must be shebang '#!'
+The very first two characters in a bash script file must be shebang `#!`
 
 Follow this with the path name to bash, e.g. (your path may differ)
 
@@ -64,26 +152,51 @@ Follow this with the path name to bash, e.g. (your path may differ)
 #!/bin/bash
 ```
 
-You can also automatically find the location of bash within the environment settings
+---
+
+template: shebang
+name: shebang-1
+
+You can also usually find the location of bash by referring to your machine's environment settings
 ```bash
 #!/usr/bin/env bash
 ```
 
-Anytime shebang is used, the kernel will pass the path to the script as the first argument to the script
+---
+
+template: shebang-1
+name: shebang-2
+
+Anytime a shebang is used, the kernel will pass the path to the script as the first argument to the script.  Yes, scripts can take arguments.
+
+[Try it!](https://repl.it/repls/DeafeningPushyStack)
 
 ---
 
+template: script-file-setup
+name: file-permissions
+
 ## File Permissions
 
-Give the script execute Permissions:
+Give yourself execute permissions to run a script file directly:
 ```bash
 chmod u+x file.sh
 ```
 
-Execute the script:
+---
+
+template: file-permissions
+name: file-permissions-1
+
+Now execute the script:
 ```bash
 ./file.sh
 ```
+
+---
+
+template: file-permissions-1
+name: file-permissions-2
 
 If you don't have execute permission, but do have read permission, you can still run the file:
 
@@ -93,65 +206,123 @@ bash file.sh
 
 ---
 
-class: center, middle
 name: built-in-commands
 
 # Built-In Commands
 
 ---
 
-## Show Built-In Commands
+template: built-in-commands
+name: show-commands
 
-Show a list of all built-in commands in the language:
+## All commands
+
+Bash comes with a bunch of built-in commands.  To show a list of them all:
 ```bash
-enable
+enable | cut -d' ' -f 2
 ```
 
-Get a list of reserved keywords in bash:
+---
+
+template: built-in-commands
+name: show-keywords
+
+## All keywords
+
+There are also a few reserved keywords you can review:
 ```bash
 compgen -k
 ```
 
 ---
 
+template: built-in-commands
+name: path-variable
+
 ## PATH Variable
 
-bash's PATH variable contains a list of directories where bash will, by default, look for executable programs.
+bash's PATH variable contains a list of directories where bash will, by default, look for executable programs and shell commands.
 
 Display the contents of PATH:
 ```bash
 echo $PATH
 ```
 
-Add a directory to the PATH
+---
+
+template: path-variable
+name: path-variable-1
+
+Add a directory to the PATH... directories must be separated by colons.
 ```bash
 PATH=$PATH:/Users/foo/Downloads/spyware
 ```
 
 ---
 
+template: built-in-commands
+name: time-keeping
+
 ## Time-Keeping
 
-The `time` command can help determine how long processes take to execute.  It reports:
-- **real time** - time the process took in minutes / seconds
-- **user time** - CPU time used to execute the process
-- **system time** - CPU time used by the kernel in order to run the process (i.e. running a process includes some kernel overhead)
+The `time` command can be useful to determine how long a process take to complete.  It reports:
+
+---
+
+template: time-keeping
+name: time-keeping-1
+
+- **real time** - time the process took in regular human minutes / seconds
+
+---
+
+template: time-keeping-1
+name: time-keeping-2
+
+- **user time** - amount of time the CPU was used to execute the process
+
+---
+
+template: time-keeping-2
+name: time-keeping-3
+
+- **system time** - CPU time used by the kernel in order to run the process (i.e. running a process includes some additional kernel overhead)
+
+---
+
+template: time-keeping-3
+name: time-keeping-4
 
 Measure the time taken by the `ls -la` command:
 ```bash
 time ls -la
 ```
 
+[Try it!](https://repl.it/repls/OrderlyGruesomeMode)
+
 ---
+
+template: built-in-commands
+name: pipes
 
 ## Pipes
 
-Pipes allow the output of one program to serve as input for another
+Pipes allow the output of one program to serve as input for another.
+
+---
+
+template: pipes
+name: pipes-1
 
 List only .txt files in the current working directory:
 ```bash
 ls -l | grep "\.txt$"
 ```
+
+---
+
+template: pipes-1
+name: pipes-2
 
 Swap all vowels in a file listing with 'u'
 ```bash
@@ -160,12 +331,83 @@ ls -l | sed -e "s/[aeio]/u/g"
 
 ---
 
-class: center, middle
-name: programming
+template: pipes-2
+name: pipes-3
 
-# Programming
+If you really want to be a devops guru, learn the `grep`, `sed`, and `awk` commands in detail - [here's a decent intro](https://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf).
 
 ---
+
+template: built-in-commands
+name: output-redirection
+
+## Output redirection
+
+While the system default output is to print to the command line, it is possible to redirect any command's output to a file or other resource.
+
+---
+
+template: output-redirection
+name: output-redirection-1
+
+Output the list of files from the previous example to a file named `long_listing.txt`:
+```bash
+ls -l | grep "\.txt$" > long_listing.txt
+```
+
+---
+
+template: output-redirection-1
+name: output-redirection-2
+
+Append the word, `flibbertigibbet` to the file named `will-o-the-whisp.txt`
+```bash
+echo "flibbertigibbet" >> will-o-the-whisp.txt
+```
+
+---
+
+template: output-redirection-2
+name: output-redirection-3
+
+Hide any output by redirecting it to `/dev/null`:
+```bash
+echo "Help!!!" > /dev/null
+```
+
+---
+
+template: built-in-commands
+name: command-subs
+
+## Command substitution
+
+It is possible to use the output of any bash command as data within a bash script.
+
+---
+
+template: command-subs
+name: command-subs-1
+
+Place $() around the command whose output you wish to capture
+```bash
+# output the text, "Hello world" the hard way
+RECIPIENT=$(echo world)
+echo Hello $RECIPIENT!
+```
+
+[Try it!](https://repl.it/repls/MoccasinDeterminedAngle)
+
+---
+
+name: programming
+
+# Programming controls
+
+---
+
+template: programming
+name: variables
 
 ## Variables
 
@@ -174,6 +416,11 @@ Variable assignments must not have spaces around the = sign:
 some_variable_name="this is a string"
 ```
 
+---
+
+template: variables
+name: variables-1
+
 Read value of a variable with a $ in front of variable name
 ```bash
 echo the value of some_variable_name is $some_variable_name
@@ -181,42 +428,65 @@ echo the value of some_variable_name is $some_variable_name
 
 ---
 
+template: programming
+name: aliases
+
 ## Aliases
 
-Aliases allow you to set other names for common commands.
+The `alias` command allow you to set other names for common commands.
 
 ```bash
 alias ll="ls -l"
 ```
 
-To execute a command alias:
+---
+
+template: aliases
+name: aliases-1
+
+To execute a command alias, in this case to perform `ls -la`:
 ```bash
 ll
 ```
 
-See all aliases set in the shell
+---
+
+template: aliases-1
+name: aliases-2
+
+See all aliases currently set in the shell session:
 ```bash
 alias
 ```
 
 ---
 
+template: programming
+name: conditionals
+
 ## Conditionals
 
-bash supports the usual if/else if/else controls:
+bash supports the usual if/else if/else controls, albeit with archaic syntax:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
+
 T1="foo"
 T2="bar"
+
 if [ "$T1" == "$T2" ]; then
     echo expression evaluated as true
 else
-    echo expression evaluated as false
+    echo expression evaluated as false, obviously
 fi
 ```
 
+[Try it!](https://repl.it/repls/FluffySparklingLightweightprocess)
+
 ---
+
+template: programming
+name: loops
 
 ## Loops
 
@@ -224,23 +494,61 @@ bash supports both `for` and `while` loops:
 
 For:
 ```bash
-#!/bin/bash
-for i in $( ls ); do
-    echo item: $i
-done
-```
+#!/usr/bin/env bash
 
-While:
-```bash
-#!/bin/bash 
-COUNTER=0
-while [  $COUNTER -lt 10 ]; do
-	echo The counter is $COUNTER
-	let COUNTER=COUNTER+1 
+for i in {1..5}; do 
+  echo $i
 done
 ```
 
 ---
+
+template: loops
+name: loops-1
+
+While:
+```bash
+#!/usr/bin/env bash
+
+COUNTER=0
+
+# note the archaic syntax for the less than operator
+while [  $COUNTER -lt 10 ]; do
+	echo The counter is $COUNTER
+	let COUNTER=$COUNTER+1 
+done
+```
+
+---
+
+template: programming
+name: loops-continued
+
+## Loops (continued)
+It is also possible to loop through lines of output from another command using command substitution:
+```bash
+for i in $( ls ); do
+    echo ... $i ...
+done
+```
+
+---
+
+template: loops-continued
+name: loops-continued-1
+
+```bash
+while IFS= read -r line; do
+    echo "... $line ..."
+done <<< $(ls)
+```
+
+[Try it!](https://repl.it/repls/MoccasinDeterminedAngle)
+
+---
+
+template: programming
+name: functions
 
 ## Functions
 
@@ -257,6 +565,11 @@ hello
 echo $HELLO
 ```
 
+---
+
+template: functions
+name: functions-1
+
 A function with an argument:
 ```bash
 #!/bin/bash 
@@ -269,6 +582,9 @@ e World
 
 ---
 
+template: programming
+name: exports
+
 ## Exports
 
 A copy of a variable defined within a script can be copied into your command-line environment, which makes it available to any other scripts you run
@@ -276,24 +592,36 @@ A copy of a variable defined within a script can be copied into your command-lin
 export some_variable_name
 ```
 
+---
+
+template: exports
+name: exports-1
+
 Functions can also be exported
 ```bash
 export -f some_function_name
 ```
 
-See what has been exported to the command-line:
+---
+
+template: exports-1
+name: exports-2
+
+Print what has been exported to the command-line:
 ```bash
 export
 ```
 
 ---
 
-class: center, middle
 name: grouping
 
 # Grouping
 
 ---
+
+template: grouping
+name: parentheses
 
 ## Parentheses
 
@@ -309,6 +637,9 @@ echo $a
 
 ---
 
+template: grouping
+name: braces
+
 ## Braces
 
 Commands grouped with braces do not spawn a sub-process, so variables therein are shared:
@@ -323,30 +654,62 @@ echo $a
 
 ---
 
-class: center, middle
 name: automation
 
 # Automation
 
 ---
 
+template: automation
+name: startup-scripts
+
 ## Startup Scripts
 
 Bash is used for everyday automation by developers:
+
+---
+
+template: startup-scripts
+name: startup-scripts-1
+
 - Every time a user logs into a user logs in, a bash script named `.bash_profile` is automatically run.
+
+---
+
+template: startup-scripts-1
+name: startup-scripts-2
+
 - Every time a new command shell is started, a script named `.bashrc` is automatically run.
+
+---
+
+template: startup-scripts-2
+name: startup-scripts-3
 
 Place whatever bash commands you want in files by either of these names in your user account home directory in order to take advantage of this feature.
 
 ---
 
+template: automation
+name: aliases-file
+
 ## Aliases File
 
 Many developers use bash aliases for common commands.
 
-For good housekeeping, store many aliases, if you have them, in a `~/.bash_aliases` file and load them automatically every time a shell session starts.
+---
 
-Example `.bashrc` script to do so:
+template: aliases-file
+name: aliases-file-1
+
+For good housekeeping, store many aliases, if you have them, in a `~/.bash_aliases` file and load them automatically in your `.bashrc` script every time a shell session starts.
+
+---
+
+template: aliases-file-1
+name: aliases-file-2
+
+Example `.bashrc` script to check whether such an aliases file exists and execute it, if so:
 ```bash
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
@@ -355,20 +718,54 @@ fi
 
 ---
 
+template: automation
+name: software-dev-automation
+
 ## Software Development Automation
 
-Agile Software Developers depend upon automation to simplify and speed up many pedestrian tasks.  For example, in "continuous integration" unit tests are automatically execute anytime the codebase in version control is modified.
+Agile Software Developers depend upon automation to simplify and speed up many pedestrian tasks.  
 
-A fragment of such a script that could be used in **Jenkins**, an automation tool:
+---
+
+template: software-dev-automation
+name: software-dev-automation-1
+
+For example, in **continuous integration**, unit tests that automatically validate that the code behaves as expected are automatically executed anytime the codebase in version control is modified.
+
+---
+
+template: software-dev-automation-1
+name: software-dev-automation-2
+
+Similarly, in a practice known as **continuous deployment**, copy files from a version control repository to a live server allow software to be made available to its end-users as soon as changes are committed. 
+
+---
+
+template: automation
+name: software-dev-automation-3
+
+## Jenkins example
+
+A fragment of such a script that could be used in **Jenkins**, a popular automation tool to execute some follow-up actions anytime a change is committed to particular branches of a version control repository:
 ```bash
 #!/bin/bash
+
 if [[ $BRANCH_NAME == "master" ]] || [[ $BRANCH_NAME == "master_dev" ]]
 then
     ./runUnitTests.sh $REPOSITORY_NAME $BASE_BUILD_CORE $BRANCH_NAME $BUILD_NUMBER || echo "The npm may fail but the report exists"
 fi
 ```
 
-**Travis CI**, another popular automation tool, can run a bash script when any codebase changes 
+Jenkins sets up variables named `BRANCH_NAME`, `REPOSITORY_NAME`, etc and this code uses those to decide what to do.
+
+---
+
+template: automation
+name: software-dev-automation-4
+
+## Travis CI example
+
+**Travis CI**, another popular automation tool, can also run a bash script when any codebase changes 
 ```yaml
 deploy:
   provider: script
@@ -376,9 +773,11 @@ deploy:
   on:
     branch: master
 ```
+
+In this case, we see the contents of a file named `.travis.yml` that would be placed in the version control repository.  This settings file informs Travis to execute a script named `deploy.sh` anytime new code is pushed to the `master` branch.
+
 ---
 
-class: center, middle
 name: conclusions
 
 # Conclusions
@@ -386,4 +785,5 @@ name: conclusions
 ---
 
 # Conclusions
-Thank you. Bye.
+You are now a beginner bash programmer.
+- Thank you. Bye.
