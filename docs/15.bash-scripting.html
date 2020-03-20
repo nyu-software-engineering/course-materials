@@ -18,6 +18,7 @@ Agile Software Development & DevOps
 3. [Built-In Commands](#built-in-commands)
 4. [Programming](#programming)
 5. [Grouping](#grouping)
+5. [Exit codes](#exiting)
 6. [Automation](#automation)
 7. [Conclusions](#conclusions)
 
@@ -554,7 +555,7 @@ name: functions
 
 A function with a local variable:
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 HELLO=Hello 
 function hello {
         local HELLO=World
@@ -572,7 +573,7 @@ name: functions-1
 
 A function with an argument:
 ```bash
-#!/bin/bash 
+#!/usr/bin/env bash
 function e {
     echo $1 
 }  
@@ -614,9 +615,170 @@ export
 
 ---
 
+name: exiting
+
+# Exit codes
+
+---
+
+template: exiting
+name: exiting-1
+
+## Concept
+Bash scripts *can* and *should* pass exist codes to their parent processes when they complete.
+
+---
+
+template: exiting-1
+name: exiting-1a
+
+- An exit code informs the parent process of the success or failure of the command, so appropriate follow-up actions can be taken automatically.
+
+---
+
+template: exiting-1a
+name: exiting-1b
+
+- An exit code of `0` indicates success, and `1` or indicates failure (there are other [more specific failure codes](http://www.tldp.org/LDP/abs/html/exitcodes.html) as well)
+
+---
+
+template: exiting-1b
+name: exiting-1c
+
+- The exit code of the last bash command that was run is available in the built-in `$?` variable.
+
+---
+
+template: exiting-1c
+name: exiting-1d
+
+- This allows chaining of commands.
+
+---
+
+template: exiting
+name: exiting-2
+
+## The $? variable
+Here we, for example, attempt to move a file and indicate whether it was a success or not, by checking the value in the `$?` variable.
+```bash
+#!/usr/bin/env bash
+
+# attempt to move a file, for example...
+mv foo.txt /foo/bar/baz.txt
+
+# check whether it worked.
+if [ $? -eq 0 ]
+then
+  echo "Successfully moved file"
+  # we could do any relevant follow-up actions here
+else
+  echo "Could not move file"
+  # we could do any relevant follow-up actions here
+fi
+```
+
+---
+
+template: exiting
+name: exiting-3
+
+## Command chaining
+
+Commands can be chained together using boolean logic operators.
+
+```bash
+npm run lint && npm run test-unit && npm run test-casper-runner
+```
+
+---
+
+template: exiting-3
+name: exiting-3a
+
+- With AND (&&) logic, as long as each command exits with success, the following command will be executed.
+
+---
+
+template: exiting-3a
+name: exiting-3b
+
+- If any command in the chain exits with a failure code, the subsequent commands will not be executed.
+
+---
+
+template: exiting
+name: exiting-4
+
+## Command chaining (continued)
+
+Or (||) logic can also be useful in command chaining.
+
+```bash
+./tmp.sh && echo "bam" || (sudo ./tmp.sh && echo "bam" || echo "fail")
+```
+
+---
+
+template: exiting-4
+name: exiting-4a
+
+- In this example, if we are able to successfully execute the script, `./tmp.sh`, the message "bam" will be output.
+
+---
+
+template: exiting-4a
+name: exiting-4b
+
+- If that command fails, however, we will try to run the same command as a `sudo` super-user, and output "bam" if that works.
+
+---
+
+template: exiting-4b
+name: exiting-4c
+
+- If that also fails, we output the text, "fail"
+
+---
+
+template: exiting
+name: exiting-5
+
+## Custom exit codes
+You can, of course, specify exit codes at relevant places in your own bash scripts using the `exit` keyword.
+
+```bash
+#!/usr/bin/env bash
+
+# attempt to move a file, for example...
+mv foo.txt /foo/bar/baz.txt
+
+# check whether it worked.
+if [ $? -eq 0 ]
+then
+  echo "Successfully moved file"
+  # we could do any relevant follow-up actions here
+  exit 0
+else
+  echo "Could not move file"
+  # we could do any relevant follow-up actions here
+  exit 1
+fi
+```
+
+---
+
 name: grouping
 
 # Grouping
+
+---
+
+template: grouping
+name: parentheses
+
+## Parentheses
 
 ---
 
@@ -755,7 +917,7 @@ name: software-dev-automation-3
 
 A fragment a script that could be used in [Jenkins](https://jenkins.io/), a popular automation tool, to execute some follow-up actions anytime a change is committed to particular branches of a version control repository:
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ $BRANCH_NAME == "master" ]] || [[ $BRANCH_NAME == "master_dev" ]]
 then
