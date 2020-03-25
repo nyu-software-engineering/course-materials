@@ -371,10 +371,12 @@ echo "flibbertigibbet" >> will-o-the-whisp.txt
 template: output-redirection-2
 name: output-redirection-3
 
-Hide any output by redirecting it to `/dev/null`:
+Ignore a cry for help by redirecting it to the null device: `/dev/null`:
 ```bash
-echo "Help!!!" > /dev/null
+echo "Help\!\!\!" > /dev/null
 ```
+
+Note we need to esape the exclamation points, since `!` has [special meaning](https://unix.stackexchange.com/questions/3747/understanding-the-exclamation-mark-in-bash).
 
 ---
 
