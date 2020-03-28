@@ -22,6 +22,7 @@ throw together a quick web server
 1. [Proxying Requests](#proxying)
 1. [Environmental Variables](#environment)
 1. [Parameters](#parameters)
+1. [Template Engines](#template-engines)
 1. [Authentication](#authentication)
 1. [Database Integration](#databases)
 1. [Conclusions](#conclusions)
@@ -875,6 +876,144 @@ app.get('/parameter-example/:animalId', async (req, res) => {
     res.json(responseData)
 });
 ```
+
+---
+
+name: template-engines
+
+# Template Engines
+
+--
+
+## Concept
+Sometimes, it is desireable to respond to incoming requests with content that is formatted in a way that is ready to be displayed by a web browser.
+
+--
+
+- This usually meanse sending back HTML code to the web browser and the web browser then blindly renders this HTML content on the page.
+
+--
+
+- In many cases, you will find that you will want to send the same basic HTML code in response to many different requests, with just a few bits of the content changed each time.
+
+--
+
+- This is where a template engine can help - responding to requests with standardized templates of content where dynamic values are inserted into it as needed.
+
+--
+
+- There are several popular template engines for use with Express - e.g. [Pug](https://pugjs.org/api/getting-started.html), [Mustache](https://www.npmjs.com/package/mustache), and [EJS](https://www.npmjs.com/package/ejs).
+
+---
+
+template: template-engines
+
+## Creating a Pug Template
+For example let's install and use the **Pug** template engine.
+```bash
+npm install pug --save
+```
+
+--
+
+- It is now possible to set Express to use Pug as its template engine:
+
+```javascript
+app.set('view engine', 'pug')
+```
+
+--
+
+- To create a template for your site's home page, create a file named `index.pug` with two bits of dynamic content, `title` and `content`:
+
+```yaml
+html
+  head
+    title= title
+  body
+    h1= content
+```
+
+---
+
+template: template-engines
+
+## Using a Pug Template
+To use a Pug template, simply create a route that instructs Express to respond with the contents of the template by using the `render` function.
+
+--
+
+- For example, to create a route for a site's home page that points to the `index.pug` template we previously made and supplies the values to plug into `title` and `content` fields:
+
+```javascript
+app.get('/', function (req, res) {
+        res.render('index', { 
+            title: 'My First Templated Site', 
+            message: 'Welcome to your first dynamic templated page!!' 
+        })
+})
+```
+
+--
+
+- Simply repeat this process for all the different sorts of routes and templates that your site might need.
+
+--
+
+- The full set of template options are available in the [official Pug language reference](https://pugjs.org/language/attributes.html).
+
+---
+
+template: template-engines
+
+## Single Page Applications
+Template engines are less useful for web apps that are set up as **single page applications**.
+
+--
+
+- In a single page application, an initial set of static HTML, CSS, and Javascript code is requested by and loaded into the web browser.
+
+--
+
+- The static browser-based Javascript code then issues new requests to the server as necessary.  The server responds to any subsequent requests with JSON data, not HTML documents, e.g.:
+```javascript
+{ 
+    'title': 'My First Templated Site', 
+    'message': 'Welcome to your first dynamic templated page!!' 
+}
+```
+
+--
+
+- The static Javascript code initially loaded by the browser when the page was first loaded then updates relevant parts of the page in response to this JSON data.  
+
+---
+
+template: template-engines
+
+## Front-Ends Built With React.js
+React.js-based front-ends are built as **single page applications**.
+
+--
+
+- An initial set of HTML, CSS, and Javascript code is loaded into the browser.
+
+--
+
+- The browser-based Javascript then makes requests to the server, as necessary.
+
+--
+
+- The server responds with JSON data.
+
+--
+
+- Browser-based Javascript code automatically then updates the components on the page based on this JSON data, as necessary.
+
+--
+
+- Thus, there is no big need for a template engine to help generate repetitious HTML documents.
+
 ---
 
 name: authentication
@@ -915,7 +1054,7 @@ Most classic technology stacks that rely on Express.js for the back-end use [Mon
 
 --
 
-- Most software relies on **relational databases**, such as Oracle, MS SQL, MySQL, etc, which store data in a way similar to spreadsheets, with records stored in rows containing columns for each piece of data.
+- Most software relies on **relational databases**, such as Oracle, MS SQL, SQLite, MySQL, etc, which store data in a way similar to spreadsheets, with records stored in rows containing columns for each piece of data.
 
 --
 
@@ -923,7 +1062,7 @@ Most classic technology stacks that rely on Express.js for the back-end use [Mon
 
 --
 
-- The 3rd-party module named [mongoose](https://mongoosejs.com/) makes it easy to integrate express.js-based apps with MongoDB.
+- The 3rd-party module named [mongoose](https://mongoosejs.com/) makes it easy to integrate express.js-based apps with MongoDB.  Similar modules exist for most other database integrations as well.
 
 --
 
