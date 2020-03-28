@@ -23,6 +23,7 @@ throw together a quick web server
 1. [Environmental Variables](#environment)
 1. [Parameters](#parameters)
 1. [Authentication](#authentication)
+1. [Database Integration](#databases)
 1. [Conclusions](#conclusions)
 
 ---
@@ -900,6 +901,33 @@ Many web apps require users to **sign up** and **log in**.
 --
 
 - We recommend you wait until you have learned to integrate a database into your project before using it.
+
+---
+
+name: databases
+
+# Database Integration
+
+--
+
+## Concept
+Most classic technology stacks that rely on Express.js for the back-end use [MongoDb](https://mongodb.com) as the database.
+
+--
+
+- Most software relies on **relational databases**, such as Oracle, MS SQL, MySQL, etc, which store data in a way similar to spreadsheets, with records stored in rows containing columns for each piece of data.
+
+--
+
+- MongoDB is a **document-oriented database** that lends itself well to many common data needs of Javascript-based web and mobile apps, such as native support for geolocation, data stored internally as JSON objects, and easy scalability should your app take off to the moon.
+
+--
+
+- The 3rd-party module named [mongoose](https://mongoosejs.com/) makes it easy to integrate express.js-based apps with MongoDB.
+
+--
+
+- We recommend you wait until you have mastered back-end development without a database before adding one into the mix.
 
 ---
 
