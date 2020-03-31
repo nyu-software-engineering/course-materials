@@ -14,16 +14,17 @@ Agile Software Development & DevOps
 # Agenda
 
 1. [Overview](#overview)
-2. [Automation](#automation)
-3. [Code Linting](#code-linting)
-4. [Unit Testing](#unit-testing)
-5. [Code Coverage](#code-coverage)
-6. [Integration Testing](#integration-testing)
-7. [User Acceptance Testing](#user-acceptance-testing)
-8. [Regression Testing](#regression-testing)
-9. [System Testing](#system-testing)
-10. [Test-Driven Development](#test-driven-development)
-11. [Conclusions](#conclusions)
+1. [Automation](#automation)
+1. [Code Linting](#code-linting)
+1. [Unit Testing](#unit-testing)
+1. [Code Coverage](#code-coverage)
+1. [Integration Testing](#integration-testing)
+1. [User Acceptance Testing](#user-acceptance-testing)
+1. [Regression Testing](#regression-testing)
+1. [System Testing](#system-testing)
+1. [Test-Driven Development](#test-driven-development)
+1. [Behavior-Driven Development](#behavior-driven-development)
+1. [Conclusions](#conclusions)
 
 ---
 
@@ -83,7 +84,7 @@ template: overview
 
 ## Sanity
 
-Testing can also help prove that the software is usable and that you haven't built it all for nil.
+Testing can also help prove that the **software is usable** and that you haven't built it all for nil.
 
 ---
 
@@ -99,11 +100,11 @@ While much of running software tests can now be automated, a few tasks still req
 
 --
 
-- Writing the tests
+- Writing the tests... although this too [may become fully automated eventually](https://duckduckgo.com/?q=autogenerate+unit+tests)
 
 --
 
-- Testing whether humans are able and happy to use the software
+- Testing whether humans are able and happy to use the software... although [some seem to think they can automate users away](https://duckduckgo.com/?q=automate+user+acceptance+testing).
 
 ---
 
@@ -115,7 +116,7 @@ name: code-linting
 
 ## Concept
 
-A code linter automatically checks syntax and style of code.
+A code linter automatically checks both **syntax** and **style** of code.
 
 --
 
@@ -138,7 +139,7 @@ A code linter is a software tool that can...
 
 --
 
-- auto-fix some problems
+- auto-fix some syntax and style problems
 
 --
 
@@ -171,15 +172,24 @@ Code linters offer some advantages over human code reviews, such as:
 
 template: code-linting
 
-## Recommendation
+## Recommendations
 Use [ESLint](https://github.com/eslint/eslint) for Javascript.
-- An [extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) exists for the popular Visual Studio Code IDE.
-- Popular configurations readily available:
--- [Google Javascript Style Guide](https://google.github.io/styleguide/jsguide.html) 
--- [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript) 
 
-Use [PyLint](https://www.pylint.org/) for Python.
-- Comes bundled with the Spyder IDE.
+--
+
+- An [extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) exists to integrate it into the popular Visual Studio Code IDE.
+
+--
+
+- Can be configured to test against any Javascript **coding conventions** - there are two popular competing Javascript style guides: [Google's](https://google.github.io/styleguide/jsguide.html) and [AirBnb's](https://github.com/airbnb/javascript).
+
+--
+
+- There are also plenty of people who decide on their own code styles.
+
+--
+
+- Follow [these instructions](https://www.linkedin.com/learning/building-a-website-with-node-js-and-express-js-3/setting-up-eslint-and-prettier?u=2131553) - or [these](https://www.youtube.com/watch?v=SydnKbGc7W8) if you don't have a LinkedIn Learning account - to set it up ESLint with the AirBnB style guide and the Prettier reformatter.
 
 ---
 
@@ -191,7 +201,7 @@ name: unit-testing
 
 ## Concept
 
-A unit is the smallest testable unit of code - typically a function, but sometimes an object or class.
+A unit is the smallest testable unit of code - typically a function.
 
 --
 
@@ -204,7 +214,7 @@ template: unit-testing
 
 ## Example
 
-A unit test example in Javascript using mocha:
+A unit test example in Javascript using the `mocha` unit testing framework and Node.js's built-in assertion library, `assert`:
 ```javascript
 // use node.js's built-in assert assertion library
 const assert = require('assert');
@@ -231,30 +241,30 @@ describe('Array', function() {
 template: unit-testing
 
 ## Features
-Unit tests are performed on each unit in isolation, in the sense that they:
+Unit tests are performed on each unit in isolation, in the sense that they...
 
 --
 
-- Are not concerned with user interactions or user interfaces.
+- run in isolation and do not depend upon one-another.
 
 --
 
-- Do not require any changes to the code.
+- are not concerned with user interactions or user interfaces.
 
 --
 
-- Only test code belonging to the system, not platform code, 3rd party code or external systems
+- do not require any changes to the production code.
 
 --
 
-- Do not depend upon one-another.
+- only test code belonging to the system, not platform code, 3rd party code or external systems such as databases or APIs.
 
 ---
 
 template: unit-testing
 
 ## Advantages
-Unit testing has discrete advantages that become increasingly important as a project grows.
+Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
 --
 
 - Failed unit tests indicate bugs that **must** be fixed
@@ -273,9 +283,18 @@ template: unit-testing
 
 ## Recommendation
 Use [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) for Javascript unit testing.
+
+--
+
 - `mocha` is a Javascript unit test framework
+
+--
+
 - by default it uses Node.js's built-in `assert` assertion library.
-- `chai` is a more elaborate unit test 'assertion library' that can be added on to mocha
+
+--
+
+- but `chai` is a more elaborate assertion library that is ironically often paired with mocha
 
 ---
 
@@ -289,6 +308,18 @@ name: integration-testing
 
 Whereas unit testing tests units in-situ in isolation, integration testing tests units in vivo.
 
+--
+
+- Unit tests are meant to validate each unit in isolation from any external influences.
+
+--
+
+- Integration tests are purposefully designed to test units as they interact with those outside influences.
+
+--
+
+- For example, whereas a a unit test of the front-end of a web app might make an HTTP request to a **mock server or API** and receive a **mock response** , a unit test would make an HTTP request to a **real server or API**, receivee the **real response**, to ensuree it is handled correctly.
+
 ---
 
 template: integration-testing
@@ -299,11 +330,11 @@ Integration tests...
 
 --
 
-- that all components of the system interact as expected, sending and receiving messages from one-another correctly in all expected circumstances
+- test that all components of the system interact as expected, sending and receiving messages from one-another correctly in all expected circumstances
 
 --
 
-- that the system interacts with any external dependencies, such as libraries, databases, and APIs correctly
+- test that the system interacts with any external dependencies, such as libraries, databases, and APIs correctly
 
 --
 
@@ -333,16 +364,24 @@ The term `code coverage` refers to the percent of all code which is executed whe
 
 - Code coverage tools automatically calculate this as tests are run.
 
+--
+
+- While 100% code coverage is the ideal, anywhere above 80% is pretty well-covered.
+
 ---
 
 template: code-coverage
 
 ## Limitations
-Code coverage does not indicate that the code has been tested in all possible scenarios.
+Code coverage does not indicate that the code has been tested in all possible scenarios 
 
 --
 
-- Thus, 100% code coverage **does not** necessarily indicate that the code is well-tested or that it will run well.
+- High code coverage **does not** indicate that the code is good.
+
+--
+
+- 100% code coverage **does not** indicate that the code is well-tested or that it will run well.
 
 ---
 
@@ -367,6 +406,13 @@ Use [istanbul](https://istanbul.js.org/) for Javascript code coverage analysis.
 }
 ```
 
+--
+
+- Code coverage analysis could then be triggered from the command line.
+```bash
+npm test
+```
+
 ---
 
 name: user-acceptance-testing
@@ -377,37 +423,44 @@ name: user-acceptance-testing
 
 ## Concept
 
-User Acceptance Testing (UAT) verifies that users will accept the software.
-
----
-
-template: user-acceptance-testing
-
-## Features
-User Acceptance Testing...
+User Acceptance Testing (UAT) ...
 
 --
 
-- verifies that the software works as expected from an end-user's point of view
+- tests whether users will accept the software.
+
+--
+
+- i.e., verifies that the software works as expected from an end-user's point of view
 
 --
 
 - is a form of Integration Testing, since all the parts must inter-operate in order for the system to be used.
 
+---
+
+template: user-acceptance-testing
+
+## Scripts
+User Acceptance Tests test users in specific use cases or user stories.
+
 --
 
-- consists of scripts for specific use cases, user stories, or scenarios that the system is designed to afford
+- Users are asked to run through scripts of common scenarios and interactions they might encounter using the software
 
 --
 
-- each script includes a set of steps for the human tester to go through
-
+- Each script includes a set of steps for the human tester to go through to perform the test, e.g.
 ```
 step 1 - user goes to home page
 step 2 - clicks reservations
 step 3 - clicks on arrival date
 step 4 - the date widget should pop up with default date pre-selected
 ```
+
+--
+
+- The tester then records whether the user successfully completed the task, how long it took them, and notes any problems the user encountered.
 
 ---
 
@@ -451,7 +504,7 @@ Testing of the non-functional requirements, such as ...
 
 ---
 
-name: test-drive-development
+name: test-driven-development
 
 # Test-Driven Development
 
@@ -459,11 +512,11 @@ name: test-drive-development
 
 ## Concept
 
-Test-Driven Development (TDD) is the practice of writing unit tests before production code is written.
+Test-Driven Development (TDD) is the practice of writing tests, particularly unit tests, before production code is written.
 
 ---
 
-template: test-drive-development
+template: test-driven-development
 
 ## Advantages
 
@@ -487,7 +540,7 @@ Test-Driven Development has several touted benefits:
 
 ---
 
-template: test-drive-development
+template: test-driven-development
 
 ## Criticisms
 
@@ -495,7 +548,7 @@ Test-Driven Development has been attacked on many fronts:
 
 --
 
-- It is often seen as a bit too extreme (in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology). 
+- It is often seen as a bit too extreme -in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology. 
 
 --
 
@@ -511,14 +564,18 @@ Test-Driven Development has been attacked on many fronts:
 
 ---
 
-template: test-drive-development
+name: behavior-driven-development
 
-## Behavior-Driven Development
+# Behavior-Driven Development
+
+--
+
+## Concept
 An alternative preferred by some to Test-Driven Development is Behavior-Driven Development (BDD).
 
 --
 
-- BDD performs all the same functionality as TDD.
+- BDD performs all the same duties as TDD, at the same times, for the same reasons.
 
 --
 
@@ -530,11 +587,11 @@ An alternative preferred by some to Test-Driven Development is Behavior-Driven D
 
 --
 
-- A TDD-style assertion: `assert.equal(foo, 'bar')`
+- A TDD-style assertion stating the expected value in a variable: `assert.equal(foo, 'bar')`
 
 --
 
-- The same assertion in BDD-style: `expect(foo).to.equal('bar')`
+- The same assertion in BDD-style: `expect(foo).to.equal('bar')` - notice the more human-friendly phrasing of the code.
 
 ---
 

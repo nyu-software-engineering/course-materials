@@ -23,77 +23,122 @@ Agile Software Development & DevOps
 
 ---
 
-class: center, middle
 name: overview
 
 # Overview
 
----
+--
 
 ## Concept
 
 A unit is the smallest testable unit of code - typically a function, but sometimes an object or class.
 
-Unit testing verifies that each unit behaves as expected, given specific inputs.
+--
+
+- Unit testing verifies that each unit behaves as expected, given specific inputs.
 
 ---
+
+template: overview
 
 ## Background
 
 Unit testing is an automated testing technique developed in 1992 by Kent Beck to solve the annoyance of manually testing code for obvious errors.
+
+--
+
 - originally written in Smalltalk
+
+--
+
 - JUnit created by Beck as a way to teach himself Java during the course of an airplane flight from Zurich to Upsalla in 1997
+
+--
+
 - shared with Martin Fowler, a fellow signatory with Beck of the Agile Manifesto, who helped spread it
+
+--
+
 - now ported to just about every high-level programming language
 
 ---
 
+template: overview
+
 ## Other languages
 
 The world of unit testing frameworks for different languages that are based on the original JUnit is called **xUnit**.
+
+--
+
 - all open source, since JUnit was released open source
+
+--
+
 - all written in the same language that they are testing
 
 ---
 
-class: center, middle
-name: overview
+name: advantages
 
 # Advantages
 
----
+--
 
 ## Comparison to Alternative
 Automated unit testing has many advantages over manual debugging:
+
+--
+
 - less time consuming and tedious
+
+--
+
 - requires fewer human resources
+
+--
+
 - provides immediate feedback of failures
+
+--
+
 - allows developers to focus more on writing code
+
+--
+
 - more reliable than manual testing
 
 ---
+
+template: advantages
 
 ## Relationship to Refactoring
 
 Refactoring of existing code involves rewriting it to make it better organized and efficient without changing its observable behavior.
 
-With automated unit testing, refactoring will not accidentally introduce errors, since any such errors that change the behavior of the code will be immediately detected by the tests (called regression tests in this context).
 
-[https://martinfowler.com/ Martin Fowler]: 
+--
+
+- With automated unit testing, refactoring will not accidentally introduce errors, since any such errors that change the behavior of the code will be immediately detected by the tests (called regression tests in this context).
+
 > In almost all cases, I’m opposed to setting aside time for refactoring."
+> 
+> -[https://martinfowler.com/ Martin Fowler], author of 'Refactoring', the book 
 
 ---
 
-class: center, middle
 name: examples
 
 # Examples
 
----
+--
 
 ## Java
 
 A unit test example in Java using JUnit:
+
+--
+
 ```java
 // include JUnit and assertion libraray
 import org.junit.jupiter.api.Test;
@@ -115,9 +160,14 @@ public class MyFirstTest {
 
 ---
 
+template: examples
+
 ## Javascript
 
 A unit test example in Javascript using mocha:
+
+--
+
 ```javascript
 // use mocha's built-in assertion library
 const assert = require('assert');
@@ -141,95 +191,150 @@ describe('Array', function() {
 
 ---
 
-class: center, middle
 name: test-cases
 
 # Test Cases
 
----
+--
 
 ## Minimal Number
 
 Unit tests must test at least two scenarios, called `test cases`:
+
+--
+
 - test the expected output when given valid input
+
+--
+
 - test the expected output when given invalid input
+
+--
 
 In actuality, there will be multiples test cases for every possible variety of valid and invalid input.
 
 ---
 
-class: center, middle
 name: assertions
 
 # Assertions
 
----
+--
 
 ## Concept
 Every unit testing framework depends upon a set of **assertions** - purported truths that are then compared against reality.
+
+--
+
 - An assertion is a statement that a particular predicate is going to be true - this is either true or false.
+
+--
+
 - If false, the assertion fails and throws an error about what went wrong and where that happened in code
 
 ---
 
-## Typical Assertions
-This is a partial list of methods in JUnit's asssertion library:
+template: assertions
+name: assertions-1
 
-Equality:
+## Typical Assertions
+This is a partial list of methods in JUnit's asssertion library that all other testing frameworks tend to imitate:
+
+--
+
+### Equality:
 - `assertEquals(primitive/object expected, primitive/object actual)`
 - `assertNotEquals(primitive/object expected, primitive/object actual)`
 - `assertArrayEquals(expectedArray, actualArray)`
 
-Truth:
+---
+
+template: assertions-1
+
+### Truth:
 - `assertTrue(boolean condition)`
 - `assertFalse(boolean condition)`
 
-Existence:
+---
+
+template: assertions-1
+
+### Existence:
 - `assertNull(Object object)`
 - `assertNotNull(Object object)`
 
-Sameness:
-- assertSame(object1, object2)
-- assertNotSame(object1, object2)
+---
+
+template: assertions-1
+
+### Sameness:
+- `assertSame(object1, object2)`
+- `assertNotSame(object1, object2)`
 
 ---
 
-class: center, middle
 name: best-practices
 
 # Best Practices
 
----
+--
 
 ## TRIPinesss
 
-According to "[Pragmatic Unit Testing in Java with JUnit](https://pragprog.com/titles/utj/pragmatic-unit-testing-in-java-with-junit)", by Andy Hunt and Dave Thoma, good unit tests are TRIP-y:
+According to "[Pragmatic Unit Testing in Java with JUnit](https://pragprog.com/titles/utj/pragmatic-unit-testing-in-java-with-junit)", by Andy Hunt and Dave Thoma, good unit tests are **TRIP-y**:
+
+--
+
 - **T**horough
+
+--
+
 - **R**epeatable
+
+--
+
 - **I**ndependent
+
+--
+
 - **P**rofessional
 
 ---
 
+template: best-practices
+
 ## Three pillars
 
 According to Roy Osherove, author of "[The Art of Unit Testing](https://www.manning.com/books/the-art-of-unit-testing)", there are three main pillars of a good unit test:
+
+--
+
 - **Trustworthiness** -  if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
+
+--
+
 - **Maintainability** - a test that is difficult to maintain and takes up more time than it saves might as well be scrapped
+
+--
+
 - **Readability** -  a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
+
+
+--
 
 Listen to [a song about unit testing](https://www.youtube.com/watch?v=fXwWaE1QCS8) by Roy Osherove
 
 ---
 
-class: center, middle
 name: conclusions
 
 # Conclusions
 
----
+--
 
-# Conclusions
-Thank you. Bye.
+This slide deck has attempted to give you a high-level overview of the intentions and directions of unit testing.  Now go and try it.
 
+--
+
+- Thank you. Bye.
 
