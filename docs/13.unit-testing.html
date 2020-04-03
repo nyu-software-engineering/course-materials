@@ -19,6 +19,8 @@ Agile Software Development & DevOps
 4. [Test Cases](#test-cases)
 5. [Assertions](#assertions)
 6. [Best Practices](#best-practices)
+7. [Doubles](#doubles)
+7. [Javascript Testing Toolset](#tools)
 7. [Conclusions](#conclusions)
 
 ---
@@ -432,6 +434,37 @@ Like, mocks and stubs, fakes are used in the simulation of an external dependenc
 
 ---
 
+name: tools
+
+# Javascript Testing Tools
+
+--
+
+## Recommendations
+The following are the recommended tools for unit testing in Node.js Javascript.
+
+--
+
+- [mocha](https://www.npmjs.com/package/mocha) as the Javascript testing framework.
+
+--
+
+- [chai](https://www.npmjs.com/package/chai) as the assertion library.
+
+--
+
+- [istanbul / nyc](https://www.npmjs.com/package/nyc) for code coverage analysis.
+
+--
+
+- [sinon](https://www.npmjs.com/package/sinon) for stubs, mocks, and fakes.
+
+--
+
+- [faker](https://www.npmjs.com/package/faker) for any placeholder data that needs to be generated in tests (e.g. names, email addresses, database data, images, etc)
+
+---
+
 name: conclusions
 
 # Conclusions
@@ -451,6 +484,10 @@ This slide deck has attempted to give you a high-level overview of the intention
 --
 
 - Add `istanbul`'s code coverage tool, `nyc`, following [this StackOverflow discussion](https://stackoverflow.com/questions/16633246/code-coverage-with-mocha).
+
+--
+
+- Learn how to make doubles with `sinon` by reading its [documentation](https://sinonjs.org/#get-started).
 
 --
 
