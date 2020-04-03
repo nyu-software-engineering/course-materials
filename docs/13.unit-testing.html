@@ -129,7 +129,7 @@ Refactoring of existing code involves rewriting it to make it better organized a
 
 > In almost all cases, I’m opposed to setting aside time for refactoring."
 > 
-> -[https://martinfowler.com/ Martin Fowler], author of 'Refactoring', the book 
+> -[Martin Fowler](https://martinfowler.com/), author of 'Refactoring', the book 
 
 ---
 
@@ -332,6 +332,106 @@ Listen to [a song about unit testing](https://www.youtube.com/watch?v=fXwWaE1QCS
 
 ---
 
+name: doubles
+
+# Doubles
+
+--
+
+## Concept
+
+Unit tests must run in isolation of one another and of external dependencies, such as databases, APIs, or other servers.
+
+--
+
+- Some units of production code normally depends upon an interaction with such a dependency.  What to do?
+
+--
+
+- Swap out that dependency with the double! - a controlled simulation of the dependency.
+
+--
+
+- Using a double will allow you to hone in on problems with your own code, not problems within the external dependency.
+
+---
+
+template: doubles
+
+## Types of double
+There are three commonly-used types of doubles.
+
+--
+
+- Mocks
+
+--
+
+- Fakes
+
+--
+
+- Stubs
+
+---
+
+template: doubles
+
+## Mocks
+Mocks are replacements for external interfaces.
+
+--
+
+- The mock assumes the same name and functions as the mocked external dependency.
+
+--
+
+- Using a mock can determine only whether the mock has been called or not by production code, how many times it has been called, and whether or not the correct arguments are passed to it when it is called.
+
+--
+
+- Production code does not need to be changed to use a mock.  It does not "know" that it is not connecting to the real thing.  
+
+--
+
+- The testing framework takes care of swapping out the external dependency with a mock.
+
+---
+
+template: doubles
+
+## Stubs
+Whereas mocks are called by production code and passed arguments in place of a real external dependency, stubs are used to return pre-defined responses to the calling code.
+
+--
+
+- For example, if your app code requires a record to be saved in a database, you might create a mock to intercept the arguments that would normally be sent to the database in place of the real thing, and create a stub that responds with a success or failure message in place of the real response that the database would send, given the supplied parameters.
+
+--
+
+- Having a mock send back a stub allows you to use unit tests to determine whether your production code handles the response correctly.
+
+---
+
+template: doubles
+
+## Fakes
+Like, mocks and stubs, fakes are used in the simulation of an external dependency.  But whereas mocks and stubs are simple code substitutions for the real thing, a fake is an actually functioning replacement for the external dependency that runs on the local machine.
+
+--
+
+- For example, if your code must connect to an API over the Internet, you might create a local HTTP server that simulates that API as your fake so you can test as if it were real.
+
+--
+
+- Since unit tests must run independently of one another, any data sent back and forth with the fake will not be saved and will not influence subsequent unit tests that interact with the fake - there is no saved state within the fake.
+
+--
+
+- The advantage of using fakes over mocks and stubs is that you get a slightly more "real" test.
+
+---
+
 name: conclusions
 
 # Conclusions
@@ -342,7 +442,15 @@ This slide deck has attempted to give you a high-level overview of the intention
 
 --
 
-- To learn Javascript unit testing using `mocha` and `chai` in detail, please see the LinkedIn Learning course titled, "Node.js Essential Training: Web Servers, Tests, and Deployment", particularly [the section, "Node.js Testing."](https://www.linkedin.com/learning/node-js-essential-training-web-servers-tests-and-deployment/prepare-for-testing)
+- To learn more about refactoring your code to be suitable for unit testing, watch the LinkedIn Learning video "[Prepare for Testing](https://www.linkedin.com/learning/node-js-essential-training-web-servers-tests-and-deployment/prepare-for-testing)"
+
+--
+
+- To master the syntax of `mocha` and `chai`, watch the "[Writing Unit Tests](https://www.linkedin.com/learning/javascript-test-driven-development-es6/the-purpose-of-unit-testing?u=2131553)" section of videos in the LinkedIn Learning Course, "Javascript: Test-Driven Development".
+
+--
+
+- Add `istanbul`'s code coverage tool, `nyc`, following [this StackOverflow discussion](https://stackoverflow.com/questions/16633246/code-coverage-with-mocha).
 
 --
 
