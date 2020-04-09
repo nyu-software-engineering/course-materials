@@ -1,4 +1,10 @@
 # Agile Software Engineeering
-A collection of examples mostly focused on agile software development.
+Slide presentations used to teach agile software development.
 
-Slides are auto-generated from the materials in the ```docs``` folder.
+## Publishing slides
+Slides are auto-generated from the materials in the ```docs``` folder using Git Pages.
+
+## Running locally
+- Install Jekyll globally
+- `cd` into the `docs` directory
+- run `jekyll serve`
