@@ -7,6 +7,7 @@ permalink: /software-testing/
 class: center, middle
 
 # Software Testing
+
 Agile Software Development & DevOps
 
 ---
@@ -120,7 +121,7 @@ A code linter automatically checks both **syntax** and **style** of code.
 
 --
 
-- These are *especially useful in interpreted languages* that do not report compilation errors.
+- These are _especially useful in interpreted languages_ that do not report compilation errors.
 
 --
 
@@ -131,6 +132,7 @@ A code linter automatically checks both **syntax** and **style** of code.
 template: code-linting
 
 ## Features
+
 A code linter is a software tool that can...
 
 --
@@ -154,6 +156,7 @@ A code linter is a software tool that can...
 template: code-linting
 
 ## Advantages
+
 Code linters offer some advantages over human code reviews, such as:
 
 --
@@ -177,6 +180,7 @@ Code linters offer some advantages over human code reviews, such as:
 template: code-linting
 
 ## Recommendations
+
 Use [ESLint](https://github.com/eslint/eslint) for Javascript.
 
 --
@@ -209,7 +213,6 @@ A unit is the smallest testable unit of code - typically a function.
 
 --
 
-
 - Unit testing verifies that each unit behaves as expected, given certain inputs.
 
 ---
@@ -219,24 +222,21 @@ template: unit-testing
 ## Example
 
 A unit test example in Javascript using the `mocha` unit testing framework and Node.js's built-in assertion library, `assert`:
+
 ```javascript
 // use node.js's built-in assert assertion library
-const assert = require('assert');
+const assert = require("assert");
 
 // a set of tests of array functions
-describe('Array', function() {
-
-    // one particular unit test
-    describe('#indexOf()', function() {
-
-        // assert what should be returned
-        it('should return -1 when the value is not present', function(){
-            // test that assertion
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-
+describe("Array", function () {
+  // one particular unit test
+  describe("#indexOf()", function () {
+    // assert what should be returned
+    it("should return -1 when the value is not present", function () {
+      // test that assertion
+      assert.equal(-1, [1, 2, 3].indexOf(4));
     });
-
+  });
 });
 ```
 
@@ -245,6 +245,7 @@ describe('Array', function() {
 template: unit-testing
 
 ## Features
+
 Unit tests are performed on each unit in isolation, in the sense that they...
 
 --
@@ -268,8 +269,8 @@ Unit tests are performed on each unit in isolation, in the sense that they...
 template: unit-testing
 
 ## Advantages
-Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
---
+
+## Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
 
 - Failed unit tests indicate bugs that **must** be fixed
 
@@ -286,6 +287,7 @@ Unit testing has discrete advantages that become increasingly important as a pro
 template: unit-testing
 
 ## Recommendation
+
 Use [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) for Javascript unit testing.
 
 --
@@ -377,7 +379,8 @@ The term `code coverage` refers to the percent of all code which is executed whe
 template: code-coverage
 
 ## Limitations
-Code coverage does not indicate that the code has been tested in all possible scenarios 
+
+Code coverage does not indicate that the code has been tested in all possible scenarios
 
 --
 
@@ -392,6 +395,7 @@ Code coverage does not indicate that the code has been tested in all possible sc
 template: code-coverage
 
 ## Recommendation
+
 Use [istanbul](https://istanbul.js.org/) for Javascript code coverage analysis.
 
 --
@@ -413,6 +417,7 @@ Use [istanbul](https://istanbul.js.org/) for Javascript code coverage analysis.
 --
 
 - Code coverage analysis could then be triggered from the command line.
+
 ```bash
 npm test
 ```
@@ -446,6 +451,7 @@ User Acceptance Testing (UAT) ...
 template: user-acceptance-testing
 
 ## Scripts
+
 User Acceptance Tests test users in specific use cases or user stories.
 
 --
@@ -455,6 +461,7 @@ User Acceptance Tests test users in specific use cases or user stories.
 --
 
 - Each script includes a set of steps for the human tester to go through to perform the test, e.g.
+
 ```
 step 1 - user goes to home page
 step 2 - clicks reservations
@@ -552,7 +559,7 @@ Test-Driven Development has been attacked on many fronts:
 
 --
 
-- It is often seen as a bit too extreme -in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology. 
+- It is often seen as a bit too extreme -in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology.
 
 --
 
@@ -575,6 +582,7 @@ name: behavior-driven-development
 --
 
 ## Concept
+
 An alternative preferred by some to Test-Driven Development is Behavior-Driven Development (BDD).
 
 --
@@ -606,10 +614,9 @@ name: conclusions
 ---
 
 # Conclusions
+
 You now have experienced a nice-and-easy overview of the different categories of software testing in common practice. The next step would be to try them out!
 
 --
 
 - Thank you. Bye.
-
-

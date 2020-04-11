@@ -7,6 +7,7 @@ permalink: /continuous-integration/
 class: center, middle
 
 # Continuous Integration
+
 Agile Software Development & DevOps
 
 ---
@@ -14,11 +15,11 @@ Agile Software Development & DevOps
 # Agenda
 
 1. [Overview](#overview)
-4. [Typical Workflow](#ci-workflow)
-4. [Best Practices](#best-practices)
-5. [Travis CI](#travis-ci)
-6. [Software as a Service](#software-as-service)
-7. [Conclusions](#conclusions)
+2. [Typical Workflow](#ci-workflow)
+3. [Best Practices](#best-practices)
+4. [Travis CI](#travis-ci)
+5. [Software as a Service](#software-as-service)
+6. [Conclusions](#conclusions)
 
 ---
 
@@ -31,7 +32,7 @@ name: overview
 
 ## Concept
 
-As developers work on a project, they make changes.  
+As developers work on a project, they make changes.
 
 Every time a change is made, there is a risk of bugs being introduced.
 
@@ -44,6 +45,7 @@ In order to discover bugs, the software must be periodically built and tested.
 ## Benefits
 
 Automated Continuous Integration has several benefits:
+
 - uncover bugs more quickly through frequent builds, tests, and notifications
 - improve quality
 - reduce time to validate builds
@@ -92,7 +94,8 @@ Once testing is complete, developers are notified of the success or failure of a
 
 Developers are notified, immediately upon completion of the build and test phases, whether each of the steps succeeded or failed.
 
-With most Continuous Integration tools, notifications can be sent via 
+With most Continuous Integration tools, notifications can be sent via
+
 - email
 - SMS
 - Slack messages
@@ -117,11 +120,13 @@ name: best-practices
 ---
 
 ## Commit small changes
+
 Committing small changes to version control limits the scope of what has changed so failures in building or testing are more quickly identified and remedied.
 
 ---
 
 ## You break it, you fix it!
+
 If a given developer has broken the build, it is their responsibility to fix it.
 
 Developers should expect to always be on call to fix broken builds.
@@ -129,11 +134,13 @@ Developers should expect to always be on call to fix broken builds.
 ---
 
 ## Test the right stuff
+
 It's common to miss obvious bugs because automated unit and integration tests have poor code coverage or test the wrong things.
 
 ---
 
 ## Plan on producing a status, a log, and an artefact.
+
 - the result is whether the build succeeded or failed
 - the log contains a list of the steps that were completed in the build, and the results of all tests
 - the artifact is the resultant system, which can be uploaded to a server and tagged with an automatically incrementing build number
@@ -148,11 +155,13 @@ name: travis-ci
 ---
 
 ## Hosted continuous integration service
-Travis CI is a proprietary hosted continuous integration web service with an especially attractive offer of free usage for open source GitHub repositories. 
+
+Travis CI is a proprietary hosted continuous integration web service with an especially attractive offer of free usage for open source GitHub repositories.
 
 ---
 
 ## Virtual build servers
+
 When a change is detected in version control, Travis boots up a new virtual server.
 
 Travis clones the version control repository into the virtual machine, and performs the build and test.
@@ -160,6 +169,7 @@ Travis clones the version control repository into the virtual machine, and perfo
 ---
 
 ## Key features
+
 - hosted continuous integration solution
 - free for open source projects
 - at its simplest, requires the addition of a configuration file to a repository
@@ -169,9 +179,11 @@ Travis clones the version control repository into the virtual machine, and perfo
 ---
 
 ## Basic configuration
+
 Travis CI's build and test configuration is written in YAML (Yet Another Markup Language) and saved into a file named `.travis.yml` in the main directory of your project.
 
 Node.js example:
+
 ```yaml
 language: node_js
 node_js:
@@ -180,6 +192,7 @@ node_js:
 ```
 
 Python example:
+
 ```yaml
 language: python
 python:
@@ -190,6 +203,7 @@ python:
 ---
 
 ## More configuration
+
 In addition to basic configuration, Travis supports more detailed instructions and can run arbitrary code at various lifecycle points in the build.
 
 ```yaml
@@ -207,13 +221,14 @@ deploy:
   provider: script
   script: bash scripts/deploy.sh
   on:
-    branch: master  
+    branch: master
 ```
 
 ---
 
 ## GitHub integration
-To link Travis CI to a GitHub repository, go to [travis-ci.com](https://travis-ci.com). 
+
+To link Travis CI to a GitHub repository, go to [travis-ci.com](https://travis-ci.com).
 
 Follow the instructions there to link to a GitHub repository. You will be asked to authorize the app on GitHub, and then can modify settings within the travis web app. The setup is relatively straightforward.
 
@@ -222,6 +237,7 @@ As a best practice, have Travis CI perform automated builds on pull requests. Th
 ---
 
 ## Slack integration
+
 Travis CI can send notifications to Slack indicating the results of the latest build. To do so, the Travis CI app must be authorized for the given Slack workspace - this can be done by your instructor.
 
 Posting build results to Slack with every commit to every project will quickly eat up message limits for workspaces with Slack's free-tier pricing.
@@ -229,11 +245,13 @@ Posting build results to Slack with every commit to every project will quickly e
 ---
 
 ## Badges
+
 You can embed build status badges that Travis will use to automatically show the latest status of your build into your README.md.
 
 The URLs for status images are shown on your Travis CI Repository page:
+
 1. Click the status image in the top right to open a dialog box containing common templates for the status image URL in markdown, html, etc.
-2. Copy the Markdown and paste it into the README.md.  Commit this change to GitHub.
+2. Copy the Markdown and paste it into the README.md. Commit this change to GitHub.
 
 ---
 
@@ -245,11 +263,12 @@ name: software-as-service
 ---
 
 ## Automation pipelines
-Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in-hand with Software as a Service (SaaS). 
 
-SaaS systems are deployed not to the customers' local machines, but to the software distributor's own servers. 
+Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in-hand with Software as a Service (SaaS).
 
-Doing so allows the software distributor to maintain control and ownership of software at all times while granting access to the software to customers / end-users, rather than actually deploying software on customers' own machines. 
+SaaS systems are deployed not to the customers' local machines, but to the software distributor's own servers.
+
+Doing so allows the software distributor to maintain control and ownership of software at all times while granting access to the software to customers / end-users, rather than actually deploying software on customers' own machines.
 
 ---
 
@@ -261,4 +280,5 @@ name: conclusions
 ---
 
 # Conclusions
+
 Thank you. Bye.

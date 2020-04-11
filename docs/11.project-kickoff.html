@@ -7,6 +7,7 @@ permalink: /project-kickoff/
 class: center, middle
 
 # Project Kickoff
+
 Agile Software Development & DevOps
 
 ---
@@ -36,13 +37,14 @@ name: ready-set-go
 
 ## Kickoff
 
-Teams are by now well into their projects.  Let's make sure your workflow and expectations are in order.
+Teams are by now well into their projects. Let's make sure your workflow and expectations are in order.
 
 ---
 
 ## Sprints
 
 Work is divided into increments:
+
 - Sprint 0 - learn your dev environment and workflow
 - Sprint 1 - build out the most fundamental features
 - Sprint 2 - implement secondary features
@@ -54,6 +56,7 @@ Work is divided into increments:
 ## Sprint 0
 
 Sprint 0 is intend to give you time to:
+
 - Set up and become familiar with your development environment
 - Teach yourself technologies you don't already know
 - Set up team communications and workflows
@@ -88,12 +91,12 @@ name: slack
 
 ## Wise Use of Human Resources
 
-- Do *not* dedicate some humans to front-end development and others to back-end - **share all responsibilities**.
-- Do *not* let some members do all the database work - **share the responsibilities**.
-- Do *teach* each other what some of you know - **if teammates flounder, the whole team will suffer**.
-- Do *not* allow one person to dominate the role of Product Owner - **switch roles every Sprint**.
-- Do *not* allow one person to dominate the role of Scrum Master - **switch every Sprint**.
-- Do *not* assume your stakeholders (Professor, Tutor, Grader) will always tell you what to do and how to do it - **take initiative**.
+- Do _not_ dedicate some humans to front-end development and others to back-end - **share all responsibilities**.
+- Do _not_ let some members do all the database work - **share the responsibilities**.
+- Do _teach_ each other what some of you know - **if teammates flounder, the whole team will suffer**.
+- Do _not_ allow one person to dominate the role of Product Owner - **switch roles every Sprint**.
+- Do _not_ allow one person to dominate the role of Scrum Master - **switch every Sprint**.
+- Do _not_ assume your stakeholders (Professor, Tutor, Grader) will always tell you what to do and how to do it - **take initiative**.
 
 ---
 
@@ -107,6 +110,7 @@ name: slack
 ## Channels
 
 Each team must have two private channels set up in Slack, e.g.:
+
 - `team_octapus` - general discussion
 - `team_octapus_standups` - after each standup, document each member's answers to the three questions
 
@@ -120,17 +124,17 @@ Each team is a member of the larger course organization.
 
 All teams are using the same general technologies and facing the same problems.
 
-Communicate with other teams via Slack.  Help each other.  Take initiative.
+Communicate with other teams via Slack. Help each other. Take initiative.
 
 ---
 
 ## Coffee & Donuts
 
-A bot named `@donut` lives in Slack.  
+A bot named `@donut` lives in Slack.
 
 `@donut` will randomly pair organization members together every week and invite them to go out for coffee and donuts (or whatever).
 
-Post a selfie of your `@donut` date to the `#donut-friends` channel for **extra credit**.  Tag the people in the photo with their Slack handles.
+Post a selfie of your `@donut` date to the `#donut-friends` channel for **extra credit**. Tag the people in the photo with their Slack handles.
 
 ![Slack Donut Friends selfie](../images/slack_donut_friends_selfie.png)
 
@@ -148,6 +152,7 @@ name: github
 All team members have access to their project's GitHub repository.
 
 All repositories must include:
+
 - **README.md** - an always up-to-date overview of the project
 - **CONTRIBUTING.md** - detailed instructions that govern participation in the project
 - **REQUIREMENTS.md** - initial product requirements that will be out-of-date soon
@@ -160,6 +165,7 @@ All repositories must include:
 Each repository must include a file named `.gitignore` in the root directory that instructs git to not track certain files and directories.
 
 This file must instruct git to ignore (i.e. not track):
+
 - **platform code** - e.g. React.js itself, Node.js itself, etc
 - **3rd party library code** - e.g. any installed Node.js modules, python packages, etc
 - **any files containing authentication credentials** - e.g. database username/password, Spotify API credentials, etc.
@@ -185,6 +191,7 @@ Before work on a project can begin, it must have an initial Product Backlog - a 
 ## Issues
 
 Every GitHub repository has an `Issues` tab where User Stories in the Product Backlog should be written and stored.
+
 - User Stories in the Product Backlog must be listed in order of importance
 
 ![GitHub user story issues](../images/github_issues_user_stories.png)
@@ -201,9 +208,10 @@ name: issue-numbers
 
 ## Issue Numbers
 
-Once created, each Issue in GitHub is automatically assigned a unique Issue number.  
+Once created, each Issue in GitHub is automatically assigned a unique Issue number.
 
 You will use these numbers:
+
 - to link up [Tasks](#tasks) to their associated User Stories.
 - to link up Git [branches](#git-branches) to the issues they are meant to implement
 
@@ -214,6 +222,7 @@ You will use these numbers:
 ## Issue Templates
 
 Your use of GitHub's Issues feature must also make use of GitHub Issue Templates:
+
 1. [Download a set of Issue Template Markdown files](https://gist.github.com/bloombar/3ba6ddd69b6364bf20a56d65ad590bd1/archive/a0aa9130ce8d86630669b67d1ec8ddae96e5f379.zip).
 2. Place these example Markdown files into a directory in your repository named `.github`/`ISSUE_TEMPLATE`.
 3. Push them to the GitHub central repository.
@@ -238,9 +247,10 @@ The group quickly assigns each User Story an estimated level of effort using Pla
 
 ## Fibonacci
 
-Every team must print a set of Fibonacci-based planning poker cards for each team member.  
-- Find a deck you like or design your own.  
-- Include a link to your deck on the CONTRIBUTING.md file. 
+Every team must print a set of Fibonacci-based planning poker cards for each team member.
+
+- Find a deck you like or design your own.
+- Include a link to your deck on the CONTRIBUTING.md file.
 - Bring them to Sprint Planning meetings.
 
 ![Planning poker cards](../images/agile_planning_poker.png)
@@ -259,6 +269,7 @@ name: sprint-backlogs
 Those User Stories selected for the current Sprint are added to the Sprint Backlog.
 
 In addition to the basic requirements for User Stories in the [Product Backlog](#product-backlog), User Stories in the Sprint Backlog must be assigned:
+
 - a **GitHub Milestone** representing the current Sprint
 - an **Estimate of Effort** required to complete the User Story
 - a set of **Acceptance Criteria** for the User Story
@@ -311,7 +322,8 @@ In GitHub, spikes are treated like Tasks in all respects except that they are la
 If the nature of the work requires a particular Task or Spike to be done independently by each developer, it must be split into separate Tasks or Spikes with each assigned to a single team member.
 
 For example:
-- If all team members must learn Node.js during Sprint 0, then each team member has an individual responsibility to complete this.  
+
+- If all team members must learn Node.js during Sprint 0, then each team member has an individual responsibility to complete this.
 - There must be a distinct Spike on the Task Board for each team member indicating the current status of their personal work completing this.
 
 ---
@@ -327,7 +339,8 @@ name: task-boards
 
 Each GitHub repository has a `Projects` tab, where Task Boards can be made.
 
-Make one Task Board for each Sprint.  Call them:
+Make one Task Board for each Sprint. Call them:
+
 - Sprint 0 Task Board
 - Sprint 1 Task Board
 - Sprint 2 Task Board
@@ -339,9 +352,10 @@ Make one Task Board for each Sprint.  Call them:
 ## Columns
 
 Each Task Board must have the following columns:
+
 - **Sprint Backlog (User Stories)** - the list of User Stories selected for this Sprint.
 - **To Do (Tasks)** - the list of Tasks and Spikes that have not yet begun
-- **In Process (Tasks)** - the list of Tasks and Spikes that are currently being worked on 
+- **In Process (Tasks)** - the list of Tasks and Spikes that are currently being worked on
 - **Awaiting Review (Tasks)** - the list of Tasks and Spikes that are complete and awaiting peer review
 - **Done (Tasks)** - the list of Tasks and Spikes that are complete and have passed peer review.
 
@@ -352,16 +366,16 @@ Each Task Board must have the following columns:
 ## Starting State
 
 At the start of each Sprint, the current Task Board in GitHub must contain:
+
 - the full list of User Stories selected for this Sprint in the "Sprint Backlog (User Stories)" column
 - the full list of Tasks and Spikes in the "To Do (Tasks)" column
-
-
 
 ---
 
 ## Changing State
 
 The state of the Task Board must be kept up-to-date at all times.
+
 - **User Stories always stay in the "Sprint Backlog" column**
 - **Tasks and Spikes move around** - as developers work on their own assigned Tasks and Spikes, they are personally responsible for moving them to the appropriate columns.
 
@@ -404,22 +418,25 @@ name: git-branches
 ## Branches
 
 Requirements:
+
 - Make all changes to the code in isolated branches.
-- Create a new branch for every Task or Spike under development.  
+- Create a new branch for every Task or Spike under development.
 - Never work directly in the `master` branch.
 - Name branches after the User Story and Task/Spike which they are intended to implement, including:
--- the user story issue number (if any)
--- the task or spike issue number
--- a shorthand name for the branch that describes what changes it includes
+  -- the user story issue number (if any)
+  -- the task or spike issue number
+  -- a shorthand name for the branch that describes what changes it includes
 
 Examples:
 
 - A branch intended to implement Task #9, which is part of User Story #13:
+
 ```bash
 git checkout -b user-story/13/task/9/implement-user-login
 ```
 
 - A branch intended to implement Spike #27:
+
 ```bash
 git checkout -b spike/27/learn-react-js
 ```
@@ -429,6 +446,7 @@ git checkout -b spike/27/learn-react-js
 ## Peer Review
 
 The developer who makes changes must never be the one to merge their own branch into the trunk.
+
 1. The developer making changes must push their completed branch to GitHub and then issue a Pull request to the `master` branch
 2. The same developer must, of course, update the position of the relevant Task that this branch implements on the Task Board.
 3. A second developer must review the changes in the pull request, approve them if good, and merge them into `master`.
@@ -446,7 +464,8 @@ name: daily-standups
 
 ## Concept
 
-Every morning, the entire development team gets together.  Everyone quickly and honestly answers three questions:
+Every morning, the entire development team gets together. Everyone quickly and honestly answers three questions:
+
 1. What did you do yesterday (or since last meeting)?
 2. What are you doing today (or until next meeting)?
 3. Do you have any problems that are blocking your progress?
@@ -476,7 +495,7 @@ All teams must include in their Team Norms that team members agree to answer the
 
 It is in all team members' interests to report blocking problems or underperforming team members to the stakeholders immediately.
 
-If a team member is doing the same work for several Standups in a row, yet is not reporting any blocking problems, this is a sign of a *big* problem for the entire team.
+If a team member is doing the same work for several Standups in a row, yet is not reporting any blocking problems, this is a sign of a _big_ problem for the entire team.
 
 ---
 
@@ -488,6 +507,5 @@ name: conclusions
 ---
 
 # Conclusions
+
 Thank you. Bye.
-
-

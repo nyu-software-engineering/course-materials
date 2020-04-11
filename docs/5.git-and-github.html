@@ -7,6 +7,7 @@ permalink: /git-and-github/
 class: center, middle
 
 # Git and GitHub
+
 Enabling distributed cooperation on software projects
 
 ---
@@ -17,12 +18,12 @@ Enabling distributed cooperation on software projects
 2. [Three-Tier Model](#tiers)
 3. [Git Terminology](#terminology)
 4. [Creating a Local Repository](#local-repository)
-6. [Tracking Changes with the Local Repository](#tracking)
-7. [Committing Changes to the Local Repository](#committing)
-8. [Sharing Changes with Other Developers](#sharing)
-9. [Conflicts](#conflicts)
-10. [Configuration](#configuration)
-11. [Conclusions](#conclusions)
+5. [Tracking Changes with the Local Repository](#tracking)
+6. [Committing Changes to the Local Repository](#committing)
+7. [Sharing Changes with Other Developers](#sharing)
+8. [Conflicts](#conflicts)
+9. [Configuration](#configuration)
+10. [Conclusions](#conclusions)
 
 ---
 
@@ -37,19 +38,20 @@ name: git-intro
 
 ## Git
 
-The world's most popular open source version control system.
----
+## The world's most popular open source version control system.
 
 template: git-intro
 name: git-intro-1
 
 - **Distributed** - all developers maintain and share the code in their own local repositories, with no single central authority.
+
 ---
 
 template: git-intro-1
 name: git-intro-2
 
 - **Repository versioning** - a new version number is issued for the repository as a whole, even when only one file has changed.
+
 ---
 
 template: git-intro-2
@@ -64,25 +66,26 @@ name: github-intro
 
 ## GitHub
 
-A web app used for hosting remote Git repositories.
----
+## A web app used for hosting remote Git repositories.
 
 template: github-intro
 name: github-intro-1
 
 - Free hosting of public open-source projects
+
 ---
 
 template: github-intro-1
 name: github-intro-2
 
 - Free hosting of private projects for students (or so I hear)
+
 ---
 
 template: github-intro-2
 name: github-intro-3
 
-- Acquired by Microsoft for $7.5 billion in 2018
+- Acquired by Microsoft for \$7.5 billion in 2018
 
 ---
 
@@ -96,8 +99,9 @@ template: tiers
 name: tiers-1
 
 Git version control depends upon three tiers, or three places where files are stored.
+
 - Working copy
-- Staging index 
+- Staging index
 - Repository
 
 ![Git tiers](../images/git_tiers.png)
@@ -108,7 +112,8 @@ template: tiers
 name: tiers-2
 
 ## Working copy
-The copy of the files that a developer works on.  
+
+The copy of the files that a developer works on.
 
 ---
 
@@ -137,7 +142,8 @@ template: tiers
 name: staging-index
 
 ## Staging index
-A holding area for changes thata *might* be included in the project's official history.
+
+A holding area for changes thata _might_ be included in the project's official history.
 
 ---
 
@@ -186,6 +192,7 @@ template: tiers
 name: repository
 
 ## Repository
+
 The official history of the project, including the history of all committed files.
 
 ---
@@ -231,6 +238,7 @@ template: terminology
 name: terminology-1
 
 A few terms we must familiarize ourselves with.
+
 - Clone
 - Fork
 - Master
@@ -247,6 +255,7 @@ template: terminology
 name: clone
 
 ## Clone
+
 A new repository made by copying files from an existing repository.
 
 ---
@@ -272,6 +281,7 @@ name: clone-3
 # clone a remote repository onto the local machine
 git clone https://github.com/your-github-handle/your-repository-name.git
 ```
+
 ---
 
 template: clone
@@ -285,6 +295,7 @@ template: terminology
 name: fork
 
 ## Fork
+
 Not a Git term, but rather a term used by remote repository hosting providers such as GitHub.
 
 ---
@@ -314,6 +325,7 @@ template: terminology
 name: master
 
 ## Master
+
 The Git term for the `trunk` line of code.
 
 ---
@@ -336,6 +348,7 @@ template: terminology
 name: branch
 
 ## Branch
+
 The term for an offshoot of the `trunk` or `master` line of code.
 
 ---
@@ -405,6 +418,7 @@ template: terminology
 name: remote
 
 ## Remote
+
 A term used to mean a remote repository that the local repository is linked to.
 
 ---
@@ -465,7 +479,7 @@ name: pull
 
 ## Pull
 
-Download and merge any changes *in the current branch* from a remote repository to the local repository.
+Download and merge any changes _in the current branch_ from a remote repository to the local repository.
 
 ---
 
@@ -507,6 +521,7 @@ template: terminology
 name: push
 
 ## Push
+
 Upload changes from the local repository to a remote repository.
 
 ---
@@ -542,7 +557,8 @@ template: terminology
 name: fetch
 
 ## Fetch
-Download *all branches* from a remote repository to the local repository.
+
+Download _all branches_ from a remote repository to the local repository.
 
 ---
 
@@ -577,6 +593,7 @@ template: terminology
 name: merge
 
 ## Merge
+
 Take the changes from one branch or repository and incorporate them into another branch or repository.
 
 ---
@@ -659,6 +676,7 @@ template: local-repository-2
 name: local-repository-3
 
 If you later decide to link a local repository to a remote repository:
+
 ```bash
 git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
@@ -698,6 +716,7 @@ name: tracking-2
 Make any changes you desire.
 
 Then add all the modified files in working copy to the staging index:
+
 ```bash
 git add .
 ```
@@ -743,15 +762,18 @@ For this reason, they should frequently be uploaded to a shared remote repositor
 ---
 
 template: sharing
+
 ## Pushing changes to the remote repository
 
 Push the code in the current branch from the local repository to the branch named 'master' on the remote repository called 'origin':
+
 ```bash
 git pull
 git push -u origin master
 ```
 
 Or, if you are already in the 'master' branch and the remote named 'origin' has already been defined:
+
 ```bash
 git pull
 git push
@@ -769,6 +791,7 @@ template: conflicts
 name: conflicts-1
 
 Conflicts may occur in a number of scenarios:
+
 - When `pulling` code from a remote repository to a local repository.
 - When `pushing` code from a local repository to a remote repository.
 - When merging code from one branch into another.
@@ -792,6 +815,7 @@ name: configuration
 template: configuration
 
 Several important configurations that must be completed prior to versioning:
+
 - username and email address
 - .gitignore
 
@@ -802,6 +826,7 @@ template: configuration
 ## Username
 
 Username and email in Git must match exactly any username and email set up on GitHub:
+
 ```bash
 git config --global user.name "Foo Barstein"
 git config --global user.email "fb1258@nyu.edu"
@@ -815,7 +840,7 @@ template: configuration
 
 A file in the project directory named `.gitignore` instructs Git to ignore certain files or directories.
 
-This *absolutely must* include instructions to ignore any platform code and 3rd party modules.
+This _absolutely must_ include instructions to ignore any platform code and 3rd party modules.
 
 Example: https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f
 
@@ -830,4 +855,5 @@ name: conclusions
 template: conclusions
 
 You now know the basics of using Git and its relationship to GitHub.
+
 - Thank you. Bye.

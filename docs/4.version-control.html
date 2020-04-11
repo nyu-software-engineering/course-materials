@@ -7,6 +7,7 @@ permalink: /version-control-systems/
 class: center, middle
 
 # Version Control Systems
+
 Agile Software Development & DevOps
 
 ---
@@ -33,6 +34,7 @@ name: motivations
 # Motivations
 
 There are a variety of motivations for developers to use version control systems:
+
 - Archiving
 - Synchronizing
 - Repair
@@ -42,6 +44,7 @@ There are a variety of motivations for developers to use version control systems
 ---
 
 # Motivations
+
 ## Archiving
 
 The need to clearly see the state of the project at a given point in time, and to compare versions.
@@ -49,6 +52,7 @@ The need to clearly see the state of the project at a given point in time, and t
 ---
 
 # Motivations
+
 ## Synchronizing
 
 The need for multiple developers working independently to ensure they are all working off of the same version of a project's codebase.
@@ -56,6 +60,7 @@ The need for multiple developers working independently to ensure they are all wo
 ---
 
 # Motivations
+
 ## Repair
 
 The need to sometimes undo changes that have been made and 'roll back' to an earlier version.
@@ -63,6 +68,7 @@ The need to sometimes undo changes that have been made and 'roll back' to an ear
 ---
 
 # Motivations
+
 ## Accountability
 
 The need to see who did what and when they did it.
@@ -70,6 +76,7 @@ The need to see who did what and when they did it.
 ---
 
 # Motivations
+
 ## Experimentation
 
 The need to allow developers to try out new directions or ideas without concern for any permanent damage should they fail.
@@ -87,21 +94,24 @@ name: repositories
 A repository (or 'repo') is the database where files are stored and tracked by the version control system.
 
 In a version control workflow, a repository can either be:
+
 - Local
 - Remote
 
 ---
 
 # Repositories
+
 ## Local
 
-A local repository resides on a developer's own machine.  
+A local repository resides on a developer's own machine.
 
 When multiple developers are collaborating in a distributed fashion, a local repository may be used to track each developer's own work.
 
 ---
 
 # Repositories
+
 ## Remote
 
 A remote repository resides on some other machine... this could be another developer's machine, or somewhere on a shared server.
@@ -119,20 +129,20 @@ name: trunk
 template: trunk
 name: trunk-1
 
-The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
----
+## The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
 
 template: trunk-1
 name: trunk-2
 
 ## Benefits
-Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
----
+
+## Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
 
 template: trunk-2
 name: trunk-3
 
 ## Drawbacks
+
 If developers work directly on the code in the trunk (known as 'trunk-based development') without a very careful workflow, bugs may appear in the trunk code, corrupting it.
 
 ---
@@ -146,15 +156,14 @@ name: branches
 template: branches
 name: branches-1
 
-Branches represent variants of the code at any given point in time time.  They are departures from the main line in the repository.
----
+## Branches represent variants of the code at any given point in time time. They are departures from the main line in the repository.
 
 template: branches-1
 name: branches-2
 
 ## Benefits
-Those wary of working directly on the trunk often make changes in isolated branches, separate from the trunk, and then 'merge' the changes into the code in the trunk once they are sure they have no bugs.
----
+
+## Those wary of working directly on the trunk often make changes in isolated branches, separate from the trunk, and then 'merge' the changes into the code in the trunk once they are sure they have no bugs.
 
 template: branches-2
 name: branches-3
@@ -174,6 +183,7 @@ name: versioning-types
 template: versioning-types
 
 When a change is made to a file, a new version number is issued.
+
 - In **file versioning systems**, a new version number is issued only for the file that has been changed.
 - In **repository versioning systems**, a new version number is issued for the repository as a whole, even when only one file has changed.
 
@@ -183,12 +193,15 @@ template: versioning-types
 name: file-versioning
 
 ## File Versioning
+
 Each file in the repository has its own version number - so frequently changed files will typically have higher version numbers than stable files.
 
 ### Benefit
+
 - Easy to find the history of all versions of a given file.
 
 ### Drawback
+
 - Possibly difficult to determine all the individual files that comprise one logical release version.
 
 ---
@@ -197,12 +210,15 @@ template: versioning-types
 name: repo-versioning
 
 ## Repository Versioning
+
 Any changes trigger a new version number of the entire repository.
 
 ### Benefit
+
 - Easy to find all the individual files comprising a given system release version.
 
 ### Drawback
+
 - Possibly difficulty to determine the change history of one individual file.
 
 ---
@@ -217,31 +233,40 @@ template: centralization
 name: centralization-1
 
 Version control systems can either allow for centralized or decentralized control:
+
 - In **centralized version control systems**, one repository maintains the single authoritive copy of the code at all times.
 - In **distributed version control systems**, all developers maintain and share the code in their own local repositories, with no single central authority.
+
 ---
 
 template: centralization
 name: centralization-2
 
 ## Centralized Systems
+
 ### Benefits
+
 - Avoid conflicts by usually requiring developers to "check out" a file to change it and then "check in" the file when done.
+
 ---
 
 template: centralization-2
 name: centralization-3
 
 ### Drawbacks
+
 - Doesn't allow individual developers to track their own experiments before sharing them
 - Doesn't allow tracking while offline and disconnected from the central server.
+
 ---
 
 template: centralization
 name: centralization-4
 
 ## Distributed Systems
+
 ### Benefits
+
 - Allows each developer to track their own work with all the features of version control on their local machines.
 - Allows tracking while offline and disconnected from the central server.
 - Can be used in a centralized version control workflow, but doesn't require it.
@@ -252,6 +277,7 @@ template: centralization-4
 name: centralization-5
 
 ### Drawbacks
+
 - Without a careful workflow, developers may fall out of sync with one-another, leading to 'merge hell'.
 
 ---
@@ -263,15 +289,19 @@ name: examples
 ---
 
 # Examples
+
 ## Centralized Systems
-- *CVS* - a centralized file versioning system
-- *Subversion* - a centralized repository versioning systeme
+
+- _CVS_ - a centralized file versioning system
+- _Subversion_ - a centralized repository versioning systeme
 
 ---
 
 # Examples
+
 ## Distributed Systems
-- *Git* - a distributed repository versioning system
+
+- _Git_ - a distributed repository versioning system
 
 ---
 
@@ -282,5 +312,5 @@ name: conclusions
 ---
 
 # Conclusions
-Thank you. Bye.
 
+Thank you. Bye.

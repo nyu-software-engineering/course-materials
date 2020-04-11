@@ -7,6 +7,7 @@ permalink: /web-architecture/
 class: center, middle
 
 # Web Architecture
+
 how the pieces fit together
 
 ---
@@ -15,15 +16,15 @@ how the pieces fit together
 
 1. [The Internet](#internet)
 2. [The World Wide Web](#web)
-2. [Phases of The Web](#web-phases)
-3. [Clients and Servers](#client-server)
-4. [Layered Architecture](#layered-architecture)
-5. [Hypertext Transfer Protocol](#http)
-6. [Front-End Technologies](#front-end)
-7. [Back-End Technologies](#back-end)
-8. [Databases](#databases)
-9. [Monolithic vs Microservices Architectures](#microservices)
-10. [Conclusions](#conclusions)
+3. [Phases of The Web](#web-phases)
+4. [Clients and Servers](#client-server)
+5. [Layered Architecture](#layered-architecture)
+6. [Hypertext Transfer Protocol](#http)
+7. [Front-End Technologies](#front-end)
+8. [Back-End Technologies](#back-end)
+9. [Databases](#databases)
+10. [Monolithic vs Microservices Architectures](#microservices)
+11. [Conclusions](#conclusions)
 
 ---
 
@@ -37,6 +38,7 @@ template: internet
 name: internet-1
 
 ## Definition
+
 The Internet is the global interconnected network of computers that communicate via a set of standardized protocols.
 
 ---
@@ -52,6 +54,7 @@ template: internet
 name: internet-3
 
 ## Connective tissue
+
 The vast expanses of the Internet's reach are today enabled primarily by fiber optic cables that run locally, regionally, and across ocean floors to connect continents.
 
 Copper wires and radio signals account for a smaller fraction of the total distance traveled by data on the Internet.
@@ -62,7 +65,9 @@ template: internet
 name: internet-4
 
 ## Origins
+
 The Internet evolved over decades, funded primarily by the US Department of Defense
+
 - US Department of Defense networking projects in the 1960s explored fault-tolerant networks resistent to nuclear attack
 - The ARPANET, a mostly regional network in the 1970s-80s, attempted to improve interoperability among different computer systems
 - transitioned to the Internet in 1980s-90s, a global network of interoperable computers
@@ -73,7 +78,9 @@ template: internet
 name: internet-4
 
 ## Ownership
+
 The "backbone" of networking equipment that fuels the Internet belongs to a patchwork of different interests:
+
 - telecommunications companies and other private corporations
 - federal, state, and local government
 - academia
@@ -85,7 +92,9 @@ template: internet
 name: internet-5
 
 ## Cooperation
+
 Given the patchwork of operators controlling different parts, cooperation is key.
+
 - Organizations of approximately equal size that provide key parts of the Internet backbone usually abide by a "free peering" agreement, whereby they agree to relay each others' data across their own network hardware for free.
 - Organizations of different sizes who need to cooperate often work out payment agreements to let traffic from one travel over the other's equipment
 
@@ -95,6 +104,7 @@ template: internet
 name: internet-6
 
 ## Control
+
 The Internet, for better or worse, has been much touted as a disruptive force in society.
 
 ---
@@ -117,7 +127,8 @@ template: internet
 name: internet-9
 
 ## Control
-The Internet, where anyone anywhere can *share* information, *steal* information, *surveil* and *influence* populations on the other side of the globe, is increasingly the site of a struggle for *information dominance*.
+
+The Internet, where anyone anywhere can _share_ information, _steal_ information, _surveil_ and _influence_ populations on the other side of the globe, is increasingly the site of a struggle for _information dominance_.
 
 ---
 
@@ -131,6 +142,7 @@ template: web
 name: web-1
 
 ## Definition
+
 The World Wide Web is one use of the Internet to publish and browse hypertext documents.
 
 ---
@@ -139,6 +151,7 @@ template: web
 name: web-2
 
 ## Hypertext
+
 "Hypertext" means documents which reference and link to one-another.
 
 ---
@@ -168,6 +181,7 @@ template: web
 name: web-6
 
 ## Origin
+
 The World Wide Web was invented in 1989-1990 by a British researcher at CERN named Tim Berners-Lee.
 
 ---
@@ -204,6 +218,7 @@ template: web
 name: web-10
 
 ## Definition (revisited)
+
 In the past, it was simple to define the World Wide Web.
 
 ---
@@ -226,6 +241,7 @@ template: web
 name: web-13
 
 ## Definition (revisited)
+
 Today, the situation is a bit more blurry.
 
 ---
@@ -261,7 +277,9 @@ template: web-phases
 name: web-phases-1
 
 ## Web 1.0
-In the early days of The Web, pages contained primarily **static content** with limited interactivity.  
+
+In the early days of The Web, pages contained primarily **static content** with limited interactivity.
+
 - Users were mostly **passive consumers** of content.
 
 ---
@@ -270,7 +288,9 @@ template: web-phases
 name: web-phases-2
 
 ## Web 2.0
-Later, at around the start of the millenium, many web pages began to solicit **user-generated content**, provide **social networking** features, and the massive **data collection** of user behavior began.  
+
+Later, at around the start of the millenium, many web pages began to solicit **user-generated content**, provide **social networking** features, and the massive **data collection** of user behavior began.
+
 - Users began to **actively participate** in content creation, knowingly or not.
 
 ---
@@ -279,7 +299,9 @@ template: web-phases
 name: web-phases-2
 
 ## Web3
-As [the ill effects](https://www.vanityfair.com/news/2018/07/the-man-who-created-the-world-wide-web-has-some-regrets) of the centralized architecture of The Web became clear, interest in alternative, **decentralized**, **privacy-supporting** architectures increased.  Especially after the inventions of Bitcoin, [Ethereum](https://ethereum.org/), and the [InterPlanetary File System](https://ipfs.io/) (IPFS) in the 2010's, the vision of a decentralized open Web seemed to be within reach.
+
+As [the ill effects](https://www.vanityfair.com/news/2018/07/the-man-who-created-the-world-wide-web-has-some-regrets) of the centralized architecture of The Web became clear, interest in alternative, **decentralized**, **privacy-supporting** architectures increased. Especially after the inventions of Bitcoin, [Ethereum](https://ethereum.org/), and the [InterPlanetary File System](https://ipfs.io/) (IPFS) in the 2010's, the vision of a decentralized open Web seemed to be within reach.
+
 - Users began to communicate directly with one-another as peers using **distributed, decentralized protocols**, **controlling their own data**, rather than through central servers that filtered their access to information and surveilling their every microservice.
 
 ---
@@ -294,14 +316,15 @@ template: clients-servers
 name: clients-servers-1
 
 ## Definitions
-- a **client** is any machine on a network that is requesting data from a *server*.
+
+- a **client** is any machine on a network that is requesting data from a _server_.
 
 ---
 
 template: clients-servers-1
 name: clients-servers-2
 
-- a **server** is any machine that is responding to a request for data from a *client* machine.
+- a **server** is any machine that is responding to a request for data from a _client_ machine.
 
 ---
 
@@ -315,7 +338,7 @@ name: clients-servers-3
 template: clients-servers-3
 name: clients-servers-4
 
-- the terms *client* or *server* can also be used to refer to the specific software on the client or server machine that is handling the communication in question.
+- the terms _client_ or _server_ can also be used to refer to the specific software on the client or server machine that is handling the communication in question.
 
 ---
 
@@ -365,6 +388,7 @@ template: layered-architecture
 name: layered-architecture-1
 
 ## Overview
+
 - communication between clients and servers (or among peers) over the Internet is standardized
 
 ---
@@ -412,7 +436,9 @@ template: http
 name: http-1
 
 ## Standardized requests and responses
-The HTTP specification indicates 
+
+The HTTP specification indicates
+
 - how Web clients can make requests to Web servers
 - how Web servers can respond to those requests from Web clients
 
@@ -422,7 +448,9 @@ template: http
 name: http-2
 
 ## Plain text
+
 HTTP request and response commands are sent as plain text over the network, following a specific format.
+
 - for added security, the **HTTPS** "secure" extension of HTTP encrypts the request and response communication while in transit
 
 ---
@@ -431,7 +459,9 @@ template: http
 name: http-3
 
 ## Request types
+
 The two most widely used [request types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) allowed by the HTTP specification
+
 - **GET** - a web client requests that the web server respond by giving it a specific information resource, such as a web page
 
 ---
@@ -454,7 +484,9 @@ template: http
 name: http-6
 
 ## Response codes
+
 Web server responses include a [status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), indicating the success or failure of the client's request.
+
 - **200** to **299**: success
 - **400** to **499**: client error
 - **500** to **599**: server error
@@ -466,6 +498,7 @@ template: http
 name: http-7
 
 ## Example of a web client GET request
+
 ```http
 GET /some_document.html HTTP/1.1
 User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
@@ -480,6 +513,7 @@ template: http
 name: http-8
 
 ## Example of a web client POST request
+
 ```http
 POST /some_document.html HTTP/1.1
 User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
@@ -498,6 +532,7 @@ template: http
 name: http-9
 
 ## Example of a successsful web server response
+
 ```http
 HTTP/1.1 200 OK
 Date: Mon, 27 Jul 2022 12:28:53 GMT
@@ -527,6 +562,7 @@ template: front-end
 name: front-end-1
 
 ## Overview
+
 Front-end technologies are those languages or programs which are interpreted and executed by the client, typically a web browser.
 
 ---
@@ -537,6 +573,7 @@ name: front-end-2
 ## Separation of concerns
 
 Different front-end languages perform different purposes
+
 - HTML
 - CSS
 - Javascript
@@ -547,7 +584,8 @@ template: front-end
 name: front-end-3
 
 ## HTML
-Used to indicate the content and semantic *meaning* of the content on a web page.
+
+Used to indicate the content and semantic _meaning_ of the content on a web page.
 
 ```html
 <article>
@@ -564,32 +602,35 @@ template: front-end
 name: front-end-4
 
 ## CSS
+
 Used to indicate the style and presentation of a web page.
 
 ```css
 /* styles for the second paragraph */
 #p2 {
-    display: none; /* hide the second stanza by default */
+  display: none; /* hide the second stanza by default */
 }
 
 /* styles for the link */
 #more {
-    color: red; /* make the text red */
-    text-decoration: none; /* remove the default underline from the link */
+  color: red; /* make the text red */
+  text-decoration: none; /* remove the default underline from the link */
 }
 ```
+
 ---
 
 template: front-end
 name: front-end-5
 
 ## Javascript
+
 Used to indicate interaative behaviors of a web page.
 
 ```javascript
 // when the link is clicked...
-$('#more').click(function() {
-    $('#p2').show(); // make the second stanza appear
+$("#more").click(function () {
+  $("#p2").show(); // make the second stanza appear
 });
 ```
 
@@ -599,6 +640,7 @@ template: front-end
 name: front-end-6
 
 ## It's up to a client's interpretation
+
 A web browser client receives the HTML, CSS, and Javascript code from the server, and then interprets it.
 
 ![Client server responsibilities](../images/client_server_front_back_ends.png)
@@ -609,6 +651,7 @@ template: front-end
 name: front-end-7
 
 ## Frameworks
+
 Front-end frameworks attempt to simplify and streamline the process of creating front-end interfaces.
 
 ---
@@ -651,6 +694,7 @@ template: back-end
 name: back-end-1
 
 ## Overview
+
 Back-end technologies are those languages or programs used to control the behavior of the server and how it responds to various kinds of client requests.
 
 ---
@@ -659,6 +703,7 @@ template: back-end
 name: back-end-2
 
 ## Servers control what the client receives
+
 The server can be programmed to modify the HTML, CSS, and Javascript code that is sent to the client in response to the request.
 
 ![Client server responsibilities](../images/client_server_front_back_ends.png)
@@ -669,7 +714,9 @@ template: back-end
 name: back-end-3
 
 ## Examples
+
 For example, back-end programming on the server-side might allow a web server to...
+
 - Send a Spanish version of a web page to a user whose browser's HTTP request said it prefers Spanish, and an English version of the same page to a browser with English as its language setting.
 
 ---
@@ -699,7 +746,9 @@ template: back-end
 name: back-end-7
 
 ## Popular back-end programming languages
+
 Just about any high-level programaming language of note can be used to control how a web server responds to requests.
+
 - **Node.js (server-side Javascript)**
 - **Ruby**
 - **Python**
@@ -713,7 +762,9 @@ template: back-end
 name: back-end-8
 
 ## Frameworks
+
 The choice of frameworks to simplify the process of writing server-side code depends on which server-side programming language is being used.
+
 - Node.js (server-side Javascript) usually use the **Express** framework
 - Ruby projects usually use the **Rails** framework
 - Python projects usually use the **Django** or **Flask** frameworks
@@ -733,7 +784,9 @@ template: databases
 name: databases-1
 
 ## Overview
+
 A database is any technology used to store data
+
 - fast storage and retrieval
 - easy integration with back-end technologies and programming languages
 
@@ -752,7 +805,9 @@ template: databases
 name: databases-3
 
 ## Popular back-end databases for web sites and apps
+
 Relational databases based on the SQL language have traditionally dominated since the 1970's.
+
 - Oracle
 - MS SQL
 - PostgreSQL
@@ -766,7 +821,9 @@ template: databases
 name: databases-4
 
 ## Popular back-end databases for web sites and apps
+
 However NoSQL databases are now surging, due to the changing expectations of web and mobile app developers and those using cloud-based infrastructure.
+
 - MongoDB
 - Redis
 - Google Firebase
@@ -779,6 +836,7 @@ template: databases
 name: databases-5
 
 ## Serverless databases
+
 A growing market is the "serverless database", where the server provides the initial front-end code to the client, but further data is sent/received by front-end Javascript directly to/from the database.
 
 ![Serverless databases](../images/client_server_databases_serverless.png)
@@ -789,7 +847,9 @@ template: databases
 name: databases-6
 
 ## Front-end data storage for web apps
+
 There are some limited data storage capabilities of web browsers, where data used by a web site is stored locally on the client machine.
+
 - **Cookies** - often used to store tracking codes that are secretly passed to the server in an HTTP header with every request
 - **LocalStorage** - often used to store larger block of data, such as web pagee content that can be displayed even when browser is offline
 
@@ -805,6 +865,7 @@ template: microservices
 name: microservices-1
 
 ## Monolithic architecture
+
 What we have been discussing until now is termed a **monolithic** architecture
 
 ---
@@ -826,7 +887,7 @@ name: microservices-3
 template: microservices-3
 name: microservices-4
 
-- Over time, the codebase tends to grow *larger*, *more complex* and *tangled* and becomes difficult to maintain
+- Over time, the codebase tends to grow _larger_, _more complex_ and _tangled_ and becomes difficult to maintain
 
 ---
 
@@ -834,6 +895,7 @@ template: microservices
 name: microservices-5
 
 ## Microservices architecture
+
 A growing trend for scalable apps is the **microservices architecture**.
 
 ![Microservices](../images/client_server_microservices.png)
@@ -844,7 +906,8 @@ template: microservices
 name: microservices-6
 
 ## Microservices architecture
-- Multiple single-purpose servers each handle a single discrete duty of the back-end. 
+
+- Multiple single-purpose servers each handle a single discrete duty of the back-end.
 
 ---
 
@@ -879,5 +942,4 @@ template: conclusions
 name: conclusions-1
 
 - You now have some understanding of HTTP requests and responses and how various front- and back-end technologies are used.
-- Thank you.  Bye
-
+- Thank you. Bye

@@ -7,6 +7,7 @@ permalink: /express/
 class: center, middle
 
 # Express.js
+
 throw together a quick web server
 
 ---
@@ -39,6 +40,7 @@ template: overview
 name: concept
 
 ## Concept
+
 [Express.js](https://expressjs.com/) is a web server framework that runs in the Node.js Javascript environment.
 
 --
@@ -58,7 +60,8 @@ name: concept
 template: overview
 
 ## Setting up an NPM project
-Using **express** assumes you have initialized a Node project with the Node Package Manager (NPM).  
+
+Using **express** assumes you have initialized a Node project with the Node Package Manager (NPM).
 
 --
 
@@ -78,7 +81,7 @@ npm init # enter `server.js` as the entry point, when asked.
 --
 
 ```bash
-npm install express --save 
+npm install express --save
 ```
 
 ---
@@ -87,11 +90,12 @@ template: overview
 name: app-setup
 
 ## Set up a placeholder Express app
+
 Place the following into a file named `app.js` - this creates an express web server app that serves no purpose... for now.
 
 ```javascript
 // import and instantiate express
-const express = require('express'); // CommonJS import style!
+const express = require("express"); // CommonJS import style!
 const app = express(); // instantiate an Express object
 
 // we will put some server logic here later...
@@ -111,25 +115,26 @@ template: overview
 ## Create code to launch the express app
 
 Put the following into a file named `server.js`, and enure the `package.json` settings file mentions this as the project's `main` entry point.
+
 ```javascript
 #!/usr/bin/env node
 
-const server = require('./app'); // load up the web server
+const server = require("./app"); // load up the web server
 
-const port = 3000;  // the port to listen to for incoming requests
+const port = 3000; // the port to listen to for incoming requests
 
 // call express's listen function to start listening to the port
-const listener = server.listen(port, function() {
+const listener = server.listen(port, function () {
   console.log(`Server running on port: ${port}`);
 });
 
 // a function to stop listening to the port
 const close = () => {
-    listener.close();
-}
+  listener.close();
+};
 
 module.exports = {
-  close: close
+  close: close,
 };
 ```
 
@@ -138,7 +143,8 @@ module.exports = {
 template: overview
 
 ## Launch it!
-You are now ready to run the express app.  
+
+You are now ready to run the express app.
 
 --
 
@@ -150,11 +156,12 @@ You are now ready to run the express app.
 
 --
 
-- Every time you change the code, you must stop (`Control-C`) and restart the server.  This can be tedious.
+- Every time you change the code, you must stop (`Control-C`) and restart the server. This can be tedious.
 
 --
 
-- A popular 3rd-party module called `nodemon` can do this for you.  Install it and have it automatically saved into your `package.json` file's list of development-specific dependencies.
+- A popular 3rd-party module called `nodemon` can do this for you. Install it and have it automatically saved into your `package.json` file's list of development-specific dependencies.
+
 ```bash
 npm install nodemon --save-dev
 ```
@@ -168,7 +175,8 @@ npm install nodemon --save-dev
 template: overview
 
 ## What now?
-You now presumably have an Express server up-and-running on your local machine at port 3000.  What to do with it?
+
+You now presumably have an Express server up-and-running on your local machine at port 3000. What to do with it?
 
 --
 
@@ -187,6 +195,7 @@ You now presumably have an Express server up-and-running on your local machine a
 template: overview
 
 ## Follow along
+
 The Express.js code examples in this slide deck are available on GitHub - the code is already set up and ready to run.
 
 --
@@ -210,6 +219,7 @@ name: routes
 --
 
 ## Concept
+
 Routes instruct express what to do in response to incoming HTTP(S) requests.
 
 --
@@ -237,11 +247,12 @@ Routes instruct express what to do in response to incoming HTTP(S) requests.
 template: routes
 
 ## Example 1
+
 A route that listens for any **HTTP GET** request for the `/` path, and responds with the **plain text**, 'Hello!'.
 
 ```javascript
-app.get('/', (req, res) => {
-    res.send('Hello!');
+app.get("/", (req, res) => {
+  res.send("Hello!");
 });
 ```
 
@@ -254,12 +265,13 @@ app.get('/', (req, res) => {
 template: routes
 
 ## Example 2
+
 A route that listens for any **HTTP GET** request for the `/html` path, and responds with a **static HTML file**.
 
 ```javascript
 // respond to any GET requests for /html-example with an HTML document named some-page.html
-app.get('/html-example', (req, res) => {
-    res.sendFile('/public/some-page.html', {root: __dirname })
+app.get("/html-example", (req, res) => {
+  res.sendFile("/public/some-page.html", { root: __dirname });
 });
 ```
 
@@ -269,18 +281,19 @@ app.get('/html-example', (req, res) => {
 
 --
 
-- This is an example of serving up a *static* file - the content of the file does not change from one request to the next.
+- This is an example of serving up a _static_ file - the content of the file does not change from one request to the next.
 
 ---
 
 template: routes
 
 ## Example 3
+
 Inform express that the `public` directory contains all static files that it should just blindly serve up when requested under the `/static` route.
 
 ```javascript
 // tell express that any requests for '/static' will map out to the 'public' directory, where we place static content
-app.use('/static', express.static('public'))
+app.use("/static", express.static("public"));
 ```
 
 --
@@ -304,22 +317,22 @@ app.use('/static', express.static('public'))
 template: routes
 
 ## Example 4
+
 JSON is a common format for sending data between client and server in apps.
 
 ```javascript
 // route for HTTP GET requests to /json-example
-app.get('/json-example', (req, res) => {
+app.get("/json-example", (req, res) => {
+  // assemble an object containing the data we want to send
+  const body = {
+    title: "Hello!",
+    heading: "Hello!",
+    message: "Welcome to this JSON document, served up by Express",
+    imagePath: "/static/images/donkey.jpg",
+  };
 
-    // assemble an object containing the data we want to send
-    const body = {
-        title: 'Hello!',
-        heading: 'Hello!',
-        message: "Welcome to this JSON document, served up by Express",
-        imagePath: "/static/images/donkey.jpg"
-    }
-
-    // send the response as JSON text to the client
-    res.json(body)
+  // send the response as JSON text to the client
+  res.json(body);
 });
 ```
 
@@ -340,6 +353,7 @@ name: middleware
 --
 
 ## Concept
+
 As you have seen, when a request is made, a route function executes that determines how to respond.
 
 --
@@ -347,8 +361,8 @@ As you have seen, when a request is made, a route function executes that determi
 - These route functions are automatically passed two objects by express, `req` and `res`, representing the HTTP request and the HTTP response.
 
 ```javascript
-app.get('/', (req, res) => {
-    //...
+app.get("/", (req, res) => {
+  //...
 });
 ```
 
@@ -369,11 +383,12 @@ app.get('/', (req, res) => {
 template: middleware
 
 ## Setting up a middleware function
+
 We call express's `use` function and pass it our middleware function as an argument.
 
 ```javascript
-app.use( (req, res, next) => {
-    //...
+app.use((req, res, next) => {
+  //...
 });
 ```
 
@@ -387,33 +402,37 @@ app.use( (req, res, next) => {
 
 --
 
-- Middleware functions can thus be chained together, with each one calling the next.  Once they have all been called, any relevant route function is executed.
+- Middleware functions can thus be chained together, with each one calling the next. Once they have all been called, any relevant route function is executed.
 
 ---
 
 template: middleware
 
 ## Example 1
+
 Imagine two middleware functions ...
 
 First:
+
 ```javascript
-// custom middleware - first 
-app.use( (req, res, next) => {
-    // make a modification to either the req or res objects
-    res.addedStuff = 'First middleware function run!';
-    // run the next middleware function, if any
-    next(); 
+// custom middleware - first
+app.use((req, res, next) => {
+  // make a modification to either the req or res objects
+  res.addedStuff = "First middleware function run!";
+  // run the next middleware function, if any
+  next();
 });
 ```
+
 Second:
+
 ```javascript
 // custom middleware - second
-app.use( (req, res, next) => {
-    // make a modification to either the req or res objects
-    res.addedStuff += ' Second middleware function run!';
-    // run the next middleware function, if any
-    next(); 
+app.use((req, res, next) => {
+  // make a modification to either the req or res objects
+  res.addedStuff += " Second middleware function run!";
+  // run the next middleware function, if any
+  next();
 });
 ```
 
@@ -422,15 +441,18 @@ app.use( (req, res, next) => {
 template: middleware
 
 ## Example 1 (continued)
+
 ... followed by a route:
 
 ```javascript
 // route for HTTP GET requests to /middleware-example
-app.get('/middleware-example', (req, res) => {
-    // grab data passed along by the middleware, if available
-    const message = (res.addedStuff) ? res.addedStuff : 'Sorry, the middleware did not work!'
-    // use the data added by the middleware in some way
-    res.send(message);
+app.get("/middleware-example", (req, res) => {
+  // grab data passed along by the middleware, if available
+  const message = res.addedStuff
+    ? res.addedStuff
+    : "Sorry, the middleware did not work!";
+  // use the data added by the middleware in some way
+  res.send(message);
 });
 ```
 
@@ -455,6 +477,7 @@ name: debugging
 --
 
 ## Concept
+
 As you work on your express-enabled web servers, you will inevitably want to be aware of at least two useful debugging tools.
 
 --
@@ -474,11 +497,13 @@ As you work on your express-enabled web servers, you will inevitably want to be 
 template: debugging
 
 ## Morgan
+
 [Morgan](https://github.com/expressjs/morgan) will log a bit of info about each incoming request to the server's command shell output.
 
 --
 
 - Install the morgan module and save it to your project's list of dependencies in the `package.json` settings file.
+
 ```bash
 npm install morgan --save
 ```
@@ -486,15 +511,17 @@ npm install morgan --save
 --
 
 - Import it into any code file where you define routes that handle incoming requests.
+
 ```javascript
-const morgan = require('morgan') // middleware for nice logging of incoming HTTP requests
+const morgan = require("morgan"); // middleware for nice logging of incoming HTTP requests
 ```
 
 --
 
 - Set it as express middleware and specify which style of logs you desire - there are several output styles specified in their documentation.
+
 ```javascript
-app.use(morgan('dev')) // dev style gives a concise color-coded style of log output
+app.use(morgan("dev")); // dev style gives a concise color-coded style of log output
 ```
 
 ---
@@ -502,6 +529,7 @@ app.use(morgan('dev')) // dev style gives a concise color-coded style of log out
 template: debugging
 
 ## Postman
+
 [Postman](https://www.postman.com/) is a desktop app that allows you to trigger custom HTTP requests to your local development web server.
 
 --
@@ -510,7 +538,7 @@ template: debugging
 
 --
 
-- Once installed, get started by clicking the `Create a request` link on the Launchpad screen.  Enter a route you have set up in express, such as `http://localhost:3000/`, and click the `Send` button.
+- Once installed, get started by clicking the `Create a request` link on the Launchpad screen. Enter a route you have set up in express, such as `http://localhost:3000/`, and click the `Send` button.
 
 --
 
@@ -529,6 +557,7 @@ template: debugging
 template: debugging
 
 ## Mocha and chai
+
 [Mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) are two 3rd-party Node.js modules often used together to perform unit tests of code.
 
 --
@@ -537,7 +566,7 @@ template: debugging
 
 --
 
-- We are not concerned with unit testing for now, but will return to it in detail later.  It never hurts to try it out now.
+- We are not concerned with unit testing for now, but will return to it in detail later. It never hurts to try it out now.
 
 ---
 
@@ -548,7 +577,8 @@ name: post
 --
 
 ## Concept
-Many web sites and apps allow users to submit data to a server via forms.  Usually these requests are submitted via HTTP POST.
+
+Many web sites and apps allow users to submit data to a server via forms. Usually these requests are submitted via HTTP POST.
 
 --
 
@@ -557,17 +587,19 @@ Many web sites and apps allow users to submit data to a server via forms.  Usual
 --
 
 - Install it from the command line and automatically add it to npm's package.json config file.
+
 ```bash
-npm install body-parser --save 
+npm install body-parser --save
 ```
 
 --
 
 - Import it into the file where the relevant routes for HTTP POST requests are, and tell express to `use` it as middleware.
+
 ```javascript
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());  // decode JSON-formatted incoming POST data
-app.use(bodyParser.urlencoded({extended: true})); // decode url-encoded incoming POST data
+const bodyParser = require("body-parser");
+app.use(bodyParser.json()); // decode JSON-formatted incoming POST data
+app.use(bodyParser.urlencoded({ extended: true })); // decode url-encoded incoming POST data
 ```
 
 ---
@@ -575,26 +607,32 @@ app.use(bodyParser.urlencoded({extended: true})); // decode url-encoded incoming
 template: post
 
 ## Example
+
 Imagine an HTML form that sends data to the server via HTTP POST...
+
 ```html
 <form action="/post-example" method="POST">
-    <input type="text" name="your_name" placeholder="Your name" /> <br />
-    <input type="text" name="your_email" placeholder="Your email" /> <br />
-    <input type="checkbox" name="agree" /><label>I agree to your onerous conditions</label> <br />
-    <input type="submit" value="Submit!!!" />
+  <input type="text" name="your_name" placeholder="Your name" /> <br />
+  <input type="text" name="your_email" placeholder="Your email" /> <br />
+  <input type="checkbox" name="agree" /><label
+    >I agree to your onerous conditions</label
+  >
+  <br />
+  <input type="submit" value="Submit!!!" />
 </form>
 ```
 
 --
 
 ... and an Express route receives that data after `body-parser` has kindly added it to the `req` object's `body` property.
+
 ```javascript
-app.post('/post-example', (req, res) => {
-    const name = req.body.your_name;
-    const email = req.body.your_email;
-    const agree = req.body.agree;
-    // now do something amazing with this data...
-    // ... then send a response of some kind
+app.post("/post-example", (req, res) => {
+  const name = req.body.your_name;
+  const email = req.body.your_email;
+  const agree = req.body.agree;
+  // now do something amazing with this data...
+  // ... then send a response of some kind
 });
 ```
 
@@ -609,6 +647,7 @@ name: uploads
 template: uploads
 
 ## Concept
+
 Clients can upload files to the server as part of their HTTP POST requests.
 
 --
@@ -617,14 +656,16 @@ Clients can upload files to the server as part of their HTTP POST requests.
 
 --
 
-- Install it into your express app and save as a dependency to the `package.json` config file: 
+- Install it into your express app and save as a dependency to the `package.json` config file:
+
 ```bash
 npm install multer --save
 ```
 
 --
 
-- Import it into the file that handles the upload routes: 
+- Import it into the file that handles the upload routes:
+
 ```bash
 const multer = require('multer')
 ```
@@ -634,20 +675,26 @@ const multer = require('multer')
 template: uploads
 
 ## Setup
-Multer can save uploaded files to a number of different destinations.  Here, we tell `multer` to save uploaded files into a directory named `public/uploads`, with a filename based on the current time.
+
+Multer can save uploaded files to a number of different destinations. Here, we tell `multer` to save uploaded files into a directory named `public/uploads`, with a filename based on the current time.
+
 ```javascript
 // enable file uploads saved to disk in a directory named 'public/uploads'
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads')
+    cb(null, "public/uploads");
   },
   filename: function (req, file, cb) {
-    cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`)
-  }
-}); 
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
 ```
 
 Then instantiate a `multer` object.
+
 ```javascript
 const upload = multer({ storage: storage });
 ```
@@ -657,11 +704,13 @@ const upload = multer({ storage: storage });
 template: uploads
 
 ## Client-side code
+
 Take the following HTML form that allows users to upload files to the server as part of the POST request.
+
 ```html
-<form action="/upload-example" method="POST" enctype="multipart/form-data" >
-    <input name="my_files" type="file" multiple />
-    <input type="submit" value="Submit!!!" />
+<form action="/upload-example" method="POST" enctype="multipart/form-data">
+  <input name="my_files" type="file" multiple />
+  <input type="submit" value="Submit!!!" />
 </form>
 ```
 
@@ -671,7 +720,7 @@ Take the following HTML form that allows users to upload files to the server as 
 
 --
 
-- Note also the optional  `multiple` attribute that allows the user to upload multiple files, if desired.
+- Note also the optional `multiple` attribute that allows the user to upload multiple files, if desired.
 
 ---
 
@@ -683,17 +732,17 @@ Multer middleware will automatically save any uploaded files in the request into
 
 ```javascript
 // route for HTTP POST requests for /upload-example
-app.post('/upload-example', upload.array('my_files', 3), (req, res, next) => {
-    // check whether anything was uploaded
-    if (req.files) {
-        // success! send data back to the client, e.g. some JSON data
-        const data = {
-            status: 'all good',
-            message: 'yup, the files were uploaded!!!',
-            files: req.files
-        }
-        res.json(data) // send respose
-    }
+app.post("/upload-example", upload.array("my_files", 3), (req, res, next) => {
+  // check whether anything was uploaded
+  if (req.files) {
+    // success! send data back to the client, e.g. some JSON data
+    const data = {
+      status: "all good",
+      message: "yup, the files were uploaded!!!",
+      files: req.files,
+    };
+    res.json(data); // send respose
+  }
 });
 ```
 
@@ -710,6 +759,7 @@ name: proxying
 --
 
 ## Concept
+
 We often use our web server as a sort of proxy, relaying requests from the client to some other service, such as an external API or database, and relaying the responses from these other services back to the client.
 
 --
@@ -733,11 +783,13 @@ We often use our web server as a sort of proxy, relaying requests from the clien
 template: proxying
 
 ## Example
+
 Let's see how to have an express route proxy a request from the client to an API and back, with no modification of the data.
 
 --
 
-- The 3rd-party middleware, [axios](https://www.npmjs.com/package/axios), is useful for issuing requests to APIs.  Install it and save it to the `package.json` list of dependencies:
+- The 3rd-party middleware, [axios](https://www.npmjs.com/package/axios), is useful for issuing requests to APIs. Install it and save it to the `package.json` list of dependencies:
+
 ```bash
 npm install axios --save
 ```
@@ -747,13 +799,15 @@ npm install axios --save
 name: api-call
 
 - Create a route that issues a request to an API and forwards the results to the client
+
 ```javascript
 // proxy requests to/from an API
-app.get('/proxy-example', (req, res, next) => {
-        // use axios to make a request to an API for animal data
-        axios.get("https://my.api.mockaroo.com/animals.json?key=d9ddfc40&num=10")
-        .then(apiResponse => res.json(apiResponse.data)) // pass data along directly to client
-        .catch(err => next(err)); // pass any errors to express
+app.get("/proxy-example", (req, res, next) => {
+  // use axios to make a request to an API for animal data
+  axios
+    .get("https://my.api.mockaroo.com/animals.json?key=d9ddfc40&num=10")
+    .then((apiResponse) => res.json(apiResponse.data)) // pass data along directly to client
+    .catch((err) => next(err)); // pass any errors to express
 });
 ```
 
@@ -766,6 +820,7 @@ name: environment
 --
 
 ## Concept
+
 Hard-coding values like credentials for APIs and databases directly into production code is considered bad practice.
 
 --
@@ -781,11 +836,13 @@ Hard-coding values like credentials for APIs and databases directly into product
 template: environment
 
 ## Setup
-A 3rd-party middleware named, [dotenv](https://www.npmjs.com/package/dotenv), makes it easy to store such values as environmental variables that are then imported into the app.  
+
+A 3rd-party middleware named, [dotenv](https://www.npmjs.com/package/dotenv), makes it easy to store such values as environmental variables that are then imported into the app.
 
 --
 
 - Install it and save it to the `package.json` list of dependencies:
+
 ```bash
 npm install axios --save
 ```
@@ -793,8 +850,9 @@ npm install axios --save
 --
 
 - Import it into any file where you have a need for the credentials or other private data.
+
 ```javascript
-require('dotenv').config({silent: true});
+require("dotenv").config({ silent: true });
 ```
 
 --
@@ -806,7 +864,9 @@ require('dotenv').config({silent: true});
 template: environment
 
 ## Usage
+
 Let's place the credentials for the API we used [earlier](#api-call) into a file named `.env`:
+
 ```bash
 API_BASE_URL=https://my.api.mockaroo.com/animals.json
 API_SECRET_KEY=d9ddfc40
@@ -818,11 +878,12 @@ API_SECRET_KEY=d9ddfc40
 
 ```javascript
 // same route as above, but using environmental variables for secret credentials
-app.get('/dotenv-example', (req, res, next) => {
-    // insert the environmental variable into the URL we're requesting
-    axios.get(`${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=10`)
-    .then(apiResponse => res.json(apiResponse.data)) // pass data along directly to client
-    .catch(err => next(err)); // pass any errors to express
+app.get("/dotenv-example", (req, res, next) => {
+  // insert the environmental variable into the URL we're requesting
+  axios
+    .get(`${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=10`)
+    .then((apiResponse) => res.json(apiResponse.data)) // pass data along directly to client
+    .catch((err) => next(err)); // pass any errors to express
 });
 ```
 
@@ -835,6 +896,7 @@ name: parameters
 --
 
 ## Concept
+
 Express routes can have parameters.
 
 --
@@ -854,26 +916,30 @@ Express routes can have parameters.
 template: parameters
 
 ## Example
+
 The following example route accepts an ID into a parameter, makes a request to an API for a record with that ID, and returns the results to the client.
 
 ```javascript
 // this route is very similar to the dotenv-example route, but using async/await syntax for a change
-app.get('/parameter-example/:animalId', async (req, res) => {
-    // use axios to make a request to an API to fetch a single animal's data
-    // we use a Mock API here, but imagine we passed the animalId to a real API and received back data about that animal
-    const apiResponse = await axios.get(`${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=1&id=${req.params.animalId}`)
-    .catch(err => next(err)); // pass any errors to express
+app.get("/parameter-example/:animalId", async (req, res) => {
+  // use axios to make a request to an API to fetch a single animal's data
+  // we use a Mock API here, but imagine we passed the animalId to a real API and received back data about that animal
+  const apiResponse = await axios
+    .get(
+      `${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=1&id=${req.params.animalId}`
+    )
+    .catch((err) => next(err)); // pass any errors to express
 
-    // express places parameters into the req.params object
-    const responseData = {
-        status: 'wonderful',
-        message: `Imagine we got the data from the API for animal #${req.params.animalId}`,
-        animalId: req.params.animalId,
-        animal: apiResponse.data
-    }
+  // express places parameters into the req.params object
+  const responseData = {
+    status: "wonderful",
+    message: `Imagine we got the data from the API for animal #${req.params.animalId}`,
+    animalId: req.params.animalId,
+    animal: apiResponse.data,
+  };
 
-    // send the data in the response
-    res.json(responseData)
+  // send the data in the response
+  res.json(responseData);
 });
 ```
 
@@ -886,6 +952,7 @@ name: template-engines
 --
 
 ## Concept
+
 Sometimes, it is desireable to respond to incoming requests with content that is formatted in a way that is ready to be displayed by a web browser.
 
 --
@@ -909,7 +976,9 @@ Sometimes, it is desireable to respond to incoming requests with content that is
 template: template-engines
 
 ## Creating a Pug Template
+
 For example let's install and use the **Pug** template engine.
+
 ```bash
 npm install pug --save
 ```
@@ -919,7 +988,7 @@ npm install pug --save
 - It is now possible to set Express to use Pug as its template engine:
 
 ```javascript
-app.set('view engine', 'pug')
+app.set("view engine", "pug");
 ```
 
 --
@@ -928,10 +997,10 @@ app.set('view engine', 'pug')
 
 ```yaml
 html
-  head
-    title= title
-  body
-    h1= content
+head
+title= title
+body
+h1= content
 ```
 
 ---
@@ -939,6 +1008,7 @@ html
 template: template-engines
 
 ## Using a Pug Template
+
 To use a Pug template, simply create a route that instructs Express to respond with the contents of the template by using the `render` function.
 
 --
@@ -946,12 +1016,12 @@ To use a Pug template, simply create a route that instructs Express to respond w
 - For example, to create a route for a site's home page that points to the `index.pug` template we previously made and supplies the values to plug into `title` and `content` fields:
 
 ```javascript
-app.get('/', function (req, res) {
-        res.render('index', { 
-            title: 'My First Templated Site', 
-            message: 'Welcome to your first dynamic templated page!!' 
-        })
-})
+app.get("/", function (req, res) {
+  res.render("index", {
+    title: "My First Templated Site",
+    message: "Welcome to your first dynamic templated page!!",
+  });
+});
 ```
 
 --
@@ -967,6 +1037,7 @@ app.get('/', function (req, res) {
 template: template-engines
 
 ## Single Page Applications
+
 Template engines are less useful for web apps that are set up as **single page applications**.
 
 --
@@ -975,23 +1046,25 @@ Template engines are less useful for web apps that are set up as **single page a
 
 --
 
-- The static browser-based Javascript code then issues new requests to the server as necessary.  The server responds to any subsequent requests with JSON data, not HTML documents, e.g.:
+- The static browser-based Javascript code then issues new requests to the server as necessary. The server responds to any subsequent requests with JSON data, not HTML documents, e.g.:
+
 ```javascript
-{ 
-    'title': 'My First Templated Site', 
-    'message': 'Welcome to your first dynamic templated page!!' 
+{
+    'title': 'My First Templated Site',
+    'message': 'Welcome to your first dynamic templated page!!'
 }
 ```
 
 --
 
-- The static Javascript code initially loaded by the browser when the page was first loaded then updates relevant parts of the page in response to this JSON data.  
+- The static Javascript code initially loaded by the browser when the page was first loaded then updates relevant parts of the page in response to this JSON data.
 
 ---
 
 template: template-engines
 
 ## Front-Ends Built With React.js
+
 React.js-based front-ends are built as **single page applications**.
 
 --
@@ -1023,7 +1096,8 @@ name: authentication
 --
 
 ## Concept
-Many web apps require users to **sign up** and **log in**.  
+
+Many web apps require users to **sign up** and **log in**.
 
 --
 
@@ -1050,6 +1124,7 @@ name: databases
 --
 
 ## Concept
+
 Most classic technology stacks that rely on Express.js for the back-end use [MongoDb](https://mongodb.com) as the database.
 
 --
@@ -1062,7 +1137,7 @@ Most classic technology stacks that rely on Express.js for the back-end use [Mon
 
 --
 
-- The 3rd-party module named [mongoose](https://mongoosejs.com/) makes it easy to integrate express.js-based apps with MongoDB.  Similar modules exist for most other database integrations as well.
+- The 3rd-party module named [mongoose](https://mongoosejs.com/) makes it easy to integrate express.js-based apps with MongoDB. Similar modules exist for most other database integrations as well.
 
 --
 
@@ -1077,11 +1152,12 @@ name: conclusions
 ---
 
 # Conclusions
+
 You now have an baseline understanding of what express.js is, how it works, some useful middlewares, and various route patterns.
 
 --
 
-- A [simple Express.js project](https://github.com/bloombar/express-js-starter-app) is available for you to fork, clone, and try out for yourself.  Remember to run `npm install` to install all dependencies before running it.
+- A [simple Express.js project](https://github.com/bloombar/express-js-starter-app) is available for you to fork, clone, and try out for yourself. Remember to run `npm install` to install all dependencies before running it.
 
 --
 

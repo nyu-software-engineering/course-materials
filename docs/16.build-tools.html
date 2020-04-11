@@ -7,6 +7,7 @@ permalink: /build-tools/
 class: center, middle
 
 # Build Tools
+
 Agile Software Development & DevOps
 
 ---
@@ -31,19 +32,19 @@ name: overview
 
 ## Concept
 
-System building is the process of creating complete, executable system by compiling and linking the system components, external libraries, configuration files, and other information. 
+System building is the process of creating complete, executable system by compiling and linking the system components, external libraries, configuration files, and other information.
 
 ---
 
 ## Challenge
 
-System building must take into account many complex environmental and programmatic factors, and steps must often be performed in a particular sequence in order for the build to succeed. 
+System building must take into account many complex environmental and programmatic factors, and steps must often be performed in a particular sequence in order for the build to succeed.
 
 ---
 
 ## Solution
 
-Automated build tools are generally necessary to handle the complexity. 
+Automated build tools are generally necessary to handle the complexity.
 
 ---
 
@@ -56,7 +57,7 @@ name: features
 
 ## Build Script Generation
 
-The build system should analyze the program that is being built, identify dependent components, and automatically generate a build script (configuration file). 
+The build system should analyze the program that is being built, identify dependent components, and automatically generate a build script (configuration file).
 
 The system should also support the manual creation and editing of these build scripts.
 
@@ -107,7 +108,7 @@ name: stages
 
 ## Developer's Machine
 
-Developers may wish to test and build locally before performing the 'official' build. 
+Developers may wish to test and build locally before performing the 'official' build.
 
 They will typically check out the latest version from the version control system and try to build it locally.
 
@@ -117,15 +118,15 @@ The developer's machine often differs significantly from the target machine that
 
 ## Build Server
 
-Used to build the definitive version of the system. 
+Used to build the definitive version of the system.
 
 Should integrate with the version control system to build the latest.
 
 ---
 
-## Target Machine 
+## Target Machine
 
-The platform on which the system is ultimately intended to execute. This may be significantly different from the development machines and build servers. 
+The platform on which the system is ultimately intended to execute. This may be significantly different from the development machines and build servers.
 
 Keeping the developer's machines and the build server environment in close emulation of the Target Environment is a whole 'nother area of automation.
 
@@ -157,11 +158,12 @@ name: popular-build-tools
 
 ## Make
 
-Make, included in UNIX starting in 1976, and the many automation tools derived from the original make, is considered a classic build automation tool. 
+Make, included in UNIX starting in 1976, and the many automation tools derived from the original make, is considered a classic build automation tool.
 
 It was created to solve the all-too-common problem of developers wasting time debugging builds where the problem was human error in performing the build, not software bugs in the code.
 
 Key features:
+
 - used primarily for C and C++ development, but can be used as generaal purpose automation tool
 - build script written in an idiosyncratic script file named `Makefile`
 - allows multiple build targets
@@ -175,6 +177,7 @@ Key features:
 Apache Ant, begun in 2000, is a popular automated build tool that was designed explicitly to address some of the shortcomings of Make for Java builds.
 
 Key features:
+
 - open source
 - build scripts written in XML in a file named `build.xml`
 - supports same basic functionality as Make, but...
@@ -186,9 +189,10 @@ Key features:
 
 ## Maven
 
-Apache Maven is a successor to Apache Ant, initially released in 2004, that aims to address some of Ant's shortcomings, plus adding some additional features. 
+Apache Maven is a successor to Apache Ant, initially released in 2004, that aims to address some of Ant's shortcomings, plus adding some additional features.
 
 Key features:
+
 - open source
 - build scripts written in XML in a file named `pom.xml`
 - supports same basic functionality as Ant, but...
@@ -201,9 +205,10 @@ Key features:
 
 ## Gradle
 
-Gradle is [yet another] open source build automation tool primarily focused on Java projects. 
+Gradle is [yet another] open source build automation tool primarily focused on Java projects.
 
 Key features:
+
 - open source
 - build scripts written in Groovy in a file named `build.gradle`
 - supports same basic functionality as Maven, but...
@@ -216,6 +221,7 @@ Key features:
 Grunt is a Javascript-specific build automation tool, started in 2012, that can be setup to automate repetitive build-related tasks like minification of code, compilation, unit testing, code linting, etc.
 
 Key features:
+
 - open source
 - build scripts written in Javascript in a file named `Gruntfile`
 - attempts to bring the joy of Ant/Maven/Gradle-style automated builds specifically into the world of Javascript projects.
@@ -227,6 +233,7 @@ Key features:
 In many ways, Node Package Manager (NPM) itself can be considered a build tool.
 
 NPM includes:
+
 - tracking dependencies (in the package.json file)
 - automated builds (by running `npm install`)
 - integration with unit testing (by adding a `test` script to package.json)
@@ -242,4 +249,5 @@ name: conclusions
 ---
 
 # Conclusions
+
 Thank you. Bye.

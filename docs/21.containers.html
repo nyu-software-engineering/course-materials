@@ -7,6 +7,7 @@ permalink: /containers
 class: center, middle
 
 # Containers
+
 Agile Software Development & DevOps
 
 ---
@@ -43,7 +44,8 @@ class: center, middle
 ---
 
 ## Bare Metal Machines
-In old times, a server was a physical device affectionately called a "box" or a "machine".  
+
+In old times, a server was a physical device affectionately called a "box" or a "machine".
 
 These boxes, like your personal computers, typically had one set of hardware, an operating system, and some applications installed on it.
 
@@ -52,6 +54,7 @@ These boxes, like your personal computers, typically had one set of hardware, an
 ---
 
 ## Blade Servers
+
 Computer hardware, loaded with the operating system and applications, was eventually fit onto a single hardware card.
 
 Many such cards are slotted into a single "box", reducing space and sharing a single power supply for multiple machines.
@@ -61,6 +64,7 @@ Many such cards are slotted into a single "box", reducing space and sharing a si
 ---
 
 ## Virtual Machines
+
 With increases in computing power, an entire machine - hardware and software included - could be virtualized, allowing one physical machine to run many simulated virtual machines.
 
 Virtual machines have protections against one consuming the resources of another.
@@ -68,6 +72,7 @@ Virtual machines have protections against one consuming the resources of another
 ---
 
 ## Containers
+
 Containers are a refinement of the concept of a virtual machine.
 
 Containers only include the bare minimum environment setup necessary for the application they have hosted within them to run.
@@ -84,18 +89,23 @@ class: center, middle
 ---
 
 ## Advantages
+
 Containers are virtual environments that contain the bare minimum necessary to deploy an application on any machine - physical or virtual.
+
 - removes compatibility problems moving a container from one machine to another.
 
 ---
 
 ## Players
-Docker is the leader in the container field.  However, it is still an open competitive new field:
+
+Docker is the leader in the container field. However, it is still an open competitive new field:
+
 - Docker
 - [Kubernetes](https://kubernetes.io/)
 - CoreOS [rkt](https://coreos.com/rkt/)
 
 The main cloud services providers all support containers:
+
 - Amazon's [Elastic Container Service](https://aws.amazon.com/ecs/) supports containers
 - [Microsoft Azure](t.com/en-us/azure/containers/) supports containers
 - Google Cloud [Kubernetes Engine](https://cloud.google.com/kubernetes-engine/) supports containers
@@ -105,14 +115,19 @@ The main cloud services providers all support containers:
 ---
 
 ## False Dichotomy
+
 Docker and Kubernetes are not exactly competitors...
+
 - Docker is a Container Platform
 - Kubernetes is a Container Orchestrator
 - ... [read more](https://www.sumologic.com/blog/kubernetes-vs-docker/)
+
 ---
 
 ## Image
+
 A container's configuration is specified in its "image"
+
 - images are the stuff from which containers are made
 - i.e. containers are instances of an image
 - creating a container is achieved by designing an image and instantiating it
@@ -121,21 +136,25 @@ A container's configuration is specified in its "image"
 ---
 
 ## Registry
+
 Registries :
+
 - a central server that hosts images
 - allow sharing of those images with teammates and/or the public
 - essentially the same concept as repositories in version control
 
 Examples:
+
 - [Docker Hub](https://hub.docker.com/) and [Docker Store](https://store.docker.com/)
 
 ---
 
 ## Security
 
-Containers do not run in total isolation from one-another.  This currently makes containers a bit less secure than more isolated environments.
+Containers do not run in total isolation from one-another. This currently makes containers a bit less secure than more isolated environments.
 
 However, containers can improve the reliability of testing, since since testing, development, and deployment environments are all set up the same way - as reproducible, portable containers.
+
 - [Many traditional operations experts have concerns](https://www.youtube.com/watch?v=PivpCKEiQOQ)
 
 ---
@@ -143,6 +162,7 @@ However, containers can improve the reliability of testing, since since testing,
 ## Automation
 
 Containers can be integrated with automation tools, such as Travis CI or Jenkins or via settings within container registries such as Docker Hub.
+
 - every time a build or some other automation is complete, a container containing all security tests can be run
 - see more on [linking GitHub to Docker](https://docs.docker.com/docker-hub/builds/link-source/) for [automated builds on commit](https://docs.docker.com/docker-hub/builds/#link-to-a-hosted-repository-service)
 
@@ -156,5 +176,5 @@ class: center, middle
 ---
 
 # Conclusions
-Thank you. Bye.
 
+Thank you. Bye.

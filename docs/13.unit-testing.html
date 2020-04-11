@@ -7,6 +7,7 @@ permalink: /unit-testing/
 class: center, middle
 
 # Unit Testing
+
 Agile Software Development & DevOps
 
 ---
@@ -15,13 +16,13 @@ Agile Software Development & DevOps
 
 1. [Overview](#overview)
 2. [Example](#example)
-2. [Advantages](#advantages)
+3. [Advantages](#advantages)
 4. [Test Cases](#test-cases)
 5. [Assertions](#assertions)
 6. [Best Practices](#best-practices)
 7. [Doubles](#doubles)
-7. [Javascript Testing Toolset](#tools)
-7. [Conclusions](#conclusions)
+8. [Javascript Testing Toolset](#tools)
+9. [Conclusions](#conclusions)
 
 ---
 
@@ -88,6 +89,7 @@ name: advantages
 --
 
 ## Comparison to Alternative
+
 Automated unit testing has many advantages over manual debugging:
 
 --
@@ -118,7 +120,6 @@ template: advantages
 
 Refactoring of existing code involves rewriting it to make it better organized and efficient without changing its observable behavior.
 
-
 --
 
 - It is often necessary to refactor code to make it more easily tested with unit tests - keep each function short and focused on a single task.
@@ -130,8 +131,8 @@ Refactoring of existing code involves rewriting it to make it better organized a
 --
 
 > In almost all cases, I’m opposed to setting aside time for refactoring."
-> 
-> -[Martin Fowler](https://martinfowler.com/), author of 'Refactoring', the book 
+>
+> -[Martin Fowler](https://martinfowler.com/), author of 'Refactoring', the book
 
 ---
 
@@ -178,22 +179,18 @@ A unit test example in Javascript using mocha:
 
 ```javascript
 // use mocha's built-in assertion library
-const assert = require('assert');
+const assert = require("assert");
 
 // a set of tests of array functions
-describe('Array', function() {
-
-    // one particular unit test
-    describe('#indexOf()', function() {
-
-        // assert what should be returned
-        it('should return -1 when the value is not present', function(){
-            // test that assertion
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-
+describe("Array", function () {
+  // one particular unit test
+  describe("#indexOf()", function () {
+    // assert what should be returned
+    it("should return -1 when the value is not present", function () {
+      // test that assertion
+      assert.equal(-1, [1, 2, 3].indexOf(4));
     });
-
+  });
 });
 ```
 
@@ -230,6 +227,7 @@ name: assertions
 --
 
 ## Concept
+
 Every unit testing framework depends upon a set of **assertions** - purported truths that are then compared against reality.
 
 --
@@ -246,11 +244,13 @@ template: assertions
 name: assertions-1
 
 ## Typical Assertions
+
 This is a partial list of methods in JUnit's asssertion library that all other testing frameworks tend to imitate:
 
 --
 
 ### Equality:
+
 - `assertEquals(primitive/object expected, primitive/object actual)`
 - `assertNotEquals(primitive/object expected, primitive/object actual)`
 - `assertArrayEquals(expectedArray, actualArray)`
@@ -260,6 +260,7 @@ This is a partial list of methods in JUnit's asssertion library that all other t
 template: assertions-1
 
 ### Truth:
+
 - `assertTrue(boolean condition)`
 - `assertFalse(boolean condition)`
 
@@ -268,6 +269,7 @@ template: assertions-1
 template: assertions-1
 
 ### Existence:
+
 - `assertNull(Object object)`
 - `assertNotNull(Object object)`
 
@@ -276,6 +278,7 @@ template: assertions-1
 template: assertions-1
 
 ### Sameness:
+
 - `assertSame(object1, object2)`
 - `assertNotSame(object1, object2)`
 
@@ -317,7 +320,7 @@ According to Roy Osherove, author of "[The Art of Unit Testing](https://www.mann
 
 --
 
-- **Trustworthiness** -  if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
+- **Trustworthiness** - if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
 
 --
 
@@ -325,8 +328,7 @@ According to Roy Osherove, author of "[The Art of Unit Testing](https://www.mann
 
 --
 
-- **Readability** -  a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
-
+- **Readability** - a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
 
 --
 
@@ -346,7 +348,7 @@ Unit tests must run in isolation of one another and of external dependencies, su
 
 --
 
-- Some units of production code normally depends upon an interaction with such a dependency.  What to do?
+- Some units of production code normally depends upon an interaction with such a dependency. What to do?
 
 --
 
@@ -361,6 +363,7 @@ Unit tests must run in isolation of one another and of external dependencies, su
 template: doubles
 
 ## Types of double
+
 There are three commonly-used types of doubles.
 
 --
@@ -380,6 +383,7 @@ There are three commonly-used types of doubles.
 template: doubles
 
 ## Mocks
+
 Mocks are replacements for external interfaces.
 
 --
@@ -392,7 +396,7 @@ Mocks are replacements for external interfaces.
 
 --
 
-- Production code does not need to be changed to use a mock.  It does not "know" that it is not connecting to the real thing.  
+- Production code does not need to be changed to use a mock. It does not "know" that it is not connecting to the real thing.
 
 --
 
@@ -403,6 +407,7 @@ Mocks are replacements for external interfaces.
 template: doubles
 
 ## Stubs
+
 Whereas mocks are called by production code and passed arguments in place of a real external dependency, stubs are used to return pre-defined responses to the calling code.
 
 --
@@ -418,7 +423,8 @@ Whereas mocks are called by production code and passed arguments in place of a r
 template: doubles
 
 ## Fakes
-Like, mocks and stubs, fakes are used in the simulation of an external dependency.  But whereas mocks and stubs are simple code substitutions for the real thing, a fake is an actually functioning replacement for the external dependency that runs on the local machine.
+
+Like, mocks and stubs, fakes are used in the simulation of an external dependency. But whereas mocks and stubs are simple code substitutions for the real thing, a fake is an actually functioning replacement for the external dependency that runs on the local machine.
 
 --
 
@@ -441,6 +447,7 @@ name: tools
 --
 
 ## Recommendations
+
 The following are the recommended tools for unit testing in Node.js Javascript.
 
 --
@@ -471,7 +478,7 @@ name: conclusions
 
 --
 
-This slide deck has attempted to give you a high-level overview of the intentions and directions of unit testing.  Now go and try it.
+This slide deck has attempted to give you a high-level overview of the intentions and directions of unit testing. Now go and try it.
 
 --
 
@@ -492,4 +499,3 @@ This slide deck has attempted to give you a high-level overview of the intention
 --
 
 - Thank you. Bye.
-
