@@ -65,7 +65,7 @@ While HTTP is a stateless protocol, it does come with a native ability to handle
 
 --
 
-- When an incoming request attempts to access a protected resource, the server looks for an HTTP request header called `Authorization` containing **encrypted credentials**.
+- When an incoming request attempts to access a protected resource, the server looks for an HTTP request header called `Authorization` containing **encoded credentials**.
 
 --
 
@@ -161,7 +161,7 @@ Because all web browsers support cookies, it is possible for a web browser used 
 
 --
 
-- Once the user submits it, the browser sends an HTTP POST request to the server with the user's credentials.
+- Once the user submits it, the browser sends an `HTTP POST` request to the server with the user's credentials.
 
 --
 
@@ -213,11 +213,11 @@ Despite having several advantages over HTTP Basic Authentication for app develop
 
 --
 
-- Cookies are supported primarily by web browsers, not necessarily by other kinds of clients like native mobile apps, desktop apps, bots, and others.
+- Cookies are supported by web browsers, but not necessarily by other kinds of clients like native mobile apps, desktop apps, bots, and others.
 
 --
 
-- Sessions require the server to maintain the state of the session.... one more thing to worry about.
+- Sessions _require the server to maintain state_ of the session.... one more thing to worry about.
 
 ---
 
@@ -237,7 +237,7 @@ Today's apps often have multiple interfaces: web, native mobile app clients, des
 
 --
 
-- If not present, the server returns an HTTP 401 response code indicating unauthorized access.
+- If not present, the server returns an `HTTP 401` response code indicating unauthorized access.
 
 --
 
@@ -245,7 +245,7 @@ Today's apps often have multiple interfaces: web, native mobile app clients, des
 
 --
 
-- Once the user submits credentials, the browser sends an HTTP POST request to the server with the user's credentials.
+- Once the user submits credentials, the browser sends an `HTTP POST` request to the server with the user's credentials.
 
 --
 
@@ -273,11 +273,11 @@ JSON Web Tokens (JWT) offer a few benefits over other authentication mechanisms.
 
 --
 
-- Tokens can be encoded and encrypted with whatever encoding and encryption is desired, allowing for strong encryption.
+- While the token itself is encoded but not encrypted, tokens can contain arbitraary _payload_ data that can be encrypted however developers desire, allowing for strong encryption of sensitive content.
 
 --
 
-- Tokens are _cryptographically signed_ by the server with a secret key. Once signed, the token can be easily validated with every request and there is no need to maintain any session data or state on the server, allowing a single token to be used across multiple servers or microservices.
+- **Tokens aare stateless** - they are _cryptographically signed_ by the server with a secret key. Once signed, the token can be easily validated by the server with every request, the token includes data about what access privileges the user should be granted. There is no need to maintain any session data or state on the server. This also allows a single token to be used across multiple servers or microservices.
 
 --
 
@@ -329,7 +329,7 @@ OAuth is an open standard for _delegated access control_ offered by many tech gi
 
 ---
 
-template: jwt
+template: oauth
 
 ## Considerations
 
@@ -360,6 +360,10 @@ This has been a short survey of common authentication methods.
 --
 
 - You are recommended to use JSON Web Token-based authentication for your own apps, since it provides the most flexibility.
+
+--
+
+- The article, [Cookies vs. Tokens: The Definitive Guide](https://dzone.com/articles/cookies-vs-tokens-the-definitive-guide) provides a detailed comparison between the two.
 
 --
 
