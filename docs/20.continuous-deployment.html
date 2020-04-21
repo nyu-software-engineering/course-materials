@@ -28,12 +28,11 @@ Agile Software Development & DevOps
 
 ---
 
-class: center, middle
 name: overview
 
 # Overview
 
----
+--
 
 ## Definition
 
@@ -41,11 +40,15 @@ Continuous Deployment is automatically deploying - making software available to 
 
 ---
 
+template: overview
+
 ## Caveats
 
 New releases of software, of course, must still successfully build and pass unit, integration and system tests before deployment.
 
 ---
+
+template: overview
 
 ## Automation Pipeline
 
@@ -53,12 +56,11 @@ With version control, code linters, automated builds, and automated testing, con
 
 ---
 
-class: center, middle
 name: production-environment
 
 # Production environment
 
----
+--
 
 ## Hosting levels
 
@@ -71,6 +73,8 @@ There are several levels of hosting available for web applications, with many co
 
 ---
 
+template: production-environment
+
 ## Shared hosting
 
 With shared hosting, a developer receives an account on a web server shared by hundreds, if not thousands, of other developers.
@@ -80,6 +84,8 @@ With shared hosting, a developer receives an account on a web server shared by h
 - If one developer consumes more resources than expected, other developers may feel the effects
 
 ---
+
+template: production-environment
 
 ## Virtual Private Servers (VPS)
 
@@ -91,6 +97,8 @@ With VPS, a developer receives a virtual machine running on a physical machine s
 
 ---
 
+template: production-environment
+
 ## Dedicated machine
 
 With a dedicated machine, developers rent a single physical machine managed by the hosting company.
@@ -101,12 +109,11 @@ With a dedicated machine, developers rent a single physical machine managed by t
 
 ---
 
-class: center, middle
 name: cloud-deployments
 
 # Cloud deployments
 
----
+--
 
 ## Cloud services
 
@@ -124,6 +131,8 @@ These are industrial-strength hosting solutions with obtuse interfaces and exten
 
 ---
 
+template: cloud-deployments
+
 ## Infrastructure-as-a-Service (IaaS)
 
 Other providers handle much of the setup of a cloud infrastructure (compute resources, storage resources, networking interoperability, etc) without requiring the user to configure all details.
@@ -136,6 +145,8 @@ Other providers handle much of the setup of a cloud infrastructure (compute reso
 From IaaS, developers leverage the Cloud to receive the necessary [virtual] hardware and networking abilites upon which to develop.
 
 ---
+
+template: cloud-deployments
 
 ## Platform-as-a-Service (PaaS)
 
@@ -150,18 +161,19 @@ From PaaS, developers receive an environment with platform systems already setup
 
 ---
 
-class: center, middle
 name: ssh-digital-ocean
 
 # SSH into a Digital Ocean Droplet
 
----
+--
 
 ## Concept
 
 We will create an account with the cloud provider, Digital Ocean and set up SSH keys that allow us to log in without a password.
 
 ---
+
+template: ssh-digital-ocean
 
 ## Create a Digital Ocean Droplet
 
@@ -173,6 +185,7 @@ We will create an account with the cloud provider, Digital Ocean and set up SSH 
 
 ---
 
+template: ssh-digital-ocean
 name: create-ssh-public-key
 
 ## Create a local SSH key
@@ -192,6 +205,8 @@ This creates two keys in two files located within your user account's hidden `.s
 
 ---
 
+template: ssh-digital-ocean
+
 ## Copy the SSH key to Digital Ocean
 
 Locate the file with the public key you created in the previous step and copy the contents to the clipboard.
@@ -206,6 +221,7 @@ Now paste this into your Digital Ocean account's `Security` / `SSH Keys` page an
 
 ---
 
+template: ssh-digital-ocean
 name: login-to-droplet
 
 ## Log into the Digital Ocean Droplet
@@ -218,18 +234,19 @@ ssh root@123.456.789
 
 ---
 
+template: ssh-digital-ocean
+
 ## Where we are
 
 You now have a virtual CentOS machine hosted on the cloud and can log into it from your own machine without a password.
 
 ---
 
-class: center, middle
 name: update-centos
 
 # Update CentOS
 
----
+--
 
 ## Concept
 
@@ -238,6 +255,8 @@ We will update the OS and install the developer tools on the Digital Ocean Dropl
 This assumes you have already [set up SSH keys](#ssh-digital-ocean) and [logged in](#login-to-droplet) to your Droplet.
 
 ---
+
+template: update-centos
 
 ## Update system software
 
@@ -249,6 +268,8 @@ yum -y update
 
 ---
 
+template: update-centos
+
 ## Dev tools
 
 Install a variety of development tools:
@@ -258,6 +279,8 @@ yum -y groupinstall "Development Tools"
 ```
 
 ---
+
+template: update-centos
 
 ## A popular text editor
 
@@ -269,6 +292,8 @@ yum -y install vim
 
 ---
 
+template: update-centos
+
 ## Better text editor
 
 And a better text editor, emacs:
@@ -278,6 +303,8 @@ yum -y install emacs
 ```
 
 ---
+
+template: update-centos
 
 ## Networking tools
 
@@ -289,6 +316,8 @@ yum -y install net-tools
 
 ---
 
+template: update-centos
+
 ## Install Git
 
 Git version control:
@@ -299,18 +328,19 @@ yum -y install git
 
 ---
 
+template: update-centos
+
 ## Where we are
 
 You now have an up-to-date CentOS server on the Cloud with some useful development tools.
 
 ---
 
-class: center, middle
 name: install-node
 
 # Install Node.js on CentOS
 
----
+--
 
 ## Download Node.js
 
@@ -322,6 +352,8 @@ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 
 ---
 
+template: install-node
+
 ## Install Node
 
 Node.js is not yet installed. To install it, run the following:
@@ -332,6 +364,8 @@ yum install -y nodejs
 ```
 
 ---
+
+template: install-node
 
 ## Verify install
 
@@ -347,6 +381,8 @@ npm -v
 
 ---
 
+template: install-node
+
 ## Install an app manager
 
 Install the popular Node.js app manager, PM2. This is used to keep a Node.js app running as a daemon and restarts it automatically if it crashes:
@@ -356,6 +392,8 @@ npm install -g pm2
 ```
 
 ---
+
+template: install-node
 
 ## Have the app manager launch at system startup
 
@@ -367,6 +405,8 @@ pm2 startup systemd
 
 ---
 
+template: install-node
+
 ## Try out a super-simple web server
 
 Install simple http server so we can quickly serve web pages for testing:
@@ -376,6 +416,8 @@ npm install -g http-server
 ```
 
 ---
+
+template: install-node
 
 ## Try loading a web page
 
@@ -398,6 +440,8 @@ Various IP addresses of the server should be displayed. The address 127.0.0.1 is
 
 ---
 
+template: install-node
+
 ## Where we are
 
 You have now published a [super simple] Node.js web app on a CentOS machine living on The Cloud to The Web!
@@ -406,12 +450,11 @@ You may now stop this server and delete the `index.html` file whenever you desir
 
 ---
 
-class: center, middle
 name: create-user
 
 # Create a regular user account
 
----
+--
 
 ## Concept
 
@@ -423,6 +466,8 @@ We will create a "regular" user account for all developers.
 
 ---
 
+template: create-user
+
 ## Create a new user account
 
 Create a regular user account that you will use to set up an app:
@@ -432,6 +477,8 @@ adduser foobar
 ```
 
 ---
+
+template: create-user
 
 ## Grant admin permissions
 
@@ -443,6 +490,8 @@ usermod -aG wheel foobar
 
 ---
 
+template: create-user
+
 ## Set a password
 
 Set a password for this user. Enter a password when prompted:
@@ -452,6 +501,8 @@ passwd fooobar
 ```
 
 ---
+
+template: create-user
 
 ## Switch to the regular user account
 
@@ -463,6 +514,8 @@ sudo su - foobar
 
 ---
 
+template: create-user
+
 ## Discover who you really are
 
 ```
@@ -470,6 +523,8 @@ whoami
 ```
 
 ---
+
+template: create-user
 
 ## Navigate to home directory
 
@@ -480,6 +535,8 @@ cd ~
 ```
 
 ---
+
+template: create-user
 
 ## Set up SSH keys for the regular account
 
@@ -503,6 +560,8 @@ Save the file and quit the text editor.
 
 ---
 
+template: create-user
+
 ## Log out of the server
 
 First return from the regular user account back to the root account:
@@ -521,6 +580,8 @@ Your command shell has now returned to your local machine.
 
 ---
 
+template: create-user
+
 ## Log in as a regular user
 
 SSH again to the server as the regular user account. Replace the example username and IP address below with your own:
@@ -531,6 +592,8 @@ ssh foobar@123.456.789
 
 ---
 
+template: create-user
+
 ## Where we are
 
 This server is now ready for you to develop and deploy a Node.js web app.
@@ -538,17 +601,18 @@ This server is now ready for you to develop and deploy a Node.js web app.
 ---
 
 name: deploying
-class: center, middle
 
 # Deploying
 
----
+--
 
 ## Concept
 
 We can deploy a node application to the server.
 
 ---
+
+template: deploying
 
 ## Determine your server's IP address
 
@@ -560,6 +624,8 @@ ip addr
 
 ---
 
+template: deploying
+
 ## Clone from GitHub
 
 Clone an application from GitHub
@@ -569,6 +635,8 @@ git clone https://your_github_repository_url.git
 ```
 
 ---
+
+template: deploying
 
 ## Start the Node app with PM2
 
@@ -581,6 +649,8 @@ pm2 start npm -- start
 
 ---
 
+template: deploying
+
 ## Verify it works
 
 Point a web browser to your server's IP address with the port you are using to run Node.js.
@@ -588,17 +658,18 @@ Point a web browser to your server's IP address with the port you are using to r
 ---
 
 name: continuous-deployment
-class: center, middle
 
 # Deploying continuously
 
----
+--
 
 ## Concept
 
 Now that we know how to deploy a Node app, we can automate the process such that every time the master branch of our codebase changes, a script will update the code on the server and re-start it.
 
 ---
+
+template: continuous-deployment
 
 ## Automation
 
@@ -612,6 +683,8 @@ These automation tools can run a bash script that you add to your repository whi
 
 ---
 
+template: continuous-deployment
+
 ## DIY
 
 Create a bash script which automates deployment and have Travis CI run this script anytime the `master` branch is updated.
@@ -619,11 +692,10 @@ Create a bash script which automates deployment and have Travis CI run this scri
 ---
 
 name: install-nginx
-class: center, middle
 
 # Install nginx reverse proxy server
 
----
+--
 
 ## Concept
 
@@ -635,6 +707,8 @@ This is not necessary for continuous deployment, but puts a finishing touch to y
 
 ---
 
+template: install-nginx
+
 ## Other advantages of nginx
 
 Other advantages to using nginx are:
@@ -644,6 +718,8 @@ Other advantages to using nginx are:
 - easy set up of _load balancing_, where multiple instances of your server share the burden of responding to requests
 
 ---
+
+template: install-nginx
 
 ## Install the EPEL repository
 
@@ -655,6 +731,8 @@ ssh sudo yum install -y epel-release
 
 ---
 
+template: install-nginx
+
 ## Install nginx
 
 Install nginx:
@@ -664,6 +742,8 @@ ssh sudo yum install -y nginx
 ```
 
 ---
+
+template: install-nginx
 
 ## Start nginx
 
@@ -687,11 +767,15 @@ sudo systemctl enable nginx
 
 ---
 
+template: install-nginx
+
 ## Validate the nginx is working
 
 If you now use a web browser to navigate to `http://your_ip_address`, you should see a message that `nginx` has been installed and is running.
 
 ---
+
+template: install-nginx
 
 ## nginx settings
 
@@ -700,6 +784,8 @@ By default, nginx serves files located in the `/usr/share/nginx/html` directory.
 Nginx can host multiple web servers, known as Virtual Hosts. To set up virtual hosts, add new configuration files to `/etc/nginx/conf.d` - any files in this directory named `*.conf` are loaded when nginx is started.
 
 ---
+
+template: install-nginx
 
 ## Where we are
 
@@ -710,7 +796,6 @@ To do this, you must modify nginx's settings.
 ---
 
 name: conclusions
-class: center, middle
 
 # Conclusions
 
