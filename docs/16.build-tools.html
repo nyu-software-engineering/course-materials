@@ -231,6 +231,30 @@ See [an example](https://knowledge.kitchen/Popular_system_build_tools#Example) o
 
 template: popular-build-tools
 
+## Make (continued once more)
+
+> "If you move stuff around and do more than just invoking the compiler (and even then), the platform-specific stuff gets very awkward to handle in make. And having a makefile which only works on one system isn't very nice for a cross-platform language"
+>
+> -Joey, from Stack Overflow
+
+Make has a few limitations that have led to the development of later build systems:
+
+--
+
+- Make is most often _used by C and C++ developers_, even though it does, in theory, work for other languages.
+
+--
+
+- Makefile instructions are _written as shell commands_, which are inherently platform-specific.
+
+--
+
+- Make does not deal well with files spread across a _complex directory structure_, such as often the case in Java and many other languages and platforms.
+
+---
+
+template: popular-build-tools
+
 ## Ant
 
 Apache Ant, begun in 2000, is a popular automated build tool that was designed explicitly to address some of the shortcomings of Make for Java builds.
@@ -272,6 +296,26 @@ template: popular-build-tools
 ## Ant (continued again)
 
 See [an example](https://knowledge.kitchen/Popular_system_build_tools#Example_2) of an Ant `build.xml` file.
+
+---
+
+template: popular-build-tools
+
+## Ant (again once more)
+
+Ant has suffered criticism on a few fronts:
+
+--
+
+- _XML today is considered to be overly verbose_ as a structured data markup language with a lot of redundancy
+
+--
+
+- _Each build script tends to be custom_: there is little convention applied to scripts.
+
+--
+
+- _Ant suffers from legacy Java compatibility issues_: some tasks that Ant supports, such as javac and java, use default argument options that are no longer current with the latest Java. Changing the implementation of these would break older code, so the developers have not updated Ant to more modern usage conventions.
 
 ---
 
@@ -324,6 +368,26 @@ template: popular-build-tools
 ## Maven (continued again)
 
 See [an example](https://knowledge.kitchen/Popular_system_build_tools#Examples) of a Maven pom.xml build file.
+
+---
+
+template: popular-build-tools
+
+## Maven (continued again once more)
+
+Like build systems before it, Maven has its critics.
+
+--
+
+- As with Ant, Maven's _reliance on XML for configuration scripts seems outdated_.
+
+--
+
+- Maven _requires a rigid adherence to convention_: developers requiring a custom configuration may find it difficult to work with.
+
+--
+
+- A project's _build steps are not well-documented_ when using Maven, since it relies so much on hidden defaults and doesn't explicitly include each step in the build scripts..
 
 ---
 
