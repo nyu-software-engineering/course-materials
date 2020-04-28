@@ -71,8 +71,6 @@ template: features
 
 The build system should be able to check out the required versions of components from a version control system.
 
-template: features
-
 ---
 
 template: features
@@ -109,9 +107,21 @@ The build system should provide reports about the success or failure of the buil
 
 template: features
 
-## Documentation Generation
+## Documentation
 
-The build system may be able to generate release notes about the build and system help pages automatically.
+The build system configuration script serves as a form of documentation
+
+--
+
+- At the very least, a build configuration script documents the dependencies of the system
+
+--
+
+- It also documents the order in which all steps of the build must occur
+
+--
+
+- A build system may also be able to generate release notes about the build and system help pages automatically.
 
 ---
 
