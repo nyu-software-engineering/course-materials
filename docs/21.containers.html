@@ -305,7 +305,7 @@ template: containers
 
 ## False Dichotomy
 
-“Kubernetes vs. Docker” is aa false dichotomy. Docker and Kubernetes are not exactly competitors...
+“Kubernetes vs. Docker” is a false dichotomy. Docker and Kubernetes are not exactly competitors...
 
 --
 
@@ -339,7 +339,7 @@ A container's configuration is specified in its "image"
 
 --
 
-- a single image can be instantiated into many containers, which can then be run across many different machines, if desired
+- a single image can be instantiated into many containers, which can then be run across many different machines in a cloud hosting environment, if desired
 
 ---
 
@@ -562,7 +562,11 @@ Because of their small footprint and high portability, containers are simple to 
 
 --
 
-- [This video](https://www.youtube.com/watch?v=1OLyXJJPBSA), while a bit out of date in parts, may give you a good idea of how to deploy a container on Digital Ocean.
+- [This tutorial](https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-quickstart), may give you a good idea of how to deploy a container on Digital Ocean.
+
+--
+
+- In a **continuous deployment** setup, a new Docker image would be generated with every change to the codebase, posted to Docker Hub, pulled to a remote server, and instantiated into a running container - [see an example](https://maximorlov.com/automate-your-docker-deployments/).
 
 ---
 
