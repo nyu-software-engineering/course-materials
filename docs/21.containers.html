@@ -449,7 +449,7 @@ template: docker-example
 
 ## Dockerfile
 
-The configuration of each image is written in a `Dockerfile` build script .
+The configuration of each image is written in a `Dockerfile` build script - this is what I used to create the example image:
 
 ```bash
 # in Docker, it is common to base a new image on a previously-created image
@@ -476,6 +476,26 @@ CMD ["python", "app.py"]
 
 template: docker-example
 
+## Dockerfile (continued)
+
+Notice that the Dockerfile for this example image references another image named `python:2.7-slim`.
+
+--
+
+- It is common convention to use an existing image as the basis for a new image.
+
+--
+
+- Search Docker Hub or Docker Store for an image that is suitably close to what you need, and then create a new Dockerfile that builds on top of it.
+
+--
+
+- Docker builds images in layers... it builds dependency images first before building the additional changes you have specified in your Dockerfile.
+
+---
+
+template: docker-example
+
 ## Basic Docker commands
 
 - Log in to Docker Hub (necessary before downloading images): `docker login`
@@ -490,7 +510,7 @@ template: docker-example
 
 --
 
-- Push an image to the Docker Hub registry: `docker push <image_name>:<tag_name></tag_name>`
+- Push an image to the Docker Hub registry: `docker push <image_name>:<tag_name>`
 
 --
 
