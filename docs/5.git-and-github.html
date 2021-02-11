@@ -31,59 +31,41 @@ name: introductions
 
 # Introductions
 
----
-
-template: introductions
-name: git-intro
+--
 
 ## Git
 
-## The world's most popular open source version control system.
+The world's most popular open source version control system.
 
-template: git-intro
-name: git-intro-1
+--
 
 - **Distributed** - all developers maintain and share the code in their own local repositories, with no single central authority.
 
----
-
-template: git-intro-1
-name: git-intro-2
+--
 
 - **Repository versioning** - a new version number is issued for the repository as a whole, even when only one file has changed.
 
----
-
-template: git-intro-2
-name: git-intro-3
+--
 
 - Created by **Linus Torvalds** to help Linux kernel developers collaborate
 
 ---
 
 template: introductions
-name: github-intro
 
 ## GitHub
 
-## A web app used for hosting remote Git repositories.
+A web app used for hosting remote Git repositories.
 
-template: github-intro
-name: github-intro-1
+--
 
 - Free hosting of public open-source projects
 
----
-
-template: github-intro-1
-name: github-intro-2
+--
 
 - Free hosting of private projects for students (or so I hear)
 
----
-
-template: github-intro-2
-name: github-intro-3
+--
 
 - Acquired by Microsoft for \$7.5 billion in 2018
 
@@ -96,7 +78,6 @@ name: tiers
 ---
 
 template: tiers
-name: tiers-1
 
 Git version control depends upon three tiers, or three places where files are stored.
 
@@ -109,30 +90,20 @@ Git version control depends upon three tiers, or three places where files are st
 ---
 
 template: tiers
-name: tiers-2
 
 ## Working copy
 
 The copy of the files that a developer works on.
 
----
-
-template: tiers-2
-name: tiers-3
+--
 
 - Not tracked by git.
 
----
-
-template: tiers-3
-name: tiers-4
+--
 
 - Your 'normal' files you are familiar with.
 
----
-
-template: tiers-4
-name: tiers-35
+--
 
 ![Working tree](../images/git_working_tree.png)
 
@@ -143,43 +114,30 @@ name: staging-index
 
 ## Staging index
 
-A holding area for changes thata _might_ be included in the project's official history.
+A holding area for changes that _might_ be included in the project's official history.
 
----
-
-template: staging-index
-name: staging-index-1
+--
 
 - Allows developers pick and choose which changed files to include in the next commit to the repository
 
----
-
-template: staging-index-1
-name: staging-index-2
+--
 
 - [Read more](https://gitolite.com/uses-of-index.html) about some benefits of this
 
----
-
-template: staging-index-2
-name: staging-index-3
+--
 
 ![Staging index](../images/git_staging_index.png)
 
 ---
 
 template: staging-index
-name: staging-index-4
 
 ```bash
 # add any changed files within the working directory to the staging index
 git add .
 ```
 
----
-
-template: staging-index-4
-name: staging-index-5
+--
 
 ```bash
 # add only one file to the staging index
@@ -195,31 +153,21 @@ name: repository
 
 The official history of the project, including the history of all committed files.
 
----
-
-template: repository
-name: repository-1
+--
 
 - With each commit, changed files in the staging index are moved to the repository
 
----
-
-template: repository-1
-name: repository-2
+--
 
 - A short message describes the chanes included in each commit
 
----
-
-template: repository-2
-name: repository-3
+--
 
 ![Repository](../images/git_repository.png)
 
 ---
 
 template: repository
-name: repository-4
 
 ```bash
 # commit any files in the staging index to the repository
@@ -232,10 +180,7 @@ name: terminology
 
 # Git Terminology
 
----
-
-template: terminology
-name: terminology-1
+--
 
 A few terms we must familiarize ourselves with.
 
@@ -258,24 +203,16 @@ name: clone
 
 A new repository made by copying files from an existing repository.
 
----
+--
 
-template: clone
-name: clone-1
 
 - Typically involves creating a new local repository that is a copy of an existing remote repository.
 
----
-
-template: clone-1
-name: clone-2
+--
 
 - The new repository automatically keeps a link to the `origin` remote repository from which it came.
 
----
-
-template: clone-2
-name: clone-3
+--
 
 ```bash
 # clone a remote repository onto the local machine
@@ -285,7 +222,6 @@ git clone https://github.com/your-github-handle/your-repository-name.git
 ---
 
 template: clone
-name: clone-4
 
 ![Clone](../images/git_clone.png)
 
@@ -298,24 +234,18 @@ name: fork
 
 Not a Git term, but rather a term used by remote repository hosting providers such as GitHub.
 
----
+--
 
-template: fork
-name: fork-1
 
 - A fancy word for creating a remote [clone](#clone) of a remote repository.
 
----
-
-template: fork-1
-name: fork-2
+--
 
 - A fork of a GitHub repository creates a clone of that repository in the active user's own GitHub account
 
 ---
 
 template: fork
-name: fork-3
 
 ![Fork](../images/git_fork.png)
 
@@ -328,17 +258,11 @@ name: master
 
 The Git term for the `trunk` line of code.
 
----
-
-template: master
-name: master-1
+--
 
 - The default line of code that all commits are placed into unless other branch lines are created.
 
----
-
-template: master-1
-name: master-2
+--
 
 ![Master branch](../images/git_master.png)
 
@@ -351,51 +275,35 @@ name: branch
 
 The term for an offshoot of the `trunk` or `master` line of code.
 
----
-
-template: branch
-name: branch-1
+--
 
 - creating a branch allows developers to work on new code in isolation with no effect on the main `trunk` line.
 
----
-
-template: branch-1
-name: branch-2
+--
 
 - code in a branch can be `merged` into the trunk branch at any time, if desired
 
----
-
-template: branch-2
-name: branch-3
+--
 
 ![Feature branch](../images/git_branch.png)
 
 ---
 
 template: branch
-name: branch-4
 
 ```bash
 # see a list of all branches in the local repository
 git branch
 ```
 
----
-
-template: branch-4
-name: branch-5
+--
 
 ```bash
 # create a new branch
 git branch experiment1
 ```
 
----
-
-template: branch-5
-name: branch-6
+--
 
 ```bash
 # switch to the new branch
@@ -403,9 +311,6 @@ git checkout experiment1
 ```
 
 --
-
-template: branch-6
-name: branch-7
 
 ```bash
 # switch back to the master branch
@@ -421,51 +326,35 @@ name: remote
 
 A term used to mean a remote repository that the local repository is linked to.
 
----
-
-template: remote
-name: remote-1
+--
 
 - Typically, this refers to the remote repository from which a local repository was cloned.
 
----
-
-template: remote-1
-name: remote-2
+--
 
 - The nickname `origin` is usually used to refer to the original remote repository from which the local repository was cloned.
 
----
-
-template: remote-2
-name: remote-3
+--
 
 - The nickname `upstream` is also sometimes used to refer to a remote repository from which the `origin` repository was originally forked.
 
 ---
 
 template: remote
-name: remote-4
 
 ```bash
 # view a list of all currently known remotes
 git remote -v
 ```
 
----
-
-template: remote-4
-name: remote-5
+--
 
 ```bash
 # inform git of a remote and give it the nickname 'origin'
 git remote add origin https://github.com/your-github-handle/your-repository-name.git
 ```
 
----
-
-template: remote-5
-name: remote-6
+--
 
 ```bash
 # inform git of a remote and give it the nickname 'upstream'
@@ -481,34 +370,24 @@ name: pull
 
 Download and merge any changes _in the current branch_ from a remote repository to the local repository.
 
----
-
-template: pull
-name: pull-1
+--
 
 - It's good practice to `pull` before you `push`.
 
----
-
-template: pull-1
-name: pull-2
+--
 
 ![Pull](../images/git_pull.png)
 
 ---
 
 template: pull
-name: pull-3
 
 ```bash
 # download any changes in the master branch from the 'origin' remote repository to the local repository
 git pull origin master
 ```
 
----
-
-template: pull-3
-name: pull-4
+--
 
 ```bash
 # download any changes in the master branch from the 'upstream' remote repository to the local repository
@@ -524,27 +403,20 @@ name: push
 
 Upload changes from the local repository to a remote repository.
 
----
-
-template: push
-name: push-1
+--
 
 ![Push](../images/git_push.png)
 
 ---
 
 template: push
-name: push-2
 
 ```bash
 # Upload any changs in the master branch from the local repository to the 'origin' remote repository
 git push origin master
 ```
 
----
-
-template: push-2
-name: push-3
+--
 
 ```bash
 # Upload any changs in the master branch from the local repository to the 'upstream' remote repository
@@ -560,27 +432,18 @@ name: fetch
 
 Download _all branches_ from a remote repository to the local repository.
 
----
-
-template: fetch
-name: fetch-1
+--
 
 - This can be useful to see changes made by others
 
----
-
-template: fetch-1
-name: fetch-2
+--
 
 ```bash
 # download all branches from the 'origin' remote repository
 git fetch origin
 ```
 
----
-
-template: fetch-2
-name: fetch-3
+--
 
 ```bash
 # download all branches from the 'upstream' remote repository
@@ -596,52 +459,38 @@ name: merge
 
 Take the changes from one branch or repository and incorporate them into another branch or repository.
 
----
-
-template: merge
-name: merge-1
+--
 
 - If both branches include recent changes to the same lines of code, `git` will inform you of a conflict.
 
----
-
-template: merge-1
-name: merge-2
+--
 
 - Any such merge conflicts must be manually resolved using your preferred editor.
 
----
-
-template: merge-2
-name: merge-3
+--
 
 ![Merge](../images/git_merge.png)
 
 ---
 
 template: merge
-name: merge-4
 
 - A typical workflow:
 
 ```bash
-# download the latest code from the 'origin' remote, including any and all branches
-git fetch origin
+git fetch origin # get latest code in all branches from the remote origin server
 
-# switch to a branch whose code you want to merge into the master branch
-# add the `-b` flag if this branch has not yet been created before
-git checkout some-branch-name
+git checkout some-branch-name # switch to a branch where you will make changes in isolation... either first create this branch with 'git branch some-branch-name' or do 'git checkout -b some-branch-name' to create it and check it out at once
 
 # make some chages to the code in this branch, if desired using your preferred editor
 
-# switch back to the master branch
-git checkout master
+git checkout master # switch back to the master branch to prepare to merge
 
-# incorporaate any changes in the branch into the code in the master branch
-git merge some-branch-name
+git pull origin master # download any recent changes from the origin server
 
-# delete the branch now that we're done with it
-git branch -d some-branch-name
+git merge some-branch-name # incorporaate your changes in the branch into the code in the master branch
+
+git branch -d some-branch-name # delete the branch now that we're done with it
 ```
 
 ---
@@ -650,17 +499,11 @@ name: local-repository
 
 # Creating a Local Repository
 
----
-
-template: local-repository
-name: local-repository-1
+--
 
 A local repository can be created in one of two ways.
 
----
-
-template: local-repository-1
-name: local-repository-2
+--
 
 ## From scratch
 
@@ -670,10 +513,7 @@ cd project0
 git init
 ```
 
----
-
-template: local-repository-2
-name: local-repository-3
+--
 
 If you later decide to link a local repository to a remote repository:
 
@@ -681,9 +521,7 @@ If you later decide to link a local repository to a remote repository:
 git remote add origin git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
----
-
-template: local-repository-3
+--
 
 ## As a clone of another repository
 
@@ -697,19 +535,13 @@ name: tracking
 
 # Tracking Changes with the Local Repository
 
----
-
-template: tracking
-name: tracking-1
+--
 
 Changes in the Working Copy (adding, modifying, or deleting files) are not tracked.
 
 Files must be added to the staging index in order to be tracked.
 
----
-
-template: tracking-1
-name: tracking-2
+--
 
 ## Add files to the staging index
 
@@ -727,19 +559,13 @@ name: committing
 
 # Committing Changes to the Local Repository
 
----
-
-template: committing
-name: committing-1
+--
 
 The staging index does not maintain the history of all changes.
 
 Changes must be moved to the repository in order to be fully archived.
 
----
-
-template: committing-1
-name: committing-2
+--
 
 ```bash
 git commit -m 'resolving bug #23'
@@ -751,9 +577,7 @@ name: sharing
 
 # Sharing Changes with Other Developers
 
----
-
-template: sharing
+--
 
 Any changes to the local repository must usually be shared with other developers.
 
@@ -772,6 +596,8 @@ git pull
 git push -u origin master
 ```
 
+--
+
 Or, if you are already in the 'master' branch and the remote named 'origin' has already been defined:
 
 ```bash
@@ -785,10 +611,7 @@ name: conflicts
 
 # Merge Conflicts
 
----
-
-template: conflicts
-name: conflicts-1
+--
 
 Conflicts may occur in a number of scenarios:
 
@@ -797,10 +620,7 @@ Conflicts may occur in a number of scenarios:
 - When merging code from one branch into another.
 - When merging code from one repository into another.
 
----
-
-template: conflicts-1
-name: conflicts-2
+--
 
 Git will merge code automatically, if possible, and ask the developer to do it themselves, if not.
 
@@ -810,9 +630,7 @@ name: configuration
 
 # Configuration
 
----
-
-template: configuration
+--
 
 Several important configurations that must be completed prior to versioning:
 
@@ -823,7 +641,7 @@ Several important configurations that must be completed prior to versioning:
 
 template: configuration
 
-## Username
+## Username and email
 
 Username and email in Git must match exactly any username and email set up on GitHub:
 
@@ -840,9 +658,13 @@ template: configuration
 
 A file in the project directory named `.gitignore` instructs Git to ignore certain files or directories.
 
+--
+
 This _absolutely must_ include instructions to ignore any platform code and 3rd party modules.
 
-Example: https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f
+--
+
+View an [example](https://gist.github.com/bloombar/1bbca4aafb267920ac220864d99d6c8f)
 
 ---
 
@@ -850,10 +672,10 @@ name: conclusions
 
 # Conclusions
 
----
-
-template: conclusions
+--
 
 You now know the basics of using Git and its relationship to GitHub.
+
+--
 
 - Thank you. Bye.

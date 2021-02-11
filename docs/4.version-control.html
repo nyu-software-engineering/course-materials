@@ -29,9 +29,7 @@ name: motivations
 
 # Motivations
 
----
-
-# Motivations
+--
 
 There are a variety of motivations for developers to use version control systems:
 
@@ -43,7 +41,7 @@ There are a variety of motivations for developers to use version control systems
 
 ---
 
-# Motivations
+template: motivations
 
 ## Archiving
 
@@ -51,7 +49,7 @@ The need to clearly see the state of the project at a given point in time, and t
 
 ---
 
-# Motivations
+template: motivations
 
 ## Synchronizing
 
@@ -59,7 +57,7 @@ The need for multiple developers working independently to ensure they are all wo
 
 ---
 
-# Motivations
+template: motivations
 
 ## Repair
 
@@ -67,7 +65,7 @@ The need to sometimes undo changes that have been made and 'roll back' to an ear
 
 ---
 
-# Motivations
+template: motivations
 
 ## Accountability
 
@@ -75,7 +73,7 @@ The need to see who did what and when they did it.
 
 ---
 
-# Motivations
+template: motivations
 
 ## Experimentation
 
@@ -89,7 +87,7 @@ name: repositories
 
 ---
 
-# Repositories
+template: repositories
 
 A repository (or 'repo') is the database where files are stored and tracked by the version control system.
 
@@ -100,7 +98,7 @@ In a version control workflow, a repository can either be:
 
 ---
 
-# Repositories
+template: repositories
 
 ## Local
 
@@ -110,7 +108,7 @@ When multiple developers are collaborating in a distributed fashion, a local rep
 
 ---
 
-# Repositories
+template: repositories
 
 ## Remote
 
@@ -124,22 +122,21 @@ name: trunk
 
 # Trunk
 
+--
+
+The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
+
 ---
 
 template: trunk
-name: trunk-1
-
-## The trunk, 'main', or 'master' line of a repository is the authoritative best version of the code in the repository at any given point in time.
-
-template: trunk-1
-name: trunk-2
 
 ## Benefits
 
-## Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
+Maintaining code in a trunk allows each developer to unambiguously know where to find the best most authoritative version of the code in the repository at any given time.
 
-template: trunk-2
-name: trunk-3
+---
+
+template: trunk
 
 ## Drawbacks
 
@@ -154,19 +151,20 @@ name: branches
 ---
 
 template: branches
-name: branches-1
 
-## Branches represent variants of the code at any given point in time time. They are departures from the main line in the repository.
+Branches represent variants of the code at any given point in time time. They are departures from the main line in the repository.
 
-template: branches-1
-name: branches-2
+---
+
+template: branches
 
 ## Benefits
 
-## Those wary of working directly on the trunk often make changes in isolated branches, separate from the trunk, and then 'merge' the changes into the code in the trunk once they are sure they have no bugs.
+Those wary of working directly on the trunk often make changes in isolated branches, separate from the trunk, and then 'merge' the changes into the code in the trunk once they are sure they have no bugs.
 
-template: branches-2
-name: branches-3
+---
+
+template: branches
 
 ## Drawbacks
 
@@ -178,9 +176,7 @@ name: versioning-types
 
 # File vs. Repository Versioning
 
----
-
-template: versioning-types
+--
 
 When a change is made to a file, a new version number is issued.
 
@@ -190,15 +186,18 @@ When a change is made to a file, a new version number is issued.
 ---
 
 template: versioning-types
-name: file-versioning
 
 ## File Versioning
 
 Each file in the repository has its own version number - so frequently changed files will typically have higher version numbers than stable files.
 
+--
+
 ### Benefit
 
 - Easy to find the history of all versions of a given file.
+
+--
 
 ### Drawback
 
@@ -207,15 +206,18 @@ Each file in the repository has its own version number - so frequently changed f
 ---
 
 template: versioning-types
-name: repo-versioning
 
 ## Repository Versioning
 
 Any changes trigger a new version number of the entire repository.
 
+--
+
 ### Benefit
 
 - Easy to find all the individual files comprising a given system release version.
+
+--
 
 ### Drawback
 
@@ -230,7 +232,6 @@ name: centralization
 ---
 
 template: centralization
-name: centralization-1
 
 Version control systems can either allow for centralized or decentralized control:
 
@@ -240,7 +241,6 @@ Version control systems can either allow for centralized or decentralized contro
 ---
 
 template: centralization
-name: centralization-2
 
 ## Centralized Systems
 
@@ -248,10 +248,7 @@ name: centralization-2
 
 - Avoid conflicts by usually requiring developers to "check out" a file to change it and then "check in" the file when done.
 
----
-
-template: centralization-2
-name: centralization-3
+--
 
 ### Drawbacks
 
@@ -261,7 +258,6 @@ name: centralization-3
 ---
 
 template: centralization
-name: centralization-4
 
 ## Distributed Systems
 
@@ -271,10 +267,7 @@ name: centralization-4
 - Allows tracking while offline and disconnected from the central server.
 - Can be used in a centralized version control workflow, but doesn't require it.
 
----
-
-template: centralization-4
-name: centralization-5
+--
 
 ### Drawbacks
 
@@ -288,7 +281,7 @@ name: examples
 
 ---
 
-# Examples
+template: examples
 
 ## Centralized Systems
 
@@ -297,7 +290,7 @@ name: examples
 
 ---
 
-# Examples
+template: examples
 
 ## Distributed Systems
 
@@ -309,8 +302,6 @@ name: conclusions
 
 # Conclusions
 
----
-
-# Conclusions
+--
 
 Thank you. Bye.
