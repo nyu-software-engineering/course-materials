@@ -36,69 +36,49 @@ name: overview
 
 # Overview
 
----
-
-template: overview
-name: overview-1
+--
 
 ## Concept
 
 Javascript, also known as ECMAScript, has a few unusual features that trouble programmers of other languages.
 
----
-
-template: overview-1
-name: overview-2
+--
 
 - loose typing of variables
 
----
-
-template: overview-2
-name: overview-3
+--
 
 - prototypal inheritance (no classes!)
 
----
-
-template: overview-3
-name: overview-4
+--
 
 - insular jargon like 'hoisting', 'closures', 'destructuring', and 'unpacking'
 
----
-
-template: overview-4
-name: overview-5
+--
 
 - two comparison operators, == and ===
 
----
-
-template: overview-5
-name: overview-6
+--
 
 - at least 5 different syntaxes for defining functions
 
----
+--
 
-template: overview-6
-name: overview-7
+- several different ways to instantiate objects
+
+--
 
 - two very different common use-cases: client-side and server-side programming
 
----
-
-template: overview-7
-name: overview-8
+--
 
 - three different ways to handle asynchronousity
 
 ---
 
 template: overview
-name: overview-9
 
+## Try it yourself
 Try out the code examples in this deck for yourself: https://repl.it/@foobarstein/node-js-examples
 
 ---
@@ -107,23 +87,29 @@ name: basics
 
 # The Basics
 
----
-
-template: basics
-name: variables
+--
 
 ## Variable declaration
 
 Three keywords to declare a variable:
 
+--
+
 - **let** - for defining block-scoped variables
+
+--
+
 - **const** - for defining block-scoped variables that cannot be reassigned to a new value
-- **var** - for defining function-scoped variables, or global variables if not declared within a function... present for legacy purposes and should not be used in new code
+
+--
+
+- **var** - for defining function-scoped variables, or global variables if not declared within a function... 
+--
+*supported for legacy purposes and should not be used in new code*
 
 ---
 
 template: basics
-name: variables-1
 
 ## Let example
 
@@ -141,7 +127,6 @@ console.log(`It is ${it}!`); // expected output: 'It is false!'
 ---
 
 template: basics
-name: variables-2
 
 ## Const example
 
@@ -157,7 +142,6 @@ console.log(data); // expected output: [10, 'ha!', 30]
 ---
 
 template: basics
-name: variables-3
 
 ## Scope example
 
@@ -178,7 +162,6 @@ What is output?
 ---
 
 template: basics
-name: output-1
 
 ## Output to console
 
@@ -192,8 +175,9 @@ console.log("This is " + stuff + "."); // expected output: 'This is some text.'
 
 ---
 
-template: output-1
-name: output-2
+template: basics
+
+## String templates
 
 Template syntax enapsulating a string with backtics
 
@@ -203,10 +187,7 @@ let stuff = "some text";
 console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
 ```
 
----
-
-template: output-2
-name: output-3
+--
 
 Template syntax will accept any expression
 
@@ -222,7 +203,6 @@ console.log(`The result is ${x + y}.`); // expected output: 'The result is 15.'
 ---
 
 template: basics
-name: for-loops-1
 
 ## For loops
 
@@ -235,10 +215,7 @@ for (let i = 1; i < 6; i++) {
 }
 ```
 
----
-
-template: for-loops-1
-name: for-loops-2
+--
 
 ```javascript
 // infinite loop
@@ -247,22 +224,18 @@ for (let i = 1; true; i++) {
 }
 ```
 
----
-
-template: for-loops-2
-name: for-loops-3
+--
 
 ```javascript
-// infinite loop
-for (someValue in someArrya) {
-  console.log(`The value is #${someValue}`);
+// finite loop
+for (someValue in someArray) {
+  console.log(`The value is ${someValue}`);
 }
 ```
 
 ---
 
 template: basics
-name: while-loops-1
 
 ## While loops
 
@@ -277,10 +250,7 @@ while (i < 6) {
 }
 ```
 
----
-
-template: while-loops-1
-name: while-loops-2
+--
 
 ```javascript
 let i = 0;
@@ -293,11 +263,10 @@ while (true) {
 ---
 
 template: basics
-name: comparison-1
 
 ## Equality
 
-Javascript performs some type coersion automatically:
+The `==` operator compares by value *with type coercion*.
 
 ```javascript
 1 == "1"; // true
@@ -307,10 +276,11 @@ undefined == null; // true
 
 ---
 
-template: comparison-1
-name: comparison-2
+template: basics
 
-Whereas the `==` compares by coerced value, the `===` operator compares by value but also by type.
+## Equality
+
+The `===` operator compares by value *without any type coercion*.
 
 ```javascript
 1 === "1"; // false
@@ -320,14 +290,24 @@ undefined === null; // false
 
 ---
 
+template: basics
+
+## Semi-colons
+Semi-colons are optional, as long as each statement is written on its own line.
+
+```javascript
+1 === "1" // false
+true === 1 // false
+undefined === null // false
+```
+
+---
+
 name: functions
 
 # Regular Functions
 
----
-
-template: functions
-name: functions-1
+--
 
 The `function` keyword.
 
@@ -341,10 +321,9 @@ doSomething1(); // call the function
 
 ---
 
-template: functions-1
-name: functions-2
+template: functions
 
-And with parameters...
+And with *parameters*/arguments...
 
 ```javascript
 // define a function the most simple way with two parameters
@@ -356,10 +335,9 @@ doSomething2("hello", "world"); // call the function with arguments
 
 ---
 
-template: functions-2
-name: functions-3
+template: functions
 
-And with a return value...
+And with a *return* value...
 
 ```javascript
 // define a function the most simple way with two parameters and a return value
@@ -376,12 +354,26 @@ name: anonymous-functions
 
 # Anonymous Functions
 
+--
+
+Functions in Javascript can be nameless.
+
+```javascript
+// define an anonymous function
+function () {
+  console.log("doSomething1 is running");
+};
+```
+
+--
+
+You may be wondering how you call a function with no name.
+
 ---
 
 template: anonymous-functions
-name: anonymous-functions-1
 
-Functions in Javascript can be nameless.
+One way to call an anonymous function is to assign a *variable* to point to it.
 
 ```javascript
 // define an anonymous function, but assign a variable to refer to it
@@ -397,9 +389,8 @@ doSomething1(); // call the function
 ---
 
 template: anonymous-functions
-name: anonymous-functions-2
 
-And with parameters...
+And with *parameters*...
 
 ```javascript
 // define an anonymous function with parameters, but assign a variable to refer to it
@@ -415,9 +406,8 @@ doSomething2("hello", "world"); // call the function with arguments
 ---
 
 template: anonymous-functions
-name: anonymous-functions-3
 
-And with a return value...
+And with a *return* value...
 
 ```javascript
 // define an anonymous function with parameters and a return value, but assign a variable to refer to it
@@ -437,10 +427,7 @@ name: arrow-functions
 
 # Arrow functions
 
----
-
-template: arrow-functions
-name: arrow-functions-1
+--
 
 A simplified function syntax without the `function` keyword.
 
@@ -458,7 +445,6 @@ doSomething1(); // call the function
 ---
 
 template: arrow-functions
-name: arrow-functions-2
 
 And with parameters...
 
@@ -476,7 +462,6 @@ doSomething2("hello", "world"); // call the function with arguments
 ---
 
 template: arrow-functions
-name: arrow-functions-3
 
 And with a return value...
 
@@ -495,30 +480,25 @@ console.log(doSomething3("hello", "world")); // call the function and use its re
 ---
 
 template: arrow-functions
-name: arrow-functions-4
 
-Function syntax can be even further reduced if all the function does is return a value.
+Function syntax can be even further reduced if all it does is return a value.
 
 ```javascript
-// even further reduced syntax for a function with only a return statement... so no curly braces required
-const doSomething4 = (x, y) =>
-  `doSomething4 is running with x=${x} and y=${y}.`;
+const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`;
+
 console.log(doSomething4("hello", "world")); // call the function and use its return value
 ```
 
 [Try it!](https://repl.it/repls/SalmonWarpedParentheses)
 
-Note that with this shorthand return statement, if the value returned is an object, that object must be encapsulated in parentheses.
-const getFoo = () => ({first: 'Foo', last: 'Barstein'});
-
 ---
 
-template: arrow-functions-4
-name: arrow-functions-5
+template: arrow-functions
 
+Even further reduced syntax with no parentheses around a single parameter:
 ```javascript
-// even further reduced syntax with no parentheses around a single parameter
-const doSomething5 = (x) => `doSomething5 is running with x=${x}.`;
+const doSomething5 = x => `doSomething5 is running with x=${x}.`;
+
 console.log(doSomething5("hello")); // call the function and use its return value
 ```
 
@@ -526,26 +506,44 @@ console.log(doSomething5("hello")); // call the function and use its return valu
 
 ---
 
+template: arrow-functions
+
+Note that with this shorthand return statement, if the value returned is an object, that object **must** be encapsulated in parentheses.
+```javascript
+const getFoo = () => ({first: 'Foo', last: 'Barstein'});
+```
+
+---
+
 name: iife
 
 # Immediately-Invoked Function Expressions
 
----
-
-template: iife
-name: iife-1
+--
 
 Wrapping a function in parentheses turns it into an expression.
 
-- Adding function call parentheses immediately afterwards immediately invokes this function expression.
+```javascript
+(function doSomething() {
+  console.log("doing something");
+});
+```
 
-A simple IIFE:
+---
+
+template: iife
+
+This allows it to be immediately called, if desired.
 
 ```javascript
 (function doSomething() {
   console.log("doing something");
 })();
 ```
+
+---
+
+template: iife
 
 An anonymous arrow function turned into an IIFE:
 
@@ -555,8 +553,24 @@ An anonymous arrow function turned into an IIFE:
 })();
 ```
 
-Similar, but different:
+---
+
+template: iife
+
+Put onto one line.
+
+```javascript
+(() => { console.log("doing something"); })();
+```
+
+---
+
+template: iife
+
+Similar, but different.
+```javascript
 ( message => console.log(message) )('doing something');
+```
 
 [Try it!](https://repl.it/repls/TepidDeepskyblueInternalcommand)
 
@@ -566,10 +580,7 @@ name: objects
 
 # Objects
 
----
-
-template: objects
-name: objects-1
+--
 
 ## Instantiating objects
 
@@ -583,8 +594,12 @@ const me = {
   age: 63,
   isRobot: false,
 };
+```
 
-// add a method to the object on the fly
+--
+
+Methods can be tacked onto extant objects.
+```javascript
 me.speak = function (message) {
   console.log(`${this.name} says, "${message}".`);
 };
@@ -597,9 +612,9 @@ me.speak("Hello!"); // expected output: 'Foo Barstein says, "Hello!".'
 ---
 
 template: objects
-name: objects-2
 
-There is a special shorthand syntax for methods within objects
+## Instance methods
+There is a special shorthand syntax if declaring methods within objects
 
 ```javascript
 const fido = {
@@ -609,6 +624,7 @@ const fido = {
     console.log(`${this.name} the ${this.breed} says, '${message}'`);
   },
 };
+
 fido.bark("Woof!");
 ```
 
@@ -617,7 +633,6 @@ fido.bark("Woof!");
 ---
 
 template: objects
-name: objects-3
 
 ## Objects can be sub-classed by simply copying them
 
@@ -637,11 +652,10 @@ console.log(`robotMe ${robotMe.isRobot ? "is indeed" : "is not"} a robot.`); // 
 ---
 
 template: objects
-name: objects-4
 
 ## Methods in objects
 
-The `this` keyword refers to the object a method is called on. The method is declared in a shorthand syntax
+The `this` keyword refers to the object a method is called on.
 
 ```javascript
 // an object with a method belonging to it
@@ -662,11 +676,10 @@ fido.bark("Woof!"); //expected output: "Fido the Schnauzer says, 'Woof!'"
 ---
 
 template: objects
-name: objects-5
 
-## Constructing objects with a function call
+## Functions are classes... or classes are functions
 
-Objects can alternatively be instantiated by calling a function.
+Objects can alternatively be instantiated by calling a function using the **new** keyword.
 
 ```javascript
 function Dog(name, breed) {
@@ -687,11 +700,10 @@ fido.bark("Woof!");
 ---
 
 template: objects
-name: objects-6
 
 ## Constructing objects with a class definition
 
-Objects can alternatively be instantiated with from a class definition. This is `syntactic sugar` and not a real feature of the language.
+Objects can alternatively be instantiated from a class definition. This is `syntactic sugar` and not a real feature of the language.
 
 ```javascript
 class Dog {
@@ -717,10 +729,7 @@ name: arrays
 
 # Arrays
 
----
-
-template: arrays
-name: arrays-1
+--
 
 ## Basics
 
@@ -732,20 +741,14 @@ let fruits = "avocado,tomato,banana".split(","); // returns ['avocado, 'tomato',
 console.log(`Do you love ${fruits[1]}?`); // expected output "Do you love tomato?"
 ```
 
----
-
-template: arrays-1
-name: arrays-2
+--
 
 ```javascript
 // add an element to an array
 fruits.push("pepper"); // fruits now has ['avocado, 'tomato', 'banana', 'pepper']
 ```
 
----
-
-template: arrays-2
-name: arrays-3
+--
 
 ```javascript
 // find index position of element by value
@@ -757,7 +760,6 @@ console.log(`${fruit} is located in the array at index ${pos}.`);
 ---
 
 template: arrays
-name: arrays-4
 
 ## Basics
 
@@ -768,10 +770,7 @@ Continued.
 fruits.pop(); // fruits now has ['avocado, 'tomato', 'banana']
 ```
 
----
-
-template: arrays-4
-name: arrays-5
+--
 
 ```javascript
 // indexOf returns -1 if value not found in arraay
@@ -779,10 +778,7 @@ pos = fruits.indexOf("pepper"); // 'pepper' is no longer there, so -1 is returne
 console.log(`${fruit} is now located in the array at index ${pos}.`);
 ```
 
----
-
-template: arrays-5
-name: arrays-6
+--
 
 ```javascript
 // join all elements in array into a comma-separated string
@@ -793,29 +789,47 @@ console.log(`The fruits are ${stringAgain}.`);
 ---
 
 template: arrays
-name: arrays-7
 
-## Map function
+## forEach function
 
-Iterates through array values.
+Calls a function for each element in an array.
 
 ```javascript
-// iterate through each value in array and pass it as an argument to a function
-fruits.map((val) => {
-  console.log(`This fruit is ${val}!`);
-});
+const numbers = [65, 44, 12, 4];
+
+numbers.forEach( n => {
+  console.log(n)
+})
+
 ```
 
 ---
 
 template: arrays
-name: arrays-8
+
+## Map function
+
+Creates a new array containing the results of a function call for each array element.  Useful for transforming array values.
+
+```javascript
+const numbers = [65, 44, 12, 4];
+
+const newNumbers = numbers.map( n => n*10 )
+
+// newNumbers now refers to [650, 440, 120, 40]
+```
+
+---
+
+template: arrays
 
 ## Filter function
 
 Create a subset of an array.
 
 ```javascript
+let fruits = "avocado,tomato,banana".split(","); // ['avocado, 'tomato', 'banana']
+
 // create a new array with a subset of the original values
 fruits = fruits.filter((val, i, arr) => {
   return val != "banana"; // returns true for all fruits except 'banana'
@@ -827,7 +841,6 @@ console.log(fruits); // expected output: ['avocado', 'tomato']
 ---
 
 template: arrays
-name: arrays-9
 
 ## Arrays of objects
 
@@ -853,7 +866,7 @@ const products = [
 
 ```javascript
 // loop through each product
-products.map((product) => {
+products.forEach((product) => {
   // print the title and price of each product
   console.log(`${product.title} - ${product.price}`);
 });
@@ -865,10 +878,8 @@ name: higher-order-functions
 
 # Higher Order Functions
 
----
+--
 
-template: higher-order-functions
-name: higher-order-functions-1
 
 Functions can be passed as arguments to other functions.
 
@@ -879,10 +890,8 @@ const foo = (val) => {
 };
 ```
 
----
+--
 
-template: higher-order-functions-1
-name: higher-order-functions-2
 
 ```javascript
 // another function that takes another function as its argument
@@ -891,26 +900,24 @@ const bar = (func, arg) => {
 };
 ```
 
----
+--
 
-template: higher-order-functions-2
-name: higher-order-functions-3
 
 ```javascript
 // pass the foo function to the bar function as an argument
 bar(foo, 5);
 ```
 
-## [Try it!](https://repl.it/repls/UnacceptableUselessPriority)
+- [Try it!](https://repl.it/repls/UnacceptableUselessPriority)
+
+---
 
 name: asynchronicity
 
 # Asynchronicity
 
----
+--
 
-template: asynchronicity
-name: asynchronicity-1
 
 ## Overview
 
@@ -923,7 +930,6 @@ Javascript has three features to handle asynchronicity in code.
 ---
 
 template: asynchronicity
-name: asynchronicity-2
 
 ## Callbacks
 
@@ -953,7 +959,6 @@ doIt(
 ---
 
 template: asynchronicity
-name: asynchronicity-2
 
 ## Promises
 
@@ -984,7 +989,6 @@ doIt()
 ---
 
 template: asynchronicity
-name: asynchronicity-3
 
 ## Async
 
@@ -1009,7 +1013,6 @@ doIt().then((res) => {
 ---
 
 template: asynchronicity
-name: asynchronicity-4
 
 ## Await
 
@@ -1041,10 +1044,8 @@ name: apis
 
 # Using APIs
 
----
+--
 
-template: apis
-name: apis-1
 
 ## Concept
 
@@ -1058,7 +1059,6 @@ When a client requests data from a server, that data must be returned in a parti
 ---
 
 template: apis
-name: apis-3
 
 ## Example
 
@@ -1092,10 +1092,8 @@ name: destructuring
 
 # Destructuring
 
----
+--
 
-template: destructuring
-name: destructuring-1
 
 ## Arrays
 
@@ -1105,10 +1103,8 @@ Values in an array can be extracted into separate variables upon assignment:
 const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 ```
 
----
+--
 
-template: destructuring-1
-name: destructuring-2
 
 The remaining values can be lumped together - this is _rest syntax_:
 
@@ -1116,10 +1112,7 @@ The remaining values can be lumped together - this is _rest syntax_:
 const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
 ```
 
----
-
-template: destructuring-2
-name: destructuring-3
+--
 
 Function parameters can follow this same syntax:
 
@@ -1135,7 +1128,6 @@ foo(10, 20, 30, 40, 50); // pass values as separate arguments
 ---
 
 template: destructuring
-name: destructuring-8
 
 ## Spread syntax
 
@@ -1152,6 +1144,8 @@ let args = [10, 20];
 let total = sum(...args); // spread the values in the array into multiple arguments
 ```
 
+--
+
 Or copying values from one array into another...
 
 ```javascript
@@ -1163,7 +1157,6 @@ let myVals = [1, 2, 3, ...[4, 5, 6]]; // [1, 2, 3, 4, 5, 6]
 ---
 
 template: destructuring
-name: destructuring-4
 
 ## Objects
 
@@ -1185,10 +1178,7 @@ const person = {
 };
 ```
 
----
-
-template: destructuring-4
-name: destructuring-5
+--
 
 ```javascript
 const { name, age } = person; // name='Foo Barstein', age=72
@@ -1201,7 +1191,6 @@ console.log(`age = ${age}`); // expected output: 72
 ---
 
 template: destructuring
-name: destructuring-6
 
 ## Objects
 
@@ -1215,10 +1204,7 @@ console.log(`apparentAge = ${apparentAge}`); // expected output: 72
 
 [Try it!](https://repl.it/repls/VisibleBrilliantStructure)
 
----
-
-template: destructuring-6
-name: destructuring-7
+--
 
 Nested objects can be destructured as well:
 
@@ -1241,47 +1227,31 @@ name: importing
 
 # Importing & Exporting
 
----
-
-template: importing
-name: importing-1
+--
 
 ## Concept
 
 Javascript today allows modular reuse of your own code or that of 3rd parties through its module functionality.
 
----
-
-template: importing-1
-name: importing-2
+--
 
 - the Node Package Manager (NPM) provides easy ways to manage the download, installation, and configuration of open soure 3rd party code libraries.
 
----
-
-template: importing-2
-name: importing-3
+--
 
 - Node supports two different ways of importing/exporting modules: the [CommonJS](https://en.wikipedia.org/wiki/CommonJS) way, and the [ECMAScript 2015](https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015) (ES6) way - these are competing standards.
 
----
-
-template: importing-3
-name: importing-4
+--
 
 - Node originally supported the CommonJS module specification before ES6 was released, since there was nothing in the ECMAScript specification for importing/exporting at that time.
 
----
-
-template: importing-4
-name: importing-5
+--
 
 - Once ES6 arrived, Node added support for its module specification, but a special `'type': 'module'` setting must be added to every Node project's config file named `package.json` for the ES6 module functionality to kick in.
 
 ---
 
 template: importing
-name: importing-1
 
 ## CommonJS exporting
 
@@ -1294,6 +1264,8 @@ Basic CommonJS exporting syntax:
 module.exports = { foo, bar, baz }; // note the CommonJS syntax!
 ```
 
+--
+
 With CommonJS, you could also have exported each variable individually:
 
 ```javascript
@@ -1303,6 +1275,8 @@ module.exports.bar = () => {
 }; // a function
 module.exports.baz = { x: 5, y: 10 }; // an object
 ```
+
+--
 
 Or even without the `module` prefix:
 
@@ -1317,7 +1291,6 @@ exports.baz = { x: 5, y: 10 }; // an object
 ---
 
 template: importing
-name: importing-3
 
 ## CommonJS importing
 
@@ -1326,6 +1299,8 @@ Import named exports using the `require` function:
 ```javascript
 const { foo, bar, baz } = require("./10.exporting");
 ```
+
+--
 
 Or import the entire module and access the named exports separately:
 
@@ -1341,7 +1316,6 @@ myModule.bar(); // access a function exported in the module
 ---
 
 template: importing
-name: importing-2
 
 ## ES6 exporting
 
@@ -1354,6 +1328,8 @@ Basic ES6 exporting syntax:
 export { foo, bar, baz }; // note the ES6 syntax!
 ```
 
+--
+
 With ES6, you could also have exported each variable individually:
 
 ```javascript
@@ -1363,6 +1339,8 @@ export let bar = () => {
 }; // a function
 export let baz = { x: 5, y: 10 }; // an object
 ```
+
+--
 
 Or you can specify one of them as the `default` export, if desired:
 
@@ -1375,7 +1353,6 @@ export let baz = { x: 5, y: 10 }; // an object
 ---
 
 template: importing
-name: importing-4
 
 ## ES6 importing
 
@@ -1385,17 +1362,23 @@ Import named exports using the `import` keyword:
 import { foo, bar, baz } from "./10.exporting";
 ```
 
+--
+
 Or give each import a different name than in the module:
 
 ```javascript
 import { foo as f, bar as b1, baz as b2 } from "./10.exporting";
 ```
 
+--
+
 If the module specified a `default` export, we can import only that - note the syntax:
 
 ```javascript
 import bar from "./10.exporting";
 ```
+
+--
 
 We can also import the default export in combination with some named exports:
 
@@ -1409,49 +1392,35 @@ name: implementations
 
 # Implementation Differences
 
----
-
-template: implementations
-name: implementations-1
+--
 
 ## Differences
 
 Javascript can be run either _within a web page_ loaded by a web browser (i.e. client-side) or _on an HTTP server_ using Node.js. There are some key differences.
 
----
-
-template: implementations-1
-name: implementations-2
+--
 
 - _Javascript in the web browser_ is primarily focused on interacting with the browser's [Document Object Model](https://knowledge.kitchen/Document_Object_Model) (DOM) - an object created automatically by the browser itself that contains and allows the Javsacript to modify all the contents, styles, and behaviors of the web page currently loaded in the browser's memory.
 
----
-
-template: implementations-2
-name: implementations-3
+--
 
 - _Node.js runs on the server_, where there is no currently-loaded web page. So the DOM does not exist and is not of any use in controlling server behavior. Node.js has its own set of [built-in variables and objects](https://knowledge.kitchen/Node.js_notes#Global_variables).
 
 ---
 
 template: implementations
-name: implementations-4
 
 ## Differences (continued)
 
 - There are _myriad web browsers_ with _myriad different versions_ in active use by people across The Web. Programming Javascript that will work in all of them usually means taking a _lowest-common denominator approach_ and sticking to language features that have been supported by browsers for many years.
 
----
-
-template: implementations-4
-name: implementations-5
+--
 
 - Unlike with the web browser, _you control the server_, including which version of Javascript is supported. So you can guarantee support for whichever version of Node.js you choose to program in.
 
 ---
 
 template: implementations
-name: implementations-6
 
 ## Browser example
 
@@ -1462,6 +1431,8 @@ Imagine the following HTML code for a button and a picture of a donkey.
 <img id="neigh" src="images/donkey.jpg" />
 ```
 
+--
+
 And let's say the following CSS code hid the donkey:
 
 ```css
@@ -1470,6 +1441,8 @@ img#neigh {
   display: none;
 }
 ```
+
+--
 
 The following client-side Javascript, using the popular [JQuery](https://jquery.com) framework, will wait for the user to click the button and then will run the callback function:
 
@@ -1485,7 +1458,6 @@ $("button#clickme").click(function () {
 ---
 
 template: implementations
-name: implementations-7
 
 ## Server example
 
@@ -1512,11 +1484,10 @@ name: conclusions
 
 # Conclusions
 
----
-
-template: conclusions
-name: conclusions-1
+--
 
 You are now primed dive into the web browser's implementation of Javascript, as well as configuring projects with NPM and Express.js and React's implementations!
+
+--
 
 - Thank you. Bye
