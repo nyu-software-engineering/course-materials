@@ -374,8 +374,17 @@ template: layered-architecture
 --
 
 - **HTTP** is concerned with properly generating requests and responses and sending them via TCP
+
+--
+
 - **TCP** is used to ensure successful transmmission of request/response data from one computer to another using IP
+
+--
+
 - **IP** makes sure data packets are packaged and addressed correctly
+
+--
+
 - **Various networking protocols** are then used to pass the data along local and regional networks
 
 ---
@@ -388,7 +397,7 @@ name: http
 
 ## Standardized requests and responses
 
-The HTTP specification indicates
+The [HTTP specification](https://www.w3.org/Protocols/rfc2616/rfc2616.html) indicates
 
 - how Web clients can make requests to Web servers
 - how Web servers can respond to those requests from Web clients
@@ -563,7 +572,7 @@ template: front-end
 
 ## Javascript
 
-Used to indicate interaative behaviors of a web page.
+Used to indicate interactive behaviors of a web page.
 
 ```javascript
 // when the link is clicked...
@@ -752,7 +761,12 @@ template: databases
 
 There are some limited data storage capabilities of web browsers, where data used by a web site is stored locally on the client machine.
 
+--
+
 - **Cookies** - often used to store tracking codes that are secretly passed to the server in an HTTP header with every request
+
+--
+
 - **LocalStorage** - often used to store larger block of data, such as web pagee content that can be displayed even when browser is offline
 
 ---
@@ -779,7 +793,7 @@ What we have been discussing until now is termed a **monolithic** architecture
 
 --
 
-- Over time, the codebase tends to grow _larger_, _more complex_ and _tangled_ and becomes difficult to maintain
+- Over time, the codebase tends to grow _larger_, _more complex_ and _tangled_ and becomes difficult to maintain... everything is lumped together into a single codebase.
 
 ---
 
