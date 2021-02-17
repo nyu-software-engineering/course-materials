@@ -186,7 +186,7 @@ A few terms we must familiarize ourselves with.
 
 - Clone
 - Fork
-- Master
+- Main
 - Branch
 - Remote
 - Pull
@@ -252,9 +252,9 @@ template: fork
 ---
 
 template: terminology
-name: master
+name: main
 
-## Master
+## Main
 
 The Git term for the `trunk` line of code.
 
@@ -264,7 +264,7 @@ The Git term for the `trunk` line of code.
 
 --
 
-![Master branch](../images/git_master.png)
+![Main branch](../images/git_main.png)
 
 ---
 
@@ -273,7 +273,7 @@ name: branch
 
 ## Branch
 
-The term for an offshoot of the `trunk` or `master` line of code.
+The term for an offshoot of the `trunk` or `main` line of code.
 
 --
 
@@ -313,8 +313,8 @@ git checkout experiment1
 --
 
 ```bash
-# switch back to the master branch
-git checkout master
+# switch back to the main branch
+git checkout main
 ```
 
 ---
@@ -383,15 +383,15 @@ Download and merge any changes _in the current branch_ from a remote repository 
 template: pull
 
 ```bash
-# download any changes in the master branch from the 'origin' remote repository to the local repository
-git pull origin master
+# download any changes in the main branch from the 'origin' remote repository to the local repository
+git pull origin main
 ```
 
 --
 
 ```bash
-# download any changes in the master branch from the 'upstream' remote repository to the local repository
-git pull upstream master
+# download any changes in the main branch from the 'upstream' remote repository to the local repository
+git pull upstream main
 ```
 
 ---
@@ -412,15 +412,15 @@ Upload changes from the local repository to a remote repository.
 template: push
 
 ```bash
-# Upload any changs in the master branch from the local repository to the 'origin' remote repository
-git push origin master
+# Upload any changs in the main branch from the local repository to the 'origin' remote repository
+git push origin main
 ```
 
 --
 
 ```bash
-# Upload any changs in the master branch from the local repository to the 'upstream' remote repository
-git push upstream master
+# Upload any changs in the main branch from the local repository to the 'upstream' remote repository
+git push upstream main
 ```
 
 ---
@@ -484,11 +484,11 @@ git checkout some-branch-name # switch to a branch where you will make changes i
 
 # make some chages to the code in this branch, if desired using your preferred editor
 
-git checkout master # switch back to the master branch to prepare to merge
+git checkout main # switch back to the main branch to prepare to merge
 
-git pull origin master # download any recent changes from the origin server
+git pull origin main # download any recent changes from the origin server
 
-git merge some-branch-name # incorporaate your changes in the branch into the code in the master branch
+git merge some-branch-name # incorporaate your changes in the branch into the code in the main branch
 
 git branch -d some-branch-name # delete the branch now that we're done with it
 ```
@@ -589,16 +589,16 @@ template: sharing
 
 ## Pushing changes to the remote repository
 
-Push the code in the current branch from the local repository to the branch named 'master' on the remote repository called 'origin':
+Push the code in the current branch from the local repository to the branch named 'main' on the remote repository called 'origin':
 
 ```bash
 git pull
-git push -u origin master
+git push -u origin main
 ```
 
 --
 
-Or, if you are already in the 'master' branch and the remote named 'origin' has already been defined:
+Or, if you are already in the 'main' branch and the remote named 'origin' has already been defined:
 
 ```bash
 git pull
