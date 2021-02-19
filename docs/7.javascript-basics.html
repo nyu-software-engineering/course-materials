@@ -79,7 +79,8 @@ Javascript, also known as ECMAScript, has a few unusual features that trouble pr
 template: overview
 
 ## Try it yourself
-Try out the code examples in this deck for yourself: https://repl.it/@foobarstein/node-js-examples
+
+Try out the code examples in this deck for yourself: https://github.com/nyu-software-engineering/javascript-crash-course
 
 ---
 
@@ -103,9 +104,8 @@ Three keywords to declare a variable:
 
 --
 
-- **var** - for defining function-scoped variables, or global variables if not declared within a function... 
---
-*supported for legacy purposes and should not be used in new code*
+- ## **var** - for defining function-scoped variables, or global variables if not declared within a function...
+  _supported for legacy purposes and should not be used in new code_
 
 ---
 
@@ -121,8 +121,6 @@ it = it ? false : true; // reassign it to be its opposite using the ternary oper
 
 console.log(`It is ${it}!`); // expected output: 'It is false!'
 ```
-
-[Try it!](https://repl.it/repls/BlandFlickeringPolygon)
 
 ---
 
@@ -198,8 +196,6 @@ const y = 10;
 console.log(`The result is ${x + y}.`); // expected output: 'The result is 15.'
 ```
 
-[Try it!](https://repl.it/repls/ColorfulProfitableLocatorprogram)
-
 ---
 
 template: basics
@@ -266,7 +262,7 @@ template: basics
 
 ## Equality
 
-The `==` operator compares by value *with type coercion*.
+The `==` operator compares by value _with type coercion_.
 
 ```javascript
 1 == "1"; // true
@@ -280,7 +276,7 @@ template: basics
 
 ## Equality
 
-The `===` operator compares by value *without any type coercion*.
+The `===` operator compares by value _without any type coercion_.
 
 ```javascript
 1 === "1"; // false
@@ -293,13 +289,18 @@ undefined === null; // false
 template: basics
 
 ## Semi-colons
+
 Semi-colons are optional, as long as each statement is written on its own line.
 
 ```javascript
-1 === "1" // false
-true === 1 // false
-undefined === null // false
+1 === "1"; // false
+true === 1; // false
+undefined === null; // false
 ```
+
+--
+
+- do not use them, if you can help it.
 
 ---
 
@@ -323,7 +324,7 @@ doSomething1(); // call the function
 
 template: functions
 
-And with *parameters*/arguments...
+And with _parameters_/arguments...
 
 ```javascript
 // define a function the most simple way with two parameters
@@ -337,7 +338,7 @@ doSomething2("hello", "world"); // call the function with arguments
 
 template: functions
 
-And with a *return* value...
+And with a _return_ value...
 
 ```javascript
 // define a function the most simple way with two parameters and a return value
@@ -373,7 +374,7 @@ You may be wondering how you call a function with no name.
 
 template: anonymous-functions
 
-One way to call an anonymous function is to assign a *variable* to point to it.
+One way to call an anonymous function is to assign a _variable_ to point to it.
 
 ```javascript
 // define an anonymous function, but assign a variable to refer to it
@@ -384,13 +385,11 @@ const doSomething1 = function () {
 doSomething1(); // call the function
 ```
 
-[Try it!](https://repl.it/repls/DeeppinkSecondaryReference)
-
 ---
 
 template: anonymous-functions
 
-And with *parameters*...
+And with _parameters_...
 
 ```javascript
 // define an anonymous function with parameters, but assign a variable to refer to it
@@ -401,13 +400,11 @@ const doSomething2 = function (x, y) {
 doSomething2("hello", "world"); // call the function with arguments
 ```
 
-[Try it!](https://repl.it/repls/ShadyNavyblueGravity)
-
 ---
 
 template: anonymous-functions
 
-And with a *return* value...
+And with a _return_ value...
 
 ```javascript
 // define an anonymous function with parameters and a return value, but assign a variable to refer to it
@@ -418,8 +415,6 @@ const doSomething3 = function (x, y) {
 
 console.log(doSomething3("hello", "world")); // call the function and use its return value
 ```
-
-[Try it!](https://repl.it/repls/InferiorRecursiveInitialization)
 
 ---
 
@@ -440,8 +435,6 @@ const doSomething1 = () => {
 doSomething1(); // call the function
 ```
 
-[Try it!](https://repl.it/repls/SoggyReliableEnterprise)
-
 ---
 
 template: arrow-functions
@@ -456,8 +449,6 @@ const doSomething2 = (x, y) => {
 
 doSomething2("hello", "world"); // call the function with arguments
 ```
-
-[Try it!](https://repl.it/repls/WhirlwindWastefulSeahorse)
 
 ---
 
@@ -475,8 +466,6 @@ const doSomething3 = (x, y) => {
 console.log(doSomething3("hello", "world")); // call the function and use its return value
 ```
 
-[Try it!](https://repl.it/repls/StainedBlueContent)
-
 ---
 
 template: arrow-functions
@@ -484,33 +473,32 @@ template: arrow-functions
 Function syntax can be even further reduced if all it does is return a value.
 
 ```javascript
-const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`;
+const doSomething4 = (x, y) =>
+  `doSomething4 is running with x=${x} and y=${y}.`;
 
 console.log(doSomething4("hello", "world")); // call the function and use its return value
 ```
-
-[Try it!](https://repl.it/repls/SalmonWarpedParentheses)
 
 ---
 
 template: arrow-functions
 
 Even further reduced syntax with no parentheses around a single parameter:
+
 ```javascript
-const doSomething5 = x => `doSomething5 is running with x=${x}.`;
+const doSomething5 = (x) => `doSomething5 is running with x=${x}.`;
 
 console.log(doSomething5("hello")); // call the function and use its return value
 ```
-
-[Try it!](https://repl.it/repls/FunctionalHelplessPresses)
 
 ---
 
 template: arrow-functions
 
 Note that with this shorthand return statement, if the value returned is an object, that object **must** be encapsulated in parentheses.
+
 ```javascript
-const getFoo = () => ({first: 'Foo', last: 'Barstein'});
+const getFoo = () => ({ first: "Foo", last: "Barstein" });
 ```
 
 ---
@@ -560,7 +548,9 @@ template: iife
 Put onto one line.
 
 ```javascript
-(() => { console.log("doing something"); })();
+(() => {
+  console.log("doing something");
+})();
 ```
 
 ---
@@ -568,11 +558,10 @@ Put onto one line.
 template: iife
 
 Similar, but different.
-```javascript
-( message => console.log(message) )('doing something');
-```
 
-[Try it!](https://repl.it/repls/TepidDeepskyblueInternalcommand)
+```javascript
+((message) => console.log(message))("doing something");
+```
 
 ---
 
@@ -599,6 +588,7 @@ const me = {
 --
 
 Methods can be tacked onto extant objects.
+
 ```javascript
 me.speak = function (message) {
   console.log(`${this.name} says, "${message}".`);
@@ -607,13 +597,12 @@ me.speak = function (message) {
 me.speak("Hello!"); // expected output: 'Foo Barstein says, "Hello!".'
 ```
 
-[Try it!](https://repl.it/repls/CultivatedCautiousTrapezoid)
-
 ---
 
 template: objects
 
 ## Instance methods
+
 There is a special shorthand syntax if declaring methods within objects
 
 ```javascript
@@ -627,8 +616,6 @@ const fido = {
 
 fido.bark("Woof!");
 ```
-
-[Try it!](https://repl.it/repls/ImmaculateHurtfulLink)
 
 ---
 
@@ -646,8 +633,6 @@ robotMe.isRobot = true; // modify this new object in some way
 console.log(`me ${me.isRobot ? "is indeed" : "is not"} a robot.`); // expected output: "My name is Foo Barstein"
 console.log(`robotMe ${robotMe.isRobot ? "is indeed" : "is not"} a robot.`); // expected output: "My name is Foo Barstein"
 ```
-
-[Try it!](https://repl.it/repls/BouncyQueasyLists)
 
 ---
 
@@ -671,8 +656,6 @@ const fido = {
 fido.bark("Woof!"); //expected output: "Fido the Schnauzer says, 'Woof!'"
 ```
 
-[Try it!](https://repl.it/repls/BurlyCircularSystemresource)
-
 ---
 
 template: objects
@@ -694,8 +677,6 @@ function Dog(name, breed) {
 let fido = new Dog("Fido", "Schnauzer");
 fido.bark("Woof!");
 ```
-
-[Try it!](https://repl.it/repls/OverjoyedMurkyFlashmemory)
 
 ---
 
@@ -720,8 +701,6 @@ class Dog {
 let fido = new Dog("Fido", "Schnauzer");
 fido.bark("Woof!");
 ```
-
-[Try it!](https://repl.it/repls/FancyKhakiZip)
 
 ---
 
@@ -782,7 +761,7 @@ console.log(`${fruit} is now located in the array at index ${pos}.`);
 
 ```javascript
 // join all elements in array into a comma-separated string
-const stringAgain = fruits.join(','); returns 'avocado,tomato, banana'
+const stringAgain = fruits.join(","); // returns 'avocado,tomato, banana'
 console.log(`The fruits are ${stringAgain}.`);
 ```
 
@@ -797,10 +776,9 @@ Calls a function for each element in an array.
 ```javascript
 const numbers = [65, 44, 12, 4];
 
-numbers.forEach( n => {
-  console.log(n)
-})
-
+numbers.forEach((n) => {
+  console.log(n);
+});
 ```
 
 ---
@@ -809,12 +787,12 @@ template: arrays
 
 ## Map function
 
-Creates a new array containing the results of a function call for each array element.  Useful for transforming array values.
+Creates a new array containing the results of a function call for each array element. Useful for transforming array values.
 
 ```javascript
 const numbers = [65, 44, 12, 4];
 
-const newNumbers = numbers.map( n => n*10 )
+const newNumbers = numbers.map((n) => n * 10);
 
 // newNumbers now refers to [650, 440, 120, 40]
 ```
@@ -880,7 +858,6 @@ name: higher-order-functions
 
 --
 
-
 Functions can be passed as arguments to other functions.
 
 ```javascript
@@ -892,7 +869,6 @@ const foo = (val) => {
 
 --
 
-
 ```javascript
 // another function that takes another function as its argument
 const bar = (func, arg) => {
@@ -902,13 +878,10 @@ const bar = (func, arg) => {
 
 --
 
-
 ```javascript
 // pass the foo function to the bar function as an argument
 bar(foo, 5);
 ```
-
-- [Try it!](https://repl.it/repls/UnacceptableUselessPriority)
 
 ---
 
@@ -917,7 +890,6 @@ name: asynchronicity
 # Asynchronicity
 
 --
-
 
 ## Overview
 
@@ -954,8 +926,6 @@ doIt(
 );
 ```
 
-[Try it!](https://repl.it/repls/EarnestSimplisticMicroprogramming)
-
 ---
 
 template: asynchronicity
@@ -984,8 +954,6 @@ doIt()
   });
 ```
 
-[Try it!](https://repl.it/repls/SnappyStaidJavabytecode);
-
 ---
 
 template: asynchronicity
@@ -1007,8 +975,6 @@ doIt().then((res) => {
   console.log(`Success: ${res}`);
 });
 ```
-
-[Try it!]()
 
 ---
 
@@ -1036,8 +1002,6 @@ doIt()
   });
 ```
 
-[Try it!](https://repl.it/repls/ImmaculateSerpentineConditions)
-
 ---
 
 name: apis
@@ -1045,7 +1009,6 @@ name: apis
 # Using APIs
 
 --
-
 
 ## Concept
 
@@ -1084,8 +1047,6 @@ https
   });
 ```
 
-[Try it!](https://repl.it/repls/FaroffImpureCells) or [see the raw data returned by the API](https://my.api.mockaroo.com/users.json?key=d9ddfc40):
-
 ---
 
 name: destructuring
@@ -1093,7 +1054,6 @@ name: destructuring
 # Destructuring
 
 --
-
 
 ## Arrays
 
@@ -1104,7 +1064,6 @@ const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 ```
 
 --
-
 
 The remaining values can be lumped together - this is _rest syntax_:
 
@@ -1122,8 +1081,6 @@ function foo(a, b, ...args) {
 }
 foo(10, 20, 30, 40, 50); // pass values as separate arguments
 ```
-
-[Try it!](https://repl.it/repls/MindlessLazyTriangles)
 
 ---
 
@@ -1151,8 +1108,6 @@ Or copying values from one array into another...
 ```javascript
 let myVals = [1, 2, 3, ...[4, 5, 6]]; // [1, 2, 3, 4, 5, 6]
 ```
-
-[Try it!](https://repl.it/repls/PerfumedScarceComputationalscience)
 
 ---
 
@@ -1186,8 +1141,6 @@ console.log(`name = ${name}`); // expected output: 'Foo Barstein'
 console.log(`age = ${age}`); // expected output: 72
 ```
 
-[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
-
 ---
 
 template: destructuring
@@ -1201,8 +1154,6 @@ const { name: fullName, age: apparentAge } = person; // { fullName: 'Foo Barstei
 console.log(`fullName = ${fullName}`); // expected output: 'Foo Barstein'
 console.log(`apparentAge = ${apparentAge}`); // expected output: 72
 ```
-
-[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
 
 --
 
@@ -1218,8 +1169,6 @@ const {
 console.log(`email = ${email}`); // expected output: 'fb1258@teleworm.us'
 console.log(`city = ${city}`); // expected output: 'Beni Brahim''
 ```
-
-[Try it!](https://repl.it/repls/VisibleBrilliantStructure)
 
 ---
 
@@ -1310,8 +1259,6 @@ const myModule = require("./10.exporting"); // import module as a whole
 console.log(myModule.foo); // access a value exported in the module
 myModule.bar(); // access a function exported in the module
 ```
-
-[Try it!](https://repl.it/repls/PresentSpotlessDefragment)
 
 ---
 
@@ -1457,8 +1404,6 @@ $("button#clickme").click(function () {
 });
 ```
 
-[Try it!](https://jsfiddle.net/barsteinfoo/qt7xzf9u/2/)
-
 ---
 
 template: implementations
@@ -1479,8 +1424,6 @@ app.post("/foo", (request, response) => {
   response.send(`Hello, ${req.body.name}!`); // send the response
 });
 ```
-
-[Try it!](https://repl.it/repls/HarmfulFirmMultiprocessing)
 
 ---
 
