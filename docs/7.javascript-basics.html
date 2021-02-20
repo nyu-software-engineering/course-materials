@@ -115,11 +115,11 @@ template: basics
 
 ```javascript
 // non-constant variables are declared with the let keyword
-let it = true; // it's true!
+let it = true // it's true!
 
-it = it ? false : true; // reassign it to be its opposite using the ternary operator
+it = it ? false : true // reassign it to be its opposite using the ternary operator
 
-console.log(`It is ${it}!`); // expected output: 'It is false!'
+console.log(`It is ${it}!`) // expected output: 'It is false!'
 ```
 
 ---
@@ -130,11 +130,11 @@ template: basics
 
 ```javascript
 // constants are declared with the const keyword
-const data = [10, 20, 30]; // a variable that can't be reassigned!
+const data = [10, 20, 30] // a variable that can't be reassigned!
 
-data[1] = "ha!"; // but this is not variable reassignment!
+data[1] = "ha!" // but this is not variable reassignment!
 
-console.log(data); // expected output: [10, 'ha!', 30]
+console.log(data) // expected output: [10, 'ha!', 30]
 ```
 
 ---
@@ -146,13 +146,13 @@ template: basics
 Imagine the following code?
 
 ```javascript
-let x = 5;
+let x = 5
 
 {
-  let x = 10;
+  let x = 10
 }
 
-console.log(x);
+console.log(x)
 ```
 
 What is output?
@@ -166,9 +166,9 @@ template: basics
 Basic output to the console
 
 ```javascript
-let stuff = "some text";
+let stuff = "some text"
 
-console.log("This is " + stuff + "."); // expected output: 'This is some text.'
+console.log("This is " + stuff + ".") // expected output: 'This is some text.'
 ```
 
 ---
@@ -180,9 +180,9 @@ template: basics
 Template syntax enapsulating a string with backtics
 
 ```javascript
-let stuff = "some text";
+let stuff = "some text"
 
-console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
+console.log(`This is ${stuff}.`) // expected output: 'This is some text.'
 ```
 
 --
@@ -190,10 +190,10 @@ console.log(`This is ${stuff}.`); // expected output: 'This is some text.'
 Template syntax will accept any expression
 
 ```javascript
-const x = 5;
-const y = 10;
+const x = 5
+const y = 10
 
-console.log(`The result is ${x + y}.`); // expected output: 'The result is 15.'
+console.log(`The result is ${x + y}.`) // expected output: 'The result is 15.'
 ```
 
 ---
@@ -207,7 +207,7 @@ The expected behavior.
 ```javascript
 // iterate 5 times
 for (let i = 1; i < 6; i++) {
-  console.log(`For loop iteration #${i}`);
+  console.log(`For loop iteration #${i}`)
 }
 ```
 
@@ -216,7 +216,7 @@ for (let i = 1; i < 6; i++) {
 ```javascript
 // infinite loop
 for (let i = 1; true; i++) {
-  console.log(`For loop iteration #${i}`);
+  console.log(`For loop iteration #${i}`)
 }
 ```
 
@@ -225,7 +225,7 @@ for (let i = 1; true; i++) {
 ```javascript
 // finite loop
 for (someValue in someArray) {
-  console.log(`The value is ${someValue}`);
+  console.log(`The value is ${someValue}`)
 }
 ```
 
@@ -239,20 +239,20 @@ The expected behavior.
 
 ```javascript
 // iterate 5 times
-let i = 1;
+let i = 1
 while (i < 6) {
-  console.log(`While loop iteration #${i}`);
-  i++;
+  console.log(`While loop iteration #${i}`)
+  i++
 }
 ```
 
 --
 
 ```javascript
-let i = 0;
+let i = 0
 while (true) {
-  console.log(`While loop iteration #${i}`);
-  i++;
+  console.log(`While loop iteration #${i}`)
+  i++
 }
 ```
 
@@ -265,9 +265,9 @@ template: basics
 The `==` operator compares by value _with type coercion_.
 
 ```javascript
-1 == "1"; // true
-true == 1; // true
-undefined == null; // true
+1 == "1" // true
+true == 1 // true
+undefined == null // true
 ```
 
 ---
@@ -279,9 +279,9 @@ template: basics
 The `===` operator compares by value _without any type coercion_.
 
 ```javascript
-1 === "1"; // false
-true === 1; // false
-undefined === null; // false
+1 === "1" // false
+true === 1 // false
+undefined === null // false
 ```
 
 ---
@@ -293,9 +293,9 @@ template: basics
 Semi-colons are optional, as long as each statement is written on its own line.
 
 ```javascript
-1 === "1"; // false
-true === 1; // false
-undefined === null; // false
+1 === "1" // false
+true === 1 // false
+undefined === null // false
 ```
 
 --
@@ -315,9 +315,9 @@ The `function` keyword.
 ```javascript
 // define a function the most simple way
 function doSomething1() {
-  console.log("doSomething1 is running");
+  console.log("doSomething1 is running")
 }
-doSomething1(); // call the function
+doSomething1() // call the function
 ```
 
 ---
@@ -329,9 +329,9 @@ And with _parameters_/arguments...
 ```javascript
 // define a function the most simple way with two parameters
 function doSomething2(x, y) {
-  console.log(`doSomething2 is running with x=${x} and y=${y}.`);
+  console.log(`doSomething2 is running with x=${x} and y=${y}.`)
 }
-doSomething2("hello", "world"); // call the function with arguments
+doSomething2("hello", "world") // call the function with arguments
 ```
 
 ---
@@ -343,10 +343,10 @@ And with a _return_ value...
 ```javascript
 // define a function the most simple way with two parameters and a return value
 function doSomething3(x, y) {
-  const msg = `doSomething3 is running with x=${x} and y=${y}.`;
-  return msg;
+  const msg = `doSomething3 is running with x=${x} and y=${y}.`
+  return msg
 }
-console.log(doSomething3("hello", "world")); // call the function and use its return value
+console.log(doSomething3("hello", "world")) // call the function and use its return value
 ```
 
 ---
@@ -362,8 +362,8 @@ Functions in Javascript can be nameless.
 ```javascript
 // define an anonymous function
 function () {
-  console.log("doSomething1 is running");
-};
+  console.log("doSomething1 is running")
+}
 ```
 
 --
@@ -379,10 +379,10 @@ One way to call an anonymous function is to assign a _variable_ to point to it.
 ```javascript
 // define an anonymous function, but assign a variable to refer to it
 const doSomething1 = function () {
-  console.log("doSomething1 is running");
-};
+  console.log("doSomething1 is running")
+}
 
-doSomething1(); // call the function
+doSomething1() // call the function
 ```
 
 ---
@@ -394,10 +394,10 @@ And with _parameters_...
 ```javascript
 // define an anonymous function with parameters, but assign a variable to refer to it
 const doSomething2 = function (x, y) {
-  console.log(`doSomething2 is running with x=${x} and y=${y}.`);
-};
+  console.log(`doSomething2 is running with x=${x} and y=${y}.`)
+}
 
-doSomething2("hello", "world"); // call the function with arguments
+doSomething2("hello", "world") // call the function with arguments
 ```
 
 ---
@@ -409,11 +409,11 @@ And with a _return_ value...
 ```javascript
 // define an anonymous function with parameters and a return value, but assign a variable to refer to it
 const doSomething3 = function (x, y) {
-  const msg = `doSomething3 is running with x=${x} and y=${y}.`;
-  return msg;
-};
+  const msg = `doSomething3 is running with x=${x} and y=${y}.`
+  return msg
+}
 
-console.log(doSomething3("hello", "world")); // call the function and use its return value
+console.log(doSomething3("hello", "world")) // call the function and use its return value
 ```
 
 ---
@@ -429,10 +429,10 @@ A simplified function syntax without the `function` keyword.
 ```javascript
 // an arrow function with no parameters or return value
 const doSomething1 = () => {
-  console.log("doSomething1 is running");
-};
+  console.log("doSomething1 is running")
+}
 
-doSomething1(); // call the function
+doSomething1() // call the function
 ```
 
 ---
@@ -444,10 +444,10 @@ And with parameters...
 ```javascript
 // an arrow function with parameters
 const doSomething2 = (x, y) => {
-  console.log(`doSomething2 is running with x=${x} and y=${y}.`);
-};
+  console.log(`doSomething2 is running with x=${x} and y=${y}.`)
+}
 
-doSomething2("hello", "world"); // call the function with arguments
+doSomething2("hello", "world") // call the function with arguments
 ```
 
 ---
@@ -459,11 +459,11 @@ And with a return value...
 ```javascript
 // an arrow function with parameters and a return value
 const doSomething3 = (x, y) => {
-  const msg = `doSomething3 is running with x=${x} and y=${y}.`;
-  return msg;
-};
+  const msg = `doSomething3 is running with x=${x} and y=${y}.`
+  return msg
+}
 
-console.log(doSomething3("hello", "world")); // call the function and use its return value
+console.log(doSomething3("hello", "world")) // call the function and use its return value
 ```
 
 ---
@@ -473,10 +473,9 @@ template: arrow-functions
 Function syntax can be even further reduced if all it does is return a value.
 
 ```javascript
-const doSomething4 = (x, y) =>
-  `doSomething4 is running with x=${x} and y=${y}.`;
+const doSomething4 = (x, y) => `doSomething4 is running with x=${x} and y=${y}.`
 
-console.log(doSomething4("hello", "world")); // call the function and use its return value
+console.log(doSomething4("hello", "world")) // call the function and use its return value
 ```
 
 ---
@@ -486,9 +485,9 @@ template: arrow-functions
 Even further reduced syntax with no parentheses around a single parameter:
 
 ```javascript
-const doSomething5 = (x) => `doSomething5 is running with x=${x}.`;
+const doSomething5 = x => `doSomething5 is running with x=${x}.`
 
-console.log(doSomething5("hello")); // call the function and use its return value
+console.log(doSomething5("hello")) // call the function and use its return value
 ```
 
 ---
@@ -498,7 +497,7 @@ template: arrow-functions
 Note that with this shorthand return statement, if the value returned is an object, that object **must** be encapsulated in parentheses.
 
 ```javascript
-const getFoo = () => ({ first: "Foo", last: "Barstein" });
+const getFoo = () => ({ first: "Foo", last: "Barstein" })
 ```
 
 ---
@@ -512,9 +511,9 @@ name: iife
 Wrapping a function in parentheses turns it into an expression.
 
 ```javascript
-(function doSomething() {
-  console.log("doing something");
-});
+;(function doSomething() {
+  console.log("doing something")
+})
 ```
 
 ---
@@ -524,9 +523,9 @@ template: iife
 This allows it to be immediately called, if desired.
 
 ```javascript
-(function doSomething() {
-  console.log("doing something");
-})();
+;(function doSomething() {
+  console.log("doing something")
+})()
 ```
 
 ---
@@ -536,9 +535,9 @@ template: iife
 An anonymous arrow function turned into an IIFE:
 
 ```javascript
-(() => {
-  console.log("doing something");
-})();
+;(() => {
+  console.log("doing something")
+})()
 ```
 
 ---
@@ -548,9 +547,9 @@ template: iife
 Put onto one line.
 
 ```javascript
-(() => {
-  console.log("doing something");
-})();
+;(() => {
+  console.log("doing something")
+})()
 ```
 
 ---
@@ -560,7 +559,7 @@ template: iife
 Similar, but different.
 
 ```javascript
-((message) => console.log(message))("doing something");
+;(message => console.log(message))("doing something")
 ```
 
 ---
@@ -582,7 +581,7 @@ const me = {
   phone: "212-666-1212",
   age: 63,
   isRobot: false,
-};
+}
 ```
 
 --
@@ -591,10 +590,10 @@ Methods can be tacked onto extant objects.
 
 ```javascript
 me.speak = function (message) {
-  console.log(`${this.name} says, "${message}".`);
-};
+  console.log(`${this.name} says, "${message}".`)
+}
 
-me.speak("Hello!"); // expected output: 'Foo Barstein says, "Hello!".'
+me.speak("Hello!") // expected output: 'Foo Barstein says, "Hello!".'
 ```
 
 ---
@@ -610,11 +609,11 @@ const fido = {
   name: "Fido",
   breed: "Schnauzer",
   bark(message) {
-    console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    console.log(`${this.name} the ${this.breed} says, '${message}'`)
   },
-};
+}
 
-fido.bark("Woof!");
+fido.bark("Woof!")
 ```
 
 ---
@@ -627,11 +626,11 @@ Javascript uses prototypal inheritance, where one object uses another as the pro
 
 ```javascript
 // make a copy of an object - this is prototypal inheritance
-const robotMe = Object.create(me); // creates a new object based on the original prototype
-robotMe.isRobot = true; // modify this new object in some way
+const robotMe = Object.create(me) // creates a new object based on the original prototype
+robotMe.isRobot = true // modify this new object in some way
 
-console.log(`me ${me.isRobot ? "is indeed" : "is not"} a robot.`); // expected output: "My name is Foo Barstein"
-console.log(`robotMe ${robotMe.isRobot ? "is indeed" : "is not"} a robot.`); // expected output: "My name is Foo Barstein"
+console.log(`me ${me.isRobot ? "is indeed" : "is not"} a robot.`) // expected output: "My name is Foo Barstein"
+console.log(`robotMe ${robotMe.isRobot ? "is indeed" : "is not"} a robot.`) // expected output: "My name is Foo Barstein"
 ```
 
 ---
@@ -648,12 +647,12 @@ const fido = {
   name: "Fido",
   breed: "Schnauzer",
   bark(message) {
-    console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    console.log(`${this.name} the ${this.breed} says, '${message}'`)
   },
-};
+}
 
 // call the bark method on the fido object
-fido.bark("Woof!"); //expected output: "Fido the Schnauzer says, 'Woof!'"
+fido.bark("Woof!") //expected output: "Fido the Schnauzer says, 'Woof!'"
 ```
 
 ---
@@ -666,16 +665,16 @@ Objects can alternatively be instantiated by calling a function using the **new*
 
 ```javascript
 function Dog(name, breed) {
-  this.name = name;
-  this.breed = breed;
-  this.bark = (message) => {
-    console.log(`${this.name} the ${this.breed} says, '${message}'`);
-  };
+  this.name = name
+  this.breed = breed
+  this.bark = message => {
+    console.log(`${this.name} the ${this.breed} says, '${message}'`)
+  }
 }
 
 // instantiate an object and call its method
-let fido = new Dog("Fido", "Schnauzer");
-fido.bark("Woof!");
+let fido = new Dog("Fido", "Schnauzer")
+fido.bark("Woof!")
 ```
 
 ---
@@ -689,17 +688,17 @@ Objects can alternatively be instantiated from a class definition. This is `synt
 ```javascript
 class Dog {
   constructor(name, breed) {
-    this.name = name;
-    this.breed = breed;
+    this.name = name
+    this.breed = breed
   }
   bark(message) {
-    console.log(`${this.name} the ${this.breed} says, '${message}'`);
+    console.log(`${this.name} the ${this.breed} says, '${message}'`)
   }
 }
 
 // instantiate an object and call its method
-let fido = new Dog("Fido", "Schnauzer");
-fido.bark("Woof!");
+let fido = new Dog("Fido", "Schnauzer")
+fido.bark("Woof!")
 ```
 
 ---
@@ -716,24 +715,24 @@ Arrays behave as expected.
 
 ```javascript
 // generate an array from a string
-let fruits = "avocado,tomato,banana".split(","); // returns ['avocado, 'tomato', 'banana']
-console.log(`Do you love ${fruits[1]}?`); // expected output "Do you love tomato?"
+let fruits = "avocado,tomato,banana".split(",") // returns ['avocado, 'tomato', 'banana']
+console.log(`Do you love ${fruits[1]}?`) // expected output "Do you love tomato?"
 ```
 
 --
 
 ```javascript
 // add an element to an array
-fruits.push("pepper"); // fruits now has ['avocado, 'tomato', 'banana', 'pepper']
+fruits.push("pepper") // fruits now has ['avocado, 'tomato', 'banana', 'pepper']
 ```
 
 --
 
 ```javascript
 // find index position of element by value
-const fruit = "pepper";
-let pos = fruits.indexOf(fruit); // returns 3
-console.log(`${fruit} is located in the array at index ${pos}.`);
+const fruit = "pepper"
+let pos = fruits.indexOf(fruit) // returns 3
+console.log(`${fruit} is located in the array at index ${pos}.`)
 ```
 
 ---
@@ -746,23 +745,23 @@ Continued.
 
 ```javascript
 // delete last element from the array
-fruits.pop(); // fruits now has ['avocado, 'tomato', 'banana']
+fruits.pop() // fruits now has ['avocado, 'tomato', 'banana']
 ```
 
 --
 
 ```javascript
 // indexOf returns -1 if value not found in arraay
-pos = fruits.indexOf("pepper"); // 'pepper' is no longer there, so -1 is returned
-console.log(`${fruit} is now located in the array at index ${pos}.`);
+pos = fruits.indexOf("pepper") // 'pepper' is no longer there, so -1 is returned
+console.log(`${fruit} is now located in the array at index ${pos}.`)
 ```
 
 --
 
 ```javascript
 // join all elements in array into a comma-separated string
-const stringAgain = fruits.join(","); // returns 'avocado,tomato, banana'
-console.log(`The fruits are ${stringAgain}.`);
+const stringAgain = fruits.join(",") // returns 'avocado,tomato, banana'
+console.log(`The fruits are ${stringAgain}.`)
 ```
 
 ---
@@ -774,11 +773,11 @@ template: arrays
 Calls a function for each element in an array.
 
 ```javascript
-const numbers = [65, 44, 12, 4];
+const numbers = [65, 44, 12, 4]
 
-numbers.forEach((n) => {
-  console.log(n);
-});
+numbers.forEach(n => {
+  console.log(n)
+})
 ```
 
 ---
@@ -790,9 +789,9 @@ template: arrays
 Creates a new array containing the results of a function call for each array element. Useful for transforming array values.
 
 ```javascript
-const numbers = [65, 44, 12, 4];
+const numbers = [65, 44, 12, 4]
 
-const newNumbers = numbers.map((n) => n * 10);
+const newNumbers = numbers.map(n => n * 10)
 
 // newNumbers now refers to [650, 440, 120, 40]
 ```
@@ -806,14 +805,14 @@ template: arrays
 Create a subset of an array.
 
 ```javascript
-let fruits = "avocado,tomato,banana".split(","); // ['avocado, 'tomato', 'banana']
+let fruits = "avocado,tomato,banana".split(",") // ['avocado, 'tomato', 'banana']
 
 // create a new array with a subset of the original values
 fruits = fruits.filter((val, i, arr) => {
-  return val != "banana"; // returns true for all fruits except 'banana'
-});
+  return val != "banana" // returns true for all fruits except 'banana'
+})
 
-console.log(fruits); // expected output: ['avocado', 'tomato']
+console.log(fruits) // expected output: ['avocado', 'tomato']
 ```
 
 ---
@@ -839,15 +838,15 @@ const products = [
     description:
       "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
   }, // imagine there were more product objects...
-];
+]
 ```
 
 ```javascript
 // loop through each product
-products.forEach((product) => {
+products.forEach(product => {
   // print the title and price of each product
-  console.log(`${product.title} - ${product.price}`);
-});
+  console.log(`${product.title} - ${product.price}`)
+})
 ```
 
 ---
@@ -862,9 +861,9 @@ Functions can be passed as arguments to other functions.
 
 ```javascript
 // a simple function that prints out its argument
-const foo = (val) => {
-  console.log(`val = ${val}`);
-};
+const foo = val => {
+  console.log(`val = ${val}`)
+}
 ```
 
 --
@@ -872,15 +871,15 @@ const foo = (val) => {
 ```javascript
 // another function that takes another function as its argument
 const bar = (func, arg) => {
-  func(arg); // call the function that was received, whatever it is, and pass it the argument that was received
-};
+  func(arg) // call the function that was received, whatever it is, and pass it the argument that was received
+}
 ```
 
 --
 
 ```javascript
 // pass the foo function to the bar function as an argument
-bar(foo, 5);
+bar(foo, 5)
 ```
 
 ---
@@ -913,17 +912,17 @@ let doIt = (callbackSuccess, callbackFailure) => {
   // imagine this function did an asynchronous task and then...
   // - called callbackSuccess() function if task is successful
   // - called callbackFailure() function if task failed
-};
+}
 
 // call the function, pass two callback functions to handle its success or failure
 doIt(
-  (res) => {
-    console.log(`Success: ${res}`);
+  res => {
+    console.log(`Success: ${res}`)
   },
-  (err) => {
-    console.log(`Failure: ${err}`);
+  err => {
+    console.log(`Failure: ${err}`)
   }
-);
+)
 ```
 
 ---
@@ -941,17 +940,17 @@ let doIt = () => {
     // imagine this function did an asynchronous task and then...
     // - called resolve('hooraah') if task is successful
     // - called reject('boo!') if task failed
-  });
-};
+  })
+}
 
 // call the function, pass functions to handle its success or failure, whenever it completes
 doIt()
-  .then((res) => {
-    console.log(`Success: ${res}`);
+  .then(res => {
+    console.log(`Success: ${res}`)
   })
-  .catch((err) => {
-    console.log(`Failure: ${err}`);
-  });
+  .catch(err => {
+    console.log(`Failure: ${err}`)
+  })
 ```
 
 ---
@@ -967,13 +966,13 @@ The `async` keyword works on top of Promises to make their syntax simpler to rea
 ```javascript
 let doIt = async () => {
   // this function automatically returns a Promise, even if it doesn't say so
-  return "hoorah!";
-};
+  return "hoorah!"
+}
 
 // treat the function as if it returned a Promise, because it does!
-doIt().then((res) => {
-  console.log(`Success: ${res}`);
-});
+doIt().then(res => {
+  console.log(`Success: ${res}`)
+})
 ```
 
 ---
@@ -991,15 +990,15 @@ let doIt = async () => {
   // imagine this function did an asynchronous task and then...
   // - waited for the task to complete...
   // - returned the result of the task as a Promise (like all async functions do)
-};
+}
 // call the function, pass functions to handle its success or failure, whenever it completes
 doIt()
-  .then((res) => {
-    console.log(`Success: ${res}`);
+  .then(res => {
+    console.log(`Success: ${res}`)
   })
-  .catch((err) => {
-    console.log(`Failure: ${err}`);
-  });
+  .catch(err => {
+    console.log(`Failure: ${err}`)
+  })
 ```
 
 ---
@@ -1028,23 +1027,23 @@ template: apis
 Fetching data from APIs requires asynchronous programming.
 
 ```javascript
-const https = require("https"); // using Node's built-in http module for http requests
-const apiUrl = "https://my.api.mockaroo.com/users.json?key=d9ddfc40"; // a mock-API for demo purposes that returns a JSON array of objects
+const https = require("https") // using Node's built-in http module for http requests
+const apiUrl = "https://my.api.mockaroo.com/users.json?key=d9ddfc40" // a mock-API for demo purposes that returns a JSON array of objects
 
 // make an HTTP request to the API server
 https
-  .get(apiUrl, (response) => {
-    response.on("data", (chunk) => {
+  .get(apiUrl, response => {
+    response.on("data", chunk => {
       // this callback function is called automatically every time a chunk of data has been recieved from the server.
-    });
+    })
 
     response.on("end", () => {
       // this callback function is caalled automatically when all data has been received from API
-    });
+    })
   })
-  .on("error", (err) => {
+  .on("error", err => {
     // this callback function is called automatically if there is an error
-  });
+  })
 ```
 
 ---
@@ -1060,7 +1059,7 @@ name: destructuring
 Values in an array can be extracted into separate variables upon assignment:
 
 ```javascript
-const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
+const [a, b] = [10, 20, 30, 40, 50] // a=10, b=20
 ```
 
 --
@@ -1068,7 +1067,7 @@ const [a, b] = [10, 20, 30, 40, 50]; // a=10, b=20
 The remaining values can be lumped together - this is _rest syntax_:
 
 ```javascript
-const [c, d, ...rest] = [10, 20, 30, 40, 50]; // c=10, d=20, rest=[30,40,50]
+const [c, d, ...rest] = [10, 20, 30, 40, 50] // c=10, d=20, rest=[30,40,50]
 ```
 
 --
@@ -1077,9 +1076,9 @@ Function parameters can follow this same syntax:
 
 ```javascript
 function foo(a, b, ...args) {
-    console.log(`a = ${a}, b = ${b}`, args = ${args}`); // args = [30, 40, 50]
+    console.log(`a = ${a}, b = ${b}`, args = ${args}`) // args = [30, 40, 50]
 }
-foo(10, 20, 30, 40, 50); // pass values as separate arguments
+foo(10, 20, 30, 40, 50) // pass values as separate arguments
 ```
 
 ---
@@ -1095,10 +1094,10 @@ Such as when passing an array of arguments to a function.
 ```javascript
 // a function that accepts two separate arguments
 function sum(x, y) {
-  return x + y;
+  return x + y
 }
-let args = [10, 20];
-let total = sum(...args); // spread the values in the array into multiple arguments
+let args = [10, 20]
+let total = sum(...args) // spread the values in the array into multiple arguments
 ```
 
 --
@@ -1106,7 +1105,7 @@ let total = sum(...args); // spread the values in the array into multiple argume
 Or copying values from one array into another...
 
 ```javascript
-let myVals = [1, 2, 3, ...[4, 5, 6]]; // [1, 2, 3, 4, 5, 6]
+let myVals = [1, 2, 3, ...[4, 5, 6]] // [1, 2, 3, 4, 5, 6]
 ```
 
 ---
@@ -1130,15 +1129,15 @@ const person = {
     country: "Tunisia",
     postalCode: 7040,
   },
-};
+}
 ```
 
 --
 
 ```javascript
-const { name, age } = person; // name='Foo Barstein', age=72
-console.log(`name = ${name}`); // expected output: 'Foo Barstein'
-console.log(`age = ${age}`); // expected output: 72
+const { name, age } = person // name='Foo Barstein', age=72
+console.log(`name = ${name}`) // expected output: 'Foo Barstein'
+console.log(`age = ${age}`) // expected output: 72
 ```
 
 ---
@@ -1150,9 +1149,9 @@ template: destructuring
 Variable names do not need to match field names:
 
 ```javascript
-const { name: fullName, age: apparentAge } = person; // { fullName: 'Foo Barstein', apparentAge: 72 }
-console.log(`fullName = ${fullName}`); // expected output: 'Foo Barstein'
-console.log(`apparentAge = ${apparentAge}`); // expected output: 72
+const { name: fullName, age: apparentAge } = person // { fullName: 'Foo Barstein', apparentAge: 72 }
+console.log(`fullName = ${fullName}`) // expected output: 'Foo Barstein'
+console.log(`apparentAge = ${apparentAge}`) // expected output: 72
 ```
 
 --
@@ -1165,9 +1164,9 @@ const {
   address: {
     city, // create a variable for this field only
   },
-} = person;
-console.log(`email = ${email}`); // expected output: 'fb1258@teleworm.us'
-console.log(`city = ${city}`); // expected output: 'Beni Brahim''
+} = person
+console.log(`email = ${email}`) // expected output: 'fb1258@teleworm.us'
+console.log(`city = ${city}`) // expected output: 'Beni Brahim''
 ```
 
 ---
@@ -1210,7 +1209,7 @@ Basic CommonJS exporting syntax:
 // imagine you had a variable foo, a function bar, and an object baz - all can be exported
 
 // export these all to make them available for import into another Javscript file
-module.exports = { foo, bar, baz }; // note the CommonJS syntax!
+module.exports = { foo, bar, baz } // note the CommonJS syntax!
 ```
 
 --
@@ -1218,11 +1217,11 @@ module.exports = { foo, bar, baz }; // note the CommonJS syntax!
 With CommonJS, you could also have exported each variable individually:
 
 ```javascript
-module.exports.foo = 5; // a number
+module.exports.foo = 5 // a number
 module.exports.bar = () => {
-  console.log("hello world!");
-}; // a function
-module.exports.baz = { x: 5, y: 10 }; // an object
+  console.log("hello world!")
+} // a function
+module.exports.baz = { x: 5, y: 10 } // an object
 ```
 
 --
@@ -1230,11 +1229,11 @@ module.exports.baz = { x: 5, y: 10 }; // an object
 Or even without the `module` prefix:
 
 ```javascript
-exports.foo = 5; // a number
+exports.foo = 5 // a number
 exports.bar = () => {
-  console.log("hello world!");
-}; // a function
-exports.baz = { x: 5, y: 10 }; // an object
+  console.log("hello world!")
+} // a function
+exports.baz = { x: 5, y: 10 } // an object
 ```
 
 ---
@@ -1246,7 +1245,7 @@ template: importing
 Import named exports using the `require` function:
 
 ```javascript
-const { foo, bar, baz } = require("./10.exporting");
+const { foo, bar, baz } = require("./10.exporting")
 ```
 
 --
@@ -1254,10 +1253,10 @@ const { foo, bar, baz } = require("./10.exporting");
 Or import the entire module and access the named exports separately:
 
 ```javascript
-const myModule = require("./10.exporting"); // import module as a whole
+const myModule = require("./10.exporting") // import module as a whole
 
-console.log(myModule.foo); // access a value exported in the module
-myModule.bar(); // access a function exported in the module
+console.log(myModule.foo) // access a value exported in the module
+myModule.bar() // access a function exported in the module
 ```
 
 ---
@@ -1272,7 +1271,7 @@ Basic ES6 exporting syntax:
 // imagine you had a variable foo, a function bar, and an object baz - all can be exported
 
 // export these all to make them available for import into another Javscript file
-export { foo, bar, baz }; // note the ES6 syntax!
+export { foo, bar, baz } // note the ES6 syntax!
 ```
 
 --
@@ -1280,11 +1279,11 @@ export { foo, bar, baz }; // note the ES6 syntax!
 With ES6, you could also have exported each variable individually:
 
 ```javascript
-export let foo = 5; // a number
+export let foo = 5 // a number
 export let bar = () => {
-  console.log("hello world!");
-}; // a function
-export let baz = { x: 5, y: 10 }; // an object
+  console.log("hello world!")
+} // a function
+export let baz = { x: 5, y: 10 } // an object
 ```
 
 --
@@ -1292,9 +1291,9 @@ export let baz = { x: 5, y: 10 }; // an object
 Or you can specify one of them as the `default` export, if desired:
 
 ```javascript
-export let foo = 5; // a number
-export default let bar = () => { console.log('hello world!') }; // a function
-export let baz = { x: 5, y: 10 }; // an object
+export let foo = 5 // a number
+export default let bar = () => { console.log('hello world!') } // a function
+export let baz = { x: 5, y: 10 } // an object
 ```
 
 ---
@@ -1306,7 +1305,7 @@ template: importing
 Import named exports using the `import` keyword:
 
 ```javascript
-import { foo, bar, baz } from "./10.exporting";
+import { foo, bar, baz } from "./10.exporting"
 ```
 
 --
@@ -1314,7 +1313,7 @@ import { foo, bar, baz } from "./10.exporting";
 Or give each import a different name than in the module:
 
 ```javascript
-import { foo as f, bar as b1, baz as b2 } from "./10.exporting";
+import { foo as f, bar as b1, baz as b2 } from "./10.exporting"
 ```
 
 --
@@ -1322,7 +1321,7 @@ import { foo as f, bar as b1, baz as b2 } from "./10.exporting";
 If the module specified a `default` export, we can import only that - note the syntax:
 
 ```javascript
-import bar from "./10.exporting";
+import bar from "./10.exporting"
 ```
 
 --
@@ -1330,7 +1329,7 @@ import bar from "./10.exporting";
 We can also import the default export in combination with some named exports:
 
 ```javascript
-import bar, { foo, baz } from "./10.exporting"; // the default export is 'bar'
+import bar, { foo, baz } from "./10.exporting" // the default export is 'bar'
 ```
 
 ---
@@ -1400,8 +1399,8 @@ The following client-side Javascript, using the popular [JQuery](https://jquery.
 ```javascript
 $("button#clickme").click(function () {
   // make donkey will appear
-  $("img#neigh").show();
-});
+  $("img#neigh").show()
+})
 ```
 
 ---
@@ -1415,14 +1414,14 @@ The following server-side code uses the popular [Express.js](https://expressjs.c
 ```javascript
 // set up a 'route'... i.e. a callback function to run when a particular request comes in
 app.get("/foo", (request, response) => {
-  response.send("bar"); // send the response
-});
+  response.send("bar") // send the response
+})
 
 // another one just for fun... this one waits for an HTTP POST request for the same URL
 app.post("/foo", (request, response) => {
   // let's assume the client has sent some POST data with the user's name
-  response.send(`Hello, ${req.body.name}!`); // send the response
-});
+  response.send(`Hello, ${req.body.name}!`) // send the response
+})
 ```
 
 ---
