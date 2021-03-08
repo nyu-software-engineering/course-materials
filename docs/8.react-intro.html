@@ -495,7 +495,7 @@ Here is a component class named `Hello` that represents a paragraph of text.
 ```javascript
 class Hello extends Component {
   render() {
-    return <p>Hello world!</p>;
+    return <p>Hello world!</p>
   }
 }
 ```
@@ -511,14 +511,14 @@ Defining a component as a function is now the preferred way and simplifies the c
 
 ```javascript
 function Hello() {
-  return <p>Hello world!</p>;
+  return <p>Hello world!</p>
 }
 ```
 
 The same function can be written this way, if you remember your Javascript fat arrow syntax:
 
 ```javascript
-const Hello = () => <p>Hello world!</p>;
+const Hello = () => <p>Hello world!</p>
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/11/)
@@ -537,8 +537,8 @@ This embedding of HTML-like code into the middle of Javascript code is not ordin
 
 ```javascript
 const Foo = () => {
-  return <p>Doesn't this look a lot like HTML code in your Javascript?!</p>;
-};
+  return <p>Doesn't this look a lot like HTML code in your Javascript?!</p>
+}
 ```
 
 ---
@@ -651,7 +651,7 @@ name: components-8
 - The component file then imports the CSS file using Javascript import syntax.
 
 ```javascript
-import "./Article.css";
+import "./Article.css"
 ```
 
 ---
@@ -822,7 +822,7 @@ In React, **state** variables help keep track of the internal state of the compo
 ```javascript
 // create a state variable with default value 0
 // store a reference to the variable, and a reference to a function that can be called to change its value
-const [count, setCount] = useState(0);
+const [count, setCount] = useState(0)
 ```
 
 ---
@@ -908,8 +908,8 @@ You can define a function within the component that indicates any side-effects y
 ```javascript
 useEffect(() => {
   // write whatever code you want run every time the component renders.
-  console.log("the component has rendered or re-rendered!");
-});
+  console.log("the component has rendered or re-rendered!")
+})
 ```
 
 ---
@@ -926,8 +926,8 @@ An **optional second argument** accepts an array. If any variable in the array's
 ```javascript
 useEffect(() => {
   // write whatever code you want run every time the component renders.
-  console.log("the component has rendered or re-rendered!");
-}, [count]);
+  console.log("the component has rendered or re-rendered!")
+}, [count])
 ```
 
 ---
@@ -953,10 +953,10 @@ Some side-effects will need to be undone if a component is removed from the page
 
 ```javascript
 useEffect(() => {
-  console.log("the component has rendered or re-rendered!");
+  console.log("the component has rendered or re-rendered!")
   return () =>
-    console.log("the component has been completely removed from the page!");
-}, [count]);
+    console.log("the component has been completely removed from the page!")
+}, [count])
 ```
 
 ---
@@ -973,10 +973,10 @@ The following `useEffect` callback sets up an **eventListener** - a function to 
 
 ```javascript
 useEffect(() => {
-  const handleResize = () => setWidth(window.innerWidth);
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+  const handleResize = () => setWidth(window.innerWidth)
+  window.addEventListener("resize", handleResize)
+  return () => window.removeEventListener("resize", handleResize)
+}, [])
 ```
 
 ---
@@ -1030,7 +1030,7 @@ Data retrieved from a server can come in any structure. However, it's not uncomm
         description: "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est."
     },
     {
-        id": 2,
+        id: 2,
         title: "Monkey, bleeding heart",
         country: "Malaysia",
         price: "$13.30",
@@ -1056,9 +1056,9 @@ Axios is a popular 3rd-party module that makes it easy to fetch data from a serv
 // fetch some mock data about animals for sale
 const response = await axios(
   "https://my.api.mockaroo.com/animals.json?key=d9ddfc40"
-);
+)
 // extract the data from the server response
-const data = response.data;
+const data = response.data
 ```
 
 ---
@@ -1069,7 +1069,7 @@ name: fetch-2a
 In the case of React, we can also add that data a state variable we have previously initialized.
 
 ```javascript
-setData(response.data);
+setData(response.data)
 ```
 
 ---
@@ -1121,7 +1121,7 @@ name: fetch-5
 The `Animal` component can now use the object's information by accessing it in the `props` parameter.
 
 ```javascript
-const Animal = (props) => {
+const Animal = props => {
   return (
     <article className="animal">
       <h2>{props.details.title}</h2>
@@ -1129,8 +1129,8 @@ const Animal = (props) => {
       <strong>{props.details.price}</strong>
       <p>{props.details.description}</p>
     </article>
-  );
-};
+  )
+}
 ```
 
 [Try it!](https://codesandbox.io/s/exciting-black-kzp7t)
@@ -1182,7 +1182,7 @@ npm install --save react-router-dom
 Then import into your code:
 
 ```javascript
-import { BrowserRouter, Router, Switch, Link } from "react-browser-dom";
+import { BrowserRouter, Router, Switch, Link } from "react-browser-dom"
 ```
 
 ---
@@ -1234,7 +1234,7 @@ npm install --save react-burger-menu
 Then import into your code:
 
 ```javascript
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu"
 ```
 
 ---
