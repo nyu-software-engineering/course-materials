@@ -492,7 +492,7 @@ Defining a component with a Javascript class is the most common way, because it 
 
 Here is a component class named `Hello` that represents a paragraph of text.
 
-```javascript
+```jsx
 class Hello extends Component {
   render() {
     return <p>Hello world!</p>
@@ -509,7 +509,7 @@ name: components-2
 
 Defining a component as a function is now the preferred way and simplifies the code a bit.
 
-```javascript
+```jsx
 function Hello() {
   return <p>Hello world!</p>
 }
@@ -517,7 +517,7 @@ function Hello() {
 
 The same function can be written this way, if you remember your Javascript fat arrow syntax:
 
-```javascript
+```jsx
 const Hello = () => <p>Hello world!</p>
 ```
 
@@ -535,7 +535,7 @@ This embedding of HTML-like code into the middle of Javascript code is not ordin
 - JSX allows you to write your interface code in an HTML-like way that is familiar to most web and app developers
 - React automatically replaces JSX with the equivalent Javascript code to create these interface elements.
 
-```javascript
+```jsx
 const Foo = () => {
   return <p>Doesn't this look a lot like HTML code in your Javascript?!</p>
 }
@@ -553,13 +553,15 @@ Components can contain multiple user interface elements.
 - However, all components must have one 'root' element that encompasses all other sub-elements.
 - Note the parentheses around the expression that is being returned - this is necessary for multi-element components.
 
-```html
-const Hello = () => { return (
-<div>
-  <h1>React Component</h1>
-  <p>Hello world!</p>
-</div>
-) }
+```jsx
+const Hello = () => {
+  return (
+    <div>
+      <h1>React Component</h1>
+      <p>Hello world!</p>
+    </div>
+  )
+}
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/dmeovLta/5/)
@@ -581,7 +583,7 @@ For example, to add a class to an HTML element, you use the `class` attribute.
 
 To have React render that same HTML, you would have to use the `className` attribute in JSX (unlike HTML, all attributes in JSX have lowerCamelCase names):
 
-```html
+```jsx
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
@@ -602,8 +604,8 @@ Attributes in HTML typically have quotes around their values.
 
 If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable in quotes, but it does have to be in curly brackets.
 
-```html
-<p className="{someVariable}">Ipsum dolor sit amet lorem.</p>
+```jsx
+<p className={someVariable}>Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
@@ -632,8 +634,8 @@ const pStyle = {
 
 And injected into the JSX without quotes around it.
 
-```html
-<p style="{pStyle}">Ipsum dolor sit amet lorem.</p>
+```jsx
+<p style={pStyle}>Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/dom-elements.html#style)
@@ -663,7 +665,7 @@ name: components-9
 
 Given the following JSX:
 
-```html
+```jsx
 <article className="intro">
   <h1 className="intro-heading">React Component</h1>
   <p className="intro-paragraph">Hello world!</p>
@@ -701,7 +703,7 @@ Props are arguments passed to a component that can influence its content or beha
 
 This custom `Article` component accepts a props object as its argument and injects some of the values therein into the JSX content:
 
-```html
+```jsx
 const Article = (props) => { return (
 <article>
   <h1>{props.heading}</h1>
@@ -719,7 +721,7 @@ name: props-2
 
 Using Javascript's object destructuring, this function could be rewritten:
 
-```html
+```jsx
 const Article = ( { heading, paragraph }) => { return (
 <article>
   <h1>{heading}</h1>
@@ -741,13 +743,18 @@ This custom `Section` component includes two `Article` components nested within 
 
 - Each `Article` is passed two values to be placed automatically into the `props` parameter object
 
-```html
-const Section = () => { return (
-<section>
-  <article heading="Puppies for Sale" paragraph="Get 'em while they last!'" />
-  <article heading="Free Kittens" paragraph="Anytime, anywhere!'" />
-</section>
-) }
+```jsx
+const Section = () => {
+  return (
+    <section>
+      <article
+        heading="Puppies for Sale"
+        paragraph="Get 'em while they last!'"
+      />
+      <article heading="Free Kittens" paragraph="Anytime, anywhere!'" />
+    </section>
+  )
+}
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/43/)
@@ -763,12 +770,14 @@ Javascript, of course, has **higher-order functions**, and can accept function d
 
 For example, this component will call any function passed to it as an argument named `action` whenever the user clicks the paragraph:
 
-```html
-const Card = (props) => { return (
-<div>
-  <p onClick="{props.action}">Click me!</p>
-</div>
-) }
+```jsx
+const Card = props => {
+  return (
+    <div>
+      <p onClick="{props.action}">Click me!</p>
+    </div>
+  )
+}
 ```
 
 Note the lowerCamelCase spelling of the `onClick` attribute, like all JSX attributes.
@@ -782,7 +791,7 @@ name: props-5
 
 We could easily pass the definition of the function to run as one of the `props` properties in the component that includes the `Card` component we defined:
 
-```javascript
+```jsx
 <Card action={ () => { alert("See what I mean? Javascript is fun!") } } />
 <Card action={ () => { fetch('https://my.api.mockaroo.com/animals.json?key=d9ddfc40') } } />
 ```
@@ -845,8 +854,8 @@ name: state-2
 
 State variables can be injected into any JSX component, just like any other Javascript expression.
 
-```html
-<p>You clicked the button { count } times</p>
+```jsx
+<p>You clicked the button {count} times</p>
 ```
 
 ---
@@ -858,17 +867,15 @@ name: state-3
 
 Unlike other expressions, any changes to the value stored in a state variable will be immediately updated in the component.
 
-```html
+```jsx
 const MyComponent = () => {
-    const [count, setCount] = useState(0);
-    return (
-        <div>
-            <p>You clicked the button { count } times</p>
-            <button onClick={ () => setCount( count + 1 ) }>
-                Click me
-            </button>
-        </div>
-    )
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      <p>You clicked the button {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  )
 }
 ```
 
@@ -1096,12 +1103,12 @@ name: fetch-4
 
 In the case of React, where the data is stored in a state variable, we can place the loop within a JSX component.
 
-```html
+```jsx
 <div>
   <h1>Animals For Sale</h1>
   <section className="animals">
     {data.map(item => (
-    <Animal key="{item.id}" details="{item}" />
+      <Animal key={item.id} details={item} />
     ))}
   </section>
 </div>
@@ -1120,7 +1127,7 @@ name: fetch-5
 
 The `Animal` component can now use the object's information by accessing it in the `props` parameter.
 
-```javascript
+```jsx
 const Animal = props => {
   return (
     <article className="animal">
@@ -1156,7 +1163,7 @@ As with its HTML `a` element equivalent, the JSX `a` component provides the simp
 
 As with all JSX attributes, Javascript variables or expressions can be injected as the link's `href` attribute value if desired:
 
-```javascript
+```jsx
 <a href={`/puppies/${puppyId}`}>Click me!</a>
 ```
 
@@ -1194,7 +1201,7 @@ name: links-2a
 
 For example, the following sets up a few mutually-exclusive routes, indicating the components that should be loaded at each URL.
 
-```html
+```jsx
 <BrowserRouter>
   <Switch>
     <Route path="/about">
