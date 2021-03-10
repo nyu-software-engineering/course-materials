@@ -583,7 +583,7 @@ For example, to add a class to an HTML element, you use the `class` attribute.
 
 To have React render that same HTML, you would have to use the `className` attribute in JSX (unlike HTML, all attributes in JSX have lowerCamelCase names):
 
-```jsx
+```html
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
@@ -604,8 +604,8 @@ Attributes in HTML typically have quotes around their values.
 
 If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable in quotes, but it does have to be in curly brackets.
 
-```jsx
-<p className={someVariable}>Ipsum dolor sit amet lorem.</p>
+```html
+<p className="{someVariable}">Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
@@ -628,14 +628,14 @@ JSX requires a Javascript object to be passed as the `style` attribute value.
 ```javascript
 const pStyle = {
     color: 'blue',
-    backgroundColor: pink; // notice the camelCase style property names - this is Javascript, not CSS!
+    backgroundColor: 'pink'; // notice the camelCase style property names - this is Javascript, not CSS!
 }
 ```
 
 And injected into the JSX without quotes around it.
 
-```jsx
-<p style={pStyle}>Ipsum dolor sit amet lorem.</p>
+```html
+<p style="{pStyle}">Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/dom-elements.html#style)
@@ -665,7 +665,7 @@ name: components-9
 
 Given the following JSX:
 
-```jsx
+```html
 <article className="intro">
   <h1 className="intro-heading">React Component</h1>
   <p className="intro-paragraph">Hello world!</p>
@@ -704,12 +704,14 @@ Props are arguments passed to a component that can influence its content or beha
 This custom `Article` component accepts a props object as its argument and injects some of the values therein into the JSX content:
 
 ```jsx
-const Article = (props) => { return (
-<article>
-  <h1>{props.heading}</h1>
-  <p>{props.paragraph</p>
-</article>
-) }
+const Article = (props) => {
+  return (
+    <article>
+      <h1>{props.heading}</h1>
+      <p>{props.paragraph</p>
+    </article>
+  )
+}
 ```
 
 ---
@@ -722,12 +724,14 @@ name: props-2
 Using Javascript's object destructuring, this function could be rewritten:
 
 ```jsx
-const Article = ( { heading, paragraph }) => { return (
-<article>
-  <h1>{heading}</h1>
-  <p>{paragraph</p>
-</article>
-) }
+const Article = ( { heading, paragraph }) => {
+  return (
+    <article>
+      <h1>{heading}</h1>
+      <p>{paragraph</p>
+    </article>
+  )
+}
 ```
 
 [Try it!](https://jsfiddle.net/barsteinfoo/1j4udLtk/45/)
@@ -774,7 +778,7 @@ For example, this component will call any function passed to it as an argument n
 const Card = props => {
   return (
     <div>
-      <p onClick="{props.action}">Click me!</p>
+      <p onClick={props.action}>Click me!</p>
     </div>
   )
 }
@@ -808,7 +812,9 @@ name: props-6
 Props are a jargon word for arguments passed to a function that represents a component.
 
 - when using JSX to include a component, arguments are passed to the component as JSX attributes, e.g. `<Article heading="Free Kittens" />`
+
 - any type of value can be passed as an argument to a component within the props object: a string, number, function definition, object, array, etc.
+
 - Learn more about [components and props](https://reactjs.org/docs/components-and-props.html)
 
 ---
@@ -854,7 +860,7 @@ name: state-2
 
 State variables can be injected into any JSX component, just like any other Javascript expression.
 
-```jsx
+```html
 <p>You clicked the button {count} times</p>
 ```
 
@@ -1027,24 +1033,26 @@ name: fetch-2
 
 Data retrieved from a server can come in any structure. However, it's not uncommon to receive [an array of JSON objects](https://my.api.mockaroo.com/animals.json?key=d9ddfc40).
 
-```javascript
+```js
 [
-    {
-        id: 1,
-        title: "Mule deer",
-        country: "Brazil",
-        price: "$27.77",
-        description: "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est."
-    },
-    {
-        id: 2,
-        title: "Monkey, bleeding heart",
-        country: "Malaysia",
-        price: "$13.30",
-        description: "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi."
-    },
-    // etc
-}
+  {
+    id: 1,
+    title: "Mule deer",
+    country: "Brazil",
+    price: "$27.77",
+    description:
+      "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+  },
+  {
+    id: 2,
+    title: "Monkey, bleeding heart",
+    country: "Malaysia",
+    price: "$13.30",
+    description:
+      "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+  },
+  // etc
+]
 ```
 
 ---
