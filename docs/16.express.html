@@ -95,13 +95,13 @@ Place the following into a file named `app.js` - this creates an express web ser
 
 ```javascript
 // import and instantiate express
-const express = require("express"); // CommonJS import style!
-const app = express(); // instantiate an Express object
+const express = require("express") // CommonJS import style!
+const app = express() // instantiate an Express object
 
 // we will put some server logic here later...
 
 // export the express app we created to make it available to other modules
-module.exports = app;
+module.exports = app
 ```
 
 --
@@ -119,23 +119,23 @@ Put the following into a file named `server.js`, and enure the `package.json` se
 ```javascript
 #!/usr/bin/env node
 
-const server = require("./app"); // load up the web server
+const server = require("./app") // load up the web server
 
-const port = 3000; // the port to listen to for incoming requests
+const port = 3000 // the port to listen to for incoming requests
 
 // call express's listen function to start listening to the port
 const listener = server.listen(port, function () {
-  console.log(`Server running on port: ${port}`);
-});
+  console.log(`Server running on port: ${port}`)
+})
 
 // a function to stop listening to the port
 const close = () => {
-  listener.close();
-};
+  listener.close()
+}
 
 module.exports = {
   close: close,
-};
+}
 ```
 
 ---
@@ -252,8 +252,8 @@ A route that listens for any **HTTP GET** request for the `/` path, and responds
 
 ```javascript
 app.get("/", (req, res) => {
-  res.send("Hello!");
-});
+  res.send("Hello!")
+})
 ```
 
 --
@@ -271,8 +271,8 @@ A route that listens for any **HTTP GET** request for the `/html` path, and resp
 ```javascript
 // respond to any GET requests for /html-example with an HTML document named some-page.html
 app.get("/html-example", (req, res) => {
-  res.sendFile("/public/some-page.html", { root: __dirname });
-});
+  res.sendFile("/public/some-page.html", { root: __dirname })
+})
 ```
 
 --
@@ -293,7 +293,7 @@ Inform express that the `public` directory contains all static files that it sho
 
 ```javascript
 // tell express that any requests for '/static' will map out to the 'public' directory, where we place static content
-app.use("/static", express.static("public"));
+app.use("/static", express.static("public"))
 ```
 
 --
@@ -329,11 +329,11 @@ app.get("/json-example", (req, res) => {
     heading: "Hello!",
     message: "Welcome to this JSON document, served up by Express",
     imagePath: "/static/images/donkey.jpg",
-  };
+  }
 
   // send the response as JSON text to the client
-  res.json(body);
-});
+  res.json(body)
+})
 ```
 
 --
@@ -363,7 +363,7 @@ As you have seen, when a request is made, a route function executes that determi
 ```javascript
 app.get("/", (req, res) => {
   //...
-});
+})
 ```
 
 --
@@ -389,7 +389,7 @@ We call express's `use` function and pass it our middleware function as an argum
 ```javascript
 app.use((req, res, next) => {
   //...
-});
+})
 ```
 
 --
@@ -418,10 +418,10 @@ First:
 // custom middleware - first
 app.use((req, res, next) => {
   // make a modification to either the req or res objects
-  res.addedStuff = "First middleware function run!";
+  res.addedStuff = "First middleware function run!"
   // run the next middleware function, if any
-  next();
-});
+  next()
+})
 ```
 
 Second:
@@ -430,10 +430,10 @@ Second:
 // custom middleware - second
 app.use((req, res, next) => {
   // make a modification to either the req or res objects
-  res.addedStuff += " Second middleware function run!";
+  res.addedStuff += " Second middleware function run!"
   // run the next middleware function, if any
-  next();
-});
+  next()
+})
 ```
 
 ---
@@ -450,10 +450,10 @@ app.get("/middleware-example", (req, res) => {
   // grab data passed along by the middleware, if available
   const message = res.addedStuff
     ? res.addedStuff
-    : "Sorry, the middleware did not work!";
+    : "Sorry, the middleware did not work!"
   // use the data added by the middleware in some way
-  res.send(message);
-});
+  res.send(message)
+})
 ```
 
 --
@@ -513,7 +513,7 @@ npm install morgan --save
 - Import it into any code file where you define routes that handle incoming requests.
 
 ```javascript
-const morgan = require("morgan"); // middleware for nice logging of incoming HTTP requests
+const morgan = require("morgan") // middleware for nice logging of incoming HTTP requests
 ```
 
 --
@@ -521,7 +521,7 @@ const morgan = require("morgan"); // middleware for nice logging of incoming HTT
 - Set it as express middleware and specify which style of logs you desire - there are several output styles specified in their documentation.
 
 ```javascript
-app.use(morgan("dev")); // dev style gives a concise color-coded style of log output
+app.use(morgan("dev")) // dev style gives a concise color-coded style of log output
 ```
 
 ---
@@ -597,9 +597,9 @@ npm install body-parser --save
 - Import it into the file where the relevant routes for HTTP POST requests are, and tell express to `use` it as middleware.
 
 ```javascript
-const bodyParser = require("body-parser");
-app.use(bodyParser.json()); // decode JSON-formatted incoming POST data
-app.use(bodyParser.urlencoded({ extended: true })); // decode url-encoded incoming POST data
+const bodyParser = require("body-parser")
+app.use(bodyParser.json()) // decode JSON-formatted incoming POST data
+app.use(bodyParser.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 ```
 
 ---
@@ -628,12 +628,12 @@ Imagine an HTML form that sends data to the server via HTTP POST...
 
 ```javascript
 app.post("/post-example", (req, res) => {
-  const name = req.body.your_name;
-  const email = req.body.your_email;
-  const agree = req.body.agree;
+  const name = req.body.your_name
+  const email = req.body.your_email
+  const agree = req.body.agree
   // now do something amazing with this data...
   // ... then send a response of some kind
-});
+})
 ```
 
 ---
@@ -682,21 +682,21 @@ Multer can save uploaded files to a number of different destinations. Here, we t
 // enable file uploads saved to disk in a directory named 'public/uploads'
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/uploads");
+    cb(null, "public/uploads")
   },
   filename: function (req, file, cb) {
     cb(
       null,
       `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
+    )
   },
-});
+})
 ```
 
 Then instantiate a `multer` object.
 
 ```javascript
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage })
 ```
 
 ---
@@ -740,10 +740,10 @@ app.post("/upload-example", upload.array("my_files", 3), (req, res, next) => {
       status: "all good",
       message: "yup, the files were uploaded!!!",
       files: req.files,
-    };
-    res.json(data); // send respose
+    }
+    res.json(data) // send respose
   }
-});
+})
 ```
 
 --
@@ -806,9 +806,9 @@ app.get("/proxy-example", (req, res, next) => {
   // use axios to make a request to an API for animal data
   axios
     .get("https://my.api.mockaroo.com/animals.json?key=d9ddfc40&num=10")
-    .then((apiResponse) => res.json(apiResponse.data)) // pass data along directly to client
-    .catch((err) => next(err)); // pass any errors to express
-});
+    .then(apiResponse => res.json(apiResponse.data)) // pass data along directly to client
+    .catch(err => next(err)) // pass any errors to express
+})
 ```
 
 ---
@@ -844,7 +844,7 @@ A 3rd-party middleware named, [dotenv](https://www.npmjs.com/package/dotenv), ma
 - Install it and save it to the `package.json` list of dependencies:
 
 ```bash
-npm install axios --save
+npm install dotenv --save
 ```
 
 --
@@ -852,7 +852,7 @@ npm install axios --save
 - Import it into any file where you have a need for the credentials or other private data.
 
 ```javascript
-require("dotenv").config({ silent: true });
+require("dotenv").config({ silent: true })
 ```
 
 --
@@ -882,9 +882,9 @@ app.get("/dotenv-example", (req, res, next) => {
   // insert the environmental variable into the URL we're requesting
   axios
     .get(`${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=10`)
-    .then((apiResponse) => res.json(apiResponse.data)) // pass data along directly to client
-    .catch((err) => next(err)); // pass any errors to express
-});
+    .then(apiResponse => res.json(apiResponse.data)) // pass data along directly to client
+    .catch(err => next(err)) // pass any errors to express
+})
 ```
 
 ---
@@ -928,7 +928,7 @@ app.get("/parameter-example/:animalId", async (req, res) => {
     .get(
       `${process.env.API_BASE_URL}?key=${process.env.API_SECRET_KEY}&num=1&id=${req.params.animalId}`
     )
-    .catch((err) => next(err)); // pass any errors to express
+    .catch(err => next(err)) // pass any errors to express
 
   // express places parameters into the req.params object
   const responseData = {
@@ -936,11 +936,11 @@ app.get("/parameter-example/:animalId", async (req, res) => {
     message: `Imagine we got the data from the API for animal #${req.params.animalId}`,
     animalId: req.params.animalId,
     animal: apiResponse.data,
-  };
+  }
 
   // send the data in the response
-  res.json(responseData);
-});
+  res.json(responseData)
+})
 ```
 
 ---
@@ -988,7 +988,7 @@ npm install pug --save
 - It is now possible to set Express to use Pug as its template engine:
 
 ```javascript
-app.set("view engine", "pug");
+app.set("view engine", "pug")
 ```
 
 --
@@ -1020,8 +1020,8 @@ app.get("/", function (req, res) {
   res.render("index", {
     title: "My First Templated Site",
     message: "Welcome to your first dynamic templated page!!",
-  });
-});
+  })
+})
 ```
 
 --
