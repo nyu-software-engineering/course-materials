@@ -492,6 +492,10 @@ As you work on your express-enabled web servers, you will inevitably want to be 
 
 - [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) - popular 3rd-party modules for unit testing code, i.e. making sure all functions behave as they are expected to in all circumstances.
 
+--
+
+- [ngrok](https://ngrok.io) - a tool to provide public HTTPS access to a server running on your local machine
+
 ---
 
 template: debugging
@@ -567,6 +571,34 @@ template: debugging
 --
 
 - We are not concerned with unit testing for now, but will return to it in detail later. It never hurts to try it out now.
+
+---
+
+template: debugging
+
+## ngrok
+
+[ngrok](https://ngrok.io/) is a tool that will provide a publically-accessible web address that forwards requests to a server you run on your local machine.
+
+--
+
+- Install ngrok and make sure it is in your system's PATH variable.
+
+--
+
+- Start your server, for example by running `nodemon server` to launch an express.js server locally.
+
+--
+
+- Expose the port at which your server is running locally to the public, with `ngrok http 3000`, where `3000` is the port your server is running on.
+
+--
+
+- ngrok will output a public URL that you and others can use to reach your local server.
+
+--
+
+- requests made to that ngrok URL will be forwarded to your local server via a secure tunneling connection.
 
 ---
 
