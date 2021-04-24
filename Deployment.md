@@ -1,6 +1,10 @@
 # Set up a CentOS server on DigitalOcean for Node.js deployment
 
-This document outlines the steps necessary to set up a Node.js-ready web server running CentOS, hosted by DigitalOcean.
+This document outlines one method of setting up a Node.js-ready web server running CentOS, hosted by DigitalOcean.
+
+There are certainly other ways to deploy a Node.js app on a DigitalOcean Droplet which will work just as successfuly.
+
+**Disclaimer**: The steps outlined below work at the time of this writing, but may have to be adjusted to match changes in the technologies used as time goes by.
 
 ## Create a Digital Ocean Droplet
 
