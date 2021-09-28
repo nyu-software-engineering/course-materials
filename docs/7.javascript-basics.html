@@ -516,6 +516,10 @@ Wrapping a function in parentheses turns it into an expression.
 })
 ```
 
+--
+
+Note that it is convention to place a semi-colon (`;`) before an immediately-invoked function in order to ensure it is interpreted as a separate statement from whatever comes above it in the code.
+
 ---
 
 template: iife
@@ -631,6 +635,19 @@ robotMe.isRobot = true // modify this new object in some way
 
 console.log(`me ${me.isRobot ? "is indeed" : "is not"} a robot.`) // expected output: "My name is Foo Barstein"
 console.log(`robotMe ${robotMe.isRobot ? "is indeed" : "is not"} a robot.`) // expected output: "My name is Foo Barstein"
+```
+
+--
+
+Changes to methods or properties can be added onto the cloned object to differentiate it from its "parent".
+
+```javascript
+// add robot-specific speach abilities
+robotMe.speak = function (message) {
+  console.log(
+    `${this.name} the robot states in monotonous voice, "${message}".`
+  )
+}
 ```
 
 ---
