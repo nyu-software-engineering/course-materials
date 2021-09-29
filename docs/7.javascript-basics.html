@@ -1038,6 +1038,34 @@ start()
 
 ---
 
+template: asynchronicity
+
+## Await (continued again)
+
+A standard `try`/`catch` statement is the simplest way to handle both success and failure of a Promise when using `await`.
+
+```javascript
+let doIt = async () => {
+  // this function automatically returns a Promise, even if it doesn't say so
+  return "hoorah!" // 'hoorah' will be automatically passed as the argument to the resolve function of the Promise
+}
+
+let start = async () => {
+  // await is only allowed within an async function
+  try {
+    const res = await doIt() // run the function that returns a Promise, wait for completion
+    // handle success
+    console.log(`Success: ${res}`)
+  } catch (err) {
+    // handle failure
+    console.log(`Failure: ${err}`)
+  }
+}
+start()
+```
+
+---
+
 name: apis
 
 # Using APIs
