@@ -983,13 +983,17 @@ The `async` keyword works on top of Promises to make their syntax simpler to rea
 ```javascript
 let doIt = async () => {
   // this function automatically returns a Promise, even if it doesn't say so
-  return "hoorah!"
+  return "hoorah!" // 'hoorah' will be automatically passed as the argument to the resolve function of the Promise
 }
 
-// treat the function as if it returned a Promise, because it does!
-doIt().then(res => {
-  console.log(`Success: ${res}`)
-})
+// we can the function call as if it returns a Promise, which it does.
+doIt()
+  .then(res => {
+    console.log(`Success: ${res}`)
+  })
+  .catch(err => {
+    console.log(`Failure: ${err}`)
+  })
 ```
 
 ---
@@ -998,24 +1002,38 @@ template: asynchronicity
 
 ## Await
 
-The `await` keyword can be used within any `async` function.
-
-- `await` forces the program to wait for a Promise to complete before moving on to the next line of code.
+The `await` keyword forces the program to wait for a Promise to complete before moving on to the next line of code. It allows us to write code in a familiar manner, even when dealing with asynchronous Promises.
 
 ```javascript
 let doIt = async () => {
-  // imagine this function did an asynchronous task and then...
-  // - waited for the task to complete...
-  // - returned the result of the task as a Promise (like all async functions do)
+  // this function automatically returns a Promise, even if it doesn't say so
+  return "hoorah!" // 'hoorah' will be automatically passed as the argument to the resolve function of the Promise
 }
-// call the function, pass functions to handle its success or failure, whenever it completes
-doIt()
-  .then(res => {
-    console.log(`Success: ${res}`)
-  })
-  .catch(err => {
-    console.log(`Failure: ${err}`)
-  })
+
+const res = await doIt()
+console.log(`Success: ${res}`)
+```
+
+---
+
+template: asynchronicity
+
+## Await (continued)
+
+There is only one complication: `await` can only be used within an `async` function.
+
+```javascript
+let doIt = async () => {
+  // this function automatically returns a Promise, even if it doesn't say so
+  return "hoorah!" // 'hoorah' will be automatically passed as the argument to the resolve function of the Promise
+}
+
+let start = async () => {
+  // await is only allowed within an async function
+  const res = await doIt()
+  console.log(`Success: ${res}`)
+}
+start()
 ```
 
 ---
