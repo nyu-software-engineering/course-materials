@@ -205,7 +205,6 @@ A new repository made by copying files from an existing repository.
 
 --
 
-
 - Typically involves creating a new local repository that is a copy of an existing remote repository.
 
 --
@@ -235,7 +234,6 @@ name: fork
 Not a Git term, but rather a term used by remote repository hosting providers such as GitHub.
 
 --
-
 
 - A fancy word for creating a remote [clone](#clone) of a remote repository.
 
@@ -383,14 +381,14 @@ Download and merge any changes _in the current branch_ from a remote repository 
 template: pull
 
 ```bash
-# download any changes in the main branch from the 'origin' remote repository to the local repository
+# download and merge any changes in the main branch from the 'origin' remote repository to the local repository
 git pull origin main
 ```
 
 --
 
 ```bash
-# download any changes in the main branch from the 'upstream' remote repository to the local repository
+# download and merge any changes in the main branch from the 'upstream' remote repository to the local repository
 git pull upstream main
 ```
 
@@ -430,23 +428,23 @@ name: fetch
 
 ## Fetch
 
-Download _all branches_ from a remote repository to the local repository.
+Download but do not automatically merge any changes _in the current branch_ from a remote repository to the local repository.
 
 --
 
-- This can be useful to see changes made by others
+- This is similar to `git pull`, but `pull` automatically merges any changes into the current branch, while `fetch` does not.
 
 --
 
 ```bash
-# download all branches from the 'origin' remote repository
+# fetch any changes from the remote repository
 git fetch origin
 ```
 
 --
 
 ```bash
-# download all branches from the 'upstream' remote repository
+# fetch any changes from the 'upstream' remote repository
 git fetch upstream
 ```
 
