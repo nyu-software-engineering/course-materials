@@ -478,7 +478,7 @@ name: debugging
 
 ## Concept
 
-As you work on your express-enabled web servers, you will inevitably want to be aware of at least two useful debugging tools.
+As you work on your express-enabled web servers, you will inevitably want to be aware of a few useful debugging tools.
 
 --
 
@@ -562,7 +562,7 @@ template: debugging
 
 ## Mocha and chai
 
-[Mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) are two 3rd-party Node.js modules often used together to perform unit tests of code.
+[Mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) are two 3rd-party Node.js modules often used together to perform unit testing of code.
 
 --
 
@@ -590,11 +590,11 @@ template: debugging
 
 --
 
-- Expose the port at which your server is running locally to the public, with `ngrok http 3000`, where `3000` is the port your server is running on.
+- Expose the port at which your server is running locally to the public, with `ngrok http 3000`, where `3000` is the port your express server is running on.
 
 --
 
-- ngrok will output a public URL that you and others can use to reach your local server.
+- ngrok will output a public URL (both `http` and `https`) that you and others can use to reach the web server running locally on your own machine.
 
 --
 
@@ -610,28 +610,19 @@ name: post
 
 ## Concept
 
-Many web sites and apps allow users to submit data to a server via forms. Usually these requests are submitted via HTTP POST.
+Many web sites and apps allow users to submit data to a server via forms. Usually these requests are submitted via HTTP POST, with data in the body (i.e. payload) of the request.
 
 --
 
-- A 3rd-party middleware module called `body-parser` is useful in parsing data in incoming HTTP POST requests.
+- Express now includes middleware (formerly a separate project called `body-parser`) that is useful in parsing data in incoming HTTP POST request body.
 
 --
 
-- Install it from the command line and automatically add it to npm's package.json config file.
-
-```bash
-npm install body-parser --save
-```
-
---
-
-- Import it into the file where the relevant routes for HTTP POST requests are, and tell express to `use` it as middleware.
+- Tell express to `use` this request body parser middleware.
 
 ```javascript
-const bodyParser = require("body-parser")
-app.use(bodyParser.json()) // decode JSON-formatted incoming POST data
-app.use(bodyParser.urlencoded({ extended: true })) // decode url-encoded incoming POST data
+app.use(express.json()) // decode JSON-formatted incoming POST data
+app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 ```
 
 ---
@@ -656,7 +647,7 @@ Imagine an HTML form that sends data to the server via HTTP POST...
 
 --
 
-... and an Express route receives that data after `body-parser` has kindly added it to the `req` object's `body` property.
+... and an Express route receives that data after the middleware has kindly added it to the `req` object's `body` property.
 
 ```javascript
 app.post("/post-example", (req, res) => {
@@ -708,7 +699,7 @@ template: uploads
 
 ## Setup
 
-Multer can save uploaded files to a number of different destinations. Here, we tell `multer` to save uploaded files into a directory named `public/uploads`, with a filename based on the current time.
+`multer` can save uploaded files to a number of different destinations. Here, we tell `multer` to save uploaded files into a directory named `public/uploads`, with a filename based on the current time.
 
 ```javascript
 // enable file uploads saved to disk in a directory named 'public/uploads'
@@ -760,7 +751,7 @@ template: uploads
 
 ## Server-side code
 
-Multer middleware will automatically save any uploaded files in the request into the specified directory, rename them as instructed, and make a field named `req.files` containing the paths to the files on the server.
+`multer` middleware will automatically save any uploaded files in the request into the specified directory, rename them as instructed, and make a field named `req.files` containing the paths to the files on the server.
 
 ```javascript
 // route for HTTP POST requests for /upload-example
