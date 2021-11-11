@@ -353,15 +353,15 @@ The [multer](https://www.npmjs.com/package/multer) Express.js middleware makes h
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // store files into a directory named 'uploads'
-    cb(null, "/uploads");
+    cb(null, "/uploads")
   },
   filename: function (req, file, cb) {
     // rename the files to include the current time and date
-    cb(null, file.fieldname + "-" + Date.now());
+    cb(null, file.fieldname + "-" + Date.now())
   },
-});
+})
 
-var upload = multer({ storage: storage });
+var upload = multer({ storage: storage })
 ```
 
 ---
@@ -608,6 +608,10 @@ name: conclusions
 --
 
 You have seen a brief overview of various data storage mechanisms.
+
+--
+
+- [This example repository](https://github.com/nyu-software-engineering/data-storage-example-app) includes examples of using both Cookies and Local Storage on both the client- and server-sides.
 
 --
 
