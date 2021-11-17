@@ -17,8 +17,8 @@ Agile Software Development & DevOps
 1. [Overview](#overview)
 2. [Typical Workflow](#ci-workflow)
 3. [Best Practices](#best-practices)
-4. [Travis CI](#travis-ci)
-5. [Software as a Service](#software-as-service)
+4. [Software as a Service](#software-as-service)
+5. [Travis CI](#travis-ci)
 6. [Conclusions](#conclusions)
 
 ---
@@ -213,6 +213,10 @@ template: best-practices
 
 It's common to miss obvious bugs because automated unit and integration tests have poor code coverage or test the wrong things.
 
+--
+
+- This is a problem with all unit testing and is not unique to Continuous Integration automation of those tests.
+
 ---
 
 template: best-practices
@@ -231,7 +235,47 @@ Plan on producing a status, a log, and an artefact.
 
 --
 
-- the **artefact** is the resultant system, which can be uploaded to a server and tagged with an automatically incrementing build number
+- the **artefact** can be anything that is intended to be produced by the CI server, such as the built software in a bundled and ready-to-deply form, or a generated report on the code coverage of the unit tests, or an auto-generated web page documenting the system, etc.
+
+---
+
+name: software-as-service
+
+# Software as a Service
+
+--
+
+## Continuous Deployment
+
+An extension of Continuous Integration is Continuous Deployment (CD)...
+
+--
+
+- Assuming Continuous Integration build/test passes, the CI/CD automation server takes the additional step of...
+
+--
+
+- Deploying (cloning, installing and running) the built system on a production server - the server where customers can immediately access the latest version.
+
+---
+
+template: software-as-service
+
+## CI/CD Automation pipelines
+
+Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in-hand with **Software as a Service** (SaaS).
+
+--
+
+- SaaS systems are deployed not to the customers' local machines, but to the software distributor's own servers.
+
+--
+
+- Doing so allows the software distributor to maintain control and ownership of software at all times while granting access to the software to customers / end-users, rather than actually deploying software on customers' own machines.
+
+--
+
+- Since changes to the source code immediately trigger new builds and deployment of the latest code, customers will always have immediate access to the latest stable version of the software.
 
 ---
 
@@ -399,26 +443,6 @@ The URLs for status images are shown on your Travis CI Repository page:
 --
 
 2. Copy the Markdown and paste it into the README.md. Commit this change to GitHub.
-
----
-
-name: software-as-service
-
-# Software as a Service
-
---
-
-## Automation pipelines
-
-Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in-hand with **Software as a Service** (SaaS).
-
---
-
-- SaaS systems are deployed not to the customers' local machines, but to the software distributor's own servers.
-
---
-
-- Doing so allows the software distributor to maintain control and ownership of software at all times while granting access to the software to customers / end-users, rather than actually deploying software on customers' own machines.
 
 ---
 
