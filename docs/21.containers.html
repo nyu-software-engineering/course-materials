@@ -504,6 +504,36 @@ Notice that the Dockerfile for this example image references another image named
 
 template: docker-example
 
+## Try running a containerized React.js / Express.js app
+
+We have containerized a simple React.js / Express.js application.
+
+--
+
+Launch the React.js front-end as a background process on port 4000:
+
+--
+
+```bash
+docker run -p 4000:4000 -d bloombar/data-storage-example-app-front-end
+```
+
+--
+
+Launch the Express.js back-end as a background process on port 3000:
+
+```bash
+docker run -p 3000:3000 --restart unless-stopped -d bloombar/data-storage-example-app-back-end
+```
+
+--
+
+Open your favorite web browser and navigate to http://localhost:4000
+
+---
+
+template: docker-example
+
 ## Basic Docker commands
 
 - Log in to Docker Hub (necessary before downloading images): `docker login`
