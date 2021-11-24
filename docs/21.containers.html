@@ -536,7 +536,7 @@ template: docker-example
 
 ## Basic Docker commands
 
-- Log in to Docker Hub (necessary before downloading images): `docker login`
+- Log in to Docker Hub (necessary to download images): `docker login`
 
 --
 
@@ -544,11 +544,15 @@ template: docker-example
 
 --
 
-- Pull an image from the Docker Hub registry: `docker pull <image_name>:<tag_name>`
+- Build an image from the Dockerfile in the current directory: `docker build .`
 
 --
 
 - Push an image to the Docker Hub registry: `docker push <image_name>:<tag_name>`
+
+--
+
+- Pull an image from the Docker Hub registry: `docker pull <image_name>:<tag_name>`
 
 --
 
