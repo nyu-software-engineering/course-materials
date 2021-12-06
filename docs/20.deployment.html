@@ -645,13 +645,45 @@ git clone https://your_github_repository_url.git
 
 template: deploying
 
-## Start the Node app with PM2
+## Start the app with PM2
 
-Start your application with PM2.
+Start your back-end with PM2:
 
 ```
-cd your_app_directory
+cd your_app_directory/back-end
 pm2 start npm -- start
+```
+
+--
+
+Start your React-based front-end with PM2 (this will run the React server, which is not a proper deployment):
+
+```
+cd your_app_directory/front-end
+pm2 start npm -- start
+```
+
+---
+
+template: deploying
+
+## Build and deploy the front-end properly
+
+To more properly deploy a front-end built with React, you should build it and then serve it statically from the back-end.
+
+```
+cd your_app_directory/front-end
+npm run build # generate the HTML, CSS and Javascript into a build subdirectory
+rm -rf your_app_directory/back-end/client # delete the 'client' subdirectory, if it was created earlier
+cp -R ./build your_app_directory/back-end/client # copy the client-side code build to your back end's 'client' subdirectory
+```
+
+--
+
+In your back-end main route file, create a static route that serves the front-end built code.... for example:
+
+```
+app.use("/client", express.static("client"))
 ```
 
 ---
