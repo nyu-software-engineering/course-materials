@@ -253,13 +253,13 @@ The following commands install the nginx web server software on CentOS and set i
 Install the EPEL repository, which incluldes "extra packages for enterprise linux", including nginx:
 
 ```bash
-ssh sudo yum install -y epel-release
+sudo yum install -y epel-release
 ```
 
 Install nginx:
 
 ```bash
-ssh sudo yum install -y nginx
+sudo yum install -y nginx
 ```
 
 Start nginx by using `systemctl` a process manager for system-related tools:

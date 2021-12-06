@@ -207,8 +207,8 @@ Save the keys into the default file presented. Do not set a password.
 
 This creates two keys in two files located within your user account's hidden `.ssh` directory:
 
-- id_rsa - your private key... never share this with anyone
-- id_rsa.pub - your public key... feel free to share this
+- `id_rsa` - your private key... never share this with anyone
+- `id_rsa.pub` - your public key... feel free to share this
 
 ---
 
@@ -672,7 +672,7 @@ name: continuous-deployment
 
 ## Concept
 
-Now that we know how to deploy a Node app, we can automate the process such that every time the master branch of our codebase changes, a script will update the code on the server and re-start it.
+Now that we know how to deploy a Node app, we can automate the process such that every time the `master` or `main` branch of our codebase changes, a script will update the code on the server and re-start it.
 
 ---
 
@@ -680,7 +680,7 @@ template: continuous-deployment
 
 ## Automation
 
-Automation servers, such as Travis CI or Jenkins, can easily trigger scripts to run when changes to the codebase are detected.
+Automation servers, such as Travis CI, Circle CI, or Jenkins, can easily trigger scripts to run when changes to the codebase are detected.
 
 These automation tools can run a bash script that you add to your repository which...
 
@@ -694,7 +694,7 @@ template: continuous-deployment
 
 ## DIY
 
-Create a bash script which automates deployment and have Travis CI run this script anytime the `master` branch is updated.
+Create a bash script which automates deployment and have your automation server of choice run this script anytime the `master` or `main` branch is updated and passes tests.
 
 ---
 
@@ -733,7 +733,7 @@ template: install-nginx
 First, we must install the EPEL repository, which incluldes "extra packages for enterprise linux", including nginx:
 
 ```
-ssh sudo yum install -y epel-release
+sudo yum install -y epel-release
 ```
 
 ---
@@ -745,7 +745,7 @@ template: install-nginx
 Install nginx:
 
 ```
-ssh sudo yum install -y nginx
+sudo yum install -y nginx
 ```
 
 ---
