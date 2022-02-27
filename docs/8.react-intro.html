@@ -587,7 +587,7 @@ To have React render that same HTML, you would have to use the `className` attri
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-This is because `class` is a reserved word in Javascript, and JSX code is transpiled to Javascript behind-the-scenes.
+Supposedly, this is because `class` is a reserved word in Javascript, and JSX code is transpiled to Javascript behind-the-scenes.  We find that justification lacking.
 
 ---
 
@@ -1180,12 +1180,13 @@ As with all JSX attributes, Javascript variables or expressions can be injected 
 template: links
 name: links-2
 
-## The react-browser-dom module
+## The react-router-dom module
 
-[react-browser-dom](https://reacttraining.com/react-router/web/guides/quick-start) is a 3rd-party module that provides streamlined navigation solutions, including:
+[react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) is a 3rd-party module that provides streamlined navigation solutions, including:
 
 - setting up client-side **routes** - customized URLs in the browser address bar that are mapped to specific components
 - setting up a **global navigation** appears on all screens
+- simple linking from one component to another
 - and more...
 
 To include it in a project, use `npm install` to save it as a dependency in the `package.json` configuration file:
@@ -1197,7 +1198,7 @@ npm install --save react-router-dom
 Then import into your code:
 
 ```javascript
-import { BrowserRouter, Router, Switch, Link } from "react-browser-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-browser-dom" // as n example, we are here importing just those components useful for setting up front-end routes
 ```
 
 ---
@@ -1205,30 +1206,23 @@ import { BrowserRouter, Router, Switch, Link } from "react-browser-dom"
 template: links
 name: links-2a
 
-## The react-browser-dom module (continued)
+## The react-router-dom module (continued)
 
-For example, the following sets up a few mutually-exclusive routes, indicating the components that should be loaded at each URL.
+For example, the following sets up a few mutually-exclusive front-end **routes**, indicating the components that should be loaded at each URL.
 
 ```jsx
-<BrowserRouter>
-  <Switch>
-    <Route path="/about">
-      <About />
-    </Route>
+<Router>
+  <Header />
 
-    <Route path="/animals/:id" component="{AnimalWrapper}" />
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/animals" element={<AnimalsList />} />
+    <Route path="/animals/:id" element={<Animal />} />
+  </Routes>
 
-    <Route path="/animals">
-      <PrimaryNav />
-      <AnimalsList />
-    </Route>
-
-    <Route path="/">
-      <PrimaryNav />
-      <Home />
-    </Route>
-  </Switch>
-</BrowserRouter>
+  <Footer />
+</Router>
 ```
 
 ---
@@ -1266,7 +1260,8 @@ name: conclusions
 Now you have some understanding of using React to generate HTML, CSS, and Javascript for a client-side web pages.
 
 - Now install the [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) into your browser.
-- A [simple React.js project](https://github.com/nyu-software-engineering/react-js-starter-app) is available for you to fork, clone, and try out for yourself - follow [the instructions](#setup-git) for how to do so.
+- A [sample full MERN-stack app](https://github.com/nyu-software-engineering/full-mern-stack-web-app) shows many of the core features of React and `react-router-dom`.
+- Another [React.js-only project](https://github.com/nyu-software-engineering/react-js-starter-app) with mock login functionality on the front-end but no back-end.
 - Thank you. Bye.
 
 ---
