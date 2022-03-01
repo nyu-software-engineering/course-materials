@@ -605,7 +605,7 @@ Attributes in HTML typically have quotes around their values.
 If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable in quotes, but it does have to be in curly brackets.
 
 ```html
-<p className="{someVariable}">Ipsum dolor sit amet lorem.</p>
+<p className={someVariable}>Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
@@ -635,7 +635,7 @@ const pStyle = {
 And injected into the JSX without quotes around it.
 
 ```html
-<p style="{pStyle}">Ipsum dolor sit amet lorem.</p>
+<p style={pStyle}>Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/dom-elements.html#style)
