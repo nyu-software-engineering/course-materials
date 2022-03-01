@@ -643,6 +643,22 @@ And injected into the JSX without quotes around it.
 ---
 
 template: components
+
+## Components are not exactly HTML (one last time)
+
+Interactive behaviors can be attached to elements in HTML with **case-insensitive** attributes, such as `onclick`, `onmouseover`, `onmouseout`, [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers), and usually including code for a simple **function call** that is automatically executed when the interactive event occurs.
+```html
+<p onclick="someFunction()">click me</p>
+```
+
+In React, equivalent behaviors are written with **lowerCamelCase** attributes  and must to refer to a **function definition** that is automatically called when the interactive event occurs.
+```html
+<p onClick={someFunction}>click me</p>
+```
+
+---
+
+template: components
 name: components-8
 
 ## Styling components
