@@ -225,7 +225,7 @@ A unit test example in Javascript using the `mocha` unit testing framework and N
 
 ```javascript
 // use node.js's built-in assert assertion library
-const assert = require("assert");
+const assert = require("assert")
 
 // a set of tests of array functions
 describe("Array", function () {
@@ -234,10 +234,10 @@ describe("Array", function () {
     // assert what should be returned
     it("should return -1 when the value is not present", function () {
       // test that assertion
-      assert.equal(-1, [1, 2, 3].indexOf(4));
-    });
-  });
-});
+      assert.equal(-1, [1, 2, 3].indexOf(4))
+    })
+  })
+})
 ```
 
 ---
@@ -270,7 +270,9 @@ template: unit-testing
 
 ## Advantages
 
-## Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
+Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
+
+--
 
 - Failed unit tests indicate bugs that **must** be fixed
 
