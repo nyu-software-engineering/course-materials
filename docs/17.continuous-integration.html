@@ -18,7 +18,7 @@ Agile Software Development & DevOps
 2. [Typical Workflow](#ci-workflow)
 3. [Best Practices](#best-practices)
 4. [Software as a Service](#software-as-service)
-5. [Travis CI](#travis-ci)
+5. [Circle CI](#circle-ci)
 6. [Conclusions](#conclusions)
 
 ---
@@ -279,35 +279,35 @@ Continuous Integration (CI), followed by Continuous Deployment (CD) goes hand-in
 
 ---
 
-name: travis-ci
+name: circle-ci
 
-# Travis CI
+# Circle CI
 
 --
 
 ## Hosted continuous integration service
 
-Travis CI is a proprietary hosted Continuous Integration web service with an especially attractive offer of free usage for open source GitHub repositories.
+[Circle CI](https://circleci.com) is a proprietary hosted Continuous Integration web service with a free tier of service that is suitable for small projects.
 
 ---
 
-template: travis-ci
+template: circle-ci
 
 ## Virtual build servers
 
-When a change is detected in version control, Travis boots up a new virtual server.
+When a change is detected in version control, Circle CI boots up a new virtual server.
 
 --
 
-- Travis clones the version control repository into the virtual machine, and performs the build and test.
+- Circle CI clones the version control repository into the virtual machine, and performs the build and test.
 
 ---
 
-template: travis-ci
+template: circle-ci
 
 ## Key features
 
-Travis comes with the common features of any continuous integration server.
+Circle CI comes with the common features of any continuous integration server.
 
 --
 
@@ -315,7 +315,7 @@ Travis comes with the common features of any continuous integration server.
 
 --
 
-- free for open source projects
+- free tier
 
 --
 
@@ -331,70 +331,31 @@ Travis comes with the common features of any continuous integration server.
 
 ---
 
-template: travis-ci
+template: circle-ci
 
 ## Basic configuration
 
-Travis CI's build and test configuration is written in YAML (YAML Ain't Markup Language) and saved into a file named `.travis.yml` in the main directory of your project.
+Circle CI's build and test configuration is written in YAML (YAML Ain't Markup Language) and saved into a file named `config.yml` in a `.circleci` directory of your project.
 
 --
 
-Node.js example:
-
-```yaml
-language: node_js
-node_js:
-  - "node"
-  - "12"
-```
-
---
-
-Python example:
-
-```yaml
-language: python
-python:
-  - "3.4"
-  - "3.5"
-```
+- See an [example config for a React.js/Express.js-based app](https://github.com/nyu-software-engineering/generic-project-repository/blob/master/.circleci/config.yml)
 
 ---
 
-template: travis-ci
+template: circle-ci
 
-## More configuration
+## Highly configurable
 
-In addition to basic configuration, Travis supports more detailed instructions and can run arbitrary code at various lifecycle points in the build.
-
---
-
-```yaml
-language: python
-python:
-  - "3.4"
-  - "3.5"
-# command to install dependencies
-install:
-  - pip install -r requirements.txt
-# command to run tests
-script:
-  - pytest
-# execute a bash script that deploys the app
-deploy:
-  provider: script
-  script: bash scripts/deploy.sh
-  on:
-    branch: master
-```
+Circle CI supports detailed instructions and can run arbitrary code at various lifecycle points in the build.
 
 ---
 
-template: travis-ci
+template: circle-ci
 
 ## GitHub integration
 
-To link Travis CI to a GitHub repository, such that it detects changes to the repository and triggers continuous integration builds and testing, go to [travis-ci.com](https://travis-ci.com).
+To link Circle CI to a GitHub repository, such that it detects changes to the repository and triggers continuous integration builds and testing, go to [circleci.com](https://circleci.com).
 
 --
 
@@ -402,23 +363,19 @@ To link Travis CI to a GitHub repository, such that it detects changes to the re
 
 --
 
-- As a best practice, have Travis CI _perform automated builds on pull requests_. This allows the pull request reviewer to be sure the code builds and passes automated tests prior to merging the code.
+- As a best practice, have Circle CI _perform automated builds on pull requests_. This allows the pull request reviewer to be sure the code builds and passes automated tests prior to merging the code.
 
 ---
 
-template: travis-ci
+template: circle-ci
 
-## Slack integration
+## Messenger integration
 
-Travis CI can send notifications to Slack indicating the results of the latest build.
-
---
-
-- To do so, the Travis CI app must be authorized for the given Slack workspace - this can be done by your instructor.
+Circle CI can send notifications to Slack or other messenger apps indicating the results of the latest build.
 
 --
 
-- Posting build results to Slack with every commit or pull request to every project will quickly eat up message limits for workspaces with Slack's free-tier pricing.
+- To do so, the Circle CI app must be authorized for the given messenger app workspace.
 
 --
 
@@ -426,23 +383,15 @@ Travis CI can send notifications to Slack indicating the results of the latest b
 
 ---
 
-template: travis-ci
+template: circle-ci
 
 ## Badges
 
-You can embed build status badges that Travis will use to automatically _show the latest status of your build_ into your README.md.
+You can embed build status badges that Circle CI will use to automatically _show the latest status of your build_ into your README.md.
 
 --
 
-The URLs for status images are shown on your Travis CI Repository page:
-
---
-
-1. Click the status image in the top right to open a dialog box containing common templates for the status image URL in Markdown, HTML, etc.
-
---
-
-2. Copy the Markdown and paste it into the README.md. Commit this change to GitHub.
+- The URLs for status badge images are shown on your Circle CI project settings page.
 
 ---
 
