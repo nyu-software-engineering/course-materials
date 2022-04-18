@@ -387,11 +387,35 @@ template: circle-ci
 
 ## Badges
 
-You can embed build status badges that Circle CI will use to automatically _show the latest status of your build_ into your README.md.
+You can embed build status badges that Circle CI will use to automatically _show the latest status of your build_ into your project's `README.md`.
 
 --
 
-- The URLs for status badge images are shown on your Circle CI project settings page.
+- The Markdown code to use for status badge images are shown on your Circle CI project settings page, and are something like:
+
+```
+[![CircleCI](https://circleci.com/gh/software-assignments-spring2022/your-repo-name-here/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/your-repo-name-here/tree/master)
+```
+
+---
+
+template: circle-ci
+
+## Warnings Cause Build Failure
+
+By default, both _errors_ and _warnings_ produced by a project will cause the continuous integration server to fail the build.
+
+--
+
+- React.js projects are particularly prone to issuing many warnings that cause the build to fail.
+
+--
+
+- if an environment variable `CI` is set to `false`, most continuous integration servers will ignore warnings.
+
+--
+
+- For a React.js project, set this environment variable by modifying the `build` script in the `package.json` file to: ` "build": "CI=false && react-scripts build"`
 
 ---
 
