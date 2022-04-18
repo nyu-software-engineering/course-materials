@@ -504,9 +504,66 @@ Notice that the Dockerfile for this example image references another image named
 
 template: docker-example
 
+## Example Dockerfile for React.js front-end
+
+```
+# start from the node v16 base image
+FROM node:16
+
+# create an app directory within the image...
+# WORKDIR /app
+
+# install dependencies into the image - doing this first will speed up subsequent builds, as Docker will cache this step
+COPY package*.json ./
+RUN npm install
+
+# copy the remaining app source code into the default directory within the image
+COPY . .
+
+# expose port 4000 to make it available to the docker daemon
+EXPOSE 4000
+
+# define the runtime command that will be executed when a container is made from the image
+CMD [ "npm", "start" ]
+```
+
+---
+
+template: docker-example
+
+## Example Dockerfile for Express.js back-end
+
+```
+# start from the node v16 base image
+FROM node:16
+
+# create an app directory within the image...
+# WORKDIR /app
+
+# install dependencies into the image - doing this first will speed up subsequent builds, as Docker will cache this step
+COPY package*.json ./
+RUN npm install
+
+# copy the remaining app source code into the default directory within the image
+COPY . .
+
+# install dependencies into the image
+RUN npm install
+
+# expose port 3000 to make it available to the docker daemon
+EXPOSE 3000
+
+# define the runtime command that will be executed when a container is made from the image
+CMD [ "node", "server.js" ]
+```
+
+---
+
+template: docker-example
+
 ## Try running a containerized React.js / Express.js app
 
-We have containerized a simple React.js / Express.js application.
+We have containerized a [simple React.js / Express.js application](https://github.com/nyu-software-engineering/data-storage-example-app).
 
 --
 
