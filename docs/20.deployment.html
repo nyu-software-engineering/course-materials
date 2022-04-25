@@ -239,6 +239,8 @@ With SSH keys in place on both your local machine and the Digital Ocean server, 
 ssh root@123.456.789
 ```
 
+Note: if you receive a `Permission denied` error when running `ssh`, you can try specifying the location of the private key file with the `-i` flag, e.g. `ssh -i ~/.ssh/id_rsa root@123.456.789`.
+
 ---
 
 template: ssh-digital-ocean
@@ -596,6 +598,8 @@ SSH again to the server as the regular user account. Replace the example usernam
 ```
 ssh foobar@123.456.789
 ```
+
+Note: if you receive a `Permission denied` error when running `ssh`, you can try specifying the location of the private key file with the `-i` flag, e.g. `ssh -i ~/.ssh/id_rsa foobar@123.456.789`.
 
 ---
 
