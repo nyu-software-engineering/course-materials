@@ -57,7 +57,7 @@ Continuous integration.
 | 10/26 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/)                 |                     | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
 | 10/31 | 15    | Continuous integration | - [Continuous integration](slides/continuous-integration/)<br />- [Bash scripting](slides/bash-scripting/) |                     | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
 | 11/2  | 16    | Project work           |                                                                                                            |                     | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
-| 11/7  | 17    | Stakeholder demos      |                                                                                                            |                     |                                                               | Project 3    |
+| 11/7  | 17    | Stakeholder demos      |                                                                                                            |                     | [Bash scripting](https://forms.gle/bVL3FrwtuFkHuS8w7)         | Project 3    |
 
 ### Project 4
 
