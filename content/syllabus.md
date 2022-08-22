@@ -8,7 +8,7 @@ permalink: /syllabus/
 
 ## Course description
 
-An engineering approach the problem of development software.
+An engineering approach the problem of developing software.
 
 ## Tentative lecture topics
 
