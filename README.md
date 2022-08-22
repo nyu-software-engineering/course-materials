@@ -4,7 +4,7 @@ Materials used to teach an engineering approach to the problem of making softwar
 
 ## Deployed site
 
-View the [schedule](https://nyu-database-design.github.io/course-materials/) and [syllabus](https://nyu-database-design.github.io/course-materials/syllabus), which contain links to all deployed course materials.
+View the [schedule](https://nyu-software-engineering.github.io/course-materials/) and [syllabus](https://nyu-software-engineering.github.io/course-materials/syllabus), which contain links to all deployed course materials.
 
 ## Running locally
 
