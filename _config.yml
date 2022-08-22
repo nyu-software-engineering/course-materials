@@ -1,0 +1,7 @@
+github-org-name: nyu-software-engineering
+baseurl: /course-materials
+title: Software Engineering
+description: >
+  A fantastic voyage through an engineering approach to the problem of software development
+copyright: GNU General Public License, Version 3
+layouts_dir: assets/jekyll/_layouts/
