@@ -51,13 +51,13 @@ Build a web application.
 
 Continuous integration.
 
-| Date  | Class | Topics                 | Notes                                                                                      | Reading/viewing due | Quiz due                                                      | Exercise due |
-| :---- | :---- | :--------------------- | :----------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------ | :----------- |
-| 10/24 | 13    | System building        | [System building](slides/system-building/)                                                 |                     |                                                               |              |
-| 10/26 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/) |                     | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
-| 10/31 | 15    | Continuous integration | [Continuous integration](slides/continuous-integration/)                                   |                     | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
-| 11/2  | 16    | Project work           |                                                                                            |                     | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
-| 11/7  | 17    | Stakeholder demos      |                                                                                            |                     |                                                               | Project 3    |
+| Date  | Class | Topics                 | Notes                                                                                                      | Reading/viewing due | Quiz due                                                      | Exercise due |
+| :---- | :---- | :--------------------- | :--------------------------------------------------------------------------------------------------------- | :------------------ | :------------------------------------------------------------ | :----------- |
+| 10/24 | 13    | System building        | [System building](slides/system-building/)                                                                 |                     |                                                               |              |
+| 10/26 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/)                 |                     | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
+| 10/31 | 15    | Continuous integration | - [Continuous integration](slides/continuous-integration/)<br />- [Bash scripting](slides/bash-scripting/) |                     | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
+| 11/2  | 16    | Project work           |                                                                                                            |                     | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
+| 11/7  | 17    | Stakeholder demos      |                                                                                                            |                     |                                                               | Project 3    |
 
 ### Project 4
 
