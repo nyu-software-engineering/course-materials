@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ page.title | strip_html }}</title>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {{ page.title | downcase | strip_html }} | {{ site.github.repository_name
+      }} | {{ site.github.owner_name | downcase | strip_html }}
+    </title>
     <style>
       @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
       @import url(//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
@@ -77,9 +82,33 @@
         padding-right: 10px;
         color: #fadf68;
       }
+
+      /* CUSTOM STYLES FOR BREADCRUMB */
+      header.slides {
+        color: #505050;
+        position: fixed;
+        left: 20px;
+        top: 20px;
+      }
+      header.slides a {
+        color: #505050;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
+    <header class="slides">
+      <small>
+        <a href="https://github.com/{{ site.github.owner_name }}">
+          {{ site.github.owner_name | downcase | strip_html }}
+        </a>
+        /
+        <a href="{{ site.baseurl | strip_html }}/">
+          <!-- {{ site.github-org-name }} -->
+          {{ site.github.repository_name | strip_html }}
+        </a>
+      </small>
+    </header>
     <textarea id="source">{{ content }}</textarea>
     <script
       src="{{ site.baseurl | strip_html }}/assets/js/remark.js"
