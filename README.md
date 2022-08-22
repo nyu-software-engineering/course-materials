@@ -1,12 +1,14 @@
 # Software Engineeering
 
-Slide presentations used to teach software engineering.
+Materials used to teach an engineering approach to the problem of making software.
 
-## Publishing slides
+## Deployed site
 
-Slides are auto-generated from the materials in the `slides` folder using Git Pages.
+View the [schedule](https://nyu-database-design.github.io/course-materials/) and [syllabus](https://nyu-database-design.github.io/course-materials/syllabus), which contain links to all deployed course materials.
 
 ## Running locally
+
+The code in this repository is used to generate the course website using [jekyll](https://jekyllrb.com/) and continuously deploy it using [GitHub Pages](https://pages.github.com). To generate the web site locally...
 
 - Install Jekyll globally
 - `cd` into the `docs` directory
