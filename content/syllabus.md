@@ -103,7 +103,7 @@ All projects are submitted by pushing code to GitHub.
 
 ### Late policy
 
-- all assigned work is due _before_ class on the due date indicated on the [schedule](./schedule)
+- all assigned work is due _before_ class on the due date indicated on the [schedule](/)
 - for every 24 hours that work is late, we apply a 10% penalty on the grade, up to a maximum penalty of 30%.
 - after 72 hours, we will no longer accept the work.
 - for group work, each member of the group will be penalized individually.
