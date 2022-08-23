@@ -8,7 +8,7 @@ View the [schedule](https://nyu-software-engineering.github.io/course-materials/
 
 ## Running locally
 
-The code in this repository is used to generate the course website using [jekyll](https://jekyllrb.com/) and continuously deploy it using [GitHub Pages](https://pages.github.com). To generate the web site locally...
+The code in this repository is used to generate the course website using [jekyll](https://jekyllrb.com/) and continuously deploy it using [GitHub Pages](https://pages.github.com).
 
 It is possible to run the website locally on your own machine.
 
