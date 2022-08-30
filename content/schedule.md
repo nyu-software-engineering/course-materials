@@ -37,15 +37,15 @@ Build a clickable prototype.
 
 Build a web application.
 
-| Date  | Class | Topics            | Notes                                        | Helpful resources | Quiz due                                                | Exercise due |
-| :---- | :---- | :---------------- | :------------------------------------------- | :---------------- | :------------------------------------------------------ | :----------- |
-| 10/4  | 8     | Web architecture  | [Web architecture](slides/web-architecture/) |                   |                                                         |              |
-| 10/3  | 9     | MongoDB CRUD      | [MongoDB CRUD](slides/mongodb-crud/)         |                   | [Web architecture](https://forms.gle/ApWztCS6Fkh6rNtA9) |              |
-| 10/5  | n/a   | _no class_        |                                              |                   | [MongoDB CRUD](https://forms.gle/3NmVKAhYYyE8dvBx7)     |              |
-| 10/10 | n/a   | _no class_        |                                              |                   |                                                         |              |
-| 10/12 | 10    | Flask & pymongo   | [Flask & pymongo](slides/pymongo-flask/)     |                   |                                                         |              |
-| 10/17 | 11    | Project work      |                                              |                   | [Flask & pymongo](https://forms.gle/KitqzGtcqsWiz6J47)  |              |
-| 10/19 | 12    | Stakeholder demos |                                              |                   |                                                         | Project 2    |
+| Date  | Class | Topics            | Notes                                        | Helpful resources                                       | Quiz due                                                | Exercise due |
+| :---- | :---- | :---------------- | :------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------ | :----------- |
+| 10/4  | 8     | Web architecture  | [Web architecture](slides/web-architecture/) | Video: [Web architecture](https://youtu.be/AqzgVlHOAz8) |                                                         |              |
+| 10/3  | 9     | MongoDB CRUD      | [MongoDB CRUD](slides/mongodb-crud/)         | Video: [MongoDB](https://youtu.be/nf7kW6Fu_Yk)          | [Web architecture](https://forms.gle/ApWztCS6Fkh6rNtA9) |              |
+| 10/5  | n/a   | _no class_        |                                              |                                                         | [MongoDB CRUD](https://forms.gle/3NmVKAhYYyE8dvBx7)     |              |
+| 10/10 | n/a   | _no class_        |                                              |                                                         |                                                         |              |
+| 10/12 | 10    | Flask & pymongo   | [Flask & pymongo](slides/pymongo-flask/)     |                                                         |                                                         |              |
+| 10/17 | 11    | Project work      |                                              |                                                         | [Flask & pymongo](https://forms.gle/KitqzGtcqsWiz6J47)  |              |
+| 10/19 | 12    | Stakeholder demos |                                              |                                                         |                                                         | Project 2    |
 
 ### Project 3
 
