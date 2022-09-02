@@ -23,7 +23,7 @@ permalink: /
 
 ### Project 1
 
-Build a clickable prototype.
+Gather requirements, draft a product specification, and build a clickable prototype.
 
 | Date | Class | Topics                               | Notes                                                                                                                                                        | Helpful resources | Quiz due                                                        | Exercise due                                                                                                                                                              |
 | :--- | :---- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -53,7 +53,7 @@ Continuous integration.
 
 | Date  | Class | Topics                 | Notes                                                                                                      | Helpful resources | Quiz due                                                      | Exercise due |
 | :---- | :---- | :--------------------- | :--------------------------------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------ | :----------- |
-| 10/24 | 13    | System building        | [System building](slides/system-building/)                                                                 |                   |                                                               |              |
+| 10/24 | 13    | System building        | [System building](slides/build-tools/)                                                                     |                   |                                                               |              |
 | 10/26 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/)                 |                   | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
 | 10/31 | 15    | Continuous integration | - [Continuous integration](slides/continuous-integration/)<br />- [Bash scripting](slides/bash-scripting/) |                   | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
 | 11/2  | 16    | Project work           |                                                                                                            |                   | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
