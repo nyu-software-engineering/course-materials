@@ -4,7 +4,7 @@ title: Software Engineering
 description: >
   A fantastic voyage through an engineering approach to the problem of software development
 copyright: GNU General Public License, Version 3
-layouts_dir: assets/jekyll/_layouts/
+layouts_dir: theme/_layouts/
 plugins:
   - jekyll-github-metadata
   - jekyll-seo-tag
