@@ -39,12 +39,12 @@ Build a web application.
 | Date  | Class | Topics            | Notes                                        | Helpful resources                                       | Quiz due                                                | Exercise due |
 | :---- | :---- | :---------------- | :------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------ | :----------- |
 | 10/5  | n/a   | _no class_        |                                              |                                                         | [MongoDB CRUD](https://forms.gle/3NmVKAhYYyE8dvBx7)     |              |
-| 10/5  | 8     | Web architecture  | [Web architecture](slides/web-architecture/) | Video: [Web architecture](https://youtu.be/AqzgVlHOAz8) |                                                         |              |
 | 10/10 | n/a   | _no class_        |                                              |                                                         |                                                         |              |
-| 10/11 | 9     | MongoDB CRUD      | [MongoDB CRUD](slides/mongodb-crud/)         | Video: [MongoDB](https://youtu.be/nf7kW6Fu_Yk)          | [Web architecture](https://forms.gle/ApWztCS6Fkh6rNtA9) |              |
-| 10/12 | 10    | Flask & pymongo   | [Flask & pymongo](slides/pymongo-flask/)     |                                                         |                                                         |              |
-| 10/17 | 11    | Project work      |                                              |                                                         | [Flask & pymongo](https://forms.gle/KitqzGtcqsWiz6J47)  |              |
-| 10/19 | 12    | Stakeholder demos |                                              |                                                         |                                                         | Project 2    |
+| 10/11 | 8     | Web architecture  | [Web architecture](slides/web-architecture/) | Video: [Web architecture](https://youtu.be/AqzgVlHOAz8) |                                                         |              |
+| 10/12 | 9     | MongoDB CRUD      | [MongoDB CRUD](slides/mongodb-crud/)         | Video: [MongoDB](https://youtu.be/nf7kW6Fu_Yk)          | [Web architecture](https://forms.gle/ApWztCS6Fkh6rNtA9) |              |
+| 10/17 | 10    | Flask & pymongo   | [Flask & pymongo](slides/pymongo-flask/)     |                                                         |                                                         |              |
+| 10/19 | 11    | Project work      |                                              |                                                         | [Flask & pymongo](https://forms.gle/KitqzGtcqsWiz6J47)  |              |
+| 10/24 | 12    | Stakeholder demos |                                              |                                                         |                                                         | Project 2    |
 
 ### Project 3
 
@@ -52,34 +52,33 @@ Continuous integration.
 
 | Date  | Class | Topics                 | Notes                                                                                                      | Helpful resources | Quiz due                                                      | Exercise due |
 | :---- | :---- | :--------------------- | :--------------------------------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------ | :----------- |
-| 10/24 | 13    | System building        | [System building](slides/build-tools/)                                                                     |                   |                                                               |              |
-| 10/26 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/)                 |                   | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
-| 10/31 | 15    | Continuous integration | - [Continuous integration](slides/continuous-integration/)<br />- [Bash scripting](slides/bash-scripting/) |                   | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
-| 11/2  | 16    | Project work           |                                                                                                            |                   | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
-| 11/7  | 17    | Stakeholder demos      |                                                                                                            |                   | [Bash scripting](https://forms.gle/bVL3FrwtuFkHuS8w7)         | Project 3    |
+| 10/26 | 13    | System building        | [System building](slides/build-tools/)                                                                     |                   |                                                               |              |
+| 10/31 | 14    | Software testing       | - [Software testing](slides/software-testing/)<br />- [Unit testing](slides/unit-testing/)                 |                   | [System building](https://forms.gle/51GgAbQKataSXc168)        |              |
+| 11/2  | 15    | Continuous integration | - [Continuous integration](slides/continuous-integration/)<br />- [Bash scripting](slides/bash-scripting/) |                   | [Software testing](https://forms.gle/4ig1SNfzYK3mTiaG9)       |              |
+| 11/7  | 16    | Project work           |                                                                                                            |                   | [Continuous integration](https://forms.gle/tzo8E3ok1xmUWwSZ7) |              |
+| 11/9  | 17    | Stakeholder demos      |                                                                                                            |                   | [Bash scripting](https://forms.gle/bVL3FrwtuFkHuS8w7)         | Project 3    |
 
 ### Project 4
 
 Continuous deployment.
 
-| Date  | Class | Topics                      | Notes                                             | Helpful resources | Quiz due                                                           | Exercise due |
-| :---- | :---- | :-------------------------- | :------------------------------------------------ | :---------------- | :----------------------------------------------------------------- | :----------- |
-| 11/9  | 18    | Virtualization & containers | [Virtualization & containers](slides/containers/) |                   |                                                                    |              |
-| 11/14 | 19    | Deployment                  | [Deployment](slides/deployment/)                  |                   | [Virtualization & containers](https://forms.gle/35huD1aCFUuLVcej9) |              |
-| 11/16 | 20    | Project work                |                                                   |                   |                                                                    |              |
-| 11/21 | 21    | Stakeholder demos           |                                                   |                   |                                                                    | Project 4    |
+| Date  | Class      | Topics                      | Notes                                             | Helpful resources | Quiz due                                                           | Exercise due |
+| :---- | :--------- | :-------------------------- | :------------------------------------------------ | :---------------- | :----------------------------------------------------------------- | :----------- |
+| 11/14 | 18         | Virtualization & containers | [Virtualization & containers](slides/containers/) |                   |                                                                    |              |
+| 11/16 | 19         | Deployment                  | [Deployment](slides/deployment/)                  |                   | [Virtualization & containers](https://forms.gle/35huD1aCFUuLVcej9) |              |
+| 11/21 | 20         | Project work                |                                                   |                   |                                                                    |              |
+| 11/23 | _no class_ |                             |                                                   |                   |                                                                    |              |
+| 11/28 | 21         | Stakeholder demos           |                                                   |                   |                                                                    | Project 4    |
 
 ### Project 5
 
 Putting it all together.
 
-| Date  | Class      | Topics                      | Notes                                                                                         | Helpful resources | Quiz due                                                  | Exercise due                                              |
-| :---- | :--------- | :-------------------------- | :-------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------- | :-------------------------------------------------------- |
-| 11/23 | _no class_ |                             |                                                                                               |                   |                                                           |                                                           |
-| 11/28 | 22         | Project introduction        |                                                                                               |                   |                                                           |                                                           |
-| 11/30 | 23         | Design patterns             | [Design patterns](slides/design-patterns/)                                                    |                   |                                                           |                                                           |
-| 12/5  | 24         | Project work                |                                                                                               |                   | [Design patterns](https://forms.gle/chK5XN7Tkruto32r7)    |                                                           |
-| 12/7  | 25         | Release management          | [Release management](slides/release-management/)                                              |                   |                                                           |                                                           |
-| 12/12 | 26         | Project work                | [Change management](slides/change-management/)                                                |                   | [Release management](https://forms.gle/ZpFBZAtD6hhjdQsZ7) |                                                           |
-| 12/14 | 27         | Final project presentations | [Project presentations](https://knowledge.kitchen/Software_engineering_project_presentations) |                   |                                                           | Project 5<br />**No late work accepted beyond this date** |
-| TBD   | 28         | Final project presentations |                                                                                               |                   |                                                           |                                                           |
+| Date  | Class | Topics                      | Notes                                                                                         | Helpful resources | Quiz due                                                  | Exercise due                                              |
+| :---- | :---- | :-------------------------- | :-------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------- | :-------------------------------------------------------- |
+| 11/30 | 22    | Project introduction        |                                                                                               |                   |                                                           |                                                           |
+| 12/5  | 23    | Design patterns             | [Design patterns](slides/design-patterns/)                                                    |                   |                                                           |                                                           |
+| 12/7  | 24    | Project work                |                                                                                               |                   | [Design patterns](https://forms.gle/chK5XN7Tkruto32r7)    |                                                           |
+| 12/12 | 25    | Release management          | [Release management](slides/release-management/)                                              |                   |                                                           |                                                           |
+| 12/14 | 26    | Project work                | [Change management](slides/change-management/)                                                |                   | [Release management](https://forms.gle/ZpFBZAtD6hhjdQsZ7) |                                                           |
+| TBD   | 27    | Final project presentations | [Project presentations](https://knowledge.kitchen/Software_engineering_project_presentations) |                   |                                                           | Project 5<br />**No late work accepted beyond this date** |
