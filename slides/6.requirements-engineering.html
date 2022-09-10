@@ -18,7 +18,8 @@ A disciplined approach to figuring out what needs to be done.
 2. [Motivations](#motivations)
 3. [Types](#types)
 4. [User Requirements](#user-requirements)
-5. [Elicitation](#elicitation)
+4. [Security Requirements](#security-requirements)
+5. [Requirements Elicitation](#elicitation)
 6. [Conclusions](#conclusions)
 
 ---
@@ -79,11 +80,11 @@ template: types
 
 Non-functional requirements specify constraints on either the system or the development process, including:
 
-- Timing constraints
-- Constraints on the development process
-- Constraints on technologies that must or must not be used
-- Standards that must be followed by the project
-- Performance - e.g. speed, size, memory, uptime, reliability, load handling, portability
+- Business requirements, i.e. what must the project achieve when successful in order to improve the business and when must it be done
+- Compliance requirements: standards or government regulations that must be complied with
+- Platform requirements: constraints on platforms or technologies that must be used
+- Performance requirements: e.g. speed, size, memory, uptime, reliability, load handling, portability
+- Security requirements: what security measures and practices must be integrated into the software to protect sensitive data and systems.
 
 ---
 
@@ -93,7 +94,7 @@ name: user-requirements
 
 --
 
-A type of functional requirement focused on the user experience.
+The main variety of functional requirement, focused on the user experience.
 
 Define what a user must be able to do with the system, written in layman's terms.
 
@@ -168,7 +169,7 @@ template: user-requirements
 
 ## User Stories
 
-Each User Story also includes:
+Each User Story also may include:
 
 - Estimated level of effort
 - Acceptance criteria
@@ -182,8 +183,12 @@ template: user-requirements
 Example:
 
 > As a customer, I want to sign up so I can start placing orders.
->
-> Effort: M
+
+--
+
+This may have the following additional notes attached:
+
+> Estimation of effort: M
 >
 > Acceptance criteria:
 >
@@ -204,35 +209,52 @@ template: user-requirements
 
 ---
 
+name: security-requirements
+
+# Security Requirements
+
+Focused on three P's: 
+
+--
+
+- **P**roduct:  e.g. software defects/bugs, poor data handling, faulty configuration settings, use of insecure 3rd-party platforms or tools, 
+
+--
+
+- **P**eople: e.g. social engineering attacks, human error
+
+--
+
+- **P**rocess: e.g. lack of integration of security concerns throughout process, inadequate maintenance
+
+---
 
 name: elicitation
 
 # Elicitation
 
----
-
-template: elicitation
-
-## Motivation
-
-What does it mean to "elicit" requirements?
-
-- engage stakeholders in a dialog
-- give them the opportunity and space to formulate and evolve their thoughts
-- progressively elaborate on their ideas until a clear picture of the project emerges
-- engage them as collaborative partners in the process
-
----
-
-template: elicitation
+--
 
 ## Techniques
 
-How do you gather requirements?
+How do you determine the requirements of a project?
 
 - Interviews
 - Observatiion
 - Intuition & brainstorming
+
+---
+
+template: elicitation
+
+## Midwifery
+
+Why do we say we "elicit" requirements?
+
+- engage key stakeholders in an ongoing dialog
+- give them the opportunity and space to formulate and evolve their thoughts
+- progressively elaborate on their ideas until a clear picture of the project emerges in their minds and yours
+- engage them as collaborative partners in the process
 
 ---
 
@@ -305,7 +327,7 @@ template: elicitation
 
 Realistically, a requirements engineer (who may also be a software engineer) already has preeconceived notions of what users might want to do with the system based on their experience.
 
-- Running brainstorming workshops where the requirements engineer asks the group about certain requirements that the engineer has already intuited can help build agreement on a pre-conceived plan.
+- Running brainstorming workshops where the requirements engineer asks a group of stakeholders about certain requirements that the engineer has already intuited can help build agreement on a pre-conceived plan.
 
 ---
 
