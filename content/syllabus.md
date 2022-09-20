@@ -82,8 +82,8 @@ You will be able to save your work in the ITS labs under your NYU Home Account a
 
 You will receive a grade calculated mechanically on the following rubric.
 
-- Quizzes: 40%
-- Projects: 60%
+- Quizzes: 25%
+- Exercises & Projects: 75%
 
 ### Quizzes
 
