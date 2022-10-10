@@ -14,15 +14,18 @@ An engineering approach the problem of developing software. Students work on sev
 - What is software engineering
 - Version control using Git & GitHub
 - Requirements engineering
+- UML diagramming
 - User experience design
 - Rapid prototyping
 - Presenting software demonstrations
 - Full-stack mobile mobile web application development in Python
 - Database integration
+- System building
 - Software testing and continuous integration
 - Software delivery and continuous deployment
 - Virtualization and containers
 - Design patterns
+- Release management
 
 ## Instructor
 
