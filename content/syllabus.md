@@ -7,7 +7,7 @@ permalink: /syllabus/
 
 ## Course description
 
-An engineering approach the problem of developing software.
+An engineering approach the problem of developing software. Students work on several team projects designed to focus on different aspects of the engineering process.
 
 ## Tentative lecture topics
 
@@ -17,9 +17,10 @@ An engineering approach the problem of developing software.
 - User experience design
 - Rapid prototyping
 - Presenting software demonstrations
-- Full-stack web application development
+- Full-stack mobile mobile web application development in Python
+- Database integration
 - Software testing and continuous integration
-- Software delivery and deployment
+- Software delivery and continuous deployment
 - Virtualization and containers
 - Design patterns
 
