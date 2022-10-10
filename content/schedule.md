@@ -22,7 +22,7 @@ permalink: /
 
 ### Project 1
 
-Gather requirements, draft a product specification, and build a clickable prototype.
+Gather requirements, draft a product specification for a mobile application, and build a clickable prototype.
 
 | Date | Class | Topics                                           | Notes                                                                                                                                                        | Helpful resources                                                                                                                                                                                                                                                                                                             | Quiz due                                                        | Exercise due                                                     |
 | :--- | :---- | :----------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- | :--------------------------------------------------------------- |
@@ -34,7 +34,7 @@ Gather requirements, draft a product specification, and build a clickable protot
 
 ### Project 2
 
-Build a web application.
+Build a mobile web application.
 
 | Date  | Class | Topics            | Notes                                        | Helpful resources                                       | Quiz due                                                | Exercise due |
 | :---- | :---- | :---------------- | :------------------------------------------- | :------------------------------------------------------ | :------------------------------------------------------ | :----------- |
