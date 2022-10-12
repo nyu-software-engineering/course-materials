@@ -297,7 +297,7 @@ name: clients
 --
 
 ## Overview
-Connecting to a MongoDB server requires some sort of client program.
+Connecting to a MongoDB server requires some sort of client program, typically either a shell program that you run locally.
 
 ---
 
@@ -309,9 +309,8 @@ To access a MongoDB server from the command line, one needs to install [mongosh]
 - connect to a server: `mongosh your_database_name --host your_hostname -u your_username -p`.
 - e.g. `mongosh example --host class-mongodb.cims.nyu.edu -u fb1258 -p`...  after running this command, you will be asked for your password and then let in.
 
---
-
 Note that if running a MongoDB server [within a local Docker container](#docker), you already have `mongosh` available within the container.
+
 
 ---
 
