@@ -230,7 +230,7 @@ The `mongosh` command line client uses a Javascript command shell interpreter to
 
 --
 
-We will show how to do common CRUD operations using the `mongo` client.
+We will show how to do common CRUD operations using the `mongosh` client.
 
 ---
 
@@ -272,6 +272,7 @@ template: servers
 ---
 
 template: servers
+name: docker
 
 ## Local installation (continued)
 [Docker image](https://hub.docker.com/_/mongo)
@@ -286,7 +287,6 @@ To use...
 - show the available databases: `show dbs`
 - select the database used by this app: `use your_db_name`... this will create a new database if one does not exist by that name
 - exit the database shell whenever you have had your fill: `exit`
-
 
 ---
 
@@ -308,6 +308,10 @@ name: mongosh
 To access a MongoDB server from the command line, one needs to install [mongosh](https://www.mongodb.com/docs/mongodb-shell/).
 - connect to a server: `mongosh your_database_name --host your_hostname -u your_username -p`.
 - e.g. `mongosh example --host class-mongodb.cims.nyu.edu -u fb1258 -p`...  after running this command, you will be asked for your password and then let in.
+
+--
+
+Note that if running a MongoDB server [within a local Docker container](#docker), you already have `mongosh` available within the container.
 
 ---
 
