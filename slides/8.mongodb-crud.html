@@ -386,6 +386,10 @@ mongoimport --db your_database_name --collection books --host database_host --us
 
 --
 
+- Note also that if running MongoDB within a Docker container, you may have to modify this command - [see discussion](https://stackoverflow.com/questions/49895447/i-want-to-execute-mongoimport-on-a-docker-container).
+
+--
+
 - MongoDB can import both JSON and CSV plain text data formats, although JSON is much more closely related to MongoDB's internal data structure and can be considered its native format.
 
 --
