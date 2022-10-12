@@ -15,7 +15,8 @@ The dirty work of database data management.
 # Agenda
 
 1. [Overview](#overview)
-1. [Available Servers](#servers)
+1. [Servers](#servers)
+1. [Clients](#clients)
 1. [Example Data Set](#data-set)
 1. [Create](#create)
 1. [Operators](#operators)
@@ -235,7 +236,7 @@ We will show how to do common CRUD operations using the `mongo` client.
 
 name: servers
 
-# Available Servers
+# Servers
 
 --
 
@@ -289,18 +290,37 @@ To use...
 
 ---
 
-template: servers
+name: clients
+
+# Clients
+
+--
+
+## Overview
+Connecting to a MongoDB server requires some sort of client program.
+
+---
+
+template: clients
+name: mongosh
 
 ## Mongo Shell
 To access a MongoDB server from the command line, one needs to install [mongosh](https://www.mongodb.com/docs/mongodb-shell/).
 - connect to a server: `mongosh your_database_name --host your_hostname -u your_username -p`.
 - e.g. `mongosh example --host class-mongodb.cims.nyu.edu -u fb1258 -p`...  after running this command, you will be asked for your password and then let in.
 
-Note that `mongosh` comes with Mongo server installations but can be installed separately with [MongoDB Database Tools](https://www.mongodb.com/docs/database-tools/) for those not running a server locally.
+---
+
+template: clients
+
+## MongoDB Database Tools
+If connecting to a server from your local machine...
+- install [mongosh](#mongosh)
+- install `mongoimport` and other utilities in the [MongoDB Database Tools](https://www.mongodb.com/docs/database-tools/).
 
 ---
 
-template: servers
+template: clients
 
 ## Graphical User Interfaces
 
