@@ -587,7 +587,7 @@ To have React render that same HTML, you would have to use the `className` attri
 <p className="my_favorite_paragraphs">Ipsum dolor sit amet lorem.</p>
 ```
 
-Supposedly, this is because `class` is a reserved word in Javascript, and JSX code is transpiled to Javascript behind-the-scenes.  We find that justification lacking.
+Supposedly, this is because `class` is a reserved word in Javascript, and JSX code is transpiled to Javascript behind-the-scenes. We find that justification lacking.
 
 ---
 
@@ -605,7 +605,7 @@ Attributes in HTML typically have quotes around their values.
 If injecting a variable or other expression as the value for an attribute in JSX, you cannot surround the variable in quotes, but it does have to be in curly brackets.
 
 ```html
-<p className={someVariable}>Ipsum dolor sit amet lorem.</p>
+<p className="{someVariable}">Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/introducing-jsx.html#specifying-attributes-with-jsx)
@@ -635,7 +635,7 @@ const pStyle = {
 And injected into the JSX without quotes around it.
 
 ```html
-<p style={pStyle}>Ipsum dolor sit amet lorem.</p>
+<p style="{pStyle}">Ipsum dolor sit amet lorem.</p>
 ```
 
 [Read more](https://reactjs.org/docs/dom-elements.html#style)
@@ -647,13 +647,15 @@ template: components
 ## Components are not exactly HTML (one last time)
 
 Interactive behaviors can be attached to elements in HTML with **case-insensitive** attributes, such as `onclick`, `onmouseover`, `onmouseout`, [and more](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers), and usually including code for a simple **function call** that is automatically executed when the interactive event occurs.
+
 ```html
 <p onclick="someFunction()">click me</p>
 ```
 
-In React, equivalent behaviors are written with **lowerCamelCase** attributes  and must to refer to a **function definition** that is automatically called when the interactive event occurs.
+In React, equivalent behaviors are written with **lowerCamelCase** attributes and must to refer to a **function definition** that is automatically called when the interactive event occurs.
+
 ```html
-<p onClick={someFunction}>click me</p>
+<p onClick="{someFunction}">click me</p>
 ```
 
 ---
@@ -1050,7 +1052,7 @@ name: fetch-2
 Data retrieved from a server can come in any structure. However, it's not uncommon to receive [an array of JSON objects](https://my.api.mockaroo.com/animals.json?key=d9ddfc40).
 
 ```js
-[
+;[
   {
     id: 1,
     title: "Mule deer",
@@ -1182,7 +1184,7 @@ name: links-1
 As with its HTML `a` element equivalent, the JSX `a` component provides the simplest a way to link from one screen to another.
 
 ```html
-<a href="/puppies-for-sale">Click me!</a>
+<a href="/puppies/2">Click me!</a>
 ```
 
 As with all JSX attributes, Javascript variables or expressions can be injected as the link's `href` attribute value if desired:
@@ -1191,10 +1193,14 @@ As with all JSX attributes, Javascript variables or expressions can be injected 
 <a href={`/puppies/${puppyId}`}>Click me!</a>
 ```
 
+Note that while using an `a` component to create a link will work, it is not the most efficient way to do so. It will cause the browser to reload an entirely new page, which is not necessary in most cases.
+
+- We will look at using the [Link](#react-router-dom-link) component from the [react-router-dom](#react-router-dom) module as a preferable way to create links in a moment
+
 ---
 
 template: links
-name: links-2
+name: react-router-dom
 
 ## The react-router-dom module
 
@@ -1220,7 +1226,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom" // as 
 ---
 
 template: links
-name: links-2a
+name: react-router-dom-router
 
 ## The react-router-dom module (continued)
 
@@ -1239,6 +1245,29 @@ For example, the following sets up a few mutually-exclusive front-end **routes**
 
   <Footer />
 </Router>
+```
+
+Setting up these route paths is typically done in the top-level component, often called `App.js`.
+
+---
+
+template: links
+name: react-router-dom-link
+
+## The react-router-dom module (continued again)
+
+The `react-router-dom` module also includes a `Link` component that can be used to link from one component to another. This is the prefered way to create links from one screen to another when using React.
+
+First, import the `Link` component:
+
+```javascript
+import { Link } from "react-router-dom"
+```
+
+Then use it in a JSX component to link to another component:
+
+```jsx
+<Link to="/animals">See all animals</Link>
 ```
 
 ---
