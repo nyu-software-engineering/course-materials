@@ -156,6 +156,24 @@ Major version X (X.y.z | X > 0) MUST be incremented if any backwards incompatibl
 
 ---
 
+template: semantic-versioning
+
+## Criticisms
+
+While Semantic Versioning is arguably the most popular formalized approach to the problem versioning, it does have its critics.
+
+- For example: Rich Hickey's [Semantic Versioning is a Lie](https://www.youtube.com/watch?v=oyLBGkS5ICk&t=1793s) and Hynek Schlawack's [Semantic Versioning Will Not Save You](https://hynek.me/articles/semver-will-not-save-you/)
+
+--
+
+- Criticism tends to focus on the fact that, in practice, patches and minor version updates often result in broken applications, despite the best of intentions.
+
+--
+
+- In that context, semantic versioning's clear rules seem like wishful thinking that belies a more complex reality.
+
+---
+
 name: git-tags
 
 # Git Tags
