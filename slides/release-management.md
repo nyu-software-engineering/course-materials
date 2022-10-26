@@ -174,6 +174,31 @@ While Semantic Versioning is arguably the most popular formalized approach to th
 
 ---
 
+name: calendar-versioning
+
+# Calendar Versioning
+
+--
+
+## Overview
+
+[Calendar versioning](https://calver.org/) is a simple approach to versioning software releases. It uses the date of the release as the version number.
+
+- The date is the only version number.
+- There is no concept of a major, minor, or patch version.
+- No concept of a "public API".
+- The spec provides flexibility in how the date is formatted.
+
+--
+
+Essentially a fancy version of the time-tested technique of naming your files with the date in the filename.
+
+-
+
+Your old `my-homework-2022-01-01.txt` now becomes a `My Homework` repository tagged with version `22.01.01`
+
+---
+
 name: git-tags
 
 # Git Tags
