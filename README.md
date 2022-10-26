@@ -1,4 +1,4 @@
-![https://github.com/{{ site.github-org-name}}{{baseurl}}/actions/workflows/github-pages/badge.svg]
+![GitHub Pages badge](https://github.com/{{ site.github-org-name}}{{baseurl}}/actions/workflows/github-pages/badge.svg)
 
 # Software Engineeering
 
