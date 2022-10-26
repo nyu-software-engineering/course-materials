@@ -1,5 +1,3 @@
-![GitHub Pages badge](https://github.com/nyu-software-engineering/course-materials/actions/workflows/github-pages/badge.svg)
-
 # Software Engineeering
 
 Materials used to teach an engineering approach to the problem of making software.
