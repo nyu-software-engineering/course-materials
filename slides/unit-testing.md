@@ -1,31 +1,28 @@
 ---
 layout: presentation
-title: Software Testing
-permalink: /slides/software-testing/
+title: Unit Testing
+permalink: /slides/unit-testing/
 ---
 
 class: center, middle
 
-# Software Testing
+# Unit Testing
 
-Validating the functionality of a codebase.
+Validating the behavior of functions.
 
 ---
 
 # Agenda
 
 1. [Overview](#overview)
-1. [Automation](#automation)
-1. [Code Linting](#code-linting)
-1. [Unit Testing](#unit-testing)
-1. [Code Coverage](#code-coverage)
-1. [Integration Testing](#integration-testing)
-1. [User Acceptance Testing](#user-acceptance-testing)
-1. [Regression Testing](#regression-testing)
-1. [System Testing](#system-testing)
-1. [Test-Driven Development](#test-driven-development)
-1. [Behavior-Driven Development](#behavior-driven-development)
-1. [Conclusions](#conclusions)
+2. [Example](#example)
+3. [Advantages](#advantages)
+4. [Test Cases](#test-cases)
+5. [Assertions](#assertions)
+6. [Best Practices](#best-practices)
+7. [Doubles](#doubles)
+8. [Javascript Testing Toolset](#tools)
+9. [Conclusions](#conclusions)
 
 ---
 
@@ -35,196 +32,153 @@ name: overview
 
 --
 
-## Substance
+## Concept
 
-Testing helps verify that the software performs as expected.
-
---
-
-- Functionality
+A unit is the smallest testable unit of code - typically a function, but sometimes an object or class.
 
 --
 
-- Speed
-
---
-
-- Load
-
---
-
-- Security
-
---
-
-- etc.
+- Unit testing verifies that each unit behaves as expected, given specific inputs.
 
 ---
 
 template: overview
 
-## Style
+## Background
 
-Testing can also help verify that the software has been written well.
-
---
-
-- Syntax
+Unit testing is an automated testing technique developed in 1992 by Kent Beck to solve the annoyance of manually testing code for obvious errors.
 
 --
 
-- Style
+- originally written in Smalltalk
 
 --
 
-- Maintainability
+- JUnit created by Beck as a way to teach himself Java during the course of an airplane flight from Zurich to Upsalla in 1997
+
+--
+
+- shared with Martin Fowler, a fellow signatory with Beck of the Agile Manifesto, who helped spread it
+
+--
+
+- now ported to just about every high-level programming language
 
 ---
 
 template: overview
 
-## Sanity
+## Other languages
 
-Testing can also help prove that the **software is usable** and that you haven't built it all for nil.
+The world of unit testing frameworks for different languages that are based on the original JUnit is called **xUnit**.
+
+--
+
+- all open source, since JUnit was released open source
+
+--
+
+- all written in the same language that they are testing
 
 ---
 
-name: automation
+name: advantages
 
-# Automation
-
---
-
-## Rise of the Robots
-
-While much of running software tests can now be automated, a few tasks still require humans.
+# Advantages
 
 --
 
-- Writing the tests... although this too [may become fully automated eventually](https://duckduckgo.com/?q=autogenerate+unit+tests)
+## Comparison to Alternative
+
+Automated unit testing has many advantages over manual debugging:
 
 --
 
-- Testing whether humans are able and happy to use the software... although [some seem to think they can automate users away](https://duckduckgo.com/?q=automate+user+acceptance+testing).
+- less time consuming and tedious
+
+--
+
+- requires fewer human resources
+
+--
+
+- provides immediate feedback of failures
+
+--
+
+- allows developers to focus more on writing code
+
+--
+
+- more reliable than manual testing
 
 ---
 
-name: code-linting
+template: advantages
 
-# Code Linting
+## Relationship to Refactoring
 
---
-
-## Concept
-
-A code linter automatically checks both **syntax** and **style** of code.
+Refactoring of existing code involves rewriting it to make it better organized and efficient without changing its observable behavior.
 
 --
 
-- These are _especially useful in interpreted languages_ that do not report compilation errors.
+- It is often necessary to refactor code to make it more easily tested with unit tests - keep each function short and focused on a single task.
 
 --
 
-- A code linter performs a **static analysis** of the codebase, meaning the code does not need to be executed for it to be linted.
+- With automated unit testing, refactoring will not accidentally introduce errors, since any such errors that change the behavior of the code will be immediately detected by the tests (called regression tests in this context).
+
+--
+
+> In almost all cases, I’m opposed to setting aside time for refactoring."
+>
+> -[Martin Fowler](https://martinfowler.com/), author of 'Refactoring', the book
 
 ---
 
-template: code-linting
+name: examples
 
-## Features
-
-A code linter is a software tool that can...
+# Examples
 
 --
 
-- be set to follow a set of code rules and standards
+## Java
+
+A unit test example in Java using JUnit:
 
 --
 
-- flag suspicious usage in code that does not meet the defined rules and standards
+```java
+// include JUnit and assertion libraray
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
---
+public class MyFirstTest {
 
-- auto-fix some syntax and style problems
+    @Test
+    public void multiplicationOfZeroIntegersShouldReturnZero() {
+        MyClass tester = new MyClass(); // MyClass is tested
 
---
-
-- integrate with most popular code editors
+        // assert statements for a variety of test cases
+        assertEquals(0, tester.multiply(10, 0), "10 x 0 must be 0");
+        assertEquals(0, tester.multiply(0, 10), "0 x 10 must be 0");
+        assertEquals(0, tester.multiply(0, 0), "0 x 0 must be 0");
+    }
+}
+```
 
 ---
 
-template: code-linting
+template: examples
 
-## Advantages
+## Javascript
 
-Code linters offer some advantages over human code reviews, such as:
-
---
-
-- fast
+A unit test example in Javascript using `mocha`:
 
 --
-
-- accurate
-
---
-
-- consistent
-
---
-
-- impersonal
-
----
-
-template: code-linting
-
-## Recommendations
-
-Use [ESLint](https://github.com/eslint/eslint) for Javascript.
-
---
-
-- An [extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) exists to integrate it into the popular Visual Studio Code IDE.
-
---
-
-- Can be configured to test against any Javascript **coding conventions** - there are two popular competing Javascript style guides: [Google's](https://google.github.io/styleguide/jsguide.html) and [AirBnb's](https://github.com/airbnb/javascript).
-
---
-
-- There are also plenty of people who decide on their own code styles.
-
---
-
-- Follow [these instructions](https://www.linkedin.com/learning/building-a-website-with-node-js-and-express-js-3/setting-up-eslint-and-prettier?u=2131553) - or [these](https://www.youtube.com/watch?v=SydnKbGc7W8) if you don't have a LinkedIn Learning account - to set it up ESLint with the AirBnB style guide and the Prettier reformatter.
-
----
-
-name: unit-testing
-
-# Unit Testing
-
---
-
-## Concept
-
-A unit is the smallest testable unit of code - typically a function.
-
---
-
-- Unit testing verifies that each unit behaves as expected, given certain inputs.
-
----
-
-template: unit-testing
-
-## Javascript Example
-
-A unit test example in Javascript using the `mocha` unit testing framework and Node.js's built-in assertion library, `assert`:
 
 ```javascript
-// use node.js's built-in assert assertion library
+// use mocha's built-in assertion library
 const assert = require("assert")
 
 // a set of tests of array functions
@@ -240,11 +194,41 @@ describe("Array", function () {
 })
 ```
 
+--
+
+If the project's `package.json` file is set up with a script called `test` that contains the command to execute the tests using, then the tests can be run from the same directory as the `package.json` file with `npm test`.
+
 ---
 
-template: unit-testing
+template: examples
 
-## Python Example
+## Javascript (continued)
+
+A unit test example of a back-end route using `mocha`, `chai`, and the [chai-http](https://www.chaijs.com/plugins/chai-http/) extension for simple testing of routes.
+
+--
+
+```javascript
+describe("GET request to /foo route", () => {
+  it("it should respond with an HTTP 200 status code and an object in the response body", done => {
+    chai
+      .request(server)
+      .get("/foo")
+      .end((err, res) => {
+        res.should.have.status(200) // use should to make BDD-style assertions
+        res.body.should.be.a("object") // our route sends back an object
+        res.body.should.have.property("success", true) // a way to check the exact value of a property of the response object
+        done() // resolve the Promise that these tests create so mocha can move on
+      })
+  })
+})
+```
+
+---
+
+template: examples
+
+## Python
 
 A unit test example in Python using `pytest`:
 
@@ -266,372 +250,400 @@ class Tests:
 
 ```
 
----
-
-template: unit-testing
-
-## Features
-
-Unit tests are performed on each unit in isolation, in the sense that they...
-
 --
 
-- run in isolation and do not depend upon one-another.
+Note that `pytest` works best when all test files are in a `tests` directory with filenames that start with `test_` and all test functions start with `test_`.
 
---
-
-- are not concerned with user interactions or user interfaces.
-
---
-
-- do not require any changes to the production code.
-
---
-
-- only test code belonging to the system, not platform code, 3rd party code or external systems such as databases or APIs.
+- just run the command `python3 -m pytest` from the main project directory to run all tests.
 
 ---
 
-template: unit-testing
+template: examples
 
-## Advantages
+## Python (continued)
 
-Unit testing has discrete advantages that become increasingly important as a project grows in complexity and age.
-
---
-
-- Failed unit tests indicate bugs that **must** be fixed
+A unit test example of a back-end route using the [pytest-flask](https://pytest-flask.readthedocs.io/en/latest/index.html) extension for simple testing of routes.
 
 --
 
-- Unit tests are fast to write and faster run
-
---
-
-- Running unit tests can be automated, with a human notified of any failure
-
----
-
-template: unit-testing
-
-## Recommendation
-
-Use [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) for Javascript unit testing.
-
---
-
-- `mocha` is a Javascript unit test framework
-
---
-
-- by default it uses Node.js's built-in `assert` assertion library.
-
---
-
-- but `chai` is a more elaborate assertion library that is ironically often paired with mocha
-
----
-
-name: integration-testing
-
-# Integration Testing
-
---
-
-## Concept
-
-Whereas unit testing tests units in-situ in isolation, integration testing tests units in vivo.
-
---
-
-- Unit tests are meant to validate each unit in isolation from any external influences.
-
---
-
-- Integration tests are purposefully designed to test units as they interact with those outside influences.
-
---
-
-- For example, whereas a a unit test of the front-end of a web app might make an HTTP request to a **mock server or API** and receive a **mock response** , a unit test would make an HTTP request to a **real server or API**, receivee the **real response**, to ensuree it is handled correctly.
-
----
-
-template: integration-testing
-
-## Features
-
-Integration tests...
-
---
-
-- test that all components of the system interact as expected, sending and receiving messages from one-another correctly in all expected circumstances
-
---
-
-- test that the system interacts with any external dependencies, such as libraries, databases, and APIs correctly
-
---
-
-- can be of partial or full environments, including external bits like databases and services, or not
-
---
-
-- can include user interfaces and results of particular system interactions, such as changes to content in databases and logs that result from certain actions
-
---
-
-- can be run on one system, or across several systems
-
----
-
-name: code-coverage
-
-# Code Coverage
-
---
-
-## Concept
-
-The term `code coverage` refers to the percent of all code which is executed when unit and integration tests are run.
-
---
-
-- Code coverage tools automatically calculate this as tests are run.
-
---
-
-- While 100% code coverage is the ideal, anywhere above 80% is pretty well-covered.
-
----
-
-template: code-coverage
-
-## Limitations
-
-Code coverage does not indicate that the code has been tested in all possible scenarios
-
---
-
-- High code coverage **does not** indicate that the code is good.
-
---
-
-- 100% code coverage **does not** indicate that the code is well-tested or that it will run well.
-
----
-
-template: code-coverage
-
-## Recommendation
-
-Use [istanbul](https://istanbul.js.org/) for Javascript code coverage analysis.
-
---
-
-- integrates well with the mocha unit testing framework
-
---
-
-- An example of using istanbul in a Node.js project's `package.json` script:
-
-```javascript
-{
-    "scripts": {
-      "test": "nyc mocha --timeout=3000"
-    }
-}
-```
-
---
-
-- Code coverage analysis could then be triggered from the command line.
-
-```bash
-npm test
+```python
+import pytest
+from project import create_app
+
+class Tests:
+
+  def test_foo(self):
+      app = create_app('flask_test.cfg') # this method must be defined in production code and must return the flask app object
+      with app.test_client() as test_client:
+          response = test_client.get('/foo')
+          assert response.status_code == 200 "/foo should respond with an HTTP 200 status code"
+          response_obj = json.loads(response.data.decode('utf8')) # convert json response body data into an object
+          assert response_obj.success == True, "Expected the response object to have a property 'success' with value True"
 ```
 
 ---
 
-name: user-acceptance-testing
+name: test-cases
 
-# User Acceptance Testing
+# Test Cases
+
+--
+
+## Minimal Number
+
+Unit tests must test at least two scenarios, called **test cases**:
+
+--
+
+- test the expected output when given valid input
+
+--
+
+- test the expected output when given invalid input
+
+--
+
+In actuality, there will usually be **many test cases** per production function for every possible variety of valid and invalid input.
+
+---
+
+name: assertions
+
+# Assertions
 
 --
 
 ## Concept
 
-User Acceptance Testing (UAT) ...
+Every unit testing framework depends upon a set of **assertions** - purported truths that are then compared against reality.
 
 --
 
-- tests whether users will accept the software.
+- An assertion is a statement that a particular predicate is going to be true - this is either true or false.
 
 --
 
-- i.e., verifies that the software works as expected from an end-user's point of view
-
---
-
-- is a form of Integration Testing, since all the parts must inter-operate in order for the system to be used.
+- If false, the assertion fails and throws an error about what went wrong and where that happened in code
 
 ---
 
-template: user-acceptance-testing
+template: assertions
+name: assertions-1
 
-## Scripts
+## Typical Assertions
 
-User Acceptance Tests test users in specific use cases or user stories.
-
---
-
-- Users are asked to run through scripts of common scenarios and interactions they might encounter using the software
+This is a partial list of methods in **JUnit's asssertion library** that all other testing frameworks tend to imitate:
 
 --
 
-- Each script includes a set of steps for the human tester to go through to perform the test, e.g.
+### Equality:
 
-```
-step 1 - user goes to home page
-step 2 - clicks reservations
-step 3 - clicks on arrival date
-step 4 - the date widget should pop up with default date pre-selected
-```
-
---
-
-- The tester then records whether the user successfully completed the task, how long it took them, and notes any problems the user encountered.
+- `assertEquals(primitive/object expected, primitive/object actual)`
+- `assertNotEquals(primitive/object expected, primitive/object actual)`
+- `assertArrayEquals(expectedArray, actualArray)`
 
 ---
 
-name: regression-testing
+template: assertions-1
 
-# Regression Testing
+### Truth:
+
+- `assertTrue(boolean condition)`
+- `assertFalse(boolean condition)`
+
+---
+
+template: assertions-1
+
+### Existence:
+
+- `assertNull(Object object)`
+- `assertNotNull(Object object)`
+
+---
+
+template: assertions-1
+
+### Sameness:
+
+- `assertSame(object1, object2)`
+- `assertNotSame(object1, object2)`
+
+---
+
+name: setup-teardown
+
+# Setup & Teardown
+
+--
+
+## Overview
+
+`xUnit` unit testing frameworks all support the concept of **setup** and **teardown** functions.
+
+--
+
+- these are functions that are automatically run by the frameworks before and after the tests are run, respectively
+
+--
+
+- they can be used to set up and remove any variables or objects or other dependencies required by the tests
+
+--
+
+- most frameworks provide the ability to run such functions before/after an entire test class is instantiated and/or before/after a specific test function is run.
+
+--
+
+- this helps reduce code duplication, as multiple tests can share the same setup and teardown logic.
+
+---
+
+name: best-practices
+
+# Best Practices
+
+--
+
+## TRIPinesss
+
+According to "[Pragmatic Unit Testing in Java with JUnit](https://pragprog.com/titles/utj/pragmatic-unit-testing-in-java-with-junit)", by Andy Hunt and Dave Thoma, good unit tests are **TRIP-y**:
+
+--
+
+- **T**horough
+
+--
+
+- **R**epeatable
+
+--
+
+- **I**ndependent
+
+--
+
+- **P**rofessional
+
+---
+
+template: best-practices
+
+## Three pillars
+
+According to Roy Osherove, author of "[The Art of Unit Testing](https://www.manning.com/books/the-art-of-unit-testing)", there are three main pillars of a good unit test:
+
+--
+
+- **Trustworthiness** - if you don't believe your test, and find yourself verifying it or ignoring it, it's a sign you should rewrite it.
+
+--
+
+- **Maintainability** - a test that is difficult to maintain and takes up more time than it saves might as well be scrapped
+
+--
+
+- **Readability** - a test that is not obvious as to what it's testing is a bad test. Tests serve as a form of documentation.
+
+--
+
+Listen to [a song about unit testing](https://www.youtube.com/watch?v=fXwWaE1QCS8) by Roy Osherove
+
+---
+
+name: doubles
+
+# Doubles
 
 --
 
 ## Concept
 
-The term `regression testing` refers to the re-running of old tests when new tests are run.
+Unit tests must run in isolation of one another and of external dependencies, such as databases, APIs, or other servers.
 
 --
 
-- This ensures that the entire codebase works well, even when new features are developed, bugs are fixed, etc.
+- Some units of production code normally depends upon an interaction with such a dependency. What to do?
+
+--
+
+- Swap out that dependency with the double! - a controlled simulation of the dependency.
+
+--
+
+- Using a double will allow you to hone in on problems with your own code, not problems within the external dependency.
 
 ---
 
-name: system-testing
+template: doubles
 
-# System Testing
+## Types of double
 
---
-
-## Concept
-
-Testing of the non-functional requirements, such as ...
+There are three commonly-used types of doubles.
 
 --
 
-- **load handling** - handling the load under expected conditions
+- Mocks
 
 --
 
-- **stress testing** - handling the load at higher-than expected conditions
+- Fakes
 
 --
 
-- **security testing** - making sure the system and its users are safe
+- Stubs
 
 ---
 
-name: test-driven-development
+template: doubles
 
-# Test-Driven Development
+## Mocks
+
+Mocks are replacements for external interfaces.
 
 --
 
-## Concept
+- The mock assumes the same name and functions as the mocked external dependency.
 
-Test-Driven Development (TDD) is the practice of writing tests, particularly unit tests, before production code is written.
+--
+
+- Using a mock can determine only whether the mock has been called or not by production code, how many times it has been called, and whether or not the correct arguments are passed to it when it is called.
+
+--
+
+- Production code does not need to be changed to use a mock. It does not "know" that it is not connecting to the real thing.
+
+--
+
+- The testing framework takes care of swapping out the external dependency with a mock.
 
 ---
 
-template: test-driven-development
+template: doubles
 
-## Advantages
+## Stubs
 
-Test-Driven Development has several touted benefits:
-
---
-
-- **code coverage** - every bit of code has a test developed for it before the code to be tested has even been written
+Whereas mocks are called by production code and passed arguments in place of a real external dependency, stubs are used to return pre-defined responses to the calling code.
 
 --
 
-- **debugging** - since tests are run with every code change, it is easy to identify the new code that created a bug
+- For example, if your app code requires a record to be saved in a database, you might create a mock to intercept the arguments that would normally be sent to the database in place of the real thing, and create a stub that responds with a success or failure message in place of the real response that the database would send, given the supplied parameters.
 
 --
 
-- **documentation** - the tests themselves become a specification of the system
-
---
-
-- **planning** - it forces developers to think about what they want their code to do before writig it
+- Having a mock send back a stub allows you to use unit tests to determine whether your production code handles the response correctly.
 
 ---
 
-template: test-driven-development
+template: doubles
 
-## Criticisms
+## Fakes
 
-Test-Driven Development has been attacked on many fronts:
-
---
-
-- It is often seen as a bit too extreme -in fact, TDD originated from what is called the **eXtreme Programming** (XP) methodology.
+Like, mocks and stubs, fakes are used in the simulation of an external dependency. But whereas mocks and stubs are simple code substitutions for the real thing, a fake is an actually functioning replacement for the external dependency that runs on the local machine.
 
 --
 
-- In most cases (for better or worse), the requirements of systems are not fully known until development starts
+- For example, if your code must connect to an API over the Internet, you might create a local HTTP server that simulates that API as your fake so you can test as if it were real.
 
 --
 
-- It is not unusually for new requirements to surface late in the development cycle.
+- Since unit tests must run independently of one another, any data sent back and forth with the fake will not be saved and will not influence subsequent unit tests that interact with the fake - there is no saved state within the fake.
 
 --
 
-- Many developers consider it helpful to have an ongoing feedback loop between specifying, developing and testing.
+- The advantage of using fakes over mocks and stubs is that you get a slightly more "real" test.
 
 ---
 
-name: behavior-driven-development
+name: tools
 
-# Behavior-Driven Development
-
---
-
-## Concept
-
-An alternative preferred by some to Test-Driven Development is Behavior-Driven Development (BDD).
+# Testing Tools
 
 --
 
-- BDD performs all the same duties as TDD, at the same times, for the same reasons.
+## Javascript
+
+The following are the recommended tools for unit testing in Node.js Javascript.
 
 --
 
-- The difference arises from the language used in writing the code - BDD attempts to offer testing in a more human-centric language.
+- [mocha](https://www.npmjs.com/package/mocha) as the Javascript testing framework.
 
 --
 
-- Javascript's `chai` assertion library, for example, supports either TDD or BDD style assertions, e.g.
+- [chai](https://www.npmjs.com/package/chai) as the assertion library.
 
 --
 
-- A TDD-style assertion stating the expected value in a variable: `assert.equal(foo, 'bar')`
+- [chai-htp](https://www.chaijs.com/plugins/chai-http/) - an extension to `chai` that simplifies testing of express.js routes.
 
 --
 
-- The same assertion in BDD-style: `expect(foo).to.equal('bar')` - notice the more human-friendly phrasing of the code.
+- [istanbul / nyc](https://www.npmjs.com/package/nyc) for code coverage analysis.
+
+--
+
+- [sinon](https://www.npmjs.com/package/sinon) for stubs, mocks, and fakes.
+
+--
+
+- [faker](https://www.npmjs.com/package/faker) for any placeholder data that needs to be generated in tests (e.g. names, email addresses, database data, images, etc)
+
+---
+
+template: tools
+
+## Javascript (continued)
+
+- To learn more about refactoring your code to be suitable for unit testing, watch the LinkedIn Learning video "[Prepare for Testing](https://www.linkedin.com/learning/node-js-essential-training-web-servers-tests-and-deployment/prepare-for-testing)"
+
+--
+
+- To master the syntax of `mocha` and `chai`, watch the "[Writing Unit Tests](https://www.linkedin.com/learning/javascript-test-driven-development-es6/the-purpose-of-unit-testing?u=2131553)" section of videos in the LinkedIn Learning Course, "Javascript: Test-Driven Development".
+
+--
+
+- Add `istanbul`'s code coverage tool, `nyc`, following [this StackOverflow discussion](https://stackoverflow.com/questions/16633246/code-coverage-with-mocha).
+
+--
+
+- Learn how to make doubles with `sinon` by watching [this video](https://www.youtube.com/watch?v=Qlmv7nox5pM) from the Grace Hopper Full Stack Academy, and reading its [documentation](https://sinonjs.org/#get-started).
+
+---
+
+template: tools
+
+## Python
+
+The following are the recommended tools for unit testing in Python.
+
+--
+
+- [pytest](https://docs.pytest.org/en/7.2.x/) as the Python testing framework.
+
+--
+
+- [pytest-flask](https://pytest-flask.readthedocs.io/en/latest/) - a module that helps test flask routes using pytest
+
+--
+
+- [coverage](https://coverage.readthedocs.io/en/latest/) for code coverage analysis.
+
+--
+
+- [monkeypatch](https://docs.pytest.org/en/6.2.x/monkeypatch.html) for mocking and faking.
+
+--
+
+Documentation on each of these sites is reasonably good.
+
+---
+
+template: tools
+
+## Python (continued)
+
+- To learn more about unit testing in Python, watch the LinkedIn Learning video "[Unit Testing and Test Driven Development](https://www.linkedin.com/learning/unit-testing-and-test-driven-development-in-python/welcome?autoplay=true&u=2131553)"
 
 ---
 
@@ -639,12 +651,12 @@ name: conclusions
 
 # Conclusions
 
----
-
-# Conclusions
-
-You now have experienced a nice-and-easy overview of the different categories of software testing in common practice. The next step would be to try them out!
-
 --
 
+This slide deck has attempted to give you a high-level overview of the intentions and directions of unit testing. Now go and try it.
+
 - Thank you. Bye.
+
+```
+
+```
