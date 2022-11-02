@@ -443,21 +443,17 @@ template: github-actions
 
 ## Example
 
-A simple workflow that runs a build and test on every pull_request made to the repository:
+A [Python build/test workflow](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python) that runs on every pull_request:
 
 ```
 name: Python build test
-
 on: [pull_request]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
