@@ -433,9 +433,22 @@ Like other continuous integration services, GitHub Actions is a hosted service t
 --
 
 - configuration files, known as "workflows", are written in [YAML](https://yaml.org/) (YAML Ain't Markup Language).
+
+--
+
 - configuration files are stored in a `.github/workflows` directory in the project repository.
+
+--
+
 - workflows in GitHub Actions, as in other automation tools, can run aribtrary shell commands to perform any task.
+
+--
+
 - GitHub maintains a marketplace of [pre-built actions](https://github.com/marketplace?type=actions) that can be used in your own custom workflows.
+
+--
+
+- GitHub Actions currently offers a limited number of execution minutes [for free](https://github.com/pricing), and charges for additional usage.
 
 ---
 
@@ -443,7 +456,7 @@ template: github-actions
 
 ## Example
 
-A [Python build/test workflow](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python) that runs on every pull_request:
+A [Python build/test workflow](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python) that runs on every pull request. There are many GitHub Actions in the marketplace for performing [linting using pylint](https://github.com/marketplace?type=actions&query=pylint+) that could be added.
 
 ```
 name: Python build test
@@ -453,7 +466,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.6", "3.8", "3.10"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
