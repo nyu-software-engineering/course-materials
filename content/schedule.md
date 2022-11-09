@@ -60,7 +60,7 @@ Build and test with continuous integration.
 
 ### Project 4
 
-Continuous deployment.
+Continuous deployment and the Internet of Things.
 
 | Date  | Class      | Topics                      | Notes                                             | Helpful resources | Quiz due                                                           | Exercise due                                         |
 | :---- | :--------- | :-------------------------- | :------------------------------------------------ | :---------------- | :----------------------------------------------------------------- | :--------------------------------------------------- |
