@@ -62,13 +62,13 @@ Build and test with continuous integration.
 
 Continuous deployment.
 
-| Date  | Class      | Topics                      | Notes                                             | Helpful resources | Quiz due                                                           | Exercise due |
-| :---- | :--------- | :-------------------------- | :------------------------------------------------ | :---------------- | :----------------------------------------------------------------- | :----------- |
-| 11/14 | 18         | Virtualization & containers | [Virtualization & containers](slides/containers/) |                   |                                                                    |              |
-| 11/16 | 19         | Deployment                  | [Deployment](slides/deployment/)                  |                   | [Virtualization & containers](https://forms.gle/35huD1aCFUuLVcej9) |              |
-| 11/21 | 20         | Project work                |                                                   |                   |                                                                    |              |
-| 11/23 | _no class_ |                             |                                                   |                   |                                                                    |              |
-| 11/28 | 21         | Stakeholder demos           |                                                   |                   |                                                                    | Project 4    |
+| Date  | Class      | Topics                      | Notes                                             | Helpful resources | Quiz due                                                           | Exercise due                                         |
+| :---- | :--------- | :-------------------------- | :------------------------------------------------ | :---------------- | :----------------------------------------------------------------- | :--------------------------------------------------- |
+| 11/14 | 18         | Virtualization & containers | [Virtualization & containers](slides/containers/) |                   |                                                                    |                                                      |
+| 11/16 | 19         | Deployment                  | [Deployment](slides/deployment/)                  |                   | [Virtualization & containers](https://forms.gle/35huD1aCFUuLVcej9) |                                                      |
+| 11/21 | 20         | Project work                |                                                   |                   |                                                                    |                                                      |
+| 11/23 | _no class_ |                             |                                                   |                   |                                                                    |                                                      |
+| 11/28 | 21         | Stakeholder demos           |                                                   |                   |                                                                    | [Project 4](https://classroom.github.com/a/aGwI2VVV) |
 
 ### Project 5
 
