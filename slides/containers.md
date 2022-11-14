@@ -17,8 +17,14 @@ Standardized efficient highly-portable boxes within which to run software.
 1. [Overview](#overview)
 1. [A Brief History of Virtualization](#virtualization)
 1. [Containers in Detail](#containers)
+1. [Docker Setup](#docker-setup)
+1. [Docker Commands](#docker-commands)
 1. [Try Docker](#docker-example)
+1. [Docker Networking](#docker-networking)
+1. [Docker Volumes](#docker-volumes)
+1. [Building Docker Images](#docker-build)
 1. [Deploy A Containerized App](#deploy)
+1. [Starting/Stopping Multiple Containers Together](#docker-compose)
 1. [Conclusions](#conclusions)
 
 ---
@@ -387,11 +393,7 @@ template: containers
 
 ## Automation
 
-Containers can be integrated with automation tools, such as Travis CI or Jenkins or via settings within container registries such as Docker Hub.
-
---
-
-- every time a build or some other automation is complete, a container containing all security tests can be run
+Containers can be integrated with automation tools, such as Jenkins, Travis CI, CircleCI, GitHub Actions, or via settings within container registries such as Docker Hub.
 
 --
 
@@ -399,9 +401,9 @@ Containers can be integrated with automation tools, such as Travis CI or Jenkins
 
 ---
 
-name: docker-example
+name: setup
 
-# Try Docker
+# Docker Setup
 
 --
 
@@ -421,18 +423,86 @@ In order to build and run docker images and containers, you will need to install
 
 - Once Docker Desktop is installed, run it.
 
+--
+
+- Then, open up a terminal and log in to Docker Hub with `docker login`
+
 ---
 
-template: docker-example
+name: docker-commands
+
+# Docker Commands
+
+--
+
+## Manage containers
+
+A few commands to help manage running containers:
+
+--
+
+- `docker run --name <custom_container_name> -ti <image name>` - download (if necessary) and instantiate a container from an image
+
+--
+
+- `docker exec -ti <container_name> <command>` - execute a command in a running container
+
+--
+
+- `docker ps` - list running containers
+
+--
+
+- `docker ps -a` - list all containers (including currently stopped containers)
+
+--
+
+- `docker stop <container_id or container_name>` - stop a running container (it will still exist in 'exited' mode)
+
+--
+
+- `docker rm <container_id or container_name>` - delete a container
+
+--
+
+- `docker container prune` - delete all stopped containers
+
+---
+
+template: docker-commands
+
+## Manage images
+
+And... a few more commands to help manage images:
+
+--
+
+- `docker images` - list all available images
+
+--
+
+- `docker rmi <image_id>` - delete an image
+
+--
+
+- `docker image prume` - delete all unused images
+
+---
+
+name: docker-example
+
+# Try Docker
+
+--
 
 ## Download and run an image
 
-Now download and run a container built from an image stored on the Docker Hub registry.
+Download and run a container built from an image stored on the Docker Hub registry.
 
 --
 
 ```bash
-docker run -ti bloombar/se_welcome:latest
+docker run -ti --rm bloombar/se_welcome:latest
 ```
 
 --
@@ -441,19 +511,45 @@ docker run -ti bloombar/se_welcome:latest
 
 --
 
-- The container will automatically execute a python script.
+- The `-ti` flags will put the container into "interactive mode", allowing the standard input and output of the host machine to be forwarded to/from the container.
 
 --
 
-- You can poke around the files in the container by opening up a `bash` shell within the container.... quit the container, if already running, and then run - you will notice it looks and acts like a virtual machine:
+- The `--rm` flag will delete the container from memory once it is stopped.
+
+--
+
+- The container will automatically execute a python script... this is because the image was built with a `CMD` directive in its `Dockerfile`... more on this [in a bit](#dockerfile).
+
+---
+
+template: docker-example
+
+## Download and run an image (continued)
+
+The previous command instantiates a container, but your command shell (i.e. terminal) remains focused on your host machine. You can navigate into the container and poke around the files by opening up a `bash` shell within the container.... quit the container, if already running, and then run - you will notice it looks and acts like a virtual machine:
 
 ```bash
 docker run -ti bloombar/se_welcome:latest bash
 ```
 
+--
+
+Rather than stopping a container and then running it again, you can also open up a `bash` shell within the container while it is already running:
+
+```bash
+docker exec -ti <container_id or container_name> bash
+```
+
+--
+
+- To discover a given container's name or id, review the [docker commands](#docker-commands).
+
 ---
 
 template: docker-example
+
+name: dockerfile
 
 ## Dockerfile
 
@@ -506,7 +602,7 @@ template: docker-example
 
 ## Example Dockerfile for React.js front-end
 
-```
+```bash
 # start from the node v16 base image
 FROM node:16
 
@@ -533,7 +629,7 @@ template: docker-example
 
 ## Example Dockerfile for Express.js back-end
 
-```
+```bash
 # start from the node v16 base image
 FROM node:16
 
@@ -589,75 +685,133 @@ Open your favorite web browser and navigate to http://localhost:4000
 
 ---
 
-template: docker-example
+name: docker-networking
 
-## Basic Docker commands
-
-- Log in to Docker Hub (necessary to download images): `docker login`
+# Docker Networking
 
 --
 
-- Search Docker Hub for images by keyword: `docker search <search_term>`
+## Overview
 
---
-
-- Build an image from the Dockerfile in the current dir: `docker build .`
-
---
-
-- Push an image to the Docker Hub registry: `docker push <image_name>:<tag_name>`
-
---
-
-- Pull an image from the Docker Hub registry: `docker pull <image_name>:<tag_name>`
-
---
-
-- View available Docker images on local machine: `docker images`
-
---
-
-- Delete an image: `docker rmi <image_unique_id>`
-
---
-
-- View all containers available on the local machine: `docker ps -a`
-
---
-
-- Stop a currently-running container: `docker kill <container_name_or_id>`
-
----
-
-template: docker-example
-
-## Allowing networking
-
-By default, containers do not have access to the host machine's standard input/output and networking ports.
+By default, **containers do not have access to the host machine's standard input/output** and networking ports.
 
 --
 
 - To run a container that forwards standard input to the container and forwards connections on one of the host machine's ports to the same port on the container:
 
-```bash
-docker run --rm -ti -p 45678:45678 ubuntu:latest bash
+```
+docker run --rm -ti -p 45678:45678 ubuntu:latest
 ```
 
 --
 
-- To open several ports, repeat the -p option:
+So now incoming connections to port `45678` of the host machine will forward to port `45678` of the container. _The numbers do not need to match_.
 
-```bash
-docker run --rm -ti -p 45678:45678 -p 45679:45679 ubuntu:latest bash
+---
+
+template: docker-networking
+
+## Multiple ports
+
+To open several ports, simply repeat the -p option:
+
+```
+docker run --rm -ti -p 45678:45678 -p 3000:80 ubuntu:latest
 ```
 
 --
 
-- To let the machine itself decide which outside ports to use, don't include the outside ports in the command:
+So now incoming connections to port `45678` of the host machine will forward to port `45678` of the container and incoming requests to port `3000` of the host machine will forward to port `80` of the container.
+
+---
+
+name: docker-volumes
+
+# Docker Volumes
+
+--
+
+## Overview
+
+By default, **Docker containers have no persistent storage** and do not have access to the host machine's file system. Sometimes it is desirable to have a container that has access to the host machine's file system, for example so data can persist beyond the lifetime of one container.
+
+--
+
+To attach a storage volume to a container, use the `-v` option:
+
+```
+docker run -ti ubuntu:latest -v /path/on/host:/path/in/container
+```
+
+---
+
+template: docker-volumes
+
+## Example
+
+For example, MongoDB databases usually store data in a `/data/db` directory. To map a directory on the host machine's file system, e.g. `/Users/foobarstein/Desktop/mongodb_data`, to this container directory, use the following command:
 
 ```bash
-docker run --rm -ti -p 45678 -p 45679 ubuntu:latest bash
+docker run -ti -d -p 27017:27017 mongo:latest -v /Users/foobarstein/Desktop/mongodb_data:/data/db
 ```
+
+--
+
+- Now, the database files will be stored on the host machine's file system, and will persist beyond the lifetime of the container.
+
+--
+
+- PS: the `-d` option runs the container in the background in "detached mode".
+
+---
+
+name: docker-build
+
+# Building Docker Images
+
+--
+
+## Overview
+
+To build a Docker image and share it with Docker Hub,
+
+- Log in to Docker Hub from the command line with `docker login`
+
+--
+
+- Create a project directory with a [Dockerfile](#dockerfile) that outlines the steps to build the image.
+
+--
+
+- Build and name an image from the Dockerfile in the current dir and tag it: `docker build -t <username>/<repository_name> .`, where `<username>` is your DockerHub username and `<repository_name>` is your project name.
+
+--
+
+- Test out your image by running a container from it locally: `docker run -ti --rm <username>/<repository_name>`
+
+--
+
+- Tag your image with a version number: `docker tag <username>/<repository_name> <username>/<repository_name>:<version>`, where `<version>` is replaced with the version, e.g. `v1`.
+
+---
+
+template: docker-build
+
+## Push and pull images from Docker Hub
+
+Built images can be distributed to/from the Docker Hub registry with commands that are designed to emulate `git`'s interactions with GitHub.
+
+--
+
+- Push an image to the Docker Hub registry: `docker push <username>/<repository_name>:<version>`
+
+--
+
+- Pull an image from the Docker Hub registry: `docker pull <username>/<repository_name>:<tag>`
+
+--
+
+Recall that `docker pull` is not necessary if simply desiring to run a container from an image, as `docker run ...` will automatically pull if necessary.
 
 ---
 
@@ -673,13 +827,17 @@ Because of their small footprint and high portability, containers are simple to 
 
 --
 
-- A completely containerized app may consist of several distinct container images, with the back-end logic, database, and static front-end content all housed in separate containers made from separate images.
+- A completely containerized **app may consist of several distinct container images**, with the back-end logic, database, and static front-end content all housed in separate containers made from separate images.
 
 --
 
 - Digital Ocean is a hosting provider that makes deploying Docker containers quite simple - you can launch a **Droplet** running a Docker container for free (to start) with a [referral link](https://m.do.co/c/4d1066078eb0)
 
---
+---
+
+template: deploy
+
+## Moving containers to production (continued)
 
 - Check out [this example React.js / Express.js app](https://github.com/nyu-software-engineering/data-storage-example-app) containing both a containerized front-end and back-end. Check out the Dockerfiles.
 
@@ -689,7 +847,79 @@ Because of their small footprint and high portability, containers are simple to 
 
 --
 
-- In a **continuous deployment** setup, a new Docker image would be generated with every change to the codebase, posted to Docker Hub, pulled to a remote server, and instantiated into a running container - [see an example](https://maximorlov.com/automate-your-docker-deployments/).
+- In a **continuous deployment** setup, a new Docker image would be generated with every change to the codebase (e.g. every merge or push to the `main` branch), posted to Docker Hub, pulled to a remote server, and instantiated into a running container - [see an example](https://maximorlov.com/automate-your-docker-deployments/).
+
+---
+
+name: docker-compose
+
+# Starting/Stopping Multiple Containers Together
+
+In many projects, a system is composed of multiple subcomponents, each isolated in their own Docker container, but running on the same host. In such cases, we typically want to start and stop all containers together, and make sure they can communicate with one another, as they are interdependent.
+
+--
+
+- For example, a web app may have a front-end container, a back-end container, and a database container. We want to start all three containers together, and make sure the front-end container can communicate with the back-end container, and the back-end container can communicate with the database container.
+
+--
+
+In these situations, we can use [Docker Compose](https://docs.docker.com/compose/) to start and stop multiple containers together and treat them as a single unit.
+
+---
+
+template: docker-compose
+
+## Docker Compose
+
+The services necessary to start all containers are defined in Docker Compose's configuration `docker-compose.yml` file. Once defined, a single command can be used to create and start all services necessary to run the application.
+
+--
+
+- Each containerized subsystem has its own [Dockerfile](#dockerfile), just as it would when being run independently. This is necessary to define the image from which containers of that type are made.
+
+- Docker Compose can take care of setting up volumes, ports, and networks for each container, rather than setting those things up as command line options when running each container separately.
+
+---
+
+template: docker-compose
+
+## Example
+
+An example `docker-compose.yaml` for a simple web application with a front-end, back-end, and database:
+
+```yaml
+version: "3.7"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+    command: npm start
+
+  backend:
+    build: ./backend
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+    command: npm start
+
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+```
+
+Now start up the application with `docker compose up`
 
 ---
 
