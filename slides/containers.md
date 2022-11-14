@@ -853,7 +853,11 @@ template: deploy
 
 name: docker-compose
 
-# Starting/Stopping Multiple Containers Together
+# Docker Compose
+
+--
+
+## Scenario
 
 In many projects, a system is composed of multiple subcomponents, each isolated in their own Docker container, but running on the same host. In such cases, we typically want to start and stop all containers together, and make sure they can communicate with one another, as they are interdependent.
 
@@ -861,7 +865,11 @@ In many projects, a system is composed of multiple subcomponents, each isolated 
 
 - For example, a web app may have a front-end container, a back-end container, and a database container. We want to start all three containers together, and make sure the front-end container can communicate with the back-end container, and the back-end container can communicate with the database container.
 
---
+---
+
+template: docker-compose
+
+## The solution
 
 In these situations, we can use [Docker Compose](https://docs.docker.com/compose/) to start and stop multiple containers together and treat them as a single unit.
 
@@ -869,13 +877,15 @@ In these situations, we can use [Docker Compose](https://docs.docker.com/compose
 
 template: docker-compose
 
-## Docker Compose
+## Settings files
 
 The services necessary to start all containers are defined in Docker Compose's configuration `docker-compose.yml` file. Once defined, a single command can be used to create and start all services necessary to run the application.
 
 --
 
-- Each containerized subsystem has its own [Dockerfile](#dockerfile), just as it would when being run independently. This is necessary to define the image from which containers of that type are made.
+- Each containerized subsystem has its own [Dockerfile](#dockerfile), just as it would when being run independently. This is necessary to define the build instructions for the image from which containers of that type are made.
+
+--
 
 - Docker Compose can take care of setting up volumes, ports, and networks for each container, rather than setting those things up as command line options when running each container separately.
 
@@ -885,7 +895,7 @@ template: docker-compose
 
 ## Example
 
-An example `docker-compose.yaml` for a simple web application with a front-end, back-end, and database:
+An example `docker-compose.yaml` for a simple web app:
 
 ```yaml
 version: "3.7"
@@ -900,26 +910,56 @@ services:
     volumes:
       - ./frontend:/app
     command: npm start
-
-  backend:
-    build: ./backend
-    ports:
-      - 5000:5000
-    depends_on:
-      - db
-    volumes:
-      - ./backend:/app
-    command: npm start
-
-  db:
-    image: mongo:latest
-    ports:
-      - 27017:27017
-    volumes:
-      - ./db:/data/db
 ```
 
-Now start up the application with `docker compose up`
+Continued on next slide...
+
+---
+
+template: docker-compose
+
+## Example (continued)
+
+Continued from previous slide
+
+```yaml
+backend:
+  build: ./backend
+  ports:
+    - 5000:5000
+  depends_on:
+    - db
+  volumes:
+    - ./backend:/app
+  command: npm start
+```
+
+Continued on next slide...
+
+---
+
+template: docker-compose
+
+## Example (continued again)
+
+Continued from previous slide
+
+```yaml
+db:
+  image: mongo:latest
+  ports:
+    - 27017:27017
+  volumes:
+    - ./db:/data/db
+```
+
+---
+
+template: docker-compose
+
+## Example (continued once more)
+
+Now start up the application with `docker compose up` - all containers will be booted up with their ports and volumes set.
 
 ---
 
