@@ -22,6 +22,7 @@ Standardized efficient highly-portable boxes within which to run software.
 1. [Try Docker](#docker-example)
 1. [Docker Networking](#docker-networking)
 1. [Docker Volumes](#docker-volumes)
+1. [Docker Devices](#docker-devices)
 1. [Building Docker Images](#docker-build)
 1. [Deploy A Containerized App](#deploy)
 1. [Starting/Stopping Multiple Containers Together](#docker-compose)
@@ -765,6 +766,76 @@ docker run -ti -d -p 27017:27017 mongo:latest -v /Users/foobarstein/Desktop/mong
 
 ---
 
+name: docker-devices
+
+# Docker Devices
+
+--
+
+## Overview
+
+By default, **Docker containers do not have access to devices** attached to the host machine.
+
+--
+
+- no access to cameras
+
+--
+
+- no access to microphones
+
+--
+
+- no access to USB devices
+
+--
+
+- etc.
+
+---
+
+template: docker-devices
+
+## Privileged mode
+
+Docker provides a [privileged mode](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) that allows a container to access all devices attached to the host machine.
+
+```bash
+docker run --privileged -ti ubuntu:latest
+```
+
+--
+
+Applications running with the container can now access host machine devices located in the standard Unix/Linux device directory, e.g. `/dev/video0`.
+
+---
+
+## Attaching specific devices to containers
+
+To attach a specific device on the host machine to the container, use the `--device` option:
+
+```bash
+docker run -ti --device /dev/video0 ubuntu:latest
+```
+
+---
+
+template: docker-devices
+
+## Attaching Windows or Mac devices to containers
+
+The default virtual machine used by docker on Mac and Windows, within which containers are run, is unable to provide access to devices attached to the host machine. To get around this, a different virtual machine must be used.
+
+--
+
+- At the time of this writing, this requires a lot of fiddling with settings - see [here](https://medium.com/@jijupax/connect-the-webcam-to-docker-on-mac-or-windows-51d894c44468) and [here](https://stackoverflow.com/questions/33985648/access-camera-inside-docker-container) for setting up the camera.
+
+--
+
+- It may be necessary to research the latest discussions and tutorials on this topic.
+
+---
+
 name: docker-build
 
 # Building Docker Images
@@ -893,73 +964,77 @@ The services necessary to start all containers are defined in Docker Compose's c
 
 template: docker-compose
 
-## Example
+## Example: MERN-stack web app
 
-An example `docker-compose.yaml` for a simple web app:
+An example `docker-compose.yaml` for a basic [MERN-stack](https://www.mongodb.com/mern-stack) web app:
 
 ```yaml
 version: "3.7"
 
 services:
   frontend:
-    build: ./frontend
+    build: ./front-end # build the Docker image from the Dockerfile in the front-end directory
     ports:
-      - 3000:3000
+      - 3000:3000 # map port 3000 of host machine to port 3000 of container
     depends_on:
       - backend
     volumes:
-      - ./frontend:/app
-    command: npm start
+      - ./front-end:/app # mount the host machine's directory as a volume in the container
+    command: npm start # command to start up the front-end once the container is up and running
+# ... continued on next slide...
 ```
-
-Continued on next slide...
 
 ---
 
 template: docker-compose
 
-## Example (continued)
-
-Continued from previous slide
+## Example: MERN-stack web app (continued)
 
 ```yaml
+# ... continued from previous slide
+
 backend:
-  build: ./backend
+  build: ./back-end # build the Docker image from the Dockerfile in the back-end directory
   ports:
-    - 5000:5000
+    - 5000:5000 # map port 5000 of host machine to port 5000 of container
   depends_on:
     - db
   volumes:
-    - ./backend:/app
-  command: npm start
+    - ./back-end:/app
+  command: npm start # command to start the back-end once the container is up and running
+# ... continued on next slide...
 ```
-
-Continued on next slide...
 
 ---
 
 template: docker-compose
 
-## Example (continued again)
-
-Continued from previous slide
+## Example: MERN-stack web app (continued again)
 
 ```yaml
+# ... continued from previous slide
+
 db:
-  image: mongo:latest
+  image: mongo:latest # use the latest version of the official MongoDB image on Docker Hub
   ports:
-    - 27017:27017
+    - 27017:27017 # map port 27017 of host machine to port 27017 of container
   volumes:
     - ./db:/data/db
 ```
 
+That's it.... all three services are now configured in the `docker-compose.yaml` and ready to run.
+
 ---
 
 template: docker-compose
 
-## Example (continued once more)
+## Example: MERN-stack web app (continued once more)
 
-Now start up the application with `docker compose up` - all containers will be booted up with their ports and volumes set.
+Now start up the application - all containers will be booted up with their ports and volumes set.
+
+```bash
+docker compose up
+```
 
 ---
 
