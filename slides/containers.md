@@ -861,7 +861,7 @@ It turns out that the default virtual machine used by Docker, within which conta
 
 --
 
-- It may be necessary to research the latest discussions and tutorials on this topic.
+- It may be necessary to research the latest documentation, discussions and tutorials on this topic.
 
 ---
 
