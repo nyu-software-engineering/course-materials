@@ -808,6 +808,10 @@ docker run -ti --privileged ubuntu:latest
 
 Applications running within the container can now access all host machine devices, which on \*NIX machines are located in the `/dev` directory, e.g. `/dev/video0`, `/dev/snd`, etc.
 
+--
+
+... in theory...
+
 ---
 
 template: docker-devices
@@ -838,7 +842,10 @@ docker run -ti --device /dev/video0 --device /dev/sda:/dev/xvdc ubuntu:latest
 
 --
 
-Applications running within the container can now access the specified host machine devices.
+Applications running within the container can now access the specified host machine devices...
+
+--
+in theory...
 
 ---
 
@@ -846,7 +853,7 @@ template: docker-devices
 
 ## Attaching Windows or Mac devices to containers
 
-The default virtual machine used by Docker, within which containers are run, is **unable to provide access to devices attached to the host machine on Mac and Windows**! To get around this, a different virtual machine must be used.
+It turns out that the default virtual machine used by Docker, within which containers are run, is **unable to provide access to devices attached to the host machine on Mac and Windows**! To get around this, a different virtual machine must be used.
 
 --
 
