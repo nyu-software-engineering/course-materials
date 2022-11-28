@@ -87,11 +87,10 @@ Putting it all together.
 
 Material that is not currently included in the course, but may be of interest to some:
 
-| Date | Class | Topics                   | Notes                                                       | Helpful resources | Quiz due                                                  | Exercise due |
-| :--- | :---- | :----------------------- | :---------------------------------------------------------- | :---------------- | :-------------------------------------------------------- | :----------- |
-| n/a  | n/a   | GitHub for Collaboration | [GitHub for Collaboration](slides/github-for-collaboration) |                   |                                                           |              |
-| n/a  | n/a   | Team Psychology          | [Team Psychology](slides/team-psychology)                   |                   | [Teamwork](https://forms.gle/drCMYj1pQA68T2xi9)           |              |
-| n/a  | n/a   | Bash scripting           | [Bash scripting](slides/bash-scripting/)                    |                   | [Bash scripting](https://forms.gle/bVL3FrwtuFkHuS8w7)     |              |
-| n/a  | n/a   | Design patterns          | [Design patterns](slides/design-patterns)                   |                   | [Design patterns](https://forms.gle/chK5XN7Tkruto32r7)    |              |
-| n/a  | n/a   | Release management       | [Release management](slides/release-management)             |                   | [Release management](https://forms.gle/ZpFBZAtD6hhjdQsZ7) |              |
-| n/a  | n/a   | Change management        | [Change management](slides/change-management)               |                   |                                                           |              |
+| Date | Class | Topics                   | Notes                                                       | Helpful resources | Quiz due                                               | Exercise due |
+| :--- | :---- | :----------------------- | :---------------------------------------------------------- | :---------------- | :----------------------------------------------------- | :----------- |
+| n/a  | n/a   | GitHub for Collaboration | [GitHub for Collaboration](slides/github-for-collaboration) |                   |                                                        |              |
+| n/a  | n/a   | Team Psychology          | [Team Psychology](slides/team-psychology)                   |                   | [Teamwork](https://forms.gle/drCMYj1pQA68T2xi9)        |              |
+| n/a  | n/a   | Bash scripting           | [Bash scripting](slides/bash-scripting/)                    |                   | [Bash scripting](https://forms.gle/bVL3FrwtuFkHuS8w7)  |              |
+| n/a  | n/a   | Design patterns          | [Design patterns](slides/design-patterns)                   |                   | [Design patterns](https://forms.gle/chK5XN7Tkruto32r7) |              |
+| n/a  | n/a   | Change management        | [Change management](slides/change-management)               |                   |                                                        |              |
