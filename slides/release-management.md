@@ -1,7 +1,7 @@
 ---
 layout: presentation
 title: Release Management
-permalink: /slides/release-management
+permalink: /slides/release-management/
 ---
 
 class: center, middle
